@@ -1,0 +1,22 @@
+{
+  "_INSTRUCOES": "CONFIGURAÇÃO DO WEBHOOK N8N - PREENCHER APÓS CRIAR WORKFLOW",
+  
+  "webhook": {
+    "url": "https://SEU_N8N.app.n8n.cloud/webhook/SEU_WEBHOOK",
+    "metodo": "POST",
+    "ativo": false
+  },
+
+  "github": {
+    "usuario": "SEU_USUARIO_GITHUB",
+    "repositorio": "NOME_DO_REPOSITORIO",
+    "branch": "main"
+  },
+
+  "n8n": {
+    "workflowId": "",
+    "workflowNome": ""
+  },
+
+  "_EXEMPLO_URL": "https://agenciabase.app.n8n.cloud/webhook/cliente-deploy"
+}

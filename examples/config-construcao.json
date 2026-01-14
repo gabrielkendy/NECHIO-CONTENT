@@ -1,0 +1,63 @@
+{
+  "_EXEMPLO": "CONSTRUÇÃO CIVIL / INDÚSTRIA",
+  
+  "cliente": {
+    "id": "MANCHESTER",
+    "nome": "GRUPO MANCHESTER",
+    "nomeCompleto": "Grupo Manchester Distribuidora de Aço Ltda",
+    "slogan": "Construindo o Rio de Janeiro desde 1960",
+    "subtitulo": "Content Studio 2026",
+    "ano": 2026,
+    "anoFundacao": 1960,
+    "aniversario": "02-13"
+  },
+
+  "contato": {
+    "telefone": "(21) 3214-1300",
+    "whatsapp": "5521999999999",
+    "email": "contato@grupomanchester.com.br",
+    "site": "https://www.grupomanchester.com.br"
+  },
+
+  "endereco": {
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "completo": "Av. Brasil, 1234 - São Cristóvão - Rio de Janeiro/RJ"
+  },
+
+  "redesSociais": {
+    "instagram": "@grupomanchester",
+    "facebook": "grupomanchester",
+    "linkedin": "grupo-manchester",
+    "youtube": "",
+    "tiktok": ""
+  },
+
+  "cores": {
+    "primaria": "#C41E3A",
+    "secundaria": "#1a1a1a",
+    "destaque": "#C9A227",
+    "sucesso": "#22C55E",
+    "erro": "#EF4444",
+    "alerta": "#F59E0B",
+    "info": "#3B82F6",
+    "texto": "#FFFFFF",
+    "textoSecundario": "#888888",
+    "fundo": "#0a0a0a",
+    "fundo2": "#111111",
+    "fundo3": "#1a1a1a",
+    "fundo4": "#222222",
+    "borda": "#333333"
+  },
+
+  "arquivos": {
+    "logo": "assets/logo.png",
+    "favicon": "assets/favicon.ico"
+  },
+
+  "webhook": {
+    "url": "https://agenciabase.app.n8n.cloud/webhook/manchester-deploy",
+    "ativo": true,
+    "clienteId": "MANCHESTER"
+  }
+}

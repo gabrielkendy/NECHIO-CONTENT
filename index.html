@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Studio</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        /* ============================================
+           CSS COM VARIÁVEIS DINÂMICAS
+           Cores são carregadas do config.json
+           ============================================ */
+        :root {
+            --primaria: #C41E3A;
+            --secundaria: #1a1a1a;
+            --destaque: #C9A227;
+            --sucesso: #22C55E;
+            --erro: #EF4444;
+            --alerta: #F59E0B;
+            --info: #3B82F6;
+            --texto: #FFFFFF;
+            --texto2: #888888;
+            --fundo: #0a0a0a;
+            --fundo2: #111111;
+            --fundo3: #1a1a1a;
+            --fundo4: #222222;
+            --borda: #333333;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: var(--fundo2);
+            border-bottom: 1px solid var(--borda);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 42px;
+            width: auto;
+        }
+        
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primaria);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .logo-sub {
+            font-size: 11px;
+            color: var(--texto2);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .header-btn {
+            padding: 10px 18px;
+            background: var(--fundo3);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            color: var(--texto);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .header-btn:hover {
+            border-color: var(--primaria);
+            background: var(--fundo4);
+        }
+        
+        .header-btn.primary {
+            background: var(--sucesso);
+            border-color: var(--sucesso);
+        }
+        
+        .header-btn.primary:hover {
+            filter: brightness(1.1);
+        }
+        
+        .header-btn.deploy {
+            background: var(--primaria);
+            border-color: var(--primaria);
+        }
+        
+        .header-btn.deploy:hover {
+            filter: brightness(1.1);
+        }
+
+        /* LAYOUT */
+        .layout {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+        
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background: var(--fundo2);
+            border-right: 1px solid var(--borda);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-section {
+            padding: 20px;
+            border-bottom: 1px solid var(--borda);
+        }
+        
+        .sidebar-title {
+            font-size: 10px;
+            color: var(--texto2);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar-title::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--destaque);
+        }
+        
+        /* MONTH SELECTOR */
+        .month-selector {
+            position: relative;
+            width: 100%;
+        }
+        
+        .month-selector-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--fundo3);
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .month-selector-btn:hover,
+        .month-selector-btn.open {
+            border-color: var(--primaria);
+        }
+        
+        .month-num {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primaria);
+            min-width: 45px;
+        }
+        
+        .month-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .month-info span {
+            font-size: 11px;
+            color: var(--texto2);
+        }
+        
+        .month-arrow {
+            margin-left: auto;
+            transition: transform 0.2s;
+        }
+        
+        .month-selector-btn.open .month-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* DROPDOWN */
+        .month-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--fundo3);
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            margin-top: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 50;
+        }
+        
+        .month-dropdown.open {
+            display: block;
+        }
+        
+        .month-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 1px solid var(--borda);
+        }
+        
+        .month-dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .month-dropdown-item:hover,
+        .month-dropdown-item.active {
+            background: var(--fundo4);
+        }
+        
+        .month-dropdown-item.active {
+            border-left: 3px solid var(--primaria);
+        }
+        
+        .month-dropdown-num {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--primaria);
+            width: 30px;
+        }
+        
+        .month-dropdown-info h4 {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .month-dropdown-info span {
+            font-size: 10px;
+            color: var(--texto2);
+        }
+        
+        .month-dropdown-posts {
+            margin-left: auto;
+            background: var(--fundo4);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            color: var(--texto2);
+        }
+
+        /* QUICK NAV */
+        .month-quick-nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .month-quick-btn {
+            padding: 10px 5px;
+            background: var(--fundo4);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            color: var(--texto2);
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        
+        .month-quick-btn:hover {
+            border-color: var(--primaria);
+            color: var(--texto);
+        }
+        
+        .month-quick-btn.active {
+            background: var(--primaria);
+            border-color: var(--primaria);
+            color: var(--texto);
+        }
+        
+        /* SIDEBAR INFO */
+        .sidebar-info {
+            padding: 20px;
+        }
+        
+        .month-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .month-stat-card {
+            background: var(--fundo3);
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .month-stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primaria);
+        }
+        
+        .month-stat-label {
+            font-size: 9px;
+            color: var(--texto2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .month-theme-card {
+            background: linear-gradient(135deg, rgba(196,30,58,0.1), var(--fundo3));
+            border: 1px solid var(--borda);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .month-theme-label {
+            font-size: 9px;
+            color: var(--primaria);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .month-theme-title {
+            font-size: 22px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .month-theme-desc {
+            font-size: 12px;
+            color: var(--texto2);
+            line-height: 1.6;
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px 30px;
+        }
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--borda);
+        }
+        
+        .main-title {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        
+        .main-title span {
+            color: var(--primaria);
+        }
+        
+        /* POSTS LIST */
+        .posts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .post-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 20px;
+            background: var(--fundo2);
+            border: 1px solid var(--borda);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        
+        .post-card:hover {
+            border-color: var(--primaria);
+            transform: translateX(8px);
+            box-shadow: 0 5px 30px rgba(196,30,58,0.15);
+        }
+        
+        .post-date {
+            background: var(--fundo3);
+            border-radius: 8px;
+            padding: 10px 12px;
+            text-align: center;
+            min-width: 55px;
+        }
+        
+        .post-date-day {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--primaria);
+        }
+        
+        .post-date-month {
+            font-size: 9px;
+            color: var(--texto2);
+            text-transform: uppercase;
+        }
+        
+        .post-info {
+            flex: 1;
+        }
+        
+        .post-type {
+            font-size: 10px;
+            color: var(--destaque);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .post-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        
+        .post-desc {
+            font-size: 12px;
+            color: var(--texto2);
+        }
+        
+        .post-format {
+            background: var(--fundo3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 10px;
+            color: var(--texto2);
+        }
+        
+        .post-priority {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .post-priority.altissima { background: rgba(196,30,58,0.2); color: var(--primaria); }
+        .post-priority.alta { background: rgba(201,162,39,0.2); color: var(--destaque); }
+        .post-priority.media { background: rgba(59,130,246,0.2); color: var(--info); }
+        .post-priority.baixa { background: rgba(136,136,136,0.2); color: var(--texto2); }
+
+        /* MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal-overlay.show {
+            display: block;
+        }
+        
+        .modal {
+            max-width: 800px;
+            margin: 20px auto;
+            background: var(--fundo2);
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            padding: 25px 30px;
+            background: linear-gradient(135deg, var(--fundo3), var(--fundo2));
+            border-bottom: 1px solid var(--borda);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .modal-header-left {
+            flex: 1;
+        }
+        
+        .modal-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(196,30,58,0.2);
+            border: 1px solid var(--primaria);
+            border-radius: 20px;
+            font-size: 10px;
+            color: var(--primaria);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .modal-desc {
+            font-size: 13px;
+            color: var(--texto2);
+        }
+        
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            background: var(--fundo3);
+            border: 1px solid var(--borda);
+            border-radius: 50%;
+            color: var(--texto);
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .modal-close:hover {
+            border-color: var(--primaria);
+            color: var(--primaria);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 25px 30px;
+        }
+        
+        .modal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-info-item {
+            background: var(--fundo3);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .modal-info-label {
+            font-size: 10px;
+            color: var(--texto2);
+            margin-bottom: 5px;
+        }
+        
+        .modal-info-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* CONTENT TABS */
+        .content-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 10px 16px;
+            background: var(--fundo3);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            color: var(--texto2);
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn:hover {
+            border-color: var(--primaria);
+            color: var(--texto);
+        }
+        
+        .tab-btn.active {
+            background: var(--primaria);
+            border-color: var(--primaria);
+            color: var(--texto);
+        }
+        
+        .content-area {
+            background: var(--fundo3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--fundo4);
+            border-bottom: 1px solid var(--borda);
+        }
+        
+        .content-header span {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--destaque);
+            letter-spacing: 1px;
+        }
+        
+        .copy-btn {
+            padding: 8px 16px;
+            background: var(--fundo2);
+            border: 1px solid var(--borda);
+            border-radius: 6px;
+            color: var(--texto);
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: var(--sucesso);
+            border-color: var(--sucesso);
+        }
+        
+        .content-text {
+            padding: 20px;
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            color: #ddd;
+            font-family: 'Courier New', monospace;
+            background: var(--fundo);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .empty-content {
+            padding: 40px;
+            text-align: center;
+            color: var(--texto2);
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background: var(--sucesso);
+            color: var(--texto);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 40px rgba(34,197,94,0.3);
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .toast.error {
+            background: var(--erro);
+        }
+        
+        .toast.loading {
+            background: var(--info);
+        }
+        
+        /* STATUS BAR */
+        .status-bar {
+            padding: 10px 20px;
+            background: var(--fundo3);
+            border-top: 1px solid var(--borda);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: var(--texto2);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        
+        .status-dot.online { background: var(--sucesso); }
+        .status-dot.offline { background: var(--erro); }
+        
+        /* EMPTY STATE */
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            color: var(--texto2);
+        }
+        
+        .empty-state h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--texto);
+        }
+        
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--fundo2); }
+        ::-webkit-scrollbar-thumb { background: var(--borda); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primaria); }
+        
+        /* SPINNER */
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .layout { flex-direction: column; }
+            .main { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER - Logo e nome carregados do config
+     ============================================ -->
+<header class="header">
+    <div class="logo">
+        <img id="headerLogo" src="assets/logo.png" alt="Logo" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+        <div id="logoFallback" class="logo-icon" style="display:none;">?</div>
+        <div>
+            <div class="logo-text" id="companyName">EMPRESA</div>
+            <div class="logo-sub" id="companySubtitle">Content Studio 2026</div>
+        </div>
+    </div>
+    <div class="header-actions">
+        <button class="header-btn" onclick="exportData()">💾 Backup</button>
+        <button class="header-btn" onclick="document.getElementById('importFile').click()">📂 Importar</button>
+        <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+        <button class="header-btn primary" onclick="saveToStorage()">✓ Salvar</button>
+        <button class="header-btn deploy" id="deployBtn" onclick="deployToWebhook()">🚀 Deploy</button>
+    </div>
+</header>
+
+<!-- ============================================
+     LAYOUT PRINCIPAL
+     ============================================ -->
+<div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">CALENDÁRIO</div>
+            
+            <div class="month-selector">
+                <button class="month-selector-btn" id="monthSelectorBtn" onclick="toggleDropdown()">
+                    <div class="month-num" id="currentMonthNum">01</div>
+                    <div class="month-info">
+                        <h3 id="currentMonthName">Janeiro</h3>
+                        <span id="currentMonthTheme">Tema</span>
+                    </div>
+                    <span class="month-arrow">▼</span>
+                </button>
+                
+                <div class="month-dropdown" id="monthDropdown"></div>
+            </div>
+            
+            <div class="month-quick-nav" id="monthQuickNav"></div>
+        </div>
+        
+        <div class="sidebar-info">
+            <div class="sidebar-title">VISÃO GERAL</div>
+            
+            <div class="month-stats">
+                <div class="month-stat-card">
+                    <div class="month-stat-value" id="statPosts">0</div>
+                    <div class="month-stat-label">POSTS</div>
+                </div>
+                <div class="month-stat-card">
+                    <div class="month-stat-value" id="statStories">0</div>
+                    <div class="month-stat-label">STORIES</div>
+                </div>
+            </div>
+            
+            <div class="month-theme-card">
+                <div class="month-theme-label">TEMA DO MÊS</div>
+                <div class="month-theme-title" id="themeTitle">Tema</div>
+                <div class="month-theme-desc" id="themeDesc">Descrição</div>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- MAIN CONTENT -->
+    <main class="main">
+        <div class="main-header">
+            <h1 class="main-title" id="mainTitle">MÊS — <span>Tema</span></h1>
+        </div>
+        
+        <div class="posts-list" id="postsList">
+            <div class="empty-state">
+                <h3>⏳ Carregando...</h3>
+                <p>Aguarde enquanto carregamos os dados.</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- ============================================
+     MODAL DE POST
+     ============================================ -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <div class="modal-header">
+            <div class="modal-header-left">
+                <div class="modal-badge" id="modalBadge">TIPO · FORMATO</div>
+                <h2 class="modal-title" id="modalTitle">Título do Post</h2>
+                <p class="modal-desc" id="modalDesc">Descrição do post</p>
+            </div>
+            <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+    <div>
+        <span class="status-dot online" id="statusDot"></span>
+        <span id="statusText">Conectado</span>
+    </div>
+    <div id="lastUpdate">Atualizado: --</div>
+</div>
+
+<!-- ============================================
+     JAVASCRIPT - CARREGA CONFIG E DATA
+     ============================================ -->
+<script>
+// ============================================
+// VARIÁVEIS GLOBAIS
+// ============================================
+let CONFIG = null;      // Configurações do cliente (config.json)
+let DATA = null;        // Dados do calendário (data.json)
+let POSTS = {};         // Posts organizados por mês
+let currentMonth = 1;   // Mês selecionado
+let currentPost = null; // Post selecionado no modal
+let dropdownOpen = false;
+let currentTab = 'narrativa';
+
+// ============================================
+// INICIALIZAÇÃO
+// ============================================
+async function init() {
+    showToast('⏳ Carregando...', 'loading');
+    
+    try {
+        // 1. Carregar configurações do cliente
+        await loadConfig();
+        
+        // 2. Aplicar cores do config
+        applyColors();
+        
+        // 3. Aplicar textos do config
+        applyTexts();
+        
+        // 4. Carregar dados do calendário
+        await loadData();
+        
+        // 5. Renderizar interface
+        renderMonthSelector();
+        renderPosts();
+        
+        // 6. Atualizar status
+        updateStatus('online', 'Conectado');
+        showToast('✓ Dashboard carregado!');
+        
+    } catch (error) {
+        console.error('Erro na inicialização:', error);
+        showToast('❌ Erro ao carregar: ' + error.message, 'error');
+        updateStatus('offline', 'Erro');
+    }
+}
+
+// ============================================
+// CARREGAR CONFIGURAÇÕES (config.json)
+// ============================================
+async function loadConfig() {
+    try {
+        const response = await fetch('config.json?v=' + Date.now());
+        if (!response.ok) throw new Error('config.json não encontrado');
+        CONFIG = await response.json();
+        console.log('✓ Config carregado:', CONFIG.cliente?.nome);
+    } catch (error) {
+        console.warn('Config não encontrado, usando padrão');
+        CONFIG = getDefaultConfig();
+    }
+}
+
+function getDefaultConfig() {
+    return {
+        cliente: { nome: 'EMPRESA', subtitulo: 'Content Studio 2026' },
+        cores: {
+            primaria: '#C41E3A',
+            secundaria: '#1a1a1a',
+            destaque: '#C9A227',
+            sucesso: '#22C55E',
+            erro: '#EF4444',
+            alerta: '#F59E0B',
+            info: '#3B82F6',
+            texto: '#FFFFFF',
+            textoSecundario: '#888888',
+            fundo: '#0a0a0a',
+            fundo2: '#111111',
+            fundo3: '#1a1a1a',
+            fundo4: '#222222',
+            borda: '#333333'
+        },
+        webhook: { url: '', ativo: false }
+    };
+}
+
+// ============================================
+// APLICAR CORES DO CONFIG
+// ============================================
+function applyColors() {
+    if (!CONFIG || !CONFIG.cores) return;
+    
+    const root = document.documentElement;
+    const cores = CONFIG.cores;
+    
+    root.style.setProperty('--primaria', cores.primaria || '#C41E3A');
+    root.style.setProperty('--secundaria', cores.secundaria || '#1a1a1a');
+    root.style.setProperty('--destaque', cores.destaque || '#C9A227');
+    root.style.setProperty('--sucesso', cores.sucesso || '#22C55E');
+    root.style.setProperty('--erro', cores.erro || '#EF4444');
+    root.style.setProperty('--alerta', cores.alerta || '#F59E0B');
+    root.style.setProperty('--info', cores.info || '#3B82F6');
+    root.style.setProperty('--texto', cores.texto || '#FFFFFF');
+    root.style.setProperty('--texto2', cores.textoSecundario || '#888888');
+    root.style.setProperty('--fundo', cores.fundo || '#0a0a0a');
+    root.style.setProperty('--fundo2', cores.fundo2 || '#111111');
+    root.style.setProperty('--fundo3', cores.fundo3 || '#1a1a1a');
+    root.style.setProperty('--fundo4', cores.fundo4 || '#222222');
+    root.style.setProperty('--borda', cores.borda || '#333333');
+    
+    console.log('✓ Cores aplicadas');
+}
+
+// ============================================
+// APLICAR TEXTOS DO CONFIG
+// ============================================
+function applyTexts() {
+    if (!CONFIG) return;
+    
+    // Nome da empresa
+    const nome = CONFIG.cliente?.nome || 'EMPRESA';
+    document.getElementById('companyName').textContent = nome;
+    document.title = nome + ' - Content Studio';
+    
+    // Subtítulo
+    const subtitulo = CONFIG.cliente?.subtitulo || 'Content Studio 2026';
+    document.getElementById('companySubtitle').textContent = subtitulo;
+    
+    // Logo fallback (primeira letra)
+    document.getElementById('logoFallback').textContent = nome.charAt(0);
+    
+    // Logo path
+    if (CONFIG.arquivos?.logo) {
+        document.getElementById('headerLogo').src = CONFIG.arquivos.logo;
+    }
+    
+    console.log('✓ Textos aplicados');
+}
+
+// ============================================
+// CARREGAR DADOS (data.json)
+// ============================================
+async function loadData() {
+    // Tentar carregar do localStorage primeiro
+    const cached = localStorage.getItem('contentStudioData');
+    
+    try {
+        const response = await fetch('data.json?v=' + Date.now());
+        if (!response.ok) throw new Error('data.json não encontrado');
+        DATA = await response.json();
+        POSTS = DATA.posts || {};
+        
+        // Salvar no localStorage
+        localStorage.setItem('contentStudioData', JSON.stringify(DATA));
+        
+        console.log('✓ Data carregado:', Object.keys(POSTS).length, 'meses');
+        
+    } catch (error) {
+        console.warn('Erro ao carregar data.json:', error);
+        
+        if (cached) {
+            DATA = JSON.parse(cached);
+            POSTS = DATA.posts || {};
+            console.log('✓ Data carregado do cache');
+        } else {
+            DATA = getDefaultData();
+            POSTS = DATA.posts;
+        }
+    }
+    
+    // Atualizar timestamp
+    const now = new Date();
+    document.getElementById('lastUpdate').textContent = 
+        'Atualizado: ' + now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR').slice(0,5);
+}
+
+function getDefaultData() {
+    return {
+        version: '2.0',
+        months: [
+            {id:1,name:'Janeiro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:2,name:'Fevereiro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:3,name:'Março',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:4,name:'Abril',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:5,name:'Maio',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:6,name:'Junho',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:7,name:'Julho',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:8,name:'Agosto',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:9,name:'Setembro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:10,name:'Outubro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:11,name:'Novembro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
+            {id:12,name:'Dezembro',shortTheme:'TEMA',desc:'',posts:0,stories:0}
+        ],
+        posts: {'1':[],'2':[],'3':[],'4':[],'5':[],'6':[],'7':[],'8':[],'9':[],'10':[],'11':[],'12':[]}
+    };
+}
+
+// ============================================
+// RENDERIZAR SELETOR DE MÊS
+// ============================================
+function renderMonthSelector() {
+    if (!DATA || !DATA.months) return;
+    
+    const month = DATA.months.find(m => m.id === currentMonth);
+    if (!month) return;
+    
+    // Atualizar botão principal
+    document.getElementById('currentMonthNum').textContent = String(currentMonth).padStart(2, '0');
+    document.getElementById('currentMonthName').textContent = month.name;
+    document.getElementById('currentMonthTheme').textContent = month.shortTheme;
+    
+    // Dropdown
+    const dropdown = document.getElementById('monthDropdown');
+    dropdown.innerHTML = DATA.months.map(m => `
+        <div class="month-dropdown-item ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
+            <div class="month-dropdown-num">${String(m.id).padStart(2, '0')}</div>
+            <div class="month-dropdown-info"><h4>${m.name}</h4><span>${m.shortTheme}</span></div>
+            <div class="month-dropdown-posts">${(POSTS[m.id] || []).length} posts</div>
+        </div>
+    `).join('');
+    
+    // Quick nav
+    const quickNav = document.getElementById('monthQuickNav');
+    quickNav.innerHTML = DATA.months.map(m => `
+        <button class="month-quick-btn ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
+            ${m.name.substring(0, 3).toUpperCase()}
+        </button>
+    `).join('');
+    
+    // Stats
+    const posts = POSTS[currentMonth] || [];
+    document.getElementById('statPosts').textContent = posts.length;
+    document.getElementById('statStories').textContent = month.stories || 0;
+    document.getElementById('themeTitle').textContent = month.shortTheme;
+    document.getElementById('themeDesc').textContent = month.desc || '';
+}
+
+function toggleDropdown() {
+    dropdownOpen = !dropdownOpen;
+    document.getElementById('monthSelectorBtn').classList.toggle('open', dropdownOpen);
+    document.getElementById('monthDropdown').classList.toggle('open', dropdownOpen);
+}
+
+function selectMonth(id) {
+    currentMonth = id;
+    dropdownOpen = false;
+    document.getElementById('monthSelectorBtn').classList.remove('open');
+    document.getElementById('monthDropdown').classList.remove('open');
+    renderMonthSelector();
+    renderPosts();
+}
+
+// ============================================
+// RENDERIZAR LISTA DE POSTS
+// ============================================
+function renderPosts() {
+    if (!DATA || !DATA.months) return;
+    
+    const month = DATA.months.find(m => m.id === currentMonth);
+    if (!month) return;
+    
+    document.getElementById('mainTitle').innerHTML = `${month.name.toUpperCase()} — <span>${month.shortTheme}</span>`;
+    
+    const container = document.getElementById('postsList');
+    const posts = POSTS[currentMonth] || [];
+    
+    if (posts.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <h3>📅 Nenhum post cadastrado</h3>
+                <p>Adicione posts ao data.json para ${month.name}.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    const sorted = [...posts].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const monthNames = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+    
+    container.innerHTML = sorted.map(p => {
+        const d = new Date(p.date);
+        const priorityClass = (p.priority || 'media').toLowerCase().replace('í', 'i');
+        return `
+            <div class="post-card" onclick="openModal(${p.id})">
+                <div class="post-date">
+                    <div class="post-date-day">${String(d.getDate()).padStart(2, '0')}</div>
+                    <div class="post-date-month">${monthNames[d.getMonth()]}</div>
+                </div>
+                <div class="post-info">
+                    <div class="post-type">${p.type || 'POST'}</div>
+                    <div class="post-title">${p.title}</div>
+                    <div class="post-desc">${p.desc || ''}</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+                    <div class="post-format">${p.format || 'Post'}</div>
+                    <div class="post-priority ${priorityClass}">${p.priority || 'média'}</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// ============================================
+// MODAL DE POST
+// ============================================
+function openModal(id) {
+    const posts = POSTS[currentMonth] || [];
+    currentPost = posts.find(p => p.id === id);
+    if (!currentPost) return;
+    
+    document.getElementById('modalBadge').textContent = `${currentPost.type || 'POST'} · ${currentPost.format || ''}`;
+    document.getElementById('modalTitle').textContent = currentPost.title;
+    document.getElementById('modalDesc').textContent = currentPost.desc || '';
+    
+    const body = document.getElementById('modalBody');
+    const d = new Date(currentPost.date);
+    
+    // Verificar se tem conteúdo completo
+    const hasContent = currentPost.narrativa || currentPost.imagem || currentPost.video || currentPost.tela || currentPost.legenda;
+    
+    let contentHTML = `
+        <div class="modal-info-grid">
+            <div class="modal-info-item">
+                <div class="modal-info-label">📅 DATA</div>
+                <div class="modal-info-value">${d.toLocaleDateString('pt-BR')}</div>
+            </div>
+            <div class="modal-info-item">
+                <div class="modal-info-label">🎯 PRIORIDADE</div>
+                <div class="modal-info-value">${currentPost.priority || 'Média'}</div>
+            </div>
+            <div class="modal-info-item">
+                <div class="modal-info-label">📱 FORMATO</div>
+                <div class="modal-info-value">${currentPost.format || 'Post'}</div>
+            </div>
+            <div class="modal-info-item">
+                <div class="modal-info-label">📊 STATUS</div>
+                <div class="modal-info-value">${currentPost.status || 'Pendente'}</div>
+            </div>
+        </div>
+    `;
+    
+    if (hasContent) {
+        // Determinar primeira aba disponível
+        let firstTab = 'narrativa';
+        if (!currentPost.narrativa && currentPost.imagem) firstTab = 'imagem';
+        else if (!currentPost.narrativa && !currentPost.imagem && currentPost.video) firstTab = 'video';
+        else if (!currentPost.narrativa && !currentPost.imagem && !currentPost.video && currentPost.tela) firstTab = 'tela';
+        else if (!currentPost.narrativa && !currentPost.imagem && !currentPost.video && !currentPost.tela && currentPost.legenda) firstTab = 'legenda';
+        
+        currentTab = firstTab;
+        
+        contentHTML += `
+            <div class="content-tabs">
+                ${currentPost.narrativa ? `<button class="tab-btn ${firstTab === 'narrativa' ? 'active' : ''}" onclick="showTab('narrativa')">📝 Narrativa</button>` : ''}
+                ${currentPost.imagem ? `<button class="tab-btn ${firstTab === 'imagem' ? 'active' : ''}" onclick="showTab('imagem')">🖼️ Imagem</button>` : ''}
+                ${currentPost.video ? `<button class="tab-btn ${firstTab === 'video' ? 'active' : ''}" onclick="showTab('video')">🎬 Vídeo</button>` : ''}
+                ${currentPost.tela ? `<button class="tab-btn ${firstTab === 'tela' ? 'active' : ''}" onclick="showTab('tela')">📺 Tela</button>` : ''}
+                ${currentPost.legenda ? `<button class="tab-btn ${firstTab === 'legenda' ? 'active' : ''}" onclick="showTab('legenda')">📱 Legenda</button>` : ''}
+            </div>
+            <div class="content-area">
+                <div class="content-header">
+                    <span id="contentTitle">${getTabTitle(firstTab)}</span>
+                    <button class="copy-btn" onclick="copyContent()">📋 Copiar</button>
+                </div>
+                <pre class="content-text" id="contentText">${currentPost[firstTab] || ''}</pre>
+            </div>
+        `;
+    } else {
+        contentHTML += `
+            <div class="empty-content">
+                <p>⏳ Conteúdo ainda não foi criado para este post.</p>
+            </div>
+        `;
+    }
+    
+    body.innerHTML = contentHTML;
+    document.getElementById('modalOverlay').classList.add('show');
+}
+
+function getTabTitle(tab) {
+    const titles = {
+        narrativa: '📝 NARRATIVA/ROTEIRO',
+        imagem: '🖼️ PROMPTS DE IMAGEM',
+        video: '🎬 DIREÇÃO DE VÍDEO',
+        tela: '📺 TEXTO NA TELA',
+        legenda: '📱 LEGENDA INSTAGRAM'
+    };
+    return titles[tab] || tab.toUpperCase();
+}
+
+function showTab(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('contentTitle').textContent = getTabTitle(tab);
+    document.getElementById('contentText').textContent = currentPost[tab] || 'Conteúdo não disponível';
+}
+
+function copyContent() {
+    const text = document.getElementById('contentText').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('✓ Copiado!');
+    }).catch(() => {
+        showToast('❌ Erro ao copiar', 'error');
+    });
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('show');
+}
+
+// ============================================
+// EXPORT / IMPORT / SAVE / DEPLOY
+// ============================================
+function exportData() {
+    const dataStr = JSON.stringify(DATA, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const nome = CONFIG?.cliente?.id || 'backup';
+    a.href = url;
+    a.download = `${nome}_backup_${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('✓ Backup exportado!');
+}
+
+function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const imported = JSON.parse(e.target.result);
+            
+            // Validar estrutura básica
+            if (!imported.months || !imported.posts) {
+                throw new Error('JSON inválido: falta months ou posts');
+            }
+            
+            DATA = imported;
+            POSTS = DATA.posts || {};
+            
+            localStorage.setItem('contentStudioData', JSON.stringify(DATA));
+            
+            renderMonthSelector();
+            renderPosts();
+            
+            showToast('✓ Dados importados!');
+            
+        } catch (error) {
+            console.error('Erro ao importar:', error);
+            showToast('❌ Erro: ' + error.message, 'error');
+        }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
+}
+
+function saveToStorage() {
+    localStorage.setItem('contentStudioData', JSON.stringify(DATA));
+    showToast('✓ Salvo localmente!');
+}
+
+async function deployToWebhook() {
+    // Verificar se webhook está configurado
+    if (!CONFIG?.webhook?.url || !CONFIG?.webhook?.ativo) {
+        showToast('⚠️ Webhook não configurado', 'error');
+        console.log('Configure o webhook em config.json ou config/webhook.json');
+        return;
+    }
+    
+    const btn = document.getElementById('deployBtn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="spinner"></span> Enviando...';
+    btn.disabled = true;
+    
+    try {
+        const response = await fetch(CONFIG.webhook.url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                clienteId: CONFIG.cliente?.id || 'unknown',
+                data: DATA,
+                timestamp: new Date().toISOString()
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+        
+        const result = await response.json();
+        showToast('✓ Deploy realizado!');
+        console.log('Deploy response:', result);
+        
+    } catch (error) {
+        console.error('Erro no deploy:', error);
+        showToast('❌ Erro no deploy: ' + error.message, 'error');
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+}
+
+// ============================================
+// UTILITÁRIOS
+// ============================================
+function showToast(msg, type = '') {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.className = 'toast show ' + type;
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+function updateStatus(status, text) {
+    document.getElementById('statusDot').className = 'status-dot ' + status;
+    document.getElementById('statusText').textContent = text;
+}
+
+// ============================================
+// EVENT LISTENERS
+// ============================================
+document.addEventListener('DOMContentLoaded', init);
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+});
+
+document.getElementById('modalOverlay').addEventListener('click', e => {
+    if (e.target.id === 'modalOverlay') closeModal();
+});
+
+document.addEventListener('click', e => {
+    if (!e.target.closest('.month-selector') && dropdownOpen) {
+        dropdownOpen = false;
+        document.getElementById('monthSelectorBtn').classList.remove('open');
+        document.getElementById('monthDropdown').classList.remove('open');
+    }
+});
+
+// Online/Offline detection
+window.addEventListener('online', () => updateStatus('online', 'Conectado'));
+window.addEventListener('offline', () => updateStatus('offline', 'Offline'));
+</script>
+</body>
+</html>

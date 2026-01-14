@@ -1,0 +1,118 @@
+{
+  "_INSTRUCOES": "PREENCHA TODOS OS CAMPOS ABAIXO COM DADOS DO CLIENTE",
+  "_VERSAO": "1.0.0",
+  "_TEMPLATE": "CONTENT-STUDIO-TEMPLATE by Kendy Produções",
+
+  "cliente": {
+    "id": "CLIENTE_ID",
+    "nome": "NOME DA EMPRESA",
+    "nomeCompleto": "NOME COMPLETO DA EMPRESA LTDA",
+    "slogan": "Slogan ou tagline da empresa",
+    "subtitulo": "Content Studio 2026",
+    "ano": 2026,
+    "anoFundacao": 2000,
+    "aniversario": "01-01"
+  },
+
+  "contato": {
+    "telefone": "(00) 0000-0000",
+    "whatsapp": "5500000000000",
+    "email": "contato@empresa.com.br",
+    "site": "https://www.empresa.com.br"
+  },
+
+  "endereco": {
+    "cidade": "Cidade",
+    "estado": "UF",
+    "completo": "Rua Exemplo, 123 - Bairro - Cidade/UF"
+  },
+
+  "redesSociais": {
+    "instagram": "@empresa",
+    "facebook": "empresa",
+    "linkedin": "empresa",
+    "youtube": "@empresa",
+    "tiktok": "@empresa"
+  },
+
+  "cores": {
+    "primaria": "#C41E3A",
+    "secundaria": "#1a1a1a",
+    "destaque": "#C9A227",
+    "sucesso": "#22C55E",
+    "erro": "#EF4444",
+    "alerta": "#F59E0B",
+    "info": "#3B82F6",
+    "texto": "#FFFFFF",
+    "textoSecundario": "#888888",
+    "fundo": "#0a0a0a",
+    "fundo2": "#111111",
+    "fundo3": "#1a1a1a",
+    "fundo4": "#222222",
+    "borda": "#333333"
+  },
+
+  "arquivos": {
+    "logo": "assets/logo.png",
+    "favicon": "assets/favicon.ico",
+    "logoAlternativa": "assets/logo-branca.png"
+  },
+
+  "webhook": {
+    "url": "",
+    "ativo": false,
+    "clienteId": "CLIENTE_ID"
+  },
+
+  "configuracoes": {
+    "anoCalendario": 2026,
+    "idioma": "pt-BR",
+    "timezone": "America/Sao_Paulo",
+    "formatoData": "DD/MM/YYYY",
+    "primeiroMes": 1
+  },
+
+  "categoriasPosts": [
+    "DATA ESPECIAL",
+    "COMEMORATIVA", 
+    "EDUCATIVO",
+    "PROMOCIONAL",
+    "INSTITUCIONAL",
+    "FERIADO",
+    "CAMPANHA",
+    "PRODUTO",
+    "BASTIDORES",
+    "DEPOIMENTO"
+  ],
+
+  "formatosPosts": [
+    "Post estático",
+    "Carrossel 3 slides",
+    "Carrossel 5 slides",
+    "Carrossel 7 slides",
+    "Carrossel 10 slides",
+    "Reels 15s",
+    "Reels 30s",
+    "Reels 60s",
+    "Stories",
+    "Stories Sequência",
+    "Live",
+    "IGTV"
+  ],
+
+  "prioridades": [
+    {"id": "altissima", "nome": "Altíssima", "cor": "#C41E3A"},
+    {"id": "alta", "nome": "Alta", "cor": "#C9A227"},
+    {"id": "media", "nome": "Média", "cor": "#3B82F6"},
+    {"id": "baixa", "nome": "Baixa", "cor": "#888888"}
+  ],
+
+  "statusPosts": [
+    {"id": "pendente", "nome": "Pendente", "cor": "#888888"},
+    {"id": "em_producao", "nome": "Em Produção", "cor": "#F59E0B"},
+    {"id": "aguardando_aprovacao", "nome": "Aguardando Aprovação", "cor": "#3B82F6"},
+    {"id": "aprovado", "nome": "Aprovado", "cor": "#22C55E"},
+    {"id": "publicado", "nome": "Publicado", "cor": "#8B5CF6"},
+    {"id": "completo", "nome": "Completo", "cor": "#22C55E"}
+  ]
+}

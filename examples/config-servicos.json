@@ -1,0 +1,63 @@
+{
+  "_EXEMPLO": "SERVIÇOS / CONSULTORIA",
+  
+  "cliente": {
+    "id": "ADVOGADOS",
+    "nome": "SILVA & SOUZA",
+    "nomeCompleto": "Silva & Souza Advogados Associados",
+    "slogan": "Seu direito, nossa missão",
+    "subtitulo": "Content Studio 2026",
+    "ano": 2026,
+    "anoFundacao": 2005,
+    "aniversario": "08-11"
+  },
+
+  "contato": {
+    "telefone": "(21) 2222-3333",
+    "whatsapp": "5521966666666",
+    "email": "contato@silvasouza.adv.br",
+    "site": "https://www.silvasouza.adv.br"
+  },
+
+  "endereco": {
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "completo": "Av. Rio Branco, 500 - Centro - Rio de Janeiro/RJ"
+  },
+
+  "redesSociais": {
+    "instagram": "@silvasouzaadvogados",
+    "facebook": "silvasouzaadvogados",
+    "linkedin": "silva-souza-advogados",
+    "youtube": "",
+    "tiktok": ""
+  },
+
+  "cores": {
+    "primaria": "#1E3A5F",
+    "secundaria": "#0F2744",
+    "destaque": "#B8860B",
+    "sucesso": "#166534",
+    "erro": "#991B1B",
+    "alerta": "#B45309",
+    "info": "#1E40AF",
+    "texto": "#FFFFFF",
+    "textoSecundario": "#9CA3AF",
+    "fundo": "#0a0a0a",
+    "fundo2": "#111111",
+    "fundo3": "#1a1a1a",
+    "fundo4": "#222222",
+    "borda": "#333333"
+  },
+
+  "arquivos": {
+    "logo": "assets/logo.png",
+    "favicon": "assets/favicon.ico"
+  },
+
+  "webhook": {
+    "url": "",
+    "ativo": false,
+    "clienteId": "ADVOGADOS"
+  }
+}
