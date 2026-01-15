@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdate": "2026-01-15",
+  "lastUpdate": "2026-01-15T00:00:00.000Z",
   "config": {
     "companyName": "Nechio Congelados",
     "year": 2026,
@@ -32,7 +32,8 @@
         "desc": "Post comemorativo de Ano Novo - Fechamento da empresa",
         "priority": "alta",
         "status": "pendente",
-        "legenda": "🎆 FELIZ 2026!\n\nQue este ano seja repleto de sabores incríveis!\n\n#AnoNovo #2026 #NechioCongelados #FelizAnoNovo"
+        "narrativa": "ROTEIRO: Celebração de Ano Novo\n\n1. Abertura com logo Nechio animada\n2. Mensagem de agradecimento aos clientes\n3. Votos de prosperidade para 2026\n4. Informar fechamento/retorno\n\nTOM: Festivo, caloroso, agradecido",
+        "legenda": "🎆 FELIZ ANO NOVO!\n\nA Nechio Congelados deseja a todos os nossos clientes e parceiros um 2026 repleto de sucesso, saúde e prosperidade!\n\nObrigado por fazer parte da nossa história. Juntos, construímos um ano incrível em 2025 e estamos prontos para um 2026 ainda melhor!\n\n📍 Retornamos dia 02/01\n\n#FelizAnoNovo #2026 #NechioCongelados #Gratidão"
       },
       {
         "id": 2,
@@ -42,7 +43,9 @@
         "title": "Voltamos! Estoque renovado para 2026",
         "desc": "Comunicado de retorno das atividades pós-feriado",
         "priority": "media",
-        "status": "pendente"
+        "status": "pendente",
+        "narrativa": "ROTEIRO: Comunicado de Retorno\n\n1. Imagem da equipe ou fachada\n2. Mensagem de retorno energizado\n3. Destacar novidades do estoque\n4. CTA para pedidos",
+        "legenda": "💪 VOLTAMOS COM TUDO!\n\nA Nechio Congelados está de volta, com estoque renovado e energia total para 2026!\n\n✅ Açaí fresquinho\n✅ Polpas de frutas\n✅ Sorvetes premium\n✅ Toda linha de congelados\n\n📞 Faça seu pedido: (21) 2580-9035\n📱 WhatsApp: (21) 99401-5541\n\n#Nechio #Voltamos #Estoque2026"
       },
       {
         "id": 3,
@@ -52,7 +55,10 @@
         "title": "☀️ Verão Nechio - Açaí gelado para refrescar",
         "desc": "Post de produtos de verão - açaí, sorvetes, polpas geladas",
         "priority": "alta",
-        "status": "pendente"
+        "status": "pendente",
+        "narrativa": "ROTEIRO CARROSSEL:\n\nSlide 1: Capa impactante - Açaí com frutas, texto 'VERÃO NECHIO'\nSlide 2: Bowl de açaí premium - destaque textura cremosa\nSlide 3: Polpas de frutas variadas - manga, morango, maracujá\nSlide 4: Sorvetes artesanais - sabores especiais\nSlide 5: CTA - 'Peça agora pelo WhatsApp'",
+        "imagem": "PROMPT FREEPIK/MIDJOURNEY:\n\nPhoto of açaí bowl with fresh tropical fruits, banana slices, strawberries, granola, honey drizzle, summer beach background, bright natural lighting, food photography style, vibrant colors, 8K resolution, professional shot --ar 1:1 --style raw",
+        "legenda": "☀️ VERÃO CHEGOU E O AÇAÍ TAMBÉM!\n\nNada melhor que um açaí gelado para refrescar os dias quentes! 🍇\n\nNa Nechio você encontra:\n🔹 Açaí Premium\n🔹 Polpas de Frutas Naturais\n🔹 Sorvetes Artesanais\n🔹 Bases para Milk-shake\n\nTudo para seu negócio lucrar no verão! 📈\n\n📞 (21) 2580-9035\n📱 WhatsApp: (21) 99401-5541\n\n#Verão #Açaí #NechioCongelados #FoodService"
       },
       {
         "id": 4,
@@ -62,7 +68,9 @@
         "title": "💰 Combos de Verão - Lucre mais!",
         "desc": "Carrossel educativo sobre margens de lucro com açaí no verão",
         "priority": "alta",
-        "status": "pendente"
+        "status": "pendente",
+        "narrativa": "ROTEIRO CARROSSEL EDUCATIVO:\n\nSlide 1: 'QUANTO VOCÊ PODE LUCRAR COM AÇAÍ NO VERÃO?'\nSlide 2: Custo por litro de açaí - R$ X\nSlide 3: Rendimento - X porções por litro\nSlide 4: Preço de venda sugerido - R$ X por porção\nSlide 5: Margem de lucro - X%\nSlide 6: Comparativo com outros produtos\nSlide 7: CTA - 'Monte seu combo de verão'",
+        "legenda": "💰 VOCÊ SABE QUANTO PODE LUCRAR COM AÇAÍ?\n\nO verão é a melhor época para vender açaí e nós temos os números para provar! 📊\n\nDeslize para descobrir:\n✅ Custo real por porção\n✅ Margem de lucro média\n✅ Estratégias de precificação\n✅ Combos mais lucrativos\n\nNão perca a oportunidade de lucrar no verão! ☀️\n\n📞 Consulte nossos combos: (21) 2580-9035\n\n#Lucro #Açaí #FoodService #Empreendedor #Nechio"
       },
       {
         "id": 5,
@@ -72,7 +80,10 @@
         "title": "⏰ Contagem regressiva - Dia do Açaí vem aí!",
         "desc": "Aquecimento para o Dia do Açaí (20/jan)",
         "priority": "altissima",
-        "status": "pendente"
+        "status": "pendente",
+        "narrativa": "ROTEIRO REELS 30s:\n\n0-5s: Tela preta com texto '5 DIAS' pulsando\n5-10s: Imagem açaí sendo preparado\n10-15s: 'DIA DO AÇAÍ VEM AÍ'\n15-20s: Montagem rápida de produtos açaí\n20-25s: '20 DE JANEIRO'\n25-30s: Logo Nechio + 'Prepare seu estoque!'",
+        "video": "DIREÇÃO DE VÍDEO:\n\nEstilo: Dinâmico, urgente\nMúsica: Batida eletrônica upbeat\nCortes: Rápidos, 2-3 segundos cada\nCores: Roxo do açaí dominante\nTexto: Bold, animado, com countdown",
+        "legenda": "⏰ FALTAM 5 DIAS!\n\n20 de Janeiro é o DIA DO AÇAÍ e você precisa estar preparado! 🍇\n\nSeu estoque está pronto para a data mais importante do ano para quem vende açaí?\n\n📦 Garanta seu estoque AGORA!\n📞 (21) 2580-9035\n📱 WhatsApp: (21) 99401-5541\n\n#DiaDoAçaí #20DeJaneiro #Nechio #Açaí"
       },
       {
         "id": 6,
@@ -83,9 +94,9 @@
         "desc": "CAMPANHA MÁXIMA - Data mais importante do ano para o core business",
         "priority": "altissima",
         "status": "pendente",
-        "narrativa": "ROTEIRO CARROSSEL DIA DO AÇAÍ\n═══════════════════════════════════════\n\n📌 SLIDE 1 - CAPA\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTÍTULO: \"20 DE JANEIRO\"\nSUBTÍTULO: \"DIA DO AÇAÍ\"\nVISUAL: Bowl de açaí vibrante, frutas tropicais\nLogo Nechio no canto inferior\n\n📌 SLIDE 2 - HISTÓRIA\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTÍTULO: \"O fruto da Amazônia\"\nTEXTO: \"Tradição indígena que conquistou o Brasil\"\n\n📌 SLIDE 3 - BENEFÍCIOS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTÍTULO: \"Energia pura!\"\nBULLETS:\n• Rico em antioxidantes\n• Fonte de energia natural\n• Delicioso e nutritivo\n\n📌 SLIDE 4 - PRODUTOS NECHIO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTÍTULO: \"Açaí Premium Nechio\"\nTEXTO: \"Qualidade que você confia\"\n\n📌 SLIDE 5 - CTA\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTÍTULO: \"Peça já o seu!\"\nCTA: \"WhatsApp: (21) 99401-5541\"\nLogo + Redes sociais",
-        "imagem": "PROMPT IMAGEM CAPA DIA DO AÇAÍ\n═══════════════════════════════════════\n\nVibrant overhead shot of a perfect açaí bowl with fresh toppings including sliced banana, strawberries, granola, and honey drizzle. Tropical leaves as decoration around the bowl.\n\nCOLORS:\n- Deep purple açaí\n- Yellow bananas\n- Red strawberries\n- Green tropical leaves\n- Magenta/pink accent (Nechio brand)\n\nSTYLE:\n- Food photography professional\n- 1:1 ratio for Instagram\n- Clean bright lighting\n- Space for text overlay",
-        "legenda": "🍇 FELIZ DIA DO AÇAÍ! 🎉\n\n20 de janeiro - o dia mais especial do ano pra gente!\n\nO açaí é mais que um alimento, é:\n✅ Energia pra enfrentar o verão\n✅ Tradição amazônica\n✅ Sabor que conquista\n✅ Saúde em cada colherada\n\nE a Nechio tem orgulho de levar o melhor açaí para sua loja há mais de 20 anos! 💜\n\n📞 Faça seu pedido: (21) 99401-5541\n📍 CEASA-RJ - Rio de Janeiro\n\n#DiaDoAçaí #Açaí #20DeJaneiro #NechioCongelados #AçaíPremium #Verão"
+        "narrativa": "ROTEIRO CARROSSEL 10 SLIDES - DIA DO AÇAÍ:\n\nSlide 1: CAPA IMPACTANTE - '20 DE JANEIRO - DIA DO AÇAÍ' com bowl gigante\nSlide 2: História do açaí - origem amazônica\nSlide 3: Benefícios nutricionais\nSlide 4: Açaí Nechio - qualidade premium\nSlide 5: Linha completa de produtos\nSlide 6: Depoimento de cliente\nSlide 7: Números do mercado de açaí\nSlide 8: Dicas de preparo/servir\nSlide 9: Promoção especial do dia\nSlide 10: CTA forte - 'Peça agora!'",
+        "imagem": "PROMPT PRINCIPAL:\n\nEpic açaí bowl celebration, Brazilian açaí berries falling from above, tropical paradise background, palm trees, Amazon forest elements, purple and green colors, festive atmosphere, confetti, text space for '20 DE JANEIRO', professional food photography, 8K, cinematic lighting --ar 1:1",
+        "legenda": "🍇 FELIZ DIA DO AÇAÍ! 🍇\n\n20 de Janeiro - Celebramos o fruto mais querido do Brasil!\n\nO açaí é mais que um alimento, é:\n💜 Energia pura da Amazônia\n💜 Tradição brasileira\n💜 Saúde e sabor\n💜 Oportunidade de negócio\n\nNa Nechio, trabalhamos com açaí premium há mais de 20 anos, levando qualidade para sua mesa e lucro para seu negócio!\n\n🎉 PROMOÇÃO ESPECIAL HOJE!\nConsulte condições especiais para pedidos realizados no Dia do Açaí!\n\n📞 (21) 2580-9035\n📱 WhatsApp: (21) 99401-5541\n\n#DiaDoAçaí #20DeJaneiro #Açaí #NechioCongelados #CoreBusiness"
       },
       {
         "id": 7,
@@ -95,7 +106,10 @@
         "title": "🏭 Bastidores Nechio - Nossa estrutura de frio",
         "desc": "Vídeo mostrando câmaras frias e estrutura do CEASA",
         "priority": "media",
-        "status": "pendente"
+        "status": "pendente",
+        "narrativa": "ROTEIRO REELS 60s - BASTIDORES:\n\n0-10s: Entrada da Nechio no CEASA-RJ\n10-20s: Tour pela área de recebimento\n20-35s: Câmaras frias - destaque temperatura controlada\n35-45s: Área de separação de pedidos\n45-55s: Carregamento dos caminhões\n55-60s: 'Qualidade que você pode confiar' + Logo",
+        "video": "DIREÇÃO DE VÍDEO:\n\nEstilo: Documental, profissional\nMúsica: Corporativa, inspiradora\nNarração: Opcional, pode ser só música\nDestaque: Estrutura, organização, higiene\nFilmar: Funcionários trabalhando, equipamentos",
+        "legenda": "🏭 CONHEÇA NOSSA ESTRUTURA!\n\nHoje vamos mostrar o que acontece por trás das entregas perfeitas da Nechio! 📦\n\n✅ +2.400m² de área refrigerada\n✅ Câmaras frias com temperatura controlada\n✅ Equipe treinada e dedicada\n✅ Localização estratégica no CEASA-RJ\n\nÉ assim que garantimos qualidade do início ao fim! 💪\n\n#Bastidores #Nechio #CEASA #Qualidade #Congelados"
       },
       {
         "id": 8,
@@ -105,7 +119,10 @@
         "title": "🎭 Prepare-se para o Carnaval!",
         "desc": "Aquecimento para fevereiro - garantir estoque para blocos",
         "priority": "alta",
-        "status": "pendente"
+        "status": "pendente",
+        "narrativa": "ROTEIRO POST:\n\n1. Visual carnavalesco começando a aparecer\n2. Mensagem de preparação\n3. Destaque para produtos de alto consumo em blocos\n4. CTA urgência - fazer pedidos com antecedência",
+        "imagem": "PROMPT:\n\nCarnival preparation concept, colorful confetti falling, açaí bowl with tropical fruits, Brazilian carnival mask in background, festive atmosphere, purple and yellow colors, professional photography, 8K --ar 1:1",
+        "legenda": "🎭 O CARNAVAL VEM AÍ!\n\nFaltam poucas semanas para a maior festa do Brasil e seu estoque precisa estar pronto! 🎉\n\nBlocos, festas e eventos = MUITO açaí, sorvete e bebidas geladas!\n\n⚠️ IMPORTANTE: Faça seu pedido COM ANTECEDÊNCIA para garantir entrega antes do feriado!\n\n📞 Garanta seu estoque: (21) 2580-9035\n📱 WhatsApp: (21) 99401-5541\n\n#Carnaval #PrepareSe #Nechio #FoodService"
       }
     ],
     "2": [
@@ -134,7 +151,7 @@
         "date": "2026-02-10",
         "type": "PROMOCIONAL",
         "format": "Carrossel 5 slides",
-        "title": "🛒 Combos Carnaval - Garanta seu estoque!",
+        "title": "📦 Combos Carnaval - Garanta seu estoque!",
         "desc": "Urgência pré-carnaval - combos especiais para blocos e festas",
         "priority": "altissima",
         "status": "pendente"
@@ -144,7 +161,7 @@
         "date": "2026-02-13",
         "type": "PROMOCIONAL",
         "format": "Stories Sequência",
-        "title": "⚡ Última chamada pré-Carnaval!",
+        "title": "⚠️ Última chamada pré-Carnaval!",
         "desc": "Story de urgência - últimos pedidos antes do feriado",
         "priority": "altissima",
         "status": "pendente"
@@ -164,7 +181,7 @@
         "date": "2026-02-18",
         "type": "INSTITUCIONAL",
         "format": "Post estático",
-        "title": "✅ Voltamos! Pós-Carnaval com energia renovada",
+        "title": "💪 Voltamos! Pós-Carnaval com energia renovada",
         "desc": "Comunicado de retorno das atividades",
         "priority": "media",
         "status": "pendente"
@@ -402,7 +419,7 @@
         "date": "2026-06-05",
         "type": "INSTITUCIONAL",
         "format": "Carrossel 5 slides",
-        "title": "🌍 Dia do Meio Ambiente - Sustentabilidade Nechio",
+        "title": "🌱 Dia do Meio Ambiente - Sustentabilidade Nechio",
         "desc": "Post sobre práticas sustentáveis da empresa",
         "priority": "alta",
         "status": "pendente"
@@ -464,7 +481,7 @@
         "date": "2026-07-01",
         "type": "INSTITUCIONAL",
         "format": "Post estático",
-        "title": "🍽️ Julho - Mês Gastronômico Nechio!",
+        "title": "🍫 Julho - Mês Gastronômico Nechio!",
         "desc": "Banner temático - tons frios, conforto, comidas quentinhas",
         "priority": "alta",
         "status": "pendente"
@@ -526,7 +543,7 @@
         "date": "2026-08-01",
         "type": "INSTITUCIONAL",
         "format": "Post estático",
-        "title": "👨 Agosto - Mês dos Pais na Nechio!",
+        "title": "👔 Agosto - Mês dos Pais na Nechio!",
         "desc": "Banner temático - tons azul/cinza, churrasco, força",
         "priority": "alta",
         "status": "pendente"
@@ -631,9 +648,7 @@
         "title": "🍨 DIA DO SORVETE - Core Business Nechio!",
         "desc": "CAMPANHA MÁXIMA - Segunda data mais importante do ano",
         "priority": "altissima",
-        "status": "pendente",
-        "narrativa": "ROTEIRO CARROSSEL DIA DO SORVETE\n═══════════════════════════════════════\n\n📌 SLIDE 1 - CAPA\nTÍTULO: \"23 DE SETEMBRO\"\nSUBTÍTULO: \"DIA DO SORVETE\"\nVISUAL: Sorvetes coloridos, casquinhas\n\n📌 SLIDE 2 - VARIEDADE\nTÍTULO: \"Mais de 50 sabores!\"\nTEXTO: \"A maior variedade do Rio de Janeiro\"\n\n📌 SLIDE 3 - QUALIDADE\nTÍTULO: \"Qualidade Premium\"\nTEXTO: \"Cremosidade e sabor incomparáveis\"\n\n📌 SLIDE 4 - PARCERIA\nTÍTULO: \"Seu parceiro de confiança\"\nTEXTO: \"Há mais de 20 anos servindo os melhores estabelecimentos\"\n\n📌 SLIDE 5 - CTA\nTÍTULO: \"Peça já!\"\nWhatsApp + Contato",
-        "legenda": "🍨 FELIZ DIA DO SORVETE! 🎉\n\n23 de setembro - o dia mais doce do ano!\n\nA Nechio oferece:\n✅ +50 sabores incríveis\n✅ Qualidade premium\n✅ Entrega rápida\n✅ Preço justo\n\nSeu estabelecimento merece o melhor sorvete! 🍦\n\n📞 (21) 99401-5541\n📍 CEASA-RJ\n\n#DiaDoSorvete #Sorvete #NechioCongelados #23DeSetembro"
+        "status": "pendente"
       }
     ],
     "10": [
@@ -796,7 +811,7 @@
         "date": "2026-12-15",
         "type": "PROMOCIONAL",
         "format": "Reels 30s",
-        "title": "⏰ Última semana de encomendas de Natal!",
+        "title": "⚠️ Última semana de encomendas de Natal!",
         "desc": "Urgência - prazo final para encomendas",
         "priority": "altissima",
         "status": "pendente"
@@ -826,7 +841,7 @@
         "date": "2026-12-24",
         "type": "PROMOCIONAL",
         "format": "Stories Sequência",
-        "title": "🚨 Véspera de Natal - Última chamada!",
+        "title": "🎁 Véspera de Natal - Última chamada!",
         "desc": "Urgência máxima - últimas entregas",
         "priority": "altissima",
         "status": "pendente"
@@ -867,19 +882,19 @@
     "setembro_amarelo": {
       "name": "Setembro Amarelo",
       "month": 9,
-      "description": "Campanha de conscientização sobre prevenção ao suicídio",
+      "description": "Prevenção ao suicídio",
       "color": "#FFEB3B"
     },
     "outubro_rosa": {
       "name": "Outubro Rosa",
       "month": 10,
-      "description": "Campanha de conscientização sobre o câncer de mama",
+      "description": "Câncer de mama",
       "color": "#E91E63"
     },
     "novembro_azul": {
       "name": "Novembro Azul",
       "month": 11,
-      "description": "Campanha de conscientização sobre a saúde masculina",
+      "description": "Saúde masculina",
       "color": "#2196F3"
     }
   }
