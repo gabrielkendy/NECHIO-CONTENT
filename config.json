@@ -7,7 +7,10 @@
     "secondaryColor": "#1a1a1a",
     "accentColor": "#C9A227"
   },
+  "webhook": {
+    "url": "https://agenciabase.app.n8n.cloud/webhook/nechio-deploy"
+  },
   "year": 2026,
   "lastUpdate": "2026-01-15T15:30:00Z",
-  "version": "2.0.1"
+  "version": "2.0.2"
 }

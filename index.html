@@ -1180,7 +1180,7 @@ function renderPosts() {
         const d = new Date(p.date);
         const priorityClass = (p.priority || 'media').toLowerCase().replace('í', 'i');
         return `
-            <div class="post-card" onclick="openModal(${p.id})">
+            <div class="post-card" onclick="openModal('${p.id}')">
                 <div class="post-date">
                     <div class="post-date-day">${String(d.getDate()).padStart(2, '0')}</div>
                     <div class="post-date-month">${monthNames[d.getMonth()]}</div>
