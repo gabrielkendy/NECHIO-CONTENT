@@ -1,207 +1,48 @@
 {
-  "headers": {},
-  "query": {},
-  "body": {
-    "posts": [
-      {
-        "id": "jan_01_2026",
-        "date": "2026-01-01",
-        "time": "06:30",
-        "type": "story",
-        "product": "Feriado",
-        "caption": "🎊 FELIZ ANO NOVO! A Nechio deseja um 2026 cheio de saúde, prosperidade e muito açaí! 💜 #nechio #anonovo #2026",
-        "hashtags": "#nechio #anonovo #2026 #felizanonovo",
-        "priority": "high",
-        "categoria": "feriado"
-      },
-      {
-        "id": "jan_20_2026_acai",
-        "date": "2026-01-20",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Açaí Premium",
-        "caption": "🎉 HOJE É DIA DO AÇAÍ! 🎉\n\n20 de Janeiro - O dia MAIS importante para a Nechio! 💜\n\nO açaí que impulsiona seu negócio:\n✅ 100% natural e sem conservantes\n✅ Textura cremosa perfeita\n✅ Sabor autêntico da Amazônia\n✅ Entrega rápida e pontual\n\n📞 Garanta já seu estoque!\n\n#nechio #diadoacai #acai #distribuidora #foodservice",
-        "hashtags": "#nechio #diadoacai #acai #acaipremium #distribuidora #foodservice #riodejaneiro #ceasa",
-        "priority": "critical",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "fev_16_2026_carnaval",
-        "date": "2026-02-16",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Açaí + Polpas",
-        "caption": "🎭 CARNAVAL CHEGOU! 🎭\n\nGaranta energia pro bloco com Nechio! 🎉\n\n🥤 Polpas de frutas para drinks refrescantes\n🍦 Açaí para recarregar as baterias\n🍔 Snacks congelados pro lanche rápido\n\n📦 Estoque garantido para TODA a folia!\n\n#nechio #carnaval #carnaval2026 #blocoderua #distribuidora",
-        "hashtags": "#nechio #carnaval #carnaval2026 #blocoderua #acai #polpas #distribuidora #foodservice",
-        "priority": "critical",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "fev_28_2026_nutricao",
-        "date": "2026-02-28",
-        "time": "06:30",
-        "type": "photo",
-        "product": "Polpas de Frutas",
-        "caption": "🥗 DIA MUNDIAL DA NUTRIÇÃO 🥗\n\nSaúde começa com escolhas inteligentes! 💚\n\nNossas polpas de frutas:\n✅ 100% natural\n✅ Sem açúcar adicionado\n✅ Ricas em vitaminas\n✅ Perfeitas para sucos e vitaminas\n\n#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel",
-        "hashtags": "#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel #vidasaudavel",
-        "priority": "medium",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "mar_08_2026_mulher",
-        "date": "2026-03-08",
-        "time": "06:30",
-        "type": "photo",
-        "product": "Homenagem",
-        "caption": "💜 FELIZ DIA INTERNACIONAL DA MULHER! 💜\n\nA Nechio celebra todas as empreendedoras, chefs, empresárias e trabalhadoras que fazem a diferença todos os dias! 👏\n\n#nechio #diainternacionaldamulher #diadamulher #empoderamento #mulheresempreendedoras",
-        "hashtags": "#nechio #diainternacionaldamulher #diadamulher #empoderamento #mulheresempreendedoras #8demarco",
-        "priority": "high",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "abr_12_2026_pascoa",
-        "date": "2026-04-12",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Sobremesas Congeladas",
-        "caption": "🐰 FELIZ PÁSCOA! 🐰\n\nQue esta Páscoa seja doce como nossas sobremesas! 🍫\n\n🍨 Sorvetes premium\n🍰 Tortas geladas\n🥧 Mousses variados\n\nNechio: Sua ceia completa em um só lugar!\n\n#nechio #pascoa #pascoa2026 #sobremesas #distribuidora",
-        "hashtags": "#nechio #pascoa #pascoa2026 #sobremesas #sorvete #distribuidora #foodservice",
-        "priority": "high",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "abr_24_2026_churrasco",
-        "date": "2026-04-24",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Carnes Congeladas",
-        "caption": "🥩 DIA DO CHURRASCO! 🥩\n\nHoje é dia de celebrar com MUITA carne na brasa! 🔥\n\nNechio tem o melhor para seu negócio:\n✅ Picanha premium\n✅ Costela bovina\n✅ Linguiças artesanais\n✅ Acompanhamentos congelados\n\n📞 Faça seu pedido!\n\n#nechio #diadochurrasco #churrasco #carnes #distribuidora",
-        "hashtags": "#nechio #diadochurrasco #churrasco #carnes #picanha #distribuidora #foodservice #riodejaneiro",
-        "priority": "critical",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "mai_10_2026_maes",
-        "date": "2026-05-10",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Kits Especiais",
-        "caption": "❤️ FELIZ DIA DAS MÃES! ❤️\n\nCelebre quem mais merece com produtos Nechio! 💐\n\n🎁 Kits especiais para presentear\n🍰 Sobremesas deliciosas\n🥗 Opções saudáveis e práticas\n\nMães merecem o melhor! E nós temos! 💜\n\n#nechio #diadasmaes #maes #distribuidora #presenteespecial",
-        "hashtags": "#nechio #diadasmaes #maes #distribuidora #presenteespecial #amordemae #foodservice",
-        "priority": "critical",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "mai_28_2026_hamburguer",
-        "date": "2026-05-28",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Hambúrgueres Gourmet",
-        "caption": "🍔 DIA DO HAMBÚRGUER! 🍔\n\nO favorito de todo brasileiro merece destaque! 🤩\n\n🥩 Hambúrgueres artesanais 180g\n🧀 Blend de queijos premium\n🥓 Bacon crocante\n🍞 Pães gourmet congelados\n\nNechio: Parceira das melhores hamburguerias!\n\n#nechio #diadohamburguer #hamburguer #gourmet #distribuidora",
-        "hashtags": "#nechio #diadohamburguer #hamburguer #hamburguergourmet #distribuidora #foodservice #riodejaneiro",
-        "priority": "critical",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "jun_12_2026_namorados",
-        "date": "2026-06-12",
-        "time": "06:30",
-        "type": "photo",
-        "product": "Sobremesas Românticas",
-        "caption": "💕 FELIZ DIA DOS NAMORADOS! 💕\n\nCelebre o amor com sabores irresistíveis! 😍\n\n🍫 Sobremesas de chocolate\n🍨 Sorvetes premium\n🍰 Tortas românticas\n\nNechio: Adoçando momentos especiais!\n\n#nechio #diadosnamorados #amor #sobremesas #distribuidora",
-        "hashtags": "#nechio #diadosnamorados #amor #sobremesas #sorvete #distribuidora #foodservice",
-        "priority": "high",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "jun_24_2026_saojoao",
-        "date": "2026-06-24",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Produtos Juninos",
-        "caption": "🎪 FELIZ SÃO JOÃO! 🎪\n\nArraiá na veia com Nechio! 🌽\n\n🌽 Milho verde selecionado\n🥧 Quitutes juninos congelados\n🍿 Snacks para festa\n🥤 Polpas para quentão\n\nSua festa junina começa aqui!\n\n#nechio #saojoao #festajunina #arraia #milho #distribuidora",
-        "hashtags": "#nechio #saojoao #festajunina #arraia #milho #quitutes #distribuidora #foodservice #riodejaneiro",
-        "priority": "critical",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "jul_10_2026_pizza",
-        "date": "2026-07-10",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Ingredientes Pizza",
-        "caption": "🍕 DIA DA PIZZA! 🍕\n\nA queridinha dos brasileiros! 😋\n\n🧀 Queijos premium\n🍅 Molhos especiais\n🥓 Toppings variados\n📦 Massas pré-assadas\n\nNechio: Parceira das pizzarias campeãs!\n\n#nechio #diadapizza #pizza #pizzaria #distribuidora",
-        "hashtags": "#nechio #diadapizza #pizza #pizzaria #ingredientes #distribuidora #foodservice #riodejaneiro",
-        "priority": "critical",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "ago_09_2026_pais",
-        "date": "2026-08-09",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Carnes Premium",
-        "caption": "👨‍👦 FELIZ DIA DOS PAIS! 👨‍👦\n\nCelebre quem é exemplo de força! 💪\n\n🥩 Carnes premium para churrasco\n🍔 Hambúrgueres artesanais\n🥓 Bacon especial\n\nPais merecem o melhor!\n\n#nechio #diadospais #pais #churrasco #distribuidora",
-        "hashtags": "#nechio #diadospais #pais #churrasco #carnes #distribuidora #foodservice #amor",
-        "priority": "critical",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "set_23_2026_sorvete",
-        "date": "2026-09-23",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Sorvetes Premium",
-        "caption": "🍦 DIA DO SORVETE! 🍦\n\nA segunda data MAIS importante da Nechio! 🎉\n\n✅ Sabores exclusivos\n✅ Cremosidade incomparável\n✅ Variedade para todos os gostos\n✅ Qualidade premium garantida\n\n📞 Garanta já seu estoque!\n\n#nechio #diadosorvete #sorvete #sorveteria #distribuidora",
-        "hashtags": "#nechio #diadosorvete #sorvete #sorveteria #sorvetes #distribuidora #foodservice #riodejaneiro #qualidade",
-        "priority": "critical",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "out_16_2026_alimentacao",
-        "date": "2026-10-16",
-        "time": "06:30",
-        "type": "photo",
-        "product": "Portfólio Completo",
-        "caption": "🌍 DIA MUNDIAL DA ALIMENTAÇÃO! 🌍\n\nAlimentar bem é cuidar da vida! 💚\n\nNechio: 22 anos nutrindo o Brasil com qualidade!\n\n✅ Produtos selecionados\n✅ Origem certificada\n✅ Entrega pontual\n✅ Parceria de confiança\n\n#nechio #diamundialdaalimentacao #alimentacao #qualidade #distribuidora",
-        "hashtags": "#nechio #diamundialdaalimentacao #alimentacao #qualidade #saude #distribuidora #foodservice",
-        "priority": "high",
-        "categoria": "data_comemorativa"
-      },
-      {
-        "id": "nov_27_2026_blackfriday",
-        "date": "2026-11-27",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Ofertas Especiais",
-        "caption": "🖤 BLACK FRIDAY NECHIO! 🖤\n\nAs MELHORES ofertas do ano! 🔥\n\n💥 Descontos imperdíveis\n📦 Combos exclusivos\n🚚 Entrega garantida\n⏰ Estoque LIMITADO!\n\n📞 Fale com nosso time AGORA!\n\n#nechio #blackfriday #ofertas #promocao #distribuidora",
-        "hashtags": "#nechio #blackfriday #blackfriday2026 #ofertas #promocao #descontos #distribuidora #foodservice #riodejaneiro",
-        "priority": "critical",
-        "categoria": "evento_comercial"
-      },
-      {
-        "id": "dez_25_2026_natal",
-        "date": "2026-12-25",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Ceia de Natal",
-        "caption": "🎄 FELIZ NATAL! 🎄\n\nQue o Natal traga paz, amor e muita alegria! 🎅\n\n🦃 Chester e tender premium\n🍰 Sobremesas especiais\n🥗 Acompanhamentos completos\n🍾 Tudo para sua ceia perfeita!\n\nNechio: Família e tradição! 💚❤️\n\n#nechio #natal #natal2026 #ceia #feliznatal #distribuidora",
-        "hashtags": "#nechio #natal #natal2026 #ceia #ceiadenatal #feliznatal #distribuidora #foodservice #familia",
-        "priority": "critical",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "dez_31_2026_reveillon",
-        "date": "2026-12-31",
-        "time": "06:30",
-        "type": "reel",
-        "product": "Ano Novo",
-        "caption": "🎊 FELIZ ANO NOVO! 🎊\n\nQue 2027 seja repleto de realizações! 🥂\n\nNechio agradece a confiança de todos os clientes e parceiros em 2026!\n\nVamos juntos construir um 2027 AINDA MELHOR! 💜\n\n#nechio #anonovo #reveillon #2027 #gratidao #distribuidora",
-        "hashtags": "#nechio #anonovo #reveillon #2027 #feliz2027 #gratidao #distribuidora #foodservice #riodejaneiro",
-        "priority": "critical",
-        "categoria": "evento_sazonal"
-      }
-    ],
-    "lastUpdate": "2026-01-15T15:20:00Z"
-  }
+  "posts": [
+    {
+      "id": "jan_01_2026",
+      "date": "2026-01-01",
+      "time": "06:30",
+      "type": "story",
+      "product": "Feriado",
+      "caption": "🎊 FELIZ ANO NOVO! A Nechio deseja um 2026 cheio de saúde, prosperidade e muito açaí! 💜 #nechio #anonovo #2026",
+      "hashtags": "#nechio #anonovo #2026 #felizanonovo",
+      "priority": "high",
+      "categoria": "feriado"
+    },
+    {
+      "id": "jan_20_2026_acai",
+      "date": "2026-01-20",
+      "time": "06:30",
+      "type": "reel",
+      "product": "Açaí Premium",
+      "caption": "🎉 HOJE É DIA DO AÇAÍ! 🎉\n\n20 de Janeiro - O dia MAIS importante para a Nechio! 💜\n\nO açaí que impulsiona seu negócio:\n✅ 100% natural e sem conservantes\n✅ Textura cremosa perfeita\n✅ Sabor autêntico da Amazônia\n✅ Entrega rápida e pontual\n\n📞 Garanta já seu estoque!\n\n#nechio #diadoacai #acai #distribuidora #foodservice",
+      "hashtags": "#nechio #diadoacai #acai #acaipremium #distribuidora #foodservice #riodejaneiro #ceasa",
+      "priority": "critical",
+      "categoria": "data_comemorativa"
+    },
+    {
+      "id": "fev_16_2026_carnaval",
+      "date": "2026-02-16",
+      "time": "06:30",
+      "type": "reel",
+      "product": "Açaí + Polpas",
+      "caption": "🎭 CARNAVAL CHEGOU! 🎭\n\nGaranta energia pro bloco com Nechio! 🎉\n\n🥤 Polpas de frutas para drinks refrescantes\n🍦 Açaí para recarregar as baterias\n🍔 Snacks congelados pro lanche rápido\n\n📦 Estoque garantido para TODA a folia!\n\n#nechio #carnaval #carnaval2026 #blocoderua #distribuidora",
+      "hashtags": "#nechio #carnaval #carnaval2026 #blocoderua #acai #polpas #distribuidora #foodservice",
+      "priority": "critical",
+      "categoria": "evento_sazonal"
+    },
+    {
+      "id": "fev_28_2026_nutricao",
+      "date": "2026-02-28",
+      "time": "06:30",
+      "type": "photo",
+      "product": "Polpas de Frutas",
+      "caption": "🥗 DIA MUNDIAL DA NUTRIÇÃO 🥗\n\nSaúde começa com escolhas inteligentes! 💚\n\nNossas polpas de frutas:\n✅ 100% natural\n✅ Sem açúcar adicionado\n✅ Ricas em vitaminas\n✅ Perfeitas para sucos e vitaminas\n\n#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel",
+      "hashtags": "#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel #vidasaudavel",
+      "priority": "medium",
+      "categoria": "data_comemorativa"
+    }
+  ]
 }
