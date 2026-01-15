@@ -1204,9 +1204,15 @@ function renderPosts() {
 // MODAL DE POST
 // ============================================
 function openModal(id) {
+    console.log('🔍 openModal chamado:', id, 'currentMonth:', currentMonth);
     const posts = POSTS[currentMonth] || [];
+    console.log('📦 Posts do mês:', posts.length);
     currentPost = posts.find(p => p.id === id);
-    if (!currentPost) return;
+    console.log('✅ Post encontrado:', currentPost);
+    if (!currentPost) {
+        console.error('❌ Post não encontrado!', id);
+        return;
+    }
     
     document.getElementById('modalBadge').textContent = `${currentPost.type || 'POST'} · ${currentPost.format || ''}`;
     document.getElementById('modalTitle').textContent = currentPost.title;
