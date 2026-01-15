@@ -1,55 +1,55 @@
 {
-  "_INSTRUCOES": "PREENCHA TODOS OS CAMPOS ABAIXO COM DADOS DO CLIENTE",
+  "_INSTRUCOES": "CONFIGURAÇÃO NECHIO CONGELADOS",
   "_VERSAO": "1.0.0",
   "_TEMPLATE": "CONTENT-STUDIO-TEMPLATE by Kendy Produções",
 
   "cliente": {
-    "id": "CLIENTE_ID",
-    "nome": "NOME DA EMPRESA",
-    "nomeCompleto": "NOME COMPLETO DA EMPRESA LTDA",
-    "slogan": "Slogan ou tagline da empresa",
+    "id": "nechio",
+    "nome": "Nechio Congelados",
+    "nomeCompleto": "Nechio Distribuidora de Alimentos Congelados",
+    "slogan": "Qualidade que congela, sabor que derrete",
     "subtitulo": "Content Studio 2026",
     "ano": 2026,
-    "anoFundacao": 2000,
-    "aniversario": "01-01"
+    "anoFundacao": 2002,
+    "aniversario": "03-15"
   },
 
   "contato": {
-    "telefone": "(00) 0000-0000",
-    "whatsapp": "5500000000000",
-    "email": "contato@empresa.com.br",
-    "site": "https://www.empresa.com.br"
+    "telefone": "(21) 2580-9035",
+    "whatsapp": "5521994015541",
+    "email": "comercial@nechio.com.br",
+    "site": "https://www.nechio.com.br"
   },
 
   "endereco": {
-    "cidade": "Cidade",
-    "estado": "UF",
-    "completo": "Rua Exemplo, 123 - Bairro - Cidade/UF"
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "completo": "CEASA-RJ, Pavilhão 31 - Irajá - Rio de Janeiro/RJ"
   },
 
   "redesSociais": {
-    "instagram": "@empresa",
-    "facebook": "empresa",
-    "linkedin": "empresa",
-    "youtube": "@empresa",
-    "tiktok": "@empresa"
+    "instagram": "@nechiocongelados",
+    "facebook": "nechiocongelados",
+    "linkedin": "nechio-congelados",
+    "youtube": "@nechiocongelados",
+    "tiktok": "@nechiocongelados"
   },
 
   "cores": {
-    "primaria": "#C41E3A",
-    "secundaria": "#1a1a1a",
-    "destaque": "#C9A227",
-    "sucesso": "#22C55E",
+    "primaria": "#A01B4F",
+    "secundaria": "#7AC142",
+    "destaque": "#E91E63",
+    "sucesso": "#7AC142",
     "erro": "#EF4444",
     "alerta": "#F59E0B",
-    "info": "#3B82F6",
+    "info": "#9C27B0",
     "texto": "#FFFFFF",
-    "textoSecundario": "#888888",
+    "textoSecundario": "#D4A8B7",
     "fundo": "#0a0a0a",
-    "fundo2": "#111111",
-    "fundo3": "#1a1a1a",
-    "fundo4": "#222222",
-    "borda": "#333333"
+    "fundo2": "#1a0a10",
+    "fundo3": "#2a1520",
+    "fundo4": "#3a2030",
+    "borda": "#5a3545"
   },
 
   "arquivos": {
@@ -61,7 +61,7 @@
   "webhook": {
     "url": "",
     "ativo": false,
-    "clienteId": "CLIENTE_ID"
+    "clienteId": "nechio"
   },
 
   "configuracoes": {
@@ -82,7 +82,10 @@
     "CAMPANHA",
     "PRODUTO",
     "BASTIDORES",
-    "DEPOIMENTO"
+    "DEPOIMENTO",
+    "AÇAÍ",
+    "SORVETE",
+    "POLPA DE FRUTAS"
   ],
 
   "formatosPosts": [
@@ -101,18 +104,18 @@
   ],
 
   "prioridades": [
-    {"id": "altissima", "nome": "Altíssima", "cor": "#C41E3A"},
-    {"id": "alta", "nome": "Alta", "cor": "#C9A227"},
-    {"id": "media", "nome": "Média", "cor": "#3B82F6"},
+    {"id": "altissima", "nome": "Altíssima", "cor": "#A01B4F"},
+    {"id": "alta", "nome": "Alta", "cor": "#E91E63"},
+    {"id": "media", "nome": "Média", "cor": "#9C27B0"},
     {"id": "baixa", "nome": "Baixa", "cor": "#888888"}
   ],
 
   "statusPosts": [
     {"id": "pendente", "nome": "Pendente", "cor": "#888888"},
     {"id": "em_producao", "nome": "Em Produção", "cor": "#F59E0B"},
-    {"id": "aguardando_aprovacao", "nome": "Aguardando Aprovação", "cor": "#3B82F6"},
-    {"id": "aprovado", "nome": "Aprovado", "cor": "#22C55E"},
-    {"id": "publicado", "nome": "Publicado", "cor": "#8B5CF6"},
-    {"id": "completo", "nome": "Completo", "cor": "#22C55E"}
+    {"id": "aguardando_aprovacao", "nome": "Aguardando Aprovação", "cor": "#9C27B0"},
+    {"id": "aprovado", "nome": "Aprovado", "cor": "#7AC142"},
+    {"id": "publicado", "nome": "Publicado", "cor": "#E91E63"},
+    {"id": "completo", "nome": "Completo", "cor": "#7AC142"}
   ]
 }
