@@ -1,13 +1,13 @@
 {
   "posts": [
     {
-      "id": "test-final-001",
+      "id": "test-token-001",
       "date": "2026-01-15",
       "time": "06:30",
       "type": "photo",
-      "caption": "✅ NECHIO Content Studio FUNCIONANDO!",
-      "product": "Teste Final",
-      "hashtags": "#nechio #sucesso"
+      "caption": "✅ Teste Final - Token GitHub Atualizado",
+      "product": "Teste Sistema",
+      "hashtags": "#nechio #teste"
     }
   ],
   "lastUpdate": "2026-01-15T14:55:00Z"
