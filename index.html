@@ -1334,17 +1334,27 @@ function exportData() {
 
 function importData(event) {
     const file = event.target.files[0];
-    if (!file) return;
+    if (!file) {
+        console.log('Nenhum arquivo selecionado');
+        return;
+    }
+    
+    console.log('📁 Importando arquivo:', file.name);
     
     const reader = new FileReader();
     reader.onload = function(e) {
         try {
             const imported = JSON.parse(e.target.result);
             
+            console.log('📦 JSON parseado:', imported);
+            
             // Validar estrutura básica
             if (!imported.months || !imported.posts) {
+                console.error('❌ Estrutura inválida:', imported);
                 throw new Error('JSON inválido: falta months ou posts');
             }
+            
+            console.log('✅ Validação OK!');
             
             DATA = imported;
             POSTS = DATA.posts || {};
