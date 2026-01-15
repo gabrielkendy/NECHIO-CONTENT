@@ -1,45 +1,967 @@
 {
   "version": "2.0",
-  "lastUpdate": "",
+  "lastUpdate": "2026-01-15",
   "config": {
-    "companyName": "NOME_DA_EMPRESA",
+    "companyName": "Nechio Congelados",
     "year": 2026,
-    "foundedYear": 2000,
-    "anniversary": "01-01"
+    "foundedYear": 2002,
+    "anniversary": "03-15"
   },
   "months": [
-    {"id": 1, "name": "Janeiro", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 2, "name": "Fevereiro", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 3, "name": "Março", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 4, "name": "Abril", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 5, "name": "Maio", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 6, "name": "Junho", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 7, "name": "Julho", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 8, "name": "Agosto", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 9, "name": "Setembro", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 10, "name": "Outubro", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 11, "name": "Novembro", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0},
-    {"id": 12, "name": "Dezembro", "shortTheme": "TEMA", "desc": "Descrição do mês", "posts": 0, "stories": 0}
+    {"id": 1, "name": "Janeiro", "shortTheme": "VERÃO", "desc": "Verão | Energia | Renovação - Destaque: DIA DO AÇAÍ (20/jan)", "posts": 8, "stories": 15},
+    {"id": 2, "name": "Fevereiro", "shortTheme": "CARNAVAL", "desc": "Carnaval | Alegria | Brasilidade - Pico de Vendas Açaí", "posts": 10, "stories": 20},
+    {"id": 3, "name": "Março", "shortTheme": "OUTONO", "desc": "Outono | Frutas | Saúde - Dia Internacional da Mulher (08/mar)", "posts": 8, "stories": 12},
+    {"id": 4, "name": "Abril", "shortTheme": "PÁSCOA", "desc": "Páscoa | Chocolate | Família - Dia do Churrasco (24/abr)", "posts": 10, "stories": 18},
+    {"id": 5, "name": "Maio", "shortTheme": "FAMÍLIA", "desc": "Família | Gratidão | Conforto - Mês GASTRONÔMICO (Mães + 4 datas)", "posts": 12, "stories": 20},
+    {"id": 6, "name": "Junho", "shortTheme": "FESTA JUNINA", "desc": "Festa Junina | Tradição | São João - Namorados (12/jun)", "posts": 10, "stories": 18},
+    {"id": 7, "name": "Julho", "shortTheme": "INVERNO", "desc": "Inverno | Conforto | Mês GASTRONÔMICO (Pizza + Chocolate + Hot Dog)", "posts": 12, "stories": 15},
+    {"id": 8, "name": "Agosto", "shortTheme": "DIA DOS PAIS", "desc": "Dia dos Pais | Força | Gratidão - Culinária Brasileira (08/ago)", "posts": 10, "stories": 15},
+    {"id": 9, "name": "Setembro", "shortTheme": "PRIMAVERA", "desc": "Primavera | Vida | DIA DO SORVETE (23/set) + Setembro Amarelo", "posts": 12, "stories": 20},
+    {"id": 10, "name": "Outubro", "shortTheme": "OUTUBRO ROSA", "desc": "Outubro Rosa | Prevenção | Dia do Cozinheiro (04/out) + Halloween", "posts": 10, "stories": 18},
+    {"id": 11, "name": "Novembro", "shortTheme": "BLACK FRIDAY", "desc": "Novembro Azul | BLACK FRIDAY (27/nov) | Preparação Natal", "posts": 12, "stories": 25},
+    {"id": 12, "name": "Dezembro", "shortTheme": "NATAL", "desc": "Natal | Fim de Ano | Celebração - Pico de Vendas Ceia", "posts": 15, "stories": 30}
   ],
   "posts": {
-    "1": [],
-    "2": [],
-    "3": [],
-    "4": [],
-    "5": [],
-    "6": [],
-    "7": [],
-    "8": [],
-    "9": [],
-    "10": [],
-    "11": [],
-    "12": []
+    "1": [
+      {
+        "id": "jan-001",
+        "day": 1,
+        "title": "Feliz Ano Novo 2026!",
+        "description": "Post comemorativo de Ano Novo - Fechamento da empresa",
+        "format": "Post estático",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#AnoNovo #2026 #NechioCongelados #FelizAnoNovo"
+      },
+      {
+        "id": "jan-002",
+        "day": 2,
+        "title": "Voltamos! Estoque renovado para 2026",
+        "description": "Comunicado de retorno das atividades pós-feriado",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Nechio #Voltamos #EstoqueNovo"
+      },
+      {
+        "id": "jan-003",
+        "day": 5,
+        "title": "Verão Nechio - Açaí gelado para refrescar",
+        "description": "Post de produtos de verão - açaí, sorvetes, polpas geladas",
+        "format": "Carrossel 5 slides",
+        "category": "PRODUTO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Verão #Açaí #NechioCongelados #Refrescante"
+      },
+      {
+        "id": "jan-004",
+        "day": 10,
+        "title": "Combos de Verão - Lucre mais!",
+        "description": "Carrossel educativo sobre margens de lucro com açaí no verão",
+        "format": "Carrossel 7 slides",
+        "category": "EDUCATIVO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Nechio #Lucro #Verão #FoodService"
+      },
+      {
+        "id": "jan-005",
+        "day": 15,
+        "title": "Contagem regressiva - Dia do Açaí vem aí!",
+        "description": "Aquecimento para o Dia do Açaí (20/jan)",
+        "format": "Reels 30s",
+        "category": "CAMPANHA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDoAçaí #Nechio #20DeJaneiro #Açaí"
+      },
+      {
+        "id": "jan-006",
+        "day": 20,
+        "title": "🍇 DIA DO AÇAÍ - Celebre com a Nechio!",
+        "description": "CAMPANHA MÁXIMA - Data mais importante do ano para o core business",
+        "format": "Carrossel 10 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDoAçaí #Açaí #Nechio #20DeJaneiro #CoreBusiness"
+      },
+      {
+        "id": "jan-007",
+        "day": 25,
+        "title": "Bastidores Nechio - Nossa estrutura de frio",
+        "description": "Vídeo mostrando câmaras frias e estrutura do CEASA",
+        "format": "Reels 60s",
+        "category": "BASTIDORES",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Nechio #Bastidores #CEASA #Qualidade"
+      },
+      {
+        "id": "jan-008",
+        "day": 30,
+        "title": "Prepare-se para o Carnaval!",
+        "description": "Aquecimento para fevereiro - garantir estoque para blocos",
+        "format": "Post estático",
+        "category": "CAMPANHA",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Carnaval #Nechio #PrepareSe #FoodService"
+      }
+    ],
+    "2": [
+      {
+        "id": "fev-001",
+        "day": 1,
+        "title": "Fevereiro Carnavalesco Nechio!",
+        "description": "Banner temático de carnaval - explosão de cores",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Carnaval #Nechio #Fevereiro #Festa"
+      },
+      {
+        "id": "fev-002",
+        "day": 5,
+        "title": "Açaí pro pique do bloco!",
+        "description": "Reels com energia de carnaval - açaí para blocos",
+        "format": "Reels 30s",
+        "category": "PRODUTO",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Carnaval #Açaí #Bloco #Energia #Nechio"
+      },
+      {
+        "id": "fev-003",
+        "day": 10,
+        "title": "Combos Carnaval - Garanta seu estoque!",
+        "description": "Urgência pré-carnaval - combos especiais para blocos e festas",
+        "format": "Carrossel 5 slides",
+        "category": "PROMOCIONAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Carnaval #Combos #Nechio #Urgência"
+      },
+      {
+        "id": "fev-004",
+        "day": 13,
+        "title": "Última chamada pré-Carnaval!",
+        "description": "Story de urgência - últimos pedidos antes do feriado",
+        "format": "Stories Sequência",
+        "category": "PROMOCIONAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Carnaval #UltimaChamada #Nechio"
+      },
+      {
+        "id": "fev-005",
+        "day": 16,
+        "title": "🎭 CARNAVAL NECHIO - Bom Carnaval!",
+        "description": "Post comemorativo de Carnaval - fechamento empresa",
+        "format": "Post estático",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Carnaval #BomCarnaval #Nechio #Feriado"
+      },
+      {
+        "id": "fev-006",
+        "day": 18,
+        "title": "Voltamos! Pós-Carnaval com energia renovada",
+        "description": "Comunicado de retorno das atividades",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Nechio #Voltamos #PósCarnaval"
+      },
+      {
+        "id": "fev-007",
+        "day": 23,
+        "title": "Reposição de estoque pós-Carnaval",
+        "description": "Carrossel com produtos para repor após o feriado",
+        "format": "Carrossel 5 slides",
+        "category": "PRODUTO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Nechio #Reposição #Estoque #FoodService"
+      },
+      {
+        "id": "fev-008",
+        "day": 28,
+        "title": "Dia Mundial da Nutrição - Açaí é saúde!",
+        "description": "Post educativo sobre benefícios nutricionais do açaí",
+        "format": "Carrossel 7 slides",
+        "category": "EDUCATIVO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDaNutrição #Açaí #Saúde #Nechio"
+      }
+    ],
+    "3": [
+      {
+        "id": "mar-001",
+        "day": 1,
+        "title": "Março - Mês da Mulher na Nechio",
+        "description": "Banner temático de março - tons de roxo/laranja, empoderamento",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Março #MêsDaMulher #Nechio"
+      },
+      {
+        "id": "mar-002",
+        "day": 8,
+        "title": "💜 Dia Internacional da Mulher",
+        "description": "Homenagem às mulheres - destaque para mulheres empreendedoras",
+        "format": "Carrossel 5 slides",
+        "category": "COMEMORATIVA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDaMulher #8DeMarço #Nechio #Empoderamento"
+      },
+      {
+        "id": "mar-003",
+        "day": 12,
+        "title": "Mulheres na gastronomia - Cases de sucesso",
+        "description": "Depoimentos de clientes mulheres empreendedoras",
+        "format": "Reels 60s",
+        "category": "DEPOIMENTO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Mulheres #Gastronomia #Nechio #Sucesso"
+      },
+      {
+        "id": "mar-004",
+        "day": 20,
+        "title": "Início do Outono - Frutas da estação",
+        "description": "Post sobre frutas de outono disponíveis na Nechio",
+        "format": "Carrossel 5 slides",
+        "category": "PRODUTO",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Outono #Frutas #Nechio #Estação"
+      },
+      {
+        "id": "mar-005",
+        "day": 25,
+        "title": "Polpas de frutas - Nutrição e praticidade",
+        "description": "Carrossel educativo sobre benefícios das polpas",
+        "format": "Carrossel 7 slides",
+        "category": "EDUCATIVO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Polpas #Frutas #Nechio #Saúde"
+      }
+    ],
+    "4": [
+      {
+        "id": "abr-001",
+        "day": 1,
+        "title": "Abril - Mês da Páscoa na Nechio",
+        "description": "Banner temático de Páscoa - ovos, chocolate, tons pastéis",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Abril #Páscoa #Nechio"
+      },
+      {
+        "id": "abr-002",
+        "day": 7,
+        "title": "Dia Mundial da Saúde - Alimentação saudável",
+        "description": "Post educativo sobre alimentação saudável com produtos Nechio",
+        "format": "Carrossel 5 slides",
+        "category": "EDUCATIVO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDaSaúde #Nechio #AlimentaçãoSaudável"
+      },
+      {
+        "id": "abr-003",
+        "day": 10,
+        "title": "Sobremesas de Páscoa - Prepare-se!",
+        "description": "Carrossel com sorvetes de chocolate, açaí com Nutella",
+        "format": "Carrossel 7 slides",
+        "category": "PRODUTO",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Páscoa #Sobremesas #Chocolate #Nechio"
+      },
+      {
+        "id": "abr-004",
+        "day": 12,
+        "title": "🐰 FELIZ PÁSCOA!",
+        "description": "Post comemorativo de Páscoa",
+        "format": "Post estático",
+        "category": "COMEMORATIVA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#FelizPáscoa #Páscoa #Nechio"
+      },
+      {
+        "id": "abr-005",
+        "day": 19,
+        "title": "Paixão de Cristo - Estaremos fechados",
+        "description": "Aviso de fechamento feriado",
+        "format": "Stories",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Feriado #Nechio"
+      },
+      {
+        "id": "abr-006",
+        "day": 21,
+        "title": "Tiradentes - Estaremos fechados",
+        "description": "Aviso de fechamento feriado",
+        "format": "Stories",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Tiradentes #Feriado #Nechio"
+      },
+      {
+        "id": "abr-007",
+        "day": 24,
+        "title": "🔥 DIA DO CHURRASCO - Carnes Nechio!",
+        "description": "CAMPANHA FORTE - Destaque para carnes e produtos para churrasco",
+        "format": "Carrossel 10 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDoChurrasco #Churrasco #Nechio #Carnes"
+      }
+    ],
+    "5": [
+      {
+        "id": "mai-001",
+        "day": 1,
+        "title": "Dia do Trabalhador - Fechados",
+        "description": "Aviso de fechamento + homenagem aos trabalhadores",
+        "format": "Post estático",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoTrabalhador #1DeMaio #Nechio"
+      },
+      {
+        "id": "mai-002",
+        "day": 5,
+        "title": "🍊 DIA DO SUCO NATURAL",
+        "description": "Destaque para polpas de frutas naturais",
+        "format": "Carrossel 7 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaSucoNatural #Polpas #Nechio #Saúde"
+      },
+      {
+        "id": "mai-003",
+        "day": 8,
+        "title": "Dia das Mães - Prepare algo especial!",
+        "description": "Aquecimento para Dia das Mães - kits especiais",
+        "format": "Carrossel 5 slides",
+        "category": "CAMPANHA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDasMães #Mãe #Nechio"
+      },
+      {
+        "id": "mai-004",
+        "day": 10,
+        "title": "💐 FELIZ DIA DAS MÃES!",
+        "description": "CAMPANHA MÁXIMA - Homenagem às mães",
+        "format": "Reels 30s",
+        "category": "COMEMORATIVA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDasMães #FelizDiaDasMães #Nechio"
+      },
+      {
+        "id": "mai-005",
+        "day": 19,
+        "title": "🍽️ DIA DO RESTAURANTE",
+        "description": "Homenagem aos clientes restaurantes parceiros",
+        "format": "Carrossel 5 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoRestaurante #FoodService #Nechio"
+      },
+      {
+        "id": "mai-006",
+        "day": 24,
+        "title": "🌽 DIA DO MILHO",
+        "description": "Destaque para produtos de milho - milho verde",
+        "format": "Post estático",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoMilho #MilhoVerde #Nechio"
+      },
+      {
+        "id": "mai-007",
+        "day": 28,
+        "title": "🍔 DIA DO HAMBÚRGUER - Hambúrgueres Nechio!",
+        "description": "CAMPANHA FORTE - Destaque para hambúrgueres artesanais",
+        "format": "Carrossel 10 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDoHambúrguer #Hambúrguer #Nechio"
+      }
+    ],
+    "6": [
+      {
+        "id": "jun-001",
+        "day": 1,
+        "title": "Junho - Mês Junino na Nechio!",
+        "description": "Banner temático junino - bandeirinhas, fogueira, xadrez",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#FestaJunina #Junho #Nechio"
+      },
+      {
+        "id": "jun-002",
+        "day": 5,
+        "title": "Dia do Meio Ambiente - Sustentabilidade Nechio",
+        "description": "Post sobre práticas sustentáveis da empresa",
+        "format": "Carrossel 5 slides",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#MeioAmbiente #Sustentabilidade #Nechio"
+      },
+      {
+        "id": "jun-003",
+        "day": 11,
+        "title": "Corpus Christi - Ponto Facultativo",
+        "description": "Aviso sobre funcionamento",
+        "format": "Stories",
+        "category": "FERIADO",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#CorpusChristi #Nechio"
+      },
+      {
+        "id": "jun-004",
+        "day": 12,
+        "title": "💕 FELIZ DIA DOS NAMORADOS!",
+        "description": "Post comemorativo Dia dos Namorados",
+        "format": "Post estático",
+        "category": "COMEMORATIVA",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDosNamorados #Amor #Nechio"
+      },
+      {
+        "id": "jun-005",
+        "day": 15,
+        "title": "Arraiá Nechio - Produtos para sua festa!",
+        "description": "Carrossel com produtos típicos juninos",
+        "format": "Carrossel 7 slides",
+        "category": "PRODUTO",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#FestaJunina #Arraiá #Nechio #SãoJoão"
+      },
+      {
+        "id": "jun-006",
+        "day": 21,
+        "title": "Início do Inverno - Comfort food",
+        "description": "Post sobre produtos de inverno",
+        "format": "Post estático",
+        "category": "PRODUTO",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Inverno #ComfortFood #Nechio"
+      },
+      {
+        "id": "jun-007",
+        "day": 24,
+        "title": "🔥 FELIZ SÃO JOÃO!",
+        "description": "Post comemorativo São João - auge das festas juninas",
+        "format": "Reels 30s",
+        "category": "COMEMORATIVA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#SãoJoão #FestaJunina #Nechio #Tradição"
+      }
+    ],
+    "7": [
+      {
+        "id": "jul-001",
+        "day": 1,
+        "title": "Julho - Mês Gastronômico Nechio!",
+        "description": "Banner temático - tons frios, conforto, comidas quentinhas",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Julho #MêsGastronômico #Nechio"
+      },
+      {
+        "id": "jul-002",
+        "day": 7,
+        "title": "🍫 DIA DO CHOCOLATE - Doces Nechio!",
+        "description": "CAMPANHA FORTE - Sorvetes de chocolate, sobremesas",
+        "format": "Carrossel 10 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDoChocolate #Chocolate #Nechio #Sorvete"
+      },
+      {
+        "id": "jul-003",
+        "day": 8,
+        "title": "Dia do Padeiro - Homenagem",
+        "description": "Homenagem aos padeiros parceiros",
+        "format": "Post estático",
+        "category": "COMEMORATIVA",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#DiaDoPadeiro #Padaria #Nechio"
+      },
+      {
+        "id": "jul-004",
+        "day": 10,
+        "title": "🍕 DIA DA PIZZA - Queijos e ingredientes!",
+        "description": "CAMPANHA FORTE - Queijos, molhos, ingredientes para pizza",
+        "format": "Carrossel 10 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDaPizza #Pizza #Nechio #Queijo"
+      },
+      {
+        "id": "jul-005",
+        "day": 20,
+        "title": "Dia do Amigo - Parceria Nechio",
+        "description": "Homenagem aos clientes parceiros",
+        "format": "Carrossel 5 slides",
+        "category": "COMEMORATIVA",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoAmigo #Parceria #Nechio"
+      },
+      {
+        "id": "jul-006",
+        "day": 23,
+        "title": "🌭 DIA DO CACHORRO-QUENTE",
+        "description": "Destaque para salsichas e pães de hot dog",
+        "format": "Carrossel 7 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoCachorroQuente #HotDog #Nechio"
+      }
+    ],
+    "8": [
+      {
+        "id": "ago-001",
+        "day": 1,
+        "title": "Agosto - Mês dos Pais na Nechio!",
+        "description": "Banner temático - tons azul/cinza, churrasco, força",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Agosto #DiaDossPais #Nechio"
+      },
+      {
+        "id": "ago-002",
+        "day": 5,
+        "title": "Prepare o Dia dos Pais - Churrasco!",
+        "description": "Aquecimento para Dia dos Pais - carnes especiais",
+        "format": "Carrossel 5 slides",
+        "category": "CAMPANHA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDossPais #Churrasco #Nechio"
+      },
+      {
+        "id": "ago-003",
+        "day": 8,
+        "title": "🇧🇷 DIA DA CULINÁRIA BRASILEIRA",
+        "description": "Destaque para produtos típicos brasileiros",
+        "format": "Carrossel 7 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#CulinariaBrasileira #Brasil #Nechio"
+      },
+      {
+        "id": "ago-004",
+        "day": 9,
+        "title": "👨 FELIZ DIA DOS PAIS!",
+        "description": "CAMPANHA MÁXIMA - Homenagem aos pais",
+        "format": "Reels 30s",
+        "category": "COMEMORATIVA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDossPais #FelizDiaDosPais #Nechio"
+      },
+      {
+        "id": "ago-005",
+        "day": 15,
+        "title": "🥟 DIA DO PASTEL",
+        "description": "Destaque para massas de pastel e recheios",
+        "format": "Carrossel 5 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoPastel #Pastel #Nechio"
+      }
+    ],
+    "9": [
+      {
+        "id": "set-001",
+        "day": 1,
+        "title": "Setembro Amarelo + Primavera Nechio!",
+        "description": "Banner temático - flores, tons amarelos, vida",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#SetembroAmarelo #Primavera #Nechio"
+      },
+      {
+        "id": "set-002",
+        "day": 7,
+        "title": "Independência do Brasil - Fechados",
+        "description": "Aviso de fechamento feriado",
+        "format": "Post estático",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#7DeSetembro #Independência #Nechio"
+      },
+      {
+        "id": "set-003",
+        "day": 12,
+        "title": "🥤 DIA DO MILK-SHAKE",
+        "description": "Destaque para sorvetes e bases para milk-shake",
+        "format": "Carrossel 5 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoMilkShake #MilkShake #Nechio"
+      },
+      {
+        "id": "set-004",
+        "day": 15,
+        "title": "💚 DIA DO CLIENTE - Obrigado parceiros!",
+        "description": "CAMPANHA FORTE - Homenagem aos clientes",
+        "format": "Reels 30s",
+        "category": "COMEMORATIVA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDoCliente #Obrigado #Nechio #Parceria"
+      },
+      {
+        "id": "set-005",
+        "day": 22,
+        "title": "Início da Primavera - Renove seu cardápio!",
+        "description": "Post sobre produtos de primavera",
+        "format": "Carrossel 5 slides",
+        "category": "PRODUTO",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Primavera #Cardápio #Nechio"
+      },
+      {
+        "id": "set-006",
+        "day": 23,
+        "title": "🍨 DIA DO SORVETE - Core Business Nechio!",
+        "description": "CAMPANHA MÁXIMA - Segunda data mais importante do ano",
+        "format": "Carrossel 10 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaDoSorvete #Sorvete #Nechio #CoreBusiness"
+      }
+    ],
+    "10": [
+      {
+        "id": "out-001",
+        "day": 1,
+        "title": "Outubro Rosa na Nechio!",
+        "description": "Banner temático - tons rosa, conscientização",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#OutubroRosa #Prevenção #Nechio"
+      },
+      {
+        "id": "out-002",
+        "day": 4,
+        "title": "👨‍🍳 DIA DO COZINHEIRO",
+        "description": "Homenagem aos chefs e cozinheiros parceiros",
+        "format": "Carrossel 5 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDoCozinheiro #Chef #Nechio"
+      },
+      {
+        "id": "out-003",
+        "day": 12,
+        "title": "Dia das Crianças + N. Sra. Aparecida - Fechados",
+        "description": "Aviso de fechamento feriado",
+        "format": "Post estático",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDasCrianças #Feriado #Nechio"
+      },
+      {
+        "id": "out-004",
+        "day": 16,
+        "title": "🍽️ DIA MUNDIAL DA ALIMENTAÇÃO",
+        "description": "CAMPANHA FORTE - Destaque para alimentação de qualidade",
+        "format": "Carrossel 7 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#DiaAlimentação #Nutrição #Nechio"
+      },
+      {
+        "id": "out-005",
+        "day": 31,
+        "title": "🎃 HALLOWEEN - Doces ou travessuras?",
+        "description": "Post temático Halloween - sorvetes e doces",
+        "format": "Reels 30s",
+        "category": "COMEMORATIVA",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Halloween #Nechio #Doces"
+      }
+    ],
+    "11": [
+      {
+        "id": "nov-001",
+        "day": 1,
+        "title": "Novembro Azul na Nechio!",
+        "description": "Banner temático - tons azul, conscientização masculina",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#NovembroAzul #Prevenção #Nechio"
+      },
+      {
+        "id": "nov-002",
+        "day": 2,
+        "title": "Finados - Fechados",
+        "description": "Aviso de fechamento feriado",
+        "format": "Stories",
+        "category": "FERIADO",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Finados #Feriado #Nechio"
+      },
+      {
+        "id": "nov-003",
+        "day": 15,
+        "title": "Proclamação da República - Fechados",
+        "description": "Aviso de fechamento feriado",
+        "format": "Stories",
+        "category": "FERIADO",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#15DeNovembro #Feriado #Nechio"
+      },
+      {
+        "id": "nov-004",
+        "day": 20,
+        "title": "Dia da Consciência Negra - Feriado RJ",
+        "description": "Aviso de fechamento feriado estadual",
+        "format": "Post estático",
+        "category": "FERIADO",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#ConsciênciaNegra #Feriado #Nechio #RJ"
+      },
+      {
+        "id": "nov-005",
+        "day": 23,
+        "title": "Esquenta Black Friday - Ofertas antecipadas!",
+        "description": "Aquecimento para Black Friday",
+        "format": "Carrossel 7 slides",
+        "category": "PROMOCIONAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#BlackFriday #Ofertas #Nechio"
+      },
+      {
+        "id": "nov-006",
+        "day": 27,
+        "title": "🖤 BLACK FRIDAY NECHIO - MEGA OFERTAS!",
+        "description": "CAMPANHA MÁXIMA - Descontos especiais em todo catálogo",
+        "format": "Carrossel 10 slides",
+        "category": "PROMOCIONAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#BlackFriday #Nechio #Ofertas #Descontos"
+      },
+      {
+        "id": "nov-007",
+        "day": 30,
+        "title": "Prepare-se para o Natal - Encomendas abertas!",
+        "description": "Aquecimento para dezembro - kits de ceia",
+        "format": "Post estático",
+        "category": "CAMPANHA",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Natal #Encomendas #Nechio"
+      }
+    ],
+    "12": [
+      {
+        "id": "dez-001",
+        "day": 1,
+        "title": "Dezembro Natalino na Nechio!",
+        "description": "Banner temático - vermelho/verde, árvore de Natal",
+        "format": "Post estático",
+        "category": "INSTITUCIONAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Dezembro #Natal #Nechio"
+      },
+      {
+        "id": "dez-002",
+        "day": 5,
+        "title": "Kits de Ceia - Monte sua ceia completa!",
+        "description": "Carrossel com kits de ceia de Natal",
+        "format": "Carrossel 7 slides",
+        "category": "PRODUTO",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Natal #Ceia #Nechio #KitsDeNatal"
+      },
+      {
+        "id": "dez-003",
+        "day": 8,
+        "title": "🍳 DIA DA CULINÁRIA",
+        "description": "Destaque para produtos culinários",
+        "format": "Carrossel 5 slides",
+        "category": "DATA ESPECIAL",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#DiaDaCulinária #Gastronomia #Nechio"
+      },
+      {
+        "id": "dez-004",
+        "day": 15,
+        "title": "Última semana de encomendas de Natal!",
+        "description": "Urgência - prazo final para encomendas",
+        "format": "Reels 30s",
+        "category": "PROMOCIONAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Natal #UltimaSemana #Nechio #Urgência"
+      },
+      {
+        "id": "dez-005",
+        "day": 20,
+        "title": "Chester, Tender, Peru - Tudo para sua ceia!",
+        "description": "Destaque para produtos tradicionais de Natal",
+        "format": "Carrossel 10 slides",
+        "category": "PRODUTO",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Natal #Chester #Tender #Peru #Nechio"
+      },
+      {
+        "id": "dez-006",
+        "day": 21,
+        "title": "Início do Verão - Açaí + Ceia!",
+        "description": "Combinação de verão com época natalina",
+        "format": "Post estático",
+        "category": "PRODUTO",
+        "priority": "media",
+        "status": "pendente",
+        "hashtags": "#Verão #Açaí #Natal #Nechio"
+      },
+      {
+        "id": "dez-007",
+        "day": 24,
+        "title": "Véspera de Natal - Última chamada!",
+        "description": "Urgência máxima - últimas entregas",
+        "format": "Stories Sequência",
+        "category": "PROMOCIONAL",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#Natal #UltimaChamada #Nechio"
+      },
+      {
+        "id": "dez-008",
+        "day": 25,
+        "title": "🎄 FELIZ NATAL!",
+        "description": "Post comemorativo de Natal - fechamento",
+        "format": "Post estático",
+        "category": "FERIADO",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#FelizNatal #Natal #Nechio"
+      },
+      {
+        "id": "dez-009",
+        "day": 28,
+        "title": "Prepare-se para o Réveillon!",
+        "description": "Produtos para festa de fim de ano",
+        "format": "Carrossel 5 slides",
+        "category": "CAMPANHA",
+        "priority": "alta",
+        "status": "pendente",
+        "hashtags": "#Réveillon #AnoNovo #Nechio"
+      },
+      {
+        "id": "dez-010",
+        "day": 31,
+        "title": "🎆 FELIZ ANO NOVO!",
+        "description": "Post comemorativo de Ano Novo + agradecimento 2026",
+        "format": "Reels 30s",
+        "category": "COMEMORATIVA",
+        "priority": "altissima",
+        "status": "pendente",
+        "hashtags": "#FelizAnoNovo #2027 #Obrigado #Nechio"
+      }
+    ]
   },
   "priorities": {
-    "altissima": [],
-    "alta": [],
-    "media": [],
+    "altissima": ["jan-006", "fev-002", "fev-003", "abr-007", "mai-004", "mai-007", "jul-002", "jul-004", "ago-004", "set-004", "set-006", "out-004", "nov-006", "dez-005", "dez-008", "dez-010"],
+    "alta": ["jan-001", "jan-003", "jan-004", "jan-005", "jan-008", "fev-001", "fev-007", "fev-008", "mar-001", "mar-002", "mar-003", "mar-005", "abr-001", "abr-002", "abr-003", "abr-004", "mai-002", "mai-003", "mai-005", "mai-006", "jun-001", "jun-002", "jun-004", "jun-007", "jul-001", "jul-005", "jul-006", "ago-001", "ago-003", "ago-005", "set-001", "set-003", "out-001", "out-002", "out-005", "nov-001", "nov-004", "nov-005", "nov-007", "dez-001", "dez-003", "dez-009"],
+    "media": ["jan-002", "jan-007", "fev-006", "mar-004", "abr-005", "abr-006", "jun-003", "jun-006", "jul-003", "set-002", "set-005", "nov-002", "nov-003", "dez-006"],
     "baixa": []
   },
-  "campaigns": {}
+  "campaigns": {
+    "setembro_amarelo": {
+      "name": "Setembro Amarelo",
+      "month": 9,
+      "description": "Campanha de conscientização sobre prevenção ao suicídio",
+      "color": "#FFEB3B"
+    },
+    "outubro_rosa": {
+      "name": "Outubro Rosa",
+      "month": 10,
+      "description": "Campanha de conscientização sobre o câncer de mama",
+      "color": "#E91E63"
+    },
+    "novembro_azul": {
+      "name": "Novembro Azul",
+      "month": 11,
+      "description": "Campanha de conscientização sobre a saúde masculina",
+      "color": "#2196F3"
+    }
+  }
 }
