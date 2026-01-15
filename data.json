@@ -1,48 +1,161 @@
 {
-  "posts": [
+  "version": "2.0",
+  "months": [
     {
-      "id": "jan_01_2026",
-      "date": "2026-01-01",
-      "time": "06:30",
-      "type": "story",
-      "product": "Feriado",
-      "caption": "🎊 FELIZ ANO NOVO! A Nechio deseja um 2026 cheio de saúde, prosperidade e muito açaí! 💜 #nechio #anonovo #2026",
-      "hashtags": "#nechio #anonovo #2026 #felizanonovo",
-      "priority": "high",
-      "categoria": "feriado"
+      "id": 1,
+      "name": "Janeiro",
+      "shortTheme": "ANO NOVO",
+      "desc": "Início do ano com foco em resoluções e saúde",
+      "posts": 2,
+      "stories": 1
     },
     {
-      "id": "jan_20_2026_acai",
-      "date": "2026-01-20",
-      "time": "06:30",
-      "type": "reel",
-      "product": "Açaí Premium",
-      "caption": "🎉 HOJE É DIA DO AÇAÍ! 🎉\n\n20 de Janeiro - O dia MAIS importante para a Nechio! 💜\n\nO açaí que impulsiona seu negócio:\n✅ 100% natural e sem conservantes\n✅ Textura cremosa perfeita\n✅ Sabor autêntico da Amazônia\n✅ Entrega rápida e pontual\n\n📞 Garanta já seu estoque!\n\n#nechio #diadoacai #acai #distribuidora #foodservice",
-      "hashtags": "#nechio #diadoacai #acai #acaipremium #distribuidora #foodservice #riodejaneiro #ceasa",
-      "priority": "critical",
-      "categoria": "data_comemorativa"
+      "id": 2,
+      "name": "Fevereiro",
+      "shortTheme": "CARNAVAL",
+      "desc": "Mês do Carnaval e Nutrição",
+      "posts": 1,
+      "stories": 1
     },
     {
-      "id": "fev_16_2026_carnaval",
-      "date": "2026-02-16",
-      "time": "06:30",
-      "type": "reel",
-      "product": "Açaí + Polpas",
-      "caption": "🎭 CARNAVAL CHEGOU! 🎭\n\nGaranta energia pro bloco com Nechio! 🎉\n\n🥤 Polpas de frutas para drinks refrescantes\n🍦 Açaí para recarregar as baterias\n🍔 Snacks congelados pro lanche rápido\n\n📦 Estoque garantido para TODA a folia!\n\n#nechio #carnaval #carnaval2026 #blocoderua #distribuidora",
-      "hashtags": "#nechio #carnaval #carnaval2026 #blocoderua #acai #polpas #distribuidora #foodservice",
-      "priority": "critical",
-      "categoria": "evento_sazonal"
+      "id": 3,
+      "name": "Março",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
     },
     {
-      "id": "fev_28_2026_nutricao",
-      "date": "2026-02-28",
-      "time": "06:30",
-      "type": "photo",
-      "product": "Polpas de Frutas",
-      "caption": "🥗 DIA MUNDIAL DA NUTRIÇÃO 🥗\n\nSaúde começa com escolhas inteligentes! 💚\n\nNossas polpas de frutas:\n✅ 100% natural\n✅ Sem açúcar adicionado\n✅ Ricas em vitaminas\n✅ Perfeitas para sucos e vitaminas\n\n#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel",
-      "hashtags": "#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel #vidasaudavel",
-      "priority": "medium",
-      "categoria": "data_comemorativa"
+      "id": 4,
+      "name": "Abril",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 5,
+      "name": "Maio",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 6,
+      "name": "Junho",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 7,
+      "name": "Julho",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 8,
+      "name": "Agosto",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 9,
+      "name": "Setembro",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 10,
+      "name": "Outubro",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 11,
+      "name": "Novembro",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
+    },
+    {
+      "id": 12,
+      "name": "Dezembro",
+      "shortTheme": "TEMA",
+      "desc": "",
+      "posts": 0,
+      "stories": 0
     }
-  ]
+  ],
+  "posts": {
+    "1": [
+      {
+        "id": "jan_01_2026",
+        "date": "2026-01-01",
+        "time": "06:30",
+        "type": "story",
+        "product": "Feriado",
+        "caption": "🎊 FELIZ ANO NOVO! A Nechio deseja um 2026 cheio de saúde, prosperidade e muito açaí! 💜 #nechio #anonovo #2026",
+        "hashtags": "#nechio #anonovo #2026 #felizanonovo",
+        "priority": "high",
+        "categoria": "feriado"
+      },
+      {
+        "id": "jan_20_2026_acai",
+        "date": "2026-01-20",
+        "time": "06:30",
+        "type": "reel",
+        "product": "Açaí Premium",
+        "caption": "🎉 HOJE É DIA DO AÇAÍ! 🎉\n\n20 de Janeiro - O dia MAIS importante para a Nechio! 💜\n\nO açaí que impulsiona seu negócio:\n✅ 100% natural e sem conservantes\n✅ Textura cremosa perfeita\n✅ Sabor autêntico da Amazônia\n✅ Entrega rápida e pontual\n\n📞 Garanta já seu estoque!\n\n#nechio #diadoacai #acai #distribuidora #foodservice",
+        "hashtags": "#nechio #diadoacai #acai #acaipremium #distribuidora #foodservice #riodejaneiro #ceasa",
+        "priority": "critical",
+        "categoria": "data_comemorativa"
+      }
+    ],
+    "2": [
+      {
+        "id": "fev_16_2026_carnaval",
+        "date": "2026-02-16",
+        "time": "06:30",
+        "type": "reel",
+        "product": "Açaí + Polpas",
+        "caption": "🎭 CARNAVAL CHEGOU! 🎭\n\nGaranta energia pro bloco com Nechio! 🎉\n\n🥤 Polpas de frutas para drinks refrescantes\n🍦 Açaí para recarregar as baterias\n🍔 Snacks congelados pro lanche rápido\n\n📦 Estoque garantido para TODA a folia!\n\n#nechio #carnaval #carnaval2026 #blocoderua #distribuidora",
+        "hashtags": "#nechio #carnaval #carnaval2026 #blocoderua #acai #polpas #distribuidora #foodservice",
+        "priority": "critical",
+        "categoria": "evento_sazonal"
+      },
+      {
+        "id": "fev_28_2026_nutricao",
+        "date": "2026-02-28",
+        "time": "06:30",
+        "type": "photo",
+        "product": "Polpas de Frutas",
+        "caption": "🥗 DIA MUNDIAL DA NUTRIÇÃO 🥗\n\nSaúde começa com escolhas inteligentes! 💚\n\nNossas polpas de frutas:\n✅ 100% natural\n✅ Sem açúcar adicionado\n✅ Ricas em vitaminas\n✅ Perfeitas para sucos e vitaminas\n\n#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel",
+        "hashtags": "#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel #vidasaudavel",
+        "priority": "medium",
+        "categoria": "data_comemorativa"
+      }
+    ],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": [],
+    "9": [],
+    "10": [],
+    "11": [],
+    "12": []
+  }
 }
