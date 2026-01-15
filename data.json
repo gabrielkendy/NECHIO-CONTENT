@@ -1,14 +1,31 @@
 {
-  "posts": [
-    {
-      "id": "test-token-001",
-      "date": "2026-01-15",
-      "time": "06:30",
-      "type": "photo",
-      "caption": "✅ Teste Final - Token GitHub Atualizado",
-      "product": "Teste Sistema",
-      "hashtags": "#nechio #teste"
-    }
-  ],
-  "lastUpdate": "2026-01-15T14:55:00Z"
+  "headers": {},
+  "query": {},
+  "body": {
+    "posts": [
+      {
+        "id": "jan_01_2026",
+        "date": "2026-01-01",
+        "time": "06:30",
+        "type": "story",
+        "product": "Feriado",
+        "caption": "🎊 FELIZ ANO NOVO! A Nechio deseja um 2026 cheio de saúde, prosperidade e muito açaí! 💜 #nechio #anonovo #2026",
+        "hashtags": "#nechio #anonovo #2026 #felizanonovo",
+        "priority": "high",
+        "categoria": "feriado"
+      },
+      {
+        "id": "jan_20_2026_acai",
+        "date": "2026-01-20",
+        "time": "06:30",
+        "type": "reel",
+        "product": "Açaí Premium",
+        "caption": "🎉 HOJE É DIA DO AÇAÍ! 🎉\n\n20 de Janeiro - O dia MAIS importante para a Nechio! 💜\n\nO açaí que impulsiona seu negócio:\n✅ 100% natural e sem conservantes\n✅ Textura cremosa perfeita\n✅ Sabor autêntico da Amazônia\n✅ Entrega rápida e pontual\n\n📞 Garanta já seu estoque!\n\n#nechio #diadoacai #acai #distribuidora #foodservice",
+        "hashtags": "#nechio #diadoacai #acai #acaipremium #distribuidora #foodservice #riodejaneiro #ceasa",
+        "priority": "critical",
+        "categoria": "data_comemorativa"
+      }
+    ],
+    "lastUpdate": "2026-01-15T15:10:00Z"
+  }
 }
