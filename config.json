@@ -1,121 +1,13 @@
 {
-  "_INSTRUCOES": "CONFIGURAÇÃO NECHIO CONGELADOS",
-  "_VERSAO": "1.0.0",
-  "_TEMPLATE": "CONTENT-STUDIO-TEMPLATE by Kendy Produções",
-
-  "cliente": {
-    "id": "nechio",
-    "nome": "Nechio Congelados",
-    "nomeCompleto": "Nechio Distribuidora de Alimentos Congelados",
-    "slogan": "Qualidade que congela, sabor que derrete",
-    "subtitulo": "Content Studio 2026",
-    "ano": 2026,
-    "anoFundacao": 2002,
-    "aniversario": "03-15"
-  },
-
-  "contato": {
-    "telefone": "(21) 2580-9035",
-    "whatsapp": "5521994015541",
-    "email": "comercial@nechio.com.br",
-    "site": "https://www.nechio.com.br"
-  },
-
-  "endereco": {
-    "cidade": "Rio de Janeiro",
-    "estado": "RJ",
-    "completo": "CEASA-RJ, Pavilhão 31 - Irajá - Rio de Janeiro/RJ"
-  },
-
-  "redesSociais": {
-    "instagram": "@nechiocongelados",
-    "facebook": "nechiocongelados",
-    "linkedin": "nechio-congelados",
-    "youtube": "@nechiocongelados",
-    "tiktok": "@nechiocongelados"
-  },
-
-  "cores": {
-    "primaria": "#A01B4F",
-    "secundaria": "#7AC142",
-    "destaque": "#E91E63",
-    "sucesso": "#7AC142",
-    "erro": "#EF4444",
-    "alerta": "#F59E0B",
-    "info": "#9C27B0",
-    "texto": "#FFFFFF",
-    "textoSecundario": "#D4A8B7",
-    "fundo": "#0a0a0a",
-    "fundo2": "#1a0a10",
-    "fundo3": "#2a1520",
-    "fundo4": "#3a2030",
-    "borda": "#5a3545"
-  },
-
-  "arquivos": {
+  "brand": {
+    "name": "Nechio Congelados",
+    "subtitle": "Content Studio 2026",
     "logo": "assets/logo.png",
-    "favicon": "assets/favicon.ico",
-    "logoAlternativa": "assets/logo-branca.png"
+    "primaryColor": "#C41E3A",
+    "secondaryColor": "#1a1a1a",
+    "accentColor": "#C9A227"
   },
-
-  "webhook": {
-    "url": "https://agenciabase.app.n8n.cloud/webhook/nechio-deploy",
-    "ativo": true,
-    "clienteId": "nechio"
-  },
-
-  "configuracoes": {
-    "anoCalendario": 2026,
-    "idioma": "pt-BR",
-    "timezone": "America/Sao_Paulo",
-    "formatoData": "DD/MM/YYYY",
-    "primeiroMes": 1
-  },
-
-  "categoriasPosts": [
-    "DATA ESPECIAL",
-    "COMEMORATIVA", 
-    "EDUCATIVO",
-    "PROMOCIONAL",
-    "INSTITUCIONAL",
-    "FERIADO",
-    "CAMPANHA",
-    "PRODUTO",
-    "BASTIDORES",
-    "DEPOIMENTO",
-    "AÇAÍ",
-    "SORVETE",
-    "POLPA DE FRUTAS"
-  ],
-
-  "formatosPosts": [
-    "Post estático",
-    "Carrossel 3 slides",
-    "Carrossel 5 slides",
-    "Carrossel 7 slides",
-    "Carrossel 10 slides",
-    "Reels 15s",
-    "Reels 30s",
-    "Reels 60s",
-    "Stories",
-    "Stories Sequência",
-    "Live",
-    "IGTV"
-  ],
-
-  "prioridades": [
-    {"id": "altissima", "nome": "Altíssima", "cor": "#A01B4F"},
-    {"id": "alta", "nome": "Alta", "cor": "#E91E63"},
-    {"id": "media", "nome": "Média", "cor": "#9C27B0"},
-    {"id": "baixa", "nome": "Baixa", "cor": "#888888"}
-  ],
-
-  "statusPosts": [
-    {"id": "pendente", "nome": "Pendente", "cor": "#888888"},
-    {"id": "em_producao", "nome": "Em Produção", "cor": "#F59E0B"},
-    {"id": "aguardando_aprovacao", "nome": "Aguardando Aprovação", "cor": "#9C27B0"},
-    {"id": "aprovado", "nome": "Aprovado", "cor": "#7AC142"},
-    {"id": "publicado", "nome": "Publicado", "cor": "#E91E63"},
-    {"id": "completo", "nome": "Completo", "cor": "#7AC142"}
-  ]
+  "year": 2026,
+  "lastUpdate": "2026-01-15T15:30:00Z",
+  "version": "2.0.1"
 }
