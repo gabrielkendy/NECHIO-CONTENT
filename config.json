@@ -59,8 +59,8 @@
   },
 
   "webhook": {
-    "url": "",
-    "ativo": false,
+    "url": "https://agenciabase.app.n8n.cloud/webhook/nechio-deploy",
+    "ativo": true,
     "clienteId": "nechio"
   },
 
