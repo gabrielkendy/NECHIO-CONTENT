@@ -5,68 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NECHIO Content Studio 2026</title>
     <style>
-        :root{--roxo:#8B2F8E;--roxo-dark:#6B1F6E;--verde:#1E8E3E;--preto:#0a0a0a;--preto2:#111;--preto3:#1a1a1a;--preto4:#222;--branco:#fff;--cinza:#888;--cinza2:#555;--verde-check:#22c55e;--azul:#3b82f6;--magenta:#a855f7;--laranja:#f97316}
+        :root{--vermelho:#8B2F8E;--vermelho-dark:#6B1F6E;--dourado:#22c55e;--preto:#0a0a0a;--preto2:#111;--preto3:#1a1a1a;--preto4:#222;--branco:#fff;--cinza:#888;--cinza2:#555;--verde:#22c55e;--azul:#3b82f6;--roxo:#a855f7;--laranja:#f97316}
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--preto);color:var(--branco);min-height:100vh}
         .header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:linear-gradient(135deg,var(--preto2),var(--preto));border-bottom:1px solid #222;position:sticky;top:0;z-index:100}
         .logo{display:flex;align-items:center;gap:12px}
-        .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--roxo),var(--roxo-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;font-style:italic;box-shadow:0 4px 15px rgba(139,47,142,0.3)}
+        .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--vermelho),var(--vermelho-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;font-style:italic;box-shadow:0 4px 15px rgba(196,30,58,0.3)}
         .logo-text{font-size:20px;font-weight:900;letter-spacing:3px}
         .logo-sub{font-size:9px;color:var(--cinza);letter-spacing:1px}
         .header-actions{display:flex;gap:10px}
         .header-btn{padding:8px 16px;background:var(--preto3);border:1px solid #333;border-radius:6px;color:var(--branco);font-size:12px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
-        .header-btn:hover{border-color:var(--roxo);background:rgba(139,47,142,0.1)}
-        .header-btn.primary{background:var(--roxo);border-color:var(--roxo)}
+        .header-btn:hover{border-color:var(--vermelho);background:rgba(196,30,58,0.1)}
+        .header-btn.primary{background:var(--vermelho);border-color:var(--vermelho)}
         .layout{display:flex;height:calc(100vh - 72px)}
         .sidebar{width:280px;background:var(--preto2);border-right:1px solid #222;overflow-y:auto;padding:0}
         .month-filter{padding:20px;border-bottom:1px solid #222;background:var(--preto3)}
         .month-filter-title{font-size:10px;color:var(--cinza);letter-spacing:2px;margin-bottom:15px;display:flex;align-items:center;gap:8px}
-        .month-filter-title::before{content:'';width:20px;height:2px;background:var(--roxo)}
+        .month-filter-title::before{content:'';width:20px;height:2px;background:var(--vermelho)}
         .month-selector-btn{width:100%;padding:15px 20px;background:linear-gradient(135deg,var(--preto4),var(--preto3));border:2px solid #333;border-radius:12px;color:var(--branco);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
-        .month-selector-btn:hover,.month-selector-btn.open{border-color:var(--roxo)}
+        .month-selector-btn:hover,.month-selector-btn.open{border-color:var(--vermelho)}
         .month-selector-left{display:flex;align-items:center;gap:15px}
-        .month-selector-num{font-size:28px;font-weight:900;color:var(--roxo);line-height:1}
+        .month-selector-num{font-size:28px;font-weight:900;color:var(--vermelho);line-height:1}
         .month-selector-info h3{font-size:18px;font-weight:700}
         .month-selector-info span{font-size:11px;color:var(--cinza)}
         .month-selector-arrow{font-size:12px;color:var(--cinza);transition:transform .3s}
         .month-selector-btn.open .month-selector-arrow{transform:rotate(180deg)}
-        .month-dropdown{position:absolute;top:100%;left:0;width:100%;background:var(--preto3);border:2px solid var(--roxo);border-top:none;border-radius:0 0 12px 12px;max-height:0;overflow:hidden;transition:max-height .3s;z-index:50}
+        .month-dropdown{position:absolute;top:100%;left:0;width:100%;background:var(--preto3);border:2px solid var(--vermelho);border-top:none;border-radius:0 0 12px 12px;max-height:0;overflow:hidden;transition:max-height .3s;z-index:50}
         .month-dropdown.open{max-height:400px;overflow-y:auto}
         .month-dropdown-item{display:flex;align-items:center;gap:15px;padding:12px 20px;cursor:pointer;transition:all .2s;border-bottom:1px solid #222}
-        .month-dropdown-item:hover{background:rgba(139,47,142,0.1)}
-        .month-dropdown-item.active{background:rgba(139,47,142,0.2)}
-        .month-dropdown-num{font-size:18px;font-weight:900;color:var(--roxo);width:30px}
+        .month-dropdown-item:hover{background:rgba(196,30,58,0.1)}
+        .month-dropdown-item.active{background:rgba(196,30,58,0.2)}
+        .month-dropdown-num{font-size:18px;font-weight:900;color:var(--vermelho);width:30px}
         .month-dropdown-info h4{font-size:13px;font-weight:600}
         .month-dropdown-info span{font-size:10px;color:var(--cinza)}
         .month-dropdown-posts{margin-left:auto;background:var(--preto4);padding:4px 10px;border-radius:20px;font-size:10px;color:var(--cinza)}
         .month-quick-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
         .month-quick-btn{padding:10px 5px;background:var(--preto4);border:1px solid #333;border-radius:8px;color:var(--cinza);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s;text-align:center}
-        .month-quick-btn:hover{border-color:var(--roxo);color:var(--branco)}
-        .month-quick-btn.active{background:var(--roxo);border-color:var(--roxo);color:var(--branco)}
+        .month-quick-btn:hover{border-color:var(--vermelho);color:var(--branco)}
+        .month-quick-btn.active{background:var(--vermelho);border-color:var(--vermelho);color:var(--branco)}
         .sidebar-info{padding:20px}
         .sidebar-info-title{font-size:10px;color:var(--cinza);letter-spacing:2px;margin-bottom:15px;display:flex;align-items:center;gap:8px}
-        .sidebar-info-title::before{content:'';width:20px;height:2px;background:var(--verde)}
+        .sidebar-info-title::before{content:'';width:20px;height:2px;background:var(--dourado)}
         .month-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
         .month-stat-card{background:var(--preto3);border:1px solid #222;border-radius:10px;padding:15px;text-align:center}
-        .month-stat-value{font-size:28px;font-weight:900;color:var(--roxo)}
+        .month-stat-value{font-size:28px;font-weight:900;color:var(--vermelho)}
         .month-stat-label{font-size:9px;color:var(--cinza);text-transform:uppercase;letter-spacing:1px}
-        .month-theme-card{background:linear-gradient(135deg,rgba(139,47,142,0.1),var(--preto3));border:1px solid #333;border-radius:12px;padding:20px}
-        .month-theme-label{font-size:9px;color:var(--roxo);letter-spacing:2px;margin-bottom:8px}
+        .month-theme-card{background:linear-gradient(135deg,rgba(196,30,58,0.1),var(--preto3));border:1px solid #333;border-radius:12px;padding:20px}
+        .month-theme-label{font-size:9px;color:var(--vermelho);letter-spacing:2px;margin-bottom:8px}
         .month-theme-title{font-size:22px;font-weight:900;margin-bottom:10px}
         .month-theme-desc{font-size:12px;color:var(--cinza);line-height:1.6}
         .month-selector{position:relative;width:100%}
         .main{flex:1;overflow-y:auto;padding:25px 30px}
         .main-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #222}
         .main-title{font-size:28px;font-weight:900;letter-spacing:2px}
-        .main-title span{color:var(--roxo)}
+        .main-title span{color:var(--vermelho)}
         .posts-list{display:flex;flex-direction:column;gap:12px}
         .post-card{display:flex;align-items:center;gap:20px;padding:18px 20px;background:var(--preto2);border:1px solid #222;border-radius:12px;cursor:pointer;transition:all .25s}
-        .post-card:hover{border-color:var(--roxo);transform:translateX(8px);box-shadow:0 5px 30px rgba(139,47,142,0.15)}
+        .post-card:hover{border-color:var(--vermelho);transform:translateX(8px);box-shadow:0 5px 30px rgba(196,30,58,0.15)}
         .post-date{background:var(--preto3);border-radius:8px;padding:10px 12px;text-align:center;min-width:55px}
-        .post-date-day{font-size:22px;font-weight:900;color:var(--roxo)}
+        .post-date-day{font-size:22px;font-weight:900;color:var(--vermelho)}
         .post-date-month{font-size:9px;color:var(--cinza);text-transform:uppercase}
         .post-info{flex:1}
-        .post-type{font-size:10px;color:var(--verde);font-weight:700;letter-spacing:1px;margin-bottom:5px}
+        .post-type{font-size:10px;color:var(--dourado);font-weight:700;letter-spacing:1px;margin-bottom:5px}
         .post-title{font-weight:600;font-size:15px;margin-bottom:4px}
         .post-desc{font-size:12px;color:var(--cinza)}
         .post-format{background:var(--preto3);padding:6px 12px;border-radius:6px;font-size:10px;color:var(--cinza)}
@@ -75,18 +75,18 @@
         .modal{max-width:1000px;margin:20px auto;background:var(--preto2);border-radius:16px;border:1px solid #333;overflow:hidden}
         .modal-header{padding:25px 30px;background:linear-gradient(135deg,var(--preto3),var(--preto2));border-bottom:1px solid #333;display:flex;justify-content:space-between;align-items:flex-start}
         .modal-header-left{flex:1}
-        .modal-badge{display:inline-block;padding:4px 12px;background:rgba(139,47,142,0.2);border:1px solid var(--roxo);border-radius:20px;font-size:10px;color:var(--roxo);font-weight:700;letter-spacing:1px;margin-bottom:12px}
+        .modal-badge{display:inline-block;padding:4px 12px;background:rgba(196,30,58,0.2);border:1px solid var(--vermelho);border-radius:20px;font-size:10px;color:var(--vermelho);font-weight:700;letter-spacing:1px;margin-bottom:12px}
         .modal-title-row{display:flex;align-items:center;gap:15px;margin-bottom:8px;flex-wrap:wrap}
         .modal-date-input{background:var(--preto3);border:1px solid #444;border-radius:6px;padding:8px 12px;color:var(--branco);font-size:14px;width:140px}
         .modal-title-input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid #333;color:var(--branco);font-size:18px;font-weight:700;padding:5px 0}
-        .modal-title-input:focus{outline:none;border-bottom-color:var(--roxo)}
+        .modal-title-input:focus{outline:none;border-bottom-color:var(--vermelho)}
         .modal-desc{font-size:13px;color:var(--cinza)}
         .modal-close{width:40px;height:40px;background:var(--preto3);border:1px solid #444;border-radius:50%;color:#fff;font-size:18px;cursor:pointer;transition:all .2s}
-        .modal-close:hover{border-color:var(--roxo);color:var(--roxo);transform:rotate(90deg)}
+        .modal-close:hover{border-color:var(--vermelho);color:var(--vermelho);transform:rotate(90deg)}
         .modal-tabs{display:flex;background:var(--preto3);border-bottom:1px solid #333;flex-wrap:wrap}
         .modal-tab{flex:1;min-width:120px;padding:15px 10px;background:transparent;border:none;color:var(--cinza);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;border-bottom:3px solid transparent}
         .modal-tab:hover{color:var(--branco);background:rgba(255,255,255,0.03)}
-        .modal-tab.active{color:var(--roxo);border-bottom-color:var(--roxo);background:rgba(139,47,142,0.05)}
+        .modal-tab.active{color:var(--vermelho);border-bottom-color:var(--vermelho);background:rgba(196,30,58,0.05)}
         .modal-tab-icon{font-size:14px}
         .modal-body{padding:25px 30px;max-height:60vh;overflow-y:auto}
         .content-section{margin-bottom:20px;background:var(--preto3);border-radius:12px;overflow:hidden}
@@ -94,25 +94,25 @@
         .section-title{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px}
         .section-icon{font-size:14px}
         .section-title.narrativa{color:var(--azul)}
-        .section-title.imagem{color:var(--magenta)}
+        .section-title.imagem{color:var(--roxo)}
         .section-title.video{color:var(--laranja)}
-        .section-title.legenda{color:var(--verde-check)}
-        .section-title.tela{color:var(--verde)}
+        .section-title.legenda{color:var(--verde)}
+        .section-title.tela{color:var(--dourado)}
         .copy-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--preto2);border:1px solid #444;border-radius:6px;color:var(--branco);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s}
-        .copy-btn:hover{background:var(--roxo);border-color:var(--roxo)}
-        .copy-btn.copied{background:var(--verde-check);border-color:var(--verde-check)}
+        .copy-btn:hover{background:var(--vermelho);border-color:var(--vermelho)}
+        .copy-btn.copied{background:var(--verde);border-color:var(--verde)}
         .section-body{padding:18px}
         .content-text{font-size:13px;line-height:1.8;white-space:pre-wrap;color:#ddd;font-family:'Courier New',monospace;background:var(--preto);padding:15px;border-radius:8px;max-height:300px;overflow-y:auto}
-        .toast{position:fixed;bottom:30px;right:30px;padding:15px 25px;background:var(--verde-check);color:#fff;border-radius:10px;font-weight:600;font-size:13px;transform:translateY(100px);opacity:0;transition:all .3s;z-index:2000;display:flex;align-items:center;gap:10px;box-shadow:0 10px 40px rgba(34,197,94,0.3)}
+        .toast{position:fixed;bottom:30px;right:30px;padding:15px 25px;background:var(--verde);color:#fff;border-radius:10px;font-weight:600;font-size:13px;transform:translateY(100px);opacity:0;transition:all .3s;z-index:2000;display:flex;align-items:center;gap:10px;box-shadow:0 10px 40px rgba(34,197,94,0.3)}
         .toast.show{transform:translateY(0);opacity:1}
         .empty-state{text-align:center;padding:80px 40px;color:var(--cinza)}
         .empty-state h3{font-size:20px;margin-bottom:10px;color:var(--cinza2)}
         .backup-info{padding:15px;background:var(--preto3);border-radius:8px;margin-top:15px;font-size:11px;color:var(--cinza)}
-        .backup-info strong{color:var(--verde-check)}
+        .backup-info strong{color:var(--verde)}
         ::-webkit-scrollbar{width:6px}
         ::-webkit-scrollbar-track{background:var(--preto2)}
         ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
-        ::-webkit-scrollbar-thumb:hover{background:var(--roxo)}
+        ::-webkit-scrollbar-thumb:hover{background:var(--vermelho)}
         @media(max-width:768px){.sidebar{display:none}.layout{flex-direction:column}.main{padding:15px}}
         
         /* ========== BOTÕES DE AÇÃO NO MODAL ========== */
@@ -139,32 +139,32 @@
         /* ========== MODAL GITHUB SYNC ========== */
         .github-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:2000;overflow-y:auto;backdrop-filter:blur(10px)}
         .github-modal.show{display:flex;align-items:center;justify-content:center}
-        .github-modal-content{background:var(--preto2);border-radius:16px;border:1px solid var(--roxo);padding:30px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
-        .github-modal-title{font-size:22px;font-weight:900;margin-bottom:20px;color:var(--roxo);display:flex;align-items:center;gap:10px}
+        .github-modal-content{background:var(--preto2);border-radius:16px;border:1px solid var(--vermelho);padding:30px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
+        .github-modal-title{font-size:22px;font-weight:900;margin-bottom:20px;color:var(--vermelho);display:flex;align-items:center;gap:10px}
         .github-input{width:100%;padding:12px 15px;background:var(--preto3);border:1px solid #444;border-radius:8px;color:var(--branco);font-size:14px;margin-bottom:15px}
-        .github-input:focus{outline:none;border-color:var(--roxo)}
+        .github-input:focus{outline:none;border-color:var(--vermelho)}
         .github-input::placeholder{color:var(--cinza)}
         .github-label{display:block;margin-bottom:8px;font-size:12px;color:var(--cinza);font-weight:600}
-        .github-btn{width:100%;padding:14px;background:var(--roxo);border:none;border-radius:8px;color:var(--branco);font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;transition:all .2s}
-        .github-btn:hover{background:var(--roxo-dark);transform:translateY(-2px)}
+        .github-btn{width:100%;padding:14px;background:var(--vermelho);border:none;border-radius:8px;color:var(--branco);font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;transition:all .2s}
+        .github-btn:hover{background:var(--vermelho-dark);transform:translateY(-2px)}
         .github-btn.secondary{background:var(--preto3);border:1px solid #444}
-        .github-btn.secondary:hover{border-color:var(--roxo)}
+        .github-btn.secondary:hover{border-color:var(--vermelho)}
         .github-close{position:absolute;top:15px;right:20px;background:none;border:none;color:var(--branco);font-size:24px;cursor:pointer}
         .github-status{padding:12px;background:var(--preto3);border-radius:8px;margin-top:15px;font-size:12px;color:var(--cinza);line-height:1.6}
-        .github-status.success{border-left:3px solid var(--verde-check);color:var(--verde-check)}
+        .github-status.success{border-left:3px solid var(--verde);color:var(--verde)}
         .github-status.error{border-left:3px solid #dc2626;color:#dc2626}
         .github-divider{height:1px;background:#333;margin:20px 0}
         .github-tabs{display:flex;gap:5px;margin-bottom:20px}
         .github-tab{flex:1;padding:10px;background:var(--preto3);border:1px solid #333;border-radius:8px;color:var(--cinza);font-size:11px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s}
-        .github-tab:hover{border-color:var(--roxo)}
-        .github-tab.active{background:rgba(139,47,142,0.2);border-color:var(--roxo);color:var(--roxo)}
+        .github-tab:hover{border-color:var(--vermelho)}
+        .github-tab.active{background:rgba(196,30,58,0.2);border-color:var(--vermelho);color:var(--vermelho)}
     </style>
 </head>
 <body>
 
 <header class="header">
     <div class="logo">
-        <div class="logo-icon">N</div>
+        <div class="logo-icon">M</div>
         <div>
             <div class="logo-text">NECHIO</div>
             <div class="logo-sub">Content Studio 2026</div>
@@ -190,7 +190,7 @@
                         <div class="month-selector-num" id="selectorNum">01</div>
                         <div class="month-selector-info">
                             <h3 id="selectorName">Janeiro</h3>
-                            <span id="selectorTheme">Verão</span>
+                            <span id="selectorTheme">Planejamento</span>
                         </div>
                     </div>
                     <div class="month-selector-arrow">▼</div>
@@ -203,18 +203,18 @@
             <div class="sidebar-info-title">VISÃO GERAL</div>
             <div class="month-stats">
                 <div class="month-stat-card">
-                    <div class="month-stat-value" id="statPosts">0</div>
+                    <div class="month-stat-value" id="statPosts">13</div>
                     <div class="month-stat-label">Posts</div>
                 </div>
                 <div class="month-stat-card">
-                    <div class="month-stat-value" id="statStories">0</div>
+                    <div class="month-stat-value" id="statStories">3</div>
                     <div class="month-stat-label">Stories</div>
                 </div>
             </div>
             <div class="month-theme-card">
                 <div class="month-theme-label">TEMA DO MÊS</div>
-                <div class="month-theme-title" id="themeTitle">Verão</div>
-                <div class="month-theme-desc" id="themeDesc">Conteúdo focado em produtos sazonais.</div>
+                <div class="month-theme-title" id="themeTitle">Planejamento</div>
+                <div class="month-theme-desc" id="themeDesc">Foco em organização e preparação para o ano.</div>
             </div>
             <div class="backup-info">
                 <strong>✓ Auto-save ativo</strong><br>
@@ -226,7 +226,7 @@
     
     <main class="main">
         <div class="main-header">
-            <h1 class="main-title" id="mainTitle">JANEIRO — <span>Verão</span></h1>
+            <h1 class="main-title" id="mainTitle">JANEIRO — <span>Planejamento</span></h1>
         </div>
         <div class="posts-list" id="postsList"></div>
     </main>
@@ -287,7 +287,7 @@
             <input type="password" class="github-input" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
             
             <label class="github-label">Repositório (usuario/repo)</label>
-            <input type="text" class="github-input" id="githubRepo" placeholder="gabrielkendy/NECHIO-CONTENT" value="gabrielkendy/NECHIO-CONTENT">
+            <input type="text" class="github-input" id="githubRepo" placeholder="gabrielkendy/NECHIO_PLANEJAMENTO_ANUAL">
             
             <label class="github-label">Arquivo a atualizar</label>
             <input type="text" class="github-input" id="githubFile" value="data.json" placeholder="data.json">
@@ -304,25 +304,777 @@
 </div>
 
 <script>
-// ============== DATABASE NECHIO 2026 ==============
+// ============== DATABASE COMPLETO ==============
 const MONTHS_DATA = [
-    {id:1,name:'Janeiro',theme:'Verão e Açaí',shortTheme:'Verão',posts:0,stories:0,desc:'Alta temporada de açaí e produtos refrescantes.'},
-    {id:2,name:'Fevereiro',theme:'Carnaval e Festa',shortTheme:'Carnaval',posts:0,stories:0,desc:'Produtos para festas, eventos e catering.'},
-    {id:3,name:'Março',theme:'Volta às Aulas',shortTheme:'Escola',posts:0,stories:0,desc:'Produtos para cantinas e alimentação escolar.'},
-    {id:4,name:'Abril',theme:'Páscoa',shortTheme:'Páscoa',posts:0,stories:0,desc:'Chocolates, sobremesas e produtos especiais.'},
-    {id:5,name:'Maio',theme:'Dia das Mães',shortTheme:'Mães',posts:0,stories:0,desc:'Sobremesas especiais e celebrações.'},
-    {id:6,name:'Junho',theme:'Festas Juninas',shortTheme:'Junino',posts:0,stories:0,desc:'Produtos típicos e pamonha congelada.'},
-    {id:7,name:'Julho',theme:'Férias de Inverno',shortTheme:'Inverno',posts:0,stories:0,desc:'Sopas, caldos e comfort food.'},
-    {id:8,name:'Agosto',theme:'Dia dos Pais',shortTheme:'Pais',posts:0,stories:0,desc:'Churrascos e produtos especiais.'},
-    {id:9,name:'Setembro',theme:'Primavera',shortTheme:'Primavera',posts:0,stories:0,desc:'Renovação do cardápio e lançamentos.'},
-    {id:10,name:'Outubro',theme:'Dia das Crianças',shortTheme:'Crianças',posts:0,stories:0,desc:'Salgadinhos e produtos infantis.'},
-    {id:11,name:'Novembro',theme:'Black Friday',shortTheme:'Black Friday',posts:0,stories:0,desc:'Promoções e estoque para festas.'},
-    {id:12,name:'Dezembro',theme:'Natal e Réveillon',shortTheme:'Festas',posts:0,stories:0,desc:'Alta demanda e produtos premium.'}
+    {id:1,name:'Janeiro',theme:'Planejamento e Organização',shortTheme:'Planejamento',posts:13,stories:3,desc:'Foco em organização de obras, compra de materiais e preparação para o ano.'},
+    {id:2,name:'Fevereiro',theme:'Segurança no Canteiro',shortTheme:'Segurança',posts:11,stories:5,desc:'EPIs, normas de segurança, prevenção de acidentes e boas práticas.'},
+    {id:3,name:'Março',theme:'Mulheres na Construção',shortTheme:'Mulheres',posts:12,stories:0,desc:'Celebração do Dia da Mulher e destaque para profissionais femininas.'},
+    {id:4,name:'Abril',theme:'Mês Nacional do Aço',shortTheme:'Mês do Aço',posts:13,stories:6,desc:'Dia Nacional do Aço (09/04), Sexta Santa, Tiradentes.'},
+    {id:5,name:'Maio',theme:'Indústria e Produtividade',shortTheme:'Indústria',posts:13,stories:3,desc:'Dia da Indústria, Dia do Trabalho, processos produtivos.'},
+    {id:6,name:'Junho',theme:'Sustentabilidade',shortTheme:'Sustentável',posts:12,stories:3,desc:'Meio ambiente, Corpus Christi, reciclagem de aço.'},
+    {id:7,name:'Julho',theme:'Construção Civil',shortTheme:'Construção',posts:13,stories:0,desc:'Técnicas construtivas, inovações e tendências.'},
+    {id:8,name:'Agosto',theme:'Mês do Soldador',shortTheme:'Soldador',posts:13,stories:0,desc:'Dia do Soldador (25/08), homenagens e técnicas.'},
+    {id:9,name:'Setembro',theme:'Setembro Amarelo',shortTheme:'Set. Amarelo',posts:13,stories:3,desc:'Saúde mental, Independência do Brasil.'},
+    {id:10,name:'Outubro',theme:'Outubro Rosa',shortTheme:'Out. Rosa',posts:13,stories:3,desc:'Nossa Senhora Aparecida, conscientização.'},
+    {id:11,name:'Novembro',theme:'Black Friday',shortTheme:'Black Friday',posts:13,stories:6,desc:'Promoções, Finados, Consciência Negra.'},
+    {id:12,name:'Dezembro',theme:'Retrospectiva',shortTheme:'Retrospectiva',posts:13,stories:5,desc:'Balanço do ano, Natal, Ano Novo.'}
 ];
 
-// POSTS INICIAIS VAZIOS - CARREGAR DO data.json
-const INITIAL_POSTS = {};
+// POSTS JANEIRO COMPLETO
+const INITIAL_POSTS = {
+1: [
+{id:1,date:'2026-01-01',type:'DATA ESPECIAL',format:'Carrossel 5 slides',title:'🎆 Feliz 2026!',desc:'Mensagem de Ano Novo',status:'pending',
+narrativa:`SLIDE 1 — CAPA
+Texto: "2026 CHEGOU!"
+Subtexto: "E com ele, novas fundações."
+Visual: Fogos dourados, silhueta obras, logo NECHIO.
 
+SLIDE 2 — RETROSPECTIVA 2025
+"Em 2025, entregamos mais de 500 toneladas de aço"
+Números: 500+ toneladas | 200+ obras | 65 anos mercado
+
+SLIDE 3 — AGRADECIMENTO
+"Obrigado a cada engenheiro, construtora e parceiro."
+Visual: Colagem fotos obras e equipe.
+
+SLIDE 4 — COMPROMISSO 2026
+"Em 2026, mesmo compromisso:"
+✓ Qualidade certificada
+✓ Prazo respeitado
+✓ Preço justo
+
+SLIDE 5 — CTA
+"Qual seu maior projeto para 2026?"
+"Comenta aqui 👇"`,
+imagem:'Foto dramática obras + fogos dourados + logo NECHIO',
+video:'Time-lapse construção 2025 + depoimentos clientes + metas 2026',
+tela:'Fundo vermelho NECHIO gradiente, números grandes em branco/dourado',
+legenda:`🎆 FELIZ 2026, FAMÍLIA NECHIO! 🏗️
+
+Que este ano seja de grandes obras, projetos incríveis e muita parceria! 💪
+
+A NECHIO fecha 2025 com mais de 500 toneladas de aço entregues e entra em 2026 com o mesmo compromisso de sempre: qualidade, prazo e preço justo! 🔴
+
+Qual é o seu maior projeto para 2026? Comenta aqui! 👇
+
+#FelizAnoNovo #NECHIO #2026 #ConstruçãoCivil #Aço #Engenharia #ObraSegura`}
+],
+
+2: [
+{id:1,date:'2026-02-13',type:'ANIVERSÁRIO NECHIO',format:'Carrossel 5 slides',title:'🎂 66 Anos de Tradição',desc:'Aniversário do Grupo NECHIO',status:'pending',
+narrativa:`SLIDE 1 — CAPA EMOCIONAL
+"13 DE FEVEREIRO"
+"66 ANOS CONSTRUINDO O RIO"
+Visual: Logo NECHIO vintage + prédios icônicos RJ fundo
+
+SLIDE 2 — LINHA DO TEMPO
+1960 - Fundação no Rio de Janeiro
+1980 - Parceria ArcelorMittal
+2000 - Expansão para 4 unidades
+2026 - 66 anos de história
+
+SLIDE 3 — NÚMEROS
+66 anos de mercado
+4 unidades industriais
+Mais de 1.000 obras atendidas
+Parceiro oficial ArcelorMittal e Belgo Bekaert
+
+SLIDE 4 — GRATIDÃO
+"Obrigado a cada cliente, parceiro e colaborador"
+"Vocês são parte desta história"
+Visual: Mosaico de fotos históricas
+
+SLIDE 5 — FUTURO
+"E vamos por mais 66!"
+"Porque a NECHIO não constrói apenas obras,"
+"Constrói relações que duram."`,
+imagem:'Foto histórica sede NECHIO + obras icônicas do RJ construídas com aço NECHIO',
+video:'Documentário curto 60s: fundação 1960 > evolução > presente > depoimentos emocionantes',
+tela:'Timeline interativa mostrando marcos históricos da empresa',
+legenda:`🎂 HOJE É DIA DE FESTA! 🎉
+
+Há exatos 66 anos, nascia o Grupo NECHIO no Rio de Janeiro. 
+
+De uma pequena distribuidora a um dos maiores fornecedores de aço do estado, nossa história é feita de GENTE. 👷‍♂️👷‍♀️
+
+Engenheiros que confiam, construtoras parceiras, colaboradores dedicados... VOCÊS são a NECHIO! ❤️
+
+Obrigado por construírem esta história conosco! 
+
+E que venham mais 66 anos! 🏗️🔴
+
+#NECHIO66Anos #AniversárioNECHIO #Tradição #ConstruçãoCivil #RioDeJaneiro #História`},
+
+{id:2,date:'2026-02-16',type:'FERIADO',format:'Post Estático',title:'⚠️ Aviso: Fechamento Carnaval',desc:'Informativo sobre fechamento',status:'pending',
+narrativa:`POST INFORMATIVO CLARO
+Título: "CARNAVAL 2026 - FECHAMENTO"
+Data: 16 a 17 de fevereiro
+Reabertura: 18 de fevereiro (quarta-feira)
+Visual: Design limpo vermelho/branco com logo NECHIO`,
+imagem:'Arte informativa profissional com horários e datas',
+video:'N/A',
+tela:'Background vermelho NECHIO, calendário destacando dias fechados',
+legenda:`⚠️ ATENÇÃO, CLIENTES! 🎭
+
+A NECHIO estará FECHADA nos dias 16 e 17/02 (Carnaval).
+
+Retornamos dia 18/02 (quarta-feira) no horário normal! 
+
+🚨 ÚLTIMA CHANCE DE PEDIDOS: 14/02 até 16h
+
+Planeje seu estoque! 📋
+
+📞 (21) 3214-1300
+📱 WhatsApp disponível para emergências
+
+#Carnaval2026 #Fechamento #NECHIO #Planejamento`}
+],
+
+3: [
+{id:1,date:'2026-03-08',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'👩 Dia da Mulher',desc:'Homenagem às mulheres da construção',status:'pending',
+narrativa:`SLIDE 1 — HOMENAGEM
+"8 DE MARÇO"
+"DIA INTERNACIONAL DA MULHER"
+Visual: Mulheres engenheiras, arquitetas, mestras de obras em ação
+
+SLIDE 2 — MENSAGEM
+"Elas calculam, projetam, executam e lideram"
+"A construção civil é cada vez mais feminina"
+"E a NECHIO celebra essa transformação"
+
+SLIDE 3 — COMPROMISSO
+"Mais respeito, mais oportunidades, mais representatividade"
+"Feliz Dia da Mulher a todas que constroem! 💪"`,
+imagem:'Foto poderosa de mulheres da construção civil em ação',
+video:'Mini-doc: mulheres contando sua trajetória na engenharia/construção',
+tela:'Fundo roxo com silhuetas de mulheres + capacete de obra',
+legenda:`💜 FELIZ DIA DA MULHER! 👷‍♀️
+
+Para todas as engenheiras, arquitetas, mestras de obras, operadoras, técnicas... VOCÊS SÃO INCRÍVEIS! 
+
+A construção civil é cada vez mais feminina, e isso fortalece todo o setor! 💪
+
+A NECHIO celebra e apoia cada mulher que constrói! 🏗️
+
+#DiaDaMulher #MulheresDaConstrução #Engenheira #Arquiteta #NECHIO #Representatividade`},
+
+{id:2,date:'2026-03-26',type:'DATA ESPECIAL',format:'Vídeo 30s',title:'👷 Dia do Construtor',desc:'Homenagem ao profissional da construção',status:'pending',
+narrativa:`VÍDEO 30s — DIA DO CONSTRUTOR
+
+[0-10s] ABERTURA
+Visual: Canteiros de obra amanhecendo
+Texto: "26 DE MARÇO - DIA DO CONSTRUTOR"
+Música: Inspiradora
+
+[10-20s] HOMENAGEM
+Cenas: construtores trabalhando (pedreiro, armador, carpinteiro...)
+Texto: "Vocês transformam projetos em realidade"
+
+[20-30s] MENSAGEM NECHIO
+Logo NECHIO + mensagem
+"Parabéns a todos os construtores!"
+"A NECHIO está com vocês! 🔴"`,
+imagem:'Foto poderosa de construtor em ação no canteiro',
+video:'Montagem emocionante mostrando dia a dia do construtor',
+tela:'Fundo com ferramentas + capacete + logo NECHIO',
+legenda:`👷 PARABÉNS, CONSTRUTORES! 🏗️
+
+Hoje é dia de quem CONSTRÓI! 
+
+De quem acorda cedo, pega no pesado, faz acontecer! 💪
+
+Pedreiros, armadores, carpinteiros, mestres de obras... VOCÊS SÃO ESSENCIAIS!
+
+A NECHIO existe para servir vocês! 🔴
+
+Feliz Dia do Construtor! 🎉
+
+#DiaDoConstrutor #Construção #Pedreiro #MestreDeObras #NECHIO #Homenagem`}
+],
+
+4: [
+{id:1,date:'2026-04-09',type:'DATA ESPECIAL',format:'Carrossel 5 slides',title:'⚙️ Dia Nacional do Aço',desc:'Celebração do material que constrói o Brasil',status:'pending',
+narrativa:`SLIDE 1 — CAPA
+"9 DE ABRIL"
+"DIA NACIONAL DO AÇO"
+Visual: Barras de aço brilhantes + obras monumentais
+
+SLIDE 2 — IMPORTÂNCIA
+"O aço constrói:"
+🏗️ Pontes que conectam
+🏢 Prédios que abrigam
+🛣️ Infraestrutura que move o Brasil
+
+SLIDE 3 — CURIOSIDADES
+"Você sabia?"
+• Aço é 100% reciclável
+• Mais resistente que madeira e concreto
+• Material mais usado na construção mundial
+
+SLIDE 4 — NECHIO + AÇO
+"A NECHIO distribui aço certificado:"
+✓ ArcelorMittal
+✓ Belgo Bekaert Arames
+✓ Qualidade garantida
+
+SLIDE 5 — CTA
+"Construa com segurança!"
+"Exija aço certificado em sua obra!"`,
+imagem:'Foto artística de vergalhões de aço em alta resolução',
+video:'Time-lapse de estrutura metálica sendo montada',
+tela:'Infográfico mostrando propriedades do aço vs outros materiais',
+legenda:`⚙️ DIA NACIONAL DO AÇO! 🏗️
+
+Hoje celebramos o material que CONSTRÓI O BRASIL! 🇧🇷
+
+O aço está em pontes, prédios, casas, infraestrutura... TUDO! 
+
+E a NECHIO orgulha-se de distribuir o melhor aço do mercado:
+✅ ArcelorMittal
+✅ Belgo Bekaert Arames  
+✅ Certificação total
+
+Construa com segurança! Exija aço certificado! 🔴
+
+📞 (21) 3214-1300
+
+#DiaNacionalDoAço #Aço #ConstruçãoCivil #NECHIO #Segurança #ObraCertificada`},
+
+{id:2,date:'2026-04-10',type:'DATA ESPECIAL',format:'Vídeo 45s',title:'🎓 Dia da Engenharia',desc:'Homenagem aos engenheiros',status:'pending',
+narrativa:`VÍDEO 45s — DIA DA ENGENHARIA
+
+[0-15s] ABERTURA IMPACTANTE
+Visual: Obras icônicas do Brasil
+Texto: "10 DE ABRIL - DIA DA ENGENHARIA"
+Trilha: Épica
+
+[15-30s] HOMENAGEM
+Cenas: engenheiros em ação (campo + escritório)
+Texto: "Vocês calculam o impossível"
+"Projetam o futuro"
+"Constroem a realidade"
+
+[30-45s] PARCERIA NECHIO
+"A NECHIO é parceira dos engenheiros há 66 anos!"
+Logo + contato
+"Parabéns a todos os engenheiros!"`,
+imagem:'Engenheiro analisando projeto técnico com aço ao fundo',
+video:'Documentário mini mostrando engenheiro do início do projeto até obra pronta',
+tela:'Blueprint de projeto + cálculos + logo NECHIO',
+legenda:`🎓 FELIZ DIA DA ENGENHARIA! 👷‍♂️
+
+Hoje celebramos quem TRANSFORMA NÚMEROS EM ESTRUTURAS! 📐
+
+Engenheiros civis, de produção, mecânicos... VOCÊS FAZEM O BRASIL CRESCER! 🏗️
+
+A NECHIO é parceira dos engenheiros há 66 anos! 
+
+Qualidade técnica + prazo + assessoria gratuita! 🔴
+
+PARABÉNS, ENGENHEIROS! 👏
+
+📞 (21) 3214-1300
+
+#DiaDaEngenharia #Engenheiro #EngenhariaCivil #NECHIO #Homenagem #Construção`},
+
+{id:3,date:'2026-04-19',type:'FERIADO',format:'Post Estático',title:'✝️ Aviso: Paixão de Cristo',desc:'Fechamento Semana Santa',status:'pending',
+narrativa:`POST INFORMATIVO
+Título: "SEMANA SANTA 2026"
+Fechado: 19/04 (Paixão de Cristo)
+Reabertura: 20/04 (segunda-feira)
+Visual: Design respeitoso e clean`,
+imagem:'Arte minimalista religiosa com informações de fechamento',
+video:'N/A',
+tela:'Fundo neutro com cruz discreta + calendário',
+legenda:`✝️ SEMANA SANTA
+
+A NECHIO estará FECHADA dia 19/04 (Paixão de Cristo).
+
+Retornamos dia 20/04 (segunda-feira).
+
+🙏 Desejamos uma Páscoa de paz e reflexão a todos!
+
+📞 Emergências: WhatsApp
+
+#SemanaSanta #Páscoa #NECHIO`}
+],
+
+5: [
+{id:1,date:'2026-05-01',type:'FERIADO',format:'Post Estático',title:'👷 Dia do Trabalhador',desc:'Homenagem ao trabalhador',status:'pending',
+narrativa:`POST HOMENAGEM + AVISO
+Mensagem: Homenagem a todos os trabalhadores
+Aviso: Fechado 01/05
+Visual: Trabalhadores diversos em ação`,
+imagem:'Mosaico de profissionais da construção trabalhando',
+video:'N/A',
+tela:'Fundo vermelho com símbolo do trabalhador',
+legenda:`👷 FELIZ DIA DO TRABALHADOR! 💪
+
+Hoje celebramos TODOS que constroem este país! 🇧🇷
+
+A NECHIO fecha dia 01/05 em homenagem a vocês!
+
+Retornamos dia 02/05 (sábado).
+
+PARABÉNS, TRABALHADORES! 🎉
+
+#DiaDo Trabalhador #1DeMaio #NECHIO #Homenagem`},
+
+{id:2,date:'2026-05-10',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'💐 Dia das Mães',desc:'Homenagem às mães',status:'pending',
+narrativa:`SLIDE 1 — CAPA
+"FELIZ DIA DAS MÃES!"
+Visual: Emotivo e clean
+
+SLIDE 2 — MENSAGEM
+"Às mães engenheiras, construtoras, trabalhadoras..."
+"Vocês constroem estruturas E famílias!"
+
+SLIDE 3 — CTA
+"A NECHIO deseja um feliz dia a todas as mães!"
+Logo + coração`,
+imagem:'Foto artística de mãe + filho com capacete (simbolismo construção)',
+video:'Depoimentos rápidos de mães da construção civil',
+tela:'Fundo suave com flores + logo NECHIO',
+legenda:`💐 FELIZ DIA DAS MÃES! ❤️
+
+Para todas as mães que constroem obras E famílias! 👷‍♀️👩‍👧‍👦
+
+Vocês são INCRÍVEIS! 💪
+
+A NECHIO deseja um dia especial para todas as mães!
+
+#DiaDasMães #Mãe #NECHIO #Amor`}
+],
+
+6: [
+{id:1,date:'2026-06-05',type:'DATA ESPECIAL',format:'Carrossel 4 slides',title:'🌍 Dia do Meio Ambiente',desc:'Sustentabilidade na construção',status:'pending',
+narrativa:`SLIDE 1 — CONSCIENTIZAÇÃO
+"5 DE JUNHO"
+"DIA DO MEIO AMBIENTE"
+Visual: Natureza + construção sustentável
+
+SLIDE 2 — AÇO SUSTENTÁVEL
+"O aço é 100% reciclável!"
+"Pode ser reutilizado infinitas vezes"
+"Menos desperdício, mais sustentabilidade"
+
+SLIDE 3 — NECHIO SUSTENTÁVEL
+"Práticas sustentáveis NECHIO:"
+✓ Reaproveitamento de sucata
+✓ Gestão de resíduos
+✓ Eficiência energética
+
+SLIDE 4 — CTA
+"Construa com consciência!"
+"Escolha materiais sustentáveis!"`,
+imagem:'Aço reciclado + natureza verde integrados harmoniosamente',
+video:'Processo de reciclagem do aço explicado',
+tela:'Infográfico ciclo de vida do aço (cradle to cradle)',
+legenda:`🌍 DIA DO MEIO AMBIENTE! ♻️
+
+Você sabia que o AÇO é 100% RECICLÁVEL? 
+
+Pode ser reutilizado INFINITAS VEZES sem perder qualidade! 🔄
+
+A NECHIO apoia a construção SUSTENTÁVEL! 🌱
+
+Construa com consciência! Escolha aço certificado! 🔴
+
+#MeioAmbiente #Sustentabilidade #AçoReciclável #NECHIO #ConstruçãoSustentável`},
+
+{id:2,date:'2026-06-24',type:'DATA ESPECIAL',format:'Post Estático',title:'🔥 Festas Juninas',desc:'São João',status:'pending',
+narrativa:`POST TEMÁTICO FESTAS JUNINAS
+Visual: Decoração junina + logo NECHIO
+Mensagem: Votos de boas festas
+Leve e descontraído`,
+imagem:'Arte junina criativa com elementos da construção (capacete com chapéu de palha)',
+video:'N/A',
+tela:'Fundo bandeirinhas coloridas + logo NECHIO',
+legenda:`🔥 ARRAIÁ DA NECHIO! 🌽
+
+Boas festas juninas pra todo mundo! 🎉
+
+Que São João traga muita alegria e fartura! 
+
+Aproveitem! 🪗
+
+#FestasJuninas #SãoJoão #NECHIO #Arraial`}
+],
+
+7: [
+{id:1,date:'2026-07-20',type:'DATA ESPECIAL',format:'Post Estático',title:'👥 Dia do Amigo',desc:'Amizade',status:'pending',
+narrativa:`POST LEVE E AMIGÁVEL
+Mensagem: Celebrar amizade + parceria NECHIO
+Visual: Pessoas construindo juntas (conceito trabalho em equipe)`,
+imagem:'Equipe de obra unida, braços entrelaçados',
+video:'N/A',
+tela:'Fundo colorido alegre com logo NECHIO',
+legenda:`👥 FELIZ DIA DO AMIGO! 🤝
+
+Amigos são a família que escolhemos! 
+
+E clientes são amigos que construímos! 🏗️❤️
+
+A NECHIO agradece a amizade de cada parceiro!
+
+Feliz Dia do Amigo! 🎉
+
+#DiaDo Amigo #Amizade #NECHIO #Parceria`}
+],
+
+8: [
+{id:1,date:'2026-08-10',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'👔 Dia dos Pais',desc:'Homenagem aos pais',status:'pending',
+narrativa:`SLIDE 1 — CAPA EMOCIONANTE
+"FELIZ DIA DOS PAIS!"
+Visual: Pai + filho em obra (simbolismo)
+
+SLIDE 2 — MENSAGEM
+"Aos pais engenheiros, construtores, trabalhadores..."
+"Vocês constroem estruturas E exemplos!"
+
+SLIDE 3 — HOMENAGEM
+"Parabéns a todos os pais!"
+"A NECHIO celebra vocês!"`,
+imagem:'Foto emotiva pai e filho com capacete (gerações)',
+video:'Depoimentos de pais da construção civil',
+tela:'Fundo masculino elegante + logo NECHIO',
+legenda:`👔 FELIZ DIA DOS PAIS! 👨‍👦
+
+Para todos os pais que constroem obras E legados! 👷‍♂️
+
+Vocês são exemplos de força e dedicação! 💪
+
+Parabéns, pais! A NECHIO celebra vocês!
+
+#DiaDo sPais #Pai #NECHIO #Família`}
+],
+
+9: [
+{id:1,date:'2026-09-07',type:'FERIADO',format:'Post Estático',title:'🇧🇷 Independência do Brasil',desc:'Feriado nacional',status:'pending',
+narrativa:`POST PATRIÓTICO
+Data: 07 de setembro
+Mensagem: Celebração independência
+Aviso: Fechado
+Visual: Bandeira do Brasil + NECHIO`,
+imagem:'Bandeira Brasil tremulando + obras brasileiras icônicas',
+video:'N/A',
+tela:'Verde e amarelo + logo NECHIO',
+legenda:`🇧🇷 FELIZ DIA DA INDEPENDÊNCIA! 
+
+7 de Setembro - Fechado
+
+Retornamos dia 08/09.
+
+Viva o Brasil! 🇧🇷
+
+#IndependênciaDoBrasil #7DeSetembro #NECHIO`},
+
+{id:2,date:'2026-09-15',type:'DATA ESPECIAL',format:'Carrossel 5 slides',title:'🎯 Dia do Cliente',desc:'Celebração e promoções',status:'pending',
+narrativa:`SLIDE 1 — CAPA ESPECIAL
+"15 DE SETEMBRO"
+"DIA DO CLIENTE!"
+Visual: Celebração + logo NECHIO
+
+SLIDE 2 — AGRADECIMENTO
+"OBRIGADO por confiar na NECHIO!"
+"Vocês são a razão de existirmos!"
+
+SLIDE 3 — NÚMEROS
+66 anos servindo clientes
+Mais de 1.000 obras atendidas
+Satisfação comprovada
+
+SLIDE 4 — DIFERENCIAIS
+"Por que escolher NECHIO?"
+✓ Qualidade certificada
+✓ Assessoria gratuita
+✓ Prazo respeitado
+✓ Melhor custo-benefício
+
+SLIDE 5 — PROMOÇÃO ESPECIAL
+"PROMOÇÃO DIA DO CLIENTE!"
+Descontos especiais em produtos selecionados
+Válido: 15 a 20/09`,
+imagem:'Cliente satisfeito recebendo material NECHIO',
+video:'Depoimentos reais de clientes satisfeitos',
+tela:'Fundo festivo + ofertas destacadas',
+legenda:`🎯 FELIZ DIA DO CLIENTE! 🎉
+
+VOCÊ é a razão da NECHIO existir! ❤️
+
+E para celebrar, temos PROMOÇÃO ESPECIAL:
+🔴 Descontos em produtos selecionados
+🔴 Condições diferenciadas
+🔴 Válido: 15 a 20/09
+
+Ligue agora! 📞 (21) 3214-1300
+
+OBRIGADO pela confiança! 🙏
+
+#DiaDo Cliente #NECHIO #Promoção #Construção #Agradecimento`}
+],
+
+10: [
+{id:1,date:'2026-10-01',type:'DATA ESPECIAL',format:'Vídeo 30s',title:'📊 Dia do Vendedor',desc:'Homenagem equipe de vendas',status:'pending',
+narrativa:`VÍDEO 30s — DIA DO VENDEDOR
+
+[0-10s] ABERTURA
+"1º DE OUTUBRO"
+"DIA DO VENDEDOR!"
+Visual: Vendedores NECHIO em ação
+
+[10-20s] HOMENAGEM
+"Vocês são a ponte entre a NECHIO e o cliente"
+"Obrigado por cada atendimento!"
+
+[20-30s] MENSAGEM
+"PARABÉNS, EQUIPE NECHIO!"
+Logo + foto equipe vendas`,
+imagem:'Time de vendas NECHIO reunido sorrindo',
+video:'Making of dia a dia vendedor NECHIO',
+tela:'Fundo corporativo vermelho + fotos equipe',
+legenda:`📊 PARABÉNS, VENDEDORES! 🎉
+
+Hoje celebramos nossa EQUIPE DE VENDAS! 
+
+Vocês são essenciais para a NECHIO! 💪
+
+Obrigado por cada atendimento, cada negociação, cada sorriso!
+
+PARABÉNS! 🔴
+
+#DiaDo Vendedor #EquipeNECHIO #Vendas #Homenagem`},
+
+{id:2,date:'2026-10-25',type:'DATA ESPECIAL',format:'Carrossel 4 slides',title:'🎓 Dia do Engenheiro Civil',desc:'Homenagem engenheiros civis',status:'pending',
+narrativa:`SLIDE 1 — CAPA
+"25 DE OUTUBRO"
+"DIA DO ENGENHEIRO CIVIL"
+Visual: Engenheiro em obra + projeto
+
+SLIDE 2 — IMPORTÂNCIA
+"Vocês calculam estruturas que sustentam vidas"
+"Projetam cidades que abrigam sonhos"
+
+SLIDE 3 — PARCERIA NECHIO
+"A NECHIO é parceira dos engenheiros civis há 66 anos!"
+Fornecimento + assessoria técnica gratuita
+
+SLIDE 4 — HOMENAGEM
+"PARABÉNS, ENGENHEIROS CIVIS!"
+"Vocês constroem o Brasil!"`,
+imagem:'Engenheiro civil analisando projeto em obra real',
+video:'Dia a dia engenheiro civil: escritório > obra > resultados',
+tela:'Blueprint técnico + cálculos + logo NECHIO',
+legenda:`🎓 FELIZ DIA DO ENGENHEIRO CIVIL! 👷‍♂️
+
+Hoje celebramos quem PROJETA O FUTURO! 📐
+
+Engenheiros civis, vocês são ESSENCIAIS! 
+
+A NECHIO é parceira de vocês há 66 anos:
+✅ Aço certificado
+✅ Assessoria técnica GRATUITA
+✅ Suporte completo
+
+PARABÉNS! 🏗️
+
+📞 (21) 3214-1300
+
+#DiaDo EngenheiroCivil #Engenharia #NECHIO #Homenagem`},
+
+{id:3,date:'2026-10-26',type:'DATA ESPECIAL',format:'Post Estático',title:'👷 Dia do Trabalhador da Construção',desc:'Homenagem trabalhadores',status:'pending',
+narrativa:`POST HOMENAGEM SIMPLES E DIRETO
+Mensagem: Parabéns trabalhadores da construção
+Visual: Trabalhadores em ação orgulhosos`,
+imagem:'Trabalhador da construção em primeiro plano, obra ao fundo',
+video:'N/A',
+tela:'Fundo com ferramentas + capacete',
+legenda:`👷 DIA DO TRABALHADOR DA CONSTRUÇÃO CIVIL! 💪
+
+PARABÉNS a todos que CONSTROEM este país! 🏗️
+
+Pedreiros, armadores, serventes, carpinteiros... VOCÊS SÃO HERÓIS!
+
+A NECHIO existe para servir VOCÊS! 🔴
+
+MUITO OBRIGADO! 🙏
+
+#TrabalhadorDaConstrução #Construção #NECHIO #Homenagem`}
+],
+
+11: [
+{id:1,date:'2026-11-02',type:'FERIADO',format:'Post Estático',title:'🕯️ Finados',desc:'Feriado',status:'pending',
+narrativa:`POST RESPEITOSO E DISCRETO
+Mensagem: Respeito aos que se foram
+Aviso: Fechado 02/11
+Visual: Minimalista e respeitoso`,
+imagem:'Arte minimalista respeitosa',
+video:'N/A',
+tela:'Fundo neutro com vela discreta',
+legenda:`🕯️ DIA DE FINADOS
+
+A NECHIO estará fechada dia 02/11.
+
+Retornamos dia 03/11.
+
+Nosso respeito aos que se foram. 🙏
+
+#Finados #NECHIO`},
+
+{id:2,date:'2026-11-15',type:'FERIADO',format:'Post Estático',title:'🇧🇷 Proclamação da República',desc:'Feriado nacional',status:'pending',
+narrativa:`POST PATRIÓTICO
+Data: 15 de novembro
+Aviso: Fechado
+Visual: Bandeira Brasil`,
+imagem:'Bandeira do Brasil',
+video:'N/A',
+tela:'Verde amarelo + logo NECHIO',
+legenda:`🇧🇷 PROCLAMAÇÃO DA REPÚBLICA
+
+Fechado dia 15/11.
+
+Retornamos dia 16/11.
+
+#ProclamaçãoDaRepública #Brasil #NECHIO`},
+
+{id:3,date:'2026-11-20',type:'FERIADO/RJ',format:'Post Estático',title:'✊ Consciência Negra',desc:'Feriado RJ',status:'pending',
+narrativa:`POST RESPEITO E CONSCIÊNCIA
+Mensagem: Respeito e luta contra racismo
+Aviso: Fechado RJ
+Visual: Punho erguido + cores representativas`,
+imagem:'Arte representativa consciência negra',
+video:'N/A',
+tela:'Fundo com cores do movimento',
+legenda:`✊ DIA DA CONSCIÊNCIA NEGRA
+
+Fechado no RJ dia 20/11.
+
+Nosso respeito à luta contra o racismo.
+
+#ConsciênciaNegra #Respeito #NECHIO`}
+],
+
+12: [
+{id:1,date:'2026-12-11',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'🎓 Dia do Engenheiro',desc:'Homenagem geral aos engenheiros',status:'pending',
+narrativa:`SLIDE 1 — CAPA
+"11 DE DEZEMBRO"
+"DIA DO ENGENHEIRO"
+Visual: Múltiplas engenharias representadas
+
+SLIDE 2 — HOMENAGEM
+"Engenheiros de todas as áreas:"
+Civil, Mecânico, Elétrico, Produção...
+"Vocês movem o Brasil!"
+
+SLIDE 3 — NECHIO
+"A NECHIO celebra TODOS os engenheiros!"
+"Parabéns!"`,
+imagem:'Colagem engenheiros diversas áreas',
+video:'Depoimentos engenheiros diferentes especialidades',
+tela:'Símbolos das engenharias + logo NECHIO',
+legenda:`🎓 FELIZ DIA DO ENGENHEIRO! 👷‍♂️
+
+Civis, mecânicos, elétricos, de produção... PARABÉNS A TODOS!
+
+Vocês transformam CIÊNCIA em REALIDADE! 🔬➡️🏗️
+
+A NECHIO celebra vocês! 🔴
+
+#DiaDo Engenheiro #Engenharia #NECHIO #Homenagem`},
+
+{id:2,date:'2026-12-15',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'📐 Dia do Arquiteto',desc:'Homenagem arquitetos e urbanistas',status:'pending',
+narrativa:`SLIDE 1 — CAPA ELEGANTE
+"15 DE DEZEMBRO"
+"DIA DO ARQUITETO E URBANISTA"
+Visual: Desenho técnico + obra moderna
+
+SLIDE 2 — IMPORTÂNCIA
+"Vocês projetam espaços que moldam vidas"
+"Criam cidades que inspiram gerações"
+
+SLIDE 3 — HOMENAGEM
+"PARABÉNS, ARQUITETOS!"
+"A NECHIO admira seu trabalho!"`,
+imagem:'Arquiteto trabalhando em projeto + obra ao fundo',
+video:'Time-lapse projeto no papel > render 3D > obra pronta',
+tela:'Blueprint artístico + réguas + logo NECHIO',
+legenda:`📐 FELIZ DIA DO ARQUITETO E URBANISTA! 🏛️
+
+Hoje celebramos quem PROJETA SONHOS! ✨
+
+Vocês criam espaços que transformam vidas!
+
+PARABÉNS, ARQUITETOS! 👏
+
+A NECHIO apoia seus projetos! 🔴
+
+#DiaDo Arquiteto #Arquitetura #Urbanismo #NECHIO`},
+
+{id:3,date:'2026-12-25',type:'FERIADO',format:'Carrossel 3 slides',title:'🎄 Feliz Natal',desc:'Mensagem natalina',status:'pending',
+narrativa:`SLIDE 1 — CAPA NATALINA
+"FELIZ NATAL!"
+Visual: Decoração natalina + logo NECHIO
+
+SLIDE 2 — MENSAGEM
+"Que o Natal traga paz, união e gratidão"
+"A NECHIO deseja festas felizes a todos!"
+
+SLIDE 3 — AVISO
+"Fechado: 25/12"
+"Retorno: 26/12"
+"Boas festas!"`,
+imagem:'Árvore de Natal com capacetes dourados como enfeites (criativo)',
+video:'Mensagem equipe NECHIO desejando Feliz Natal',
+tela:'Fundo natalino vermelho/dourado + logo NECHIO',
+legenda:`🎄 FELIZ NATAL! ⭐
+
+A NECHIO deseja um Natal de paz, união e gratidão para todos!
+
+Fechado dia 25/12.
+
+Retornamos dia 26/12.
+
+BOAS FESTAS! 🎅🎁
+
+#FelizNatal #Natal2026 #NECHIO #BoasFestas`},
+
+{id:4,date:'2026-12-31',type:'DATA ESPECIAL',format:'Vídeo 60s',title:'🎆 Feliz 2027',desc:'Retrospectiva 2026 + votos Ano Novo',status:'pending',
+narrativa:`VÍDEO 60s — RETROSPECTIVA 2026
+
+[0-20s] RETROSPECTIVA
+Imagens marcantes de 2026
+Obras realizadas
+Equipe em ação
+Números do ano
+
+[20-40s] AGRADECIMENTO
+"Obrigado pela parceria em 2026!"
+Depoimentos rápidos clientes
+
+[40-60s] 2027
+"2027 vem aí!"
+"Vamos construir ainda mais!"
+Fogos de artifício
+Logo NECHIO
+"FELIZ 2027!"`,
+imagem:'Fogos de artifício sobre obras + logo NECHIO',
+video:'Retrospectiva emocionante do ano',
+tela:'Contador regressivo + melhores momentos 2026',
+legenda:`🎆 FELIZ 2027! 🏗️
+
+2026 foi incrível graças a VOCÊS!
+
+Obrigado pela parceria, confiança e amizade! ❤️
+
+Que 2027 seja de GRANDES CONSTRUÇÕES! 💪
+
+A NECHIO está pronta para construir com você!
+
+FELIZ ANO NOVO! 🎉
+
+#Feliz2027 #AnoNovo #NECHIO #Gratidão #2027`}
+]
+};
 // ============== VARIÁVEIS GLOBAIS ==============
 let currentMonth = 1;
 let currentTab = 'narrativa';
@@ -333,14 +1085,13 @@ let POSTS = {};
 // ============== STORAGE ==============
 function loadFromStorage() {
     try {
-        const saved = localStorage.getItem('nechio_posts_2026');
+        const saved = localStorage.getItem('NECHIO_posts_2026');
         if (saved) {
             POSTS = JSON.parse(saved);
             console.log('✓ Dados carregados do localStorage');
         } else {
             POSTS = JSON.parse(JSON.stringify(INITIAL_POSTS));
-            // Tentar carregar do data.json automaticamente
-            loadDefaultData();
+            saveToStorage();
         }
     } catch(e) {
         console.error('Erro ao carregar:', e);
@@ -350,7 +1101,7 @@ function loadFromStorage() {
 
 function saveToStorage() {
     try {
-        localStorage.setItem('nechio_posts_2026', JSON.stringify(POSTS));
+        localStorage.setItem('NECHIO_posts_2026', JSON.stringify(POSTS));
         showToast('✓ Salvo!');
     } catch(e) {
         console.error('Erro ao salvar:', e);
@@ -369,7 +1120,7 @@ function exportData() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `nechio_backup_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `NECHIO_backup_${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     showToast('✓ Backup exportado!');
 }
@@ -402,15 +1153,13 @@ function renderMonthSelector() {
     document.getElementById('selectorTheme').textContent = month.shortTheme;
     
     const dropdown = document.getElementById('monthDropdown');
-    dropdown.innerHTML = MONTHS_DATA.map(m => {
-        const monthPosts = POSTS[m.id] || [];
-        return `
+    dropdown.innerHTML = MONTHS_DATA.map(m => `
         <div class="month-dropdown-item ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
             <div class="month-dropdown-num">${String(m.id).padStart(2, '0')}</div>
             <div class="month-dropdown-info"><h4>${m.name}</h4><span>${m.shortTheme}</span></div>
-            <div class="month-dropdown-posts">${monthPosts.length} posts</div>
+            <div class="month-dropdown-posts">${m.posts} posts</div>
         </div>
-    `}).join('');
+    `).join('');
     
     const quickNav = document.getElementById('monthQuickNav');
     quickNav.innerHTML = MONTHS_DATA.map(m => `
@@ -419,9 +1168,8 @@ function renderMonthSelector() {
         </button>
     `).join('');
     
-    const monthPosts = POSTS[currentMonth] || [];
-    document.getElementById('statPosts').textContent = monthPosts.length;
-    document.getElementById('statStories').textContent = monthPosts.filter(p => p.format && p.format.toLowerCase().includes('story')).length;
+    document.getElementById('statPosts').textContent = month.posts;
+    document.getElementById('statStories').textContent = month.stories;
     document.getElementById('themeTitle').textContent = month.shortTheme;
     document.getElementById('themeDesc').textContent = month.desc;
 }
@@ -449,7 +1197,7 @@ function renderPosts() {
     const posts = POSTS[currentMonth] || [];
     
     if (posts.length === 0) {
-        container.innerHTML = `<div class="empty-state"><h3>📦 Sem posts ainda</h3><p>Use "Importar" ou "Carregar URL" para adicionar conteúdo de ${month.name}.</p></div>`;
+        container.innerHTML = `<div class="empty-state"><h3>🚧 Em desenvolvimento</h3><p>Posts de ${month.name} serão adicionados em breve.</p></div>`;
         return;
     }
     
@@ -465,12 +1213,12 @@ function renderPosts() {
                     <div class="post-date-month">${monthNames[d.getMonth()]}</div>
                 </div>
                 <div class="post-info">
-                    <div class="post-type">${p.type || 'POST'}</div>
+                    <div class="post-type">${p.type}</div>
                     <div class="post-title">${p.title}</div>
-                    <div class="post-desc">${p.desc || ''}</div>
+                    <div class="post-desc">${p.desc}</div>
                     ${p.status === 'completed' ? '<span class="post-status-badge status-completed">✓ Finalizado</span>' : p.status === 'pending' ? '<span class="post-status-badge status-pending">⏳ Pendente</span>' : ''}
                 </div>
-                <div class="post-format">${p.format || 'Post'}</div>
+                <div class="post-format">${p.format}</div>
             </div>
         `;
     }).join('');
@@ -481,10 +1229,10 @@ function openModal(id) {
     currentPost = posts.find(p => p.id === id);
     if (!currentPost) return;
     
-    document.getElementById('modalBadge').textContent = `POST #${String(currentPost.id).padStart(2, '0')} · ${(currentPost.format || 'POST').toUpperCase()}`;
+    document.getElementById('modalBadge').textContent = `POST #${String(currentPost.id).padStart(2, '0')} · ${currentPost.format.toUpperCase()}`;
     document.getElementById('modalDate').value = currentPost.date;
     document.getElementById('modalTitle').value = currentPost.title;
-    document.getElementById('modalDesc').textContent = currentPost.desc || '';
+    document.getElementById('modalDesc').textContent = currentPost.desc;
     
     currentTab = 'narrativa';
     updateTabs();
@@ -578,8 +1326,13 @@ function deletePost() {
     const monthId = currentMonth;
     const postId = currentPost.id;
     
+    // Remover do array
     POSTS[monthId] = POSTS[monthId].filter(p => p.id !== postId);
+    
+    // Salvar
     saveToStorage();
+    
+    // Fechar modal e atualizar
     closeModal();
     renderPosts();
     showToast('✓ Post deletado!');
@@ -592,14 +1345,19 @@ function togglePostStatus() {
     const monthId = currentMonth;
     const postId = currentPost.id;
     
+    // Encontrar post
     const post = POSTS[monthId].find(p => p.id === postId);
     if (!post) return;
     
+    // Toggle status (se não existe, cria como pending)
     if (!post.status) post.status = 'pending';
     post.status = post.status === 'completed' ? 'pending' : 'completed';
     currentPost.status = post.status;
     
+    // Salvar
     saveToStorage();
+    
+    // Atualizar UI
     updateStatusButton();
     renderPosts();
     
@@ -624,6 +1382,7 @@ function downloadPost() {
     
     const monthId = currentMonth;
     
+    // Criar estrutura JSON válida para re-importar
     const postData = {
         version: '1.0',
         exportDate: new Date().toISOString(),
@@ -632,16 +1391,19 @@ function downloadPost() {
         }
     };
     
+    // Gerar blob JSON
     const blob = new Blob([JSON.stringify(postData, null, 2)], {
         type: 'application/json'
     });
     
+    // Criar nome do arquivo
     const safeTitle = currentPost.title
         .replace(/[^a-z0-9]/gi, '_')
         .toLowerCase()
         .substring(0, 30);
     const fileName = `post_${safeTitle}_${currentPost.date}.json`;
     
+    // Download
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -699,7 +1461,6 @@ async function loadFromURLInput() {
         if (data.posts) {
             POSTS = data.posts;
             saveToStorage();
-            renderMonthSelector();
             renderPosts();
             showGitHubStatus('✓ Dados carregados com sucesso! ' + Object.keys(POSTS).length + ' meses importados.');
             showToast('✓ Dados importados da URL!');
@@ -713,20 +1474,20 @@ async function loadFromURLInput() {
 
 async function loadDefaultData() {
     try {
-        console.log('⏳ Carregando data.json local...');
+        showGitHubStatus('⏳ Carregando data.json local...');
         const response = await fetch('./data.json');
         if (!response.ok) throw new Error('data.json não encontrado');
         const data = await response.json();
         
         if (data.posts) {
             POSTS = data.posts;
-            localStorage.setItem('nechio_posts_2026', JSON.stringify(POSTS));
-            renderMonthSelector();
+            saveToStorage();
             renderPosts();
-            console.log('✓ Dados carregados do data.json local!');
+            showGitHubStatus('✓ Dados carregados do data.json local!');
+            showToast('✓ Dados carregados!');
         }
     } catch(err) {
-        console.log('ℹ️ data.json não encontrado, usando dados vazios');
+        showGitHubStatus('❌ ' + err.message, true);
     }
 }
 
@@ -743,6 +1504,7 @@ async function pushToGitHub() {
     try {
         showGitHubStatus('⏳ Conectando ao GitHub...');
         
+        // Preparar dados para exportar
         const data = {
             version: '1.0',
             exportDate: new Date().toISOString(),
@@ -751,6 +1513,7 @@ async function pushToGitHub() {
         };
         const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
         
+        // Buscar SHA atual do arquivo (se existir)
         let sha = null;
         try {
             const getResponse = await fetch(`https://api.github.com/repos/${repo}/contents/${file}`, {
@@ -762,8 +1525,9 @@ async function pushToGitHub() {
             }
         } catch(e) {}
         
+        // Criar/Atualizar arquivo
         const body = {
-            message: `📊 Atualização Nechio Studio - ${new Date().toLocaleDateString('pt-BR')}`,
+            message: `📊 Atualização NECHIO Studio - ${new Date().toLocaleDateString('pt-BR')}`,
             content: content
         };
         if (sha) body.sha = sha;
@@ -809,3 +1573,4 @@ document.addEventListener('click', e => {
 </script>
 </body>
 </html>
+
