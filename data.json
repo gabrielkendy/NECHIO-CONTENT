@@ -1,66 +1,95 @@
 {
-  "version": "1.0",
-  "exportDate": "2026-01-16T00:00:00.000Z",
+  "version": "2.0",
+  "exportDate": "2026-01-16T12:00:00.000Z",
   "months": [
-    {"id":1,"name":"Janeiro","theme":"Verão e Açaí","shortTheme":"Verão","posts":0,"stories":0,"desc":"Alta temporada de açaí e produtos refrescantes."},
-    {"id":2,"name":"Fevereiro","theme":"Carnaval e Festa","shortTheme":"Carnaval","posts":0,"stories":0,"desc":"Produtos para festas, eventos e catering."},
-    {"id":3,"name":"Março","theme":"Volta às Aulas","shortTheme":"Escola","posts":0,"stories":0,"desc":"Produtos para cantinas e alimentação escolar."},
-    {"id":4,"name":"Abril","theme":"Páscoa","shortTheme":"Páscoa","posts":0,"stories":0,"desc":"Chocolates, sobremesas e produtos especiais."},
-    {"id":5,"name":"Maio","theme":"Dia das Mães","shortTheme":"Mães","posts":0,"stories":0,"desc":"Sobremesas especiais e celebrações."},
-    {"id":6,"name":"Junho","theme":"Festas Juninas","shortTheme":"Junino","posts":0,"stories":0,"desc":"Produtos típicos e pamonha congelada."},
-    {"id":7,"name":"Julho","theme":"Férias de Inverno","shortTheme":"Inverno","posts":0,"stories":0,"desc":"Sopas, caldos e comfort food."},
-    {"id":8,"name":"Agosto","theme":"Dia dos Pais","shortTheme":"Pais","posts":0,"stories":0,"desc":"Churrascos e produtos especiais."},
-    {"id":9,"name":"Setembro","theme":"Primavera","shortTheme":"Primavera","posts":0,"stories":0,"desc":"Renovação do cardápio e lançamentos."},
-    {"id":10,"name":"Outubro","theme":"Dia das Crianças","shortTheme":"Crianças","posts":0,"stories":0,"desc":"Salgadinhos e produtos infantis."},
-    {"id":11,"name":"Novembro","theme":"Black Friday","shortTheme":"Black Friday","posts":0,"stories":0,"desc":"Promoções e estoque para festas."},
-    {"id":12,"name":"Dezembro","theme":"Natal e Réveillon","shortTheme":"Festas","posts":0,"stories":0,"desc":"Alta demanda e produtos premium."}
+    {"id":1,"name":"Janeiro","theme":"Verão | Energia | Renovação","shortTheme":"Verão","posts":2,"stories":0,"desc":"Alta temporada açaí. DIA DO AÇAÍ (20/jan) - Core Business!"},
+    {"id":2,"name":"Fevereiro","theme":"Carnaval | Alegria | Brasilidade","shortTheme":"Carnaval","posts":2,"stories":0,"desc":"CARNAVAL - Pico de Vendas! Dia da Nutrição (28)."},
+    {"id":3,"name":"Março","theme":"Outono | Frutas | Saúde","shortTheme":"Mulheres","posts":3,"stories":0,"desc":"Dia da Mulher (08), Início Outono (20), Síndrome de Down (21)."},
+    {"id":4,"name":"Abril","theme":"Páscoa | Chocolate | Família","shortTheme":"Páscoa","posts":5,"stories":0,"desc":"Páscoa (12), Paixão (19), Tiradentes (21), DIA DO CHURRASCO (24)."},
+    {"id":5,"name":"Maio","theme":"Família | Gratidão | Conforto","shortTheme":"Mães","posts":6,"stories":0,"desc":"Trabalhador (01), Suco (05), MÃES (10), Restaurante (19), Milho (24), HAMBÚRGUER (28)."},
+    {"id":6,"name":"Junho","theme":"Festa Junina | Tradição | Quentão","shortTheme":"Junino","posts":5,"stories":0,"desc":"Meio Ambiente (05), Corpus Christi (11), NAMORADOS (12), Sushi (18), SÃO JOÃO (24)."},
+    {"id":7,"name":"Julho","theme":"Inverno | Conforto | Aquecimento","shortTheme":"Inverno","posts":5,"stories":0,"desc":"MÊS GASTRONÔMICO! Chocolate (07), Padeiro (08), PIZZA (10), Amigo (20), Hot Dog (23)."},
+    {"id":8,"name":"Agosto","theme":"Dia dos Pais | Força | Gratidão","shortTheme":"Pais","posts":3,"stories":0,"desc":"Culinária BR (08), DIA DOS PAIS (09), Pastel (15)."},
+    {"id":9,"name":"Setembro","theme":"Primavera | Vida | Conscientização","shortTheme":"Amarelo","posts":6,"stories":0,"desc":"SETEMBRO AMARELO. Independência (07), Milk-shake (12), CLIENTE (15), DIA DO SORVETE (23)."},
+    {"id":10,"name":"Outubro","theme":"Outubro Rosa | Prevenção | Cuidado","shortTheme":"Rosa","posts":5,"stories":0,"desc":"OUTUBRO ROSA. Cozinheiro (04), Crianças (12), Alimentação (16), Halloween (31)."},
+    {"id":11,"name":"Novembro","theme":"Novembro Azul | Black Friday","shortTheme":"Azul","posts":5,"stories":0,"desc":"NOVEMBRO AZUL. Finados (02), República (15), Consciência Negra (20), BLACK FRIDAY (27)."},
+    {"id":12,"name":"Dezembro","theme":"Natal | Fim de Ano | Celebração","shortTheme":"Natal","posts":4,"stories":0,"desc":"Culinária (08), Verão (21), NATAL (25), RÉVEILLON (31) - Pico de Vendas!"}
   ],
   "posts": {
     "1": [
-      {
-        "id": 1,
-        "date": "2026-01-02",
-        "type": "PRODUTO",
-        "format": "Carrossel 5 slides",
-        "title": "🍇 Açaí Premium Nechio",
-        "desc": "Lançamento linha açaí verão 2026",
-        "status": "pending",
-        "narrativa": "SLIDE 1 — CAPA\nTexto: \"AÇAÍ PREMIUM NECHIO\"\nSubtexto: \"Direto da Amazônia para seu negócio\"\nVisual: Tigela açaí com frutas, logo Nechio.\n\nSLIDE 2 — DIFERENCIAIS\n\"Por que escolher Nechio?\"\n✓ 100% Natural\n✓ Sem conservantes\n✓ Rendimento superior\n✓ Preço competitivo\n\nSLIDE 3 — VARIEDADES\nAçaí Tradicional 10kg\nAçaí Médio 5kg\nAçaí Premium 1kg\nPolpa de Açaí\n\nSLIDE 4 — NÚMEROS\n+500 açaiterias atendidas\n22 anos de mercado\nEntrega em até 24h\n\nSLIDE 5 — CTA\n\"Faça seu pedido!\"\nWhatsApp: (21) XXXXX-XXXX",
-        "imagem": "Tigela de açaí com granola, banana e morango. Fundo roxo gradiente com logo Nechio.",
-        "video": "Time-lapse preparação açaí + clientes satisfeitos + depoimentos açaiterias parceiras",
-        "tela": "Fundo roxo Nechio (#8B2F8E) com tigela açaí centralizada e texto branco",
-        "legenda": "🍇 AÇAÍ PREMIUM NECHIO! 💜\n\nO verão chegou e seu cliente quer AÇAÍ DE QUALIDADE!\n\nA Nechio tem a linha completa:\n✅ Açaí Tradicional\n✅ Açaí Médio\n✅ Açaí Premium\n✅ Polpas e complementos\n\n🚚 Entrega em até 24h na Grande Rio!\n\n📞 Faça seu pedido agora!\n\n#Açaí #NechioCongelados #Verão2026 #AçaíPremium #FoodService"
-      },
-      {
-        "id": 2,
-        "date": "2026-01-06",
-        "type": "INSTITUCIONAL",
-        "format": "Reels 30s",
-        "title": "🏢 Conheça a Nechio",
-        "desc": "Tour pela estrutura CEASA-RJ",
-        "status": "pending",
-        "narrativa": "REELS 30s — TOUR NECHIO\n\n[0-5s] ABERTURA\nDrone entrando no CEASA-RJ\nTexto: \"CONHEÇA A NECHIO\"\n\n[5-15s] ESTRUTURA\nCâmaras frias\nEstoque organizado\nEquipe trabalhando\nTexto: \"2.400m² de estrutura\"\n\n[15-25s] DIFERENCIAIS\nFrota própria\nEquipe uniformizada\nCliente recebendo pedido\nTexto: \"22 anos de tradição\"\n\n[25-30s] CTA\nLogo Nechio\n\"Seu parceiro em congelados!\"\nContato",
-        "imagem": "Fachada Nechio no CEASA-RJ com frota de caminhões",
-        "video": "Drone + steadicam mostrando toda operação Nechio",
-        "tela": "Números grandes: 2.400m² | 22 anos | +1000 clientes",
-        "legenda": "🏢 CONHEÇA A NECHIO! 💜\n\nHá 22 anos fornecendo os melhores congelados do Rio!\n\n📍 CEASA-RJ\n📦 2.400m² de estrutura\n🚚 Frota própria\n⚡ Entrega em até 24h\n\nSomos seu parceiro em congelados! 🤝\n\n#NechioCongelados #CEASARJ #Congelados #FoodService #RioDeJaneiro"
-      }
+      {"id":1,"date":"2026-01-01","type":"🔴 FERIADO","format":"Post Estático","title":"🎆 Feliz Ano Novo 2026!","desc":"Confraternização Universal - FECHADO","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-01-20","type":"⭐ NICHO","format":"Campanha Completa","title":"🍇 DIA DO AÇAÍ","desc":"ALTÍSSIMO - Core Business Nechio!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
     ],
     "2": [
-      {
-        "id": 1,
-        "date": "2026-02-10",
-        "type": "SAZONAL",
-        "format": "Carrossel 4 slides",
-        "title": "🎭 Carnaval Nechio 2026",
-        "desc": "Produtos para blocos e eventos",
-        "status": "pending",
-        "narrativa": "SLIDE 1 — CAPA CARNAVAL\n\"CARNAVAL NECHIO 2026!\"\nVisual: Confetes, serpentinas, produtos Nechio\n\nSLIDE 2 — PARA BLOCOS\nSalgadinhos congelados\nBebidas geladas\nPorções práticas\n\"Atenda milhares sem stress!\"\n\nSLIDE 3 — PARA EVENTOS\nKit festa completo\nProdutos fracionados\nEntrega programada\n\"Planeje com antecedência!\"\n\nSLIDE 4 — CTA\n\"Garanta seu estoque!\"\nÚltimos pedidos: 12/02\nWhatsApp",
-        "imagem": "Mesa de festa com salgadinhos Nechio + decoração carnaval",
-        "video": "Bloco de rua servindo produtos Nechio + clientes felizes",
-        "tela": "Countdown até carnaval + produtos destacados",
-        "legenda": "🎭 CARNAVAL NECHIO 2026! 🎉\n\nSeu bloco ou evento precisa de QUALIDADE e QUANTIDADE!\n\nA Nechio tem tudo:\n🥟 Salgadinhos prontos\n🍟 Porções práticas\n🧊 Entrega programada\n\n⚠️ ÚLTIMOS PEDIDOS: 12/02!\n\nGaranta seu estoque! 📞\n\n#Carnaval2026 #NechioCongelados #BlocoDeRua #EventosRJ"
-      }
+      {"id":1,"date":"2026-02-16","type":"🔴 FERIADO","format":"Campanha Completa","title":"🎭 CARNAVAL 2026","desc":"ALTÍSSIMO - Pico de Vendas!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-02-28","type":"⭐ NICHO","format":"Post Estático","title":"🥗 Dia Mundial da Nutrição","desc":"Alimentação saudável e açaí","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "3": [
+      {"id":1,"date":"2026-03-08","type":"⭐ COMEMORATIVA","format":"Carrossel 3 slides","title":"💜 Dia Internacional da Mulher","desc":"Homenagem às mulheres empreendedoras","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-03-20","type":"📅 ESTAÇÃO","format":"Post Estático","title":"🍂 Início do Outono","desc":"Transição de estação - produtos de outono","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-03-21","type":"⭐ NICHO","format":"Post Estático","title":"💙 Dia Internacional da Síndrome de Down","desc":"Conscientização e inclusão","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "4": [
+      {"id":1,"date":"2026-04-07","type":"⭐ NICHO","format":"Carrossel 4 slides","title":"💚 Dia Mundial da Saúde","desc":"Alimentação saudável Nechio","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-04-12","type":"🎊 EVENTO","format":"Campanha Completa","title":"🐰 PÁSCOA 2026","desc":"ALTÍSSIMO - Pico de Vendas!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-04-19","type":"🔴 FERIADO","format":"Post Estático","title":"✝️ Paixão de Cristo","desc":"FECHADO - Semana Santa","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-04-21","type":"🔴 FERIADO","format":"Post Estático","title":"🇧🇷 Tiradentes","desc":"FECHADO - Feriado Nacional","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":5,"date":"2026-04-24","type":"⭐ NICHO","format":"Campanha Completa","title":"🥩 DIA DO CHURRASCO","desc":"ALTÍSSIMO - Carnes e acompanhamentos!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "5": [
+      {"id":1,"date":"2026-05-01","type":"🔴 FERIADO","format":"Post Estático","title":"👷 Dia do Trabalhador","desc":"FECHADO - Homenagem aos trabalhadores","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-05-05","type":"⭐ NICHO","format":"Carrossel 4 slides","title":"🍊 Dia do Suco Natural","desc":"ALTO - Polpas de frutas Nechio!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-05-10","type":"⭐ EVENTO","format":"Campanha Completa","title":"💐 DIA DAS MÃES","desc":"ALTÍSSIMO - Pico de Vendas!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-05-19","type":"⭐ NICHO","format":"Post Estático","title":"🍽️ Dia do Restaurante","desc":"ALTO - Parceiros food service","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":5,"date":"2026-05-24","type":"⭐ NICHO","format":"Carrossel 3 slides","title":"🌽 Dia do Milho","desc":"ALTO - Produtos de milho congelados","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":6,"date":"2026-05-28","type":"⭐ NICHO","format":"Campanha Completa","title":"🍔 DIA DO HAMBÚRGUER","desc":"ALTÍSSIMO - Hambúrgueres artesanais!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "6": [
+      {"id":1,"date":"2026-06-05","type":"⭐ NICHO","format":"Carrossel 4 slides","title":"🌍 Dia Mundial do Meio Ambiente","desc":"Sustentabilidade e embalagens","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-06-11","type":"🔴 FERIADO","format":"Post Estático","title":"✨ Corpus Christi","desc":"Ponto Facultativo","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-06-12","type":"⭐ EVENTO","format":"Campanha Completa","title":"💕 DIA DOS NAMORADOS","desc":"ALTO - Sobremesas para dois!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-06-18","type":"⭐ NICHO","format":"Post Estático","title":"🍣 Dia do Sushi","desc":"Médio - Produtos orientais","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":5,"date":"2026-06-24","type":"🎊 FESTA","format":"Campanha Completa","title":"🔥 DIA DE SÃO JOÃO","desc":"ALTÍSSIMO - Festas Juninas!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "7": [
+      {"id":1,"date":"2026-07-07","type":"⭐ NICHO","format":"Campanha Completa","title":"🍫 DIA DO CHOCOLATE","desc":"ALTÍSSIMO - Sorvetes e sobremesas!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-07-08","type":"⭐ NICHO","format":"Post Estático","title":"🥖 Dia do Padeiro","desc":"ALTO - Parceiros panificação","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-07-10","type":"⭐ NICHO","format":"Campanha Completa","title":"🍕 DIA DA PIZZA","desc":"ALTÍSSIMO - Pizzarias parceiras!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-07-20","type":"⭐ EVENTO","format":"Carrossel 3 slides","title":"🤝 Dia do Amigo","desc":"ALTO - Parceria com clientes","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":5,"date":"2026-07-23","type":"⭐ NICHO","format":"Carrossel 4 slides","title":"🌭 Dia do Cachorro-Quente","desc":"ALTO - Hot dogs e salsichas!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "8": [
+      {"id":1,"date":"2026-08-08","type":"⭐ NICHO","format":"Carrossel 4 slides","title":"🇧🇷 Dia da Culinária Brasileira","desc":"ALTO - Sabores do Brasil","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-08-09","type":"⭐ EVENTO","format":"Campanha Completa","title":"👨 DIA DOS PAIS","desc":"ALTÍSSIMO - Pico de Vendas! Churrasco!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-08-15","type":"⭐ NICHO","format":"Carrossel 3 slides","title":"🥟 Dia do Pastel","desc":"ALTO - Pastéis congelados","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "9": [
+      {"id":1,"date":"2026-09-01","type":"🟡 CAMPANHA","format":"Campanha Mensal","title":"💛 SETEMBRO AMARELO","desc":"Campanha de conscientização - mês todo","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-09-07","type":"🔴 FERIADO","format":"Post Estático","title":"🇧🇷 Independência do Brasil","desc":"FECHADO - Feriado Nacional","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-09-12","type":"⭐ NICHO","format":"Carrossel 3 slides","title":"🥤 Dia do Milk-shake","desc":"ALTO - Sorvetes e açaí!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-09-15","type":"⭐ EVENTO","format":"Campanha Completa","title":"🎯 DIA DO CLIENTE","desc":"ALTÍSSIMO - Promoções especiais!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":5,"date":"2026-09-22","type":"📅 ESTAÇÃO","format":"Post Estático","title":"🌸 Início da Primavera","desc":"Nova estação - renovação cardápio","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":6,"date":"2026-09-23","type":"⭐ NICHO","format":"Campanha Completa","title":"🍦 DIA DO SORVETE","desc":"ALTÍSSIMO - Core Business Nechio!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "10": [
+      {"id":1,"date":"2026-10-01","type":"🟣 CAMPANHA","format":"Campanha Mensal","title":"💗 OUTUBRO ROSA","desc":"Campanha de conscientização - mês todo","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-10-04","type":"⭐ NICHO","format":"Carrossel 4 slides","title":"👨‍🍳 Dia do Cozinheiro","desc":"ALTO - Homenagem aos chefs parceiros","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-10-12","type":"🔴 FERIADO","format":"Campanha Completa","title":"👧 N.Sra. Aparecida / Dia das Crianças","desc":"FECHADO - Feriado + promoções infantis","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-10-16","type":"⭐ NICHO","format":"Campanha Completa","title":"🍽️ Dia Mundial da Alimentação","desc":"ALTÍSSIMO - Food service!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":5,"date":"2026-10-31","type":"🎊 EVENTO","format":"Carrossel 4 slides","title":"🎃 Halloween","desc":"ALTO - Sobremesas temáticas","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "11": [
+      {"id":1,"date":"2026-11-01","type":"🔵 CAMPANHA","format":"Campanha Mensal","title":"💙 NOVEMBRO AZUL","desc":"Campanha de conscientização - mês todo","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-11-02","type":"🔴 FERIADO","format":"Post Estático","title":"🕯️ Finados","desc":"FECHADO - Feriado Nacional","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-11-15","type":"🔴 FERIADO","format":"Post Estático","title":"🇧🇷 Proclamação da República","desc":"FECHADO - Feriado Nacional","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-11-20","type":"🔴 FERIADO","format":"Post Estático","title":"✊ Dia da Consciência Negra","desc":"FECHADO - Feriado RJ","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":5,"date":"2026-11-27","type":"⭐ EVENTO","format":"Campanha Completa","title":"🛒 BLACK FRIDAY","desc":"ALTÍSSIMO - Maior promoção do ano!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
+    ],
+    "12": [
+      {"id":1,"date":"2026-12-08","type":"⭐ NICHO","format":"Carrossel 4 slides","title":"🍴 Dia da Culinária","desc":"ALTO - Gastronomia Nechio","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":2,"date":"2026-12-21","type":"📅 ESTAÇÃO","format":"Post Estático","title":"☀️ Início do Verão","desc":"Alta temporada açaí e sorvetes!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":3,"date":"2026-12-25","type":"🔴 FERIADO","format":"Campanha Completa","title":"🎄 NATAL","desc":"ALTÍSSIMO - Pico de Vendas! Ceia completa!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""},
+      {"id":4,"date":"2026-12-31","type":"🎊 EVENTO","format":"Campanha Completa","title":"🎆 RÉVEILLON / ANO NOVO","desc":"ALTÍSSIMO - Pico de Vendas! Festas!","status":"pending","narrativa":"","imagem":"","video":"","tela":"","legenda":""}
     ]
   }
 }
