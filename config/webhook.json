@@ -1,0 +1,26 @@
+{
+  "_INSTRUCOES": "CONFIGURAÇÃO DO WEBHOOK N8N - NECHIO CONTENT STUDIO",
+  
+  "webhook": {
+    "url": "https://agenciabase.app.n8n.cloud/webhook/nechio-deploy",
+    "metodo": "POST",
+    "ativo": true
+  },
+
+  "github": {
+    "usuario": "gabrielkendy",
+    "repositorio": "NECHIO-CONTENT",
+    "branch": "main"
+  },
+
+  "n8n": {
+    "workflowId": "begtaL9GOo5RmQoo",
+    "workflowNome": "🚀 NECHIO OFICIAL Deploy to GitHub"
+  },
+
+  "_URLS": {
+    "dashboard": "https://gabrielkendy.github.io/NECHIO-CONTENT/",
+    "repositorio": "https://github.com/gabrielkendy/NECHIO-CONTENT",
+    "webhookTest": "https://agenciabase.app.n8n.cloud/webhook-test/nechio-deploy"
+  }
+}
