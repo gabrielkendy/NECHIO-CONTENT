@@ -1,156 +1,52 @@
 {
-  "version": "2.0",
+  "version": "1.0",
+  "exportDate": "2026-01-15T00:00:00.000Z",
   "months": [
-    {
-      "id": 1,
-      "name": "Janeiro",
-      "shortTheme": "ANO NOVO",
-      "desc": "Início do ano com foco em resoluções e saúde",
-      "posts": 2,
-      "stories": 1
-    },
-    {
-      "id": 2,
-      "name": "Fevereiro",
-      "shortTheme": "CARNAVAL",
-      "desc": "Mês do Carnaval e Nutrição",
-      "posts": 1,
-      "stories": 1
-    },
-    {
-      "id": 3,
-      "name": "Março",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 4,
-      "name": "Abril",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 5,
-      "name": "Maio",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 6,
-      "name": "Junho",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 7,
-      "name": "Julho",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 8,
-      "name": "Agosto",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 9,
-      "name": "Setembro",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 10,
-      "name": "Outubro",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 11,
-      "name": "Novembro",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    },
-    {
-      "id": 12,
-      "name": "Dezembro",
-      "shortTheme": "TEMA",
-      "desc": "",
-      "posts": 0,
-      "stories": 0
-    }
+    {"id":1,"name":"Janeiro","theme":"Verão e Alta Temporada","shortTheme":"Verão & Açaí","posts":10,"stories":3,"desc":"Alta temporada de açaí, sorvetes e produtos refrescantes."},
+    {"id":2,"name":"Fevereiro","theme":"Carnaval e Energia","shortTheme":"Carnaval","posts":8,"stories":5,"desc":"Carnaval, blocos, festas e muita energia!"},
+    {"id":3,"name":"Março","theme":"Volta às Aulas","shortTheme":"Volta às Aulas","posts":10,"stories":3,"desc":"Lanchonetes, cantinas e alimentação escolar."},
+    {"id":4,"name":"Abril","theme":"Páscoa e Chocolates","shortTheme":"Páscoa","posts":10,"stories":4,"desc":"Páscoa, chocolates e sobremesas especiais."},
+    {"id":5,"name":"Maio","theme":"Dia das Mães","shortTheme":"Dia das Mães","posts":10,"stories":3,"desc":"Homenagens, promoções e produtos especiais."},
+    {"id":6,"name":"Junho","theme":"Festas Juninas","shortTheme":"São João","posts":12,"stories":5,"desc":"Festas juninas, comidas típicas e arraiás."},
+    {"id":7,"name":"Julho","theme":"Férias de Inverno","shortTheme":"Férias","posts":8,"stories":3,"desc":"Férias, viagens e conforto."},
+    {"id":8,"name":"Agosto","theme":"Dia dos Pais","shortTheme":"Dia dos Pais","posts":10,"stories":3,"desc":"Homenagens aos pais e churrascos."},
+    {"id":9,"name":"Setembro","theme":"Primavera","shortTheme":"Primavera","posts":10,"stories":3,"desc":"Primavera, renovação e novos produtos."},
+    {"id":10,"name":"Outubro","theme":"Dia das Crianças","shortTheme":"Crianças","posts":12,"stories":5,"desc":"Dia das Crianças, doces e diversão."},
+    {"id":11,"name":"Novembro","theme":"Black Friday","shortTheme":"Black Friday","posts":15,"stories":8,"desc":"Promoções, ofertas e Black Friday!"},
+    {"id":12,"name":"Dezembro","theme":"Natal e Ano Novo","shortTheme":"Festas","posts":12,"stories":5,"desc":"Natal, Ano Novo, confraternizações e cestas."}
   ],
   "posts": {
     "1": [
       {
-        "id": "jan_01_2026",
+        "id": 1,
         "date": "2026-01-01",
-        "time": "06:30",
-        "type": "story",
-        "title": "Feliz Ano Novo 2026",
-        "product": "Feriado",
-        "caption": "🎊 FELIZ ANO NOVO! A Nechio deseja um 2026 cheio de saúde, prosperidade e muito açaí! 💜 #nechio #anonovo #2026",
-        "hashtags": "#nechio #anonovo #2026 #felizanonovo",
-        "priority": "high",
-        "categoria": "feriado"
+        "type": "DATA ESPECIAL",
+        "format": "Carrossel 5 slides",
+        "title": "🎆 Feliz 2026!",
+        "desc": "Mensagem de Ano Novo",
+        "status": "pending",
+        "narrativa": "SLIDE 1 — CAPA\nTexto: \"2026 CHEGOU!\"\nSubtexto: \"Mais um ano de parceria e sabor!\"\nVisual: Fogos dourados, produtos Nechio, logo.\n\nSLIDE 2 — RETROSPECTIVA 2025\n\"Em 2025, levamos sabor a milhares de estabelecimentos\"\nNúmeros: 22+ anos | 1000+ clientes | CEASA-RJ\n\nSLIDE 3 — AGRADECIMENTO\n\"Obrigado a cada açaiteria, sorveteria e restaurante.\"\nVisual: Colagem fotos clientes e produtos.\n\nSLIDE 4 — COMPROMISSO 2026\n\"Em 2026, mesmo compromisso:\"\n✓ Produtos de qualidade\n✓ Entrega rápida\n✓ Melhor preço\n\nSLIDE 5 — CTA\n\"Bora fazer 2026 ser o melhor ano?\"\n\"Fala com a gente! 👇\"",
+        "imagem": "Foto produtos Nechio + fogos dourados + logo roxo/verde",
+        "video": "Time-lapse entregas 2025 + depoimentos clientes + metas 2026",
+        "tela": "Fundo roxo Nechio gradiente, números grandes em branco/verde",
+        "legenda": "🎆 FELIZ 2026, PARCEIROS NECHIO! 🍨\n\nQue este ano seja de muito sabor, vendas e sucesso! 💪\n\nA Nechio fecha 2025 com gratidão e entra em 2026 com o mesmo compromisso de sempre: qualidade, preço justo e entrega rápida! 💜💚\n\nQual é a sua meta para 2026? Comenta aqui! 👇\n\n📞 Faz seu pedido: (21) 2589-2900\n\n#FelizAnoNovo #Nechio #2026 #Açaí #Sorvete #Congelados"
       },
       {
-        "id": "jan_20_2026_acai",
-        "date": "2026-01-20",
-        "time": "06:30",
-        "type": "reel",
-        "title": "Dia do Açaí 2026",
-        "product": "Açaí Premium",
-        "caption": "🎉 HOJE É DIA DO AÇAÍ! 🎉\n\n20 de Janeiro - O dia MAIS importante para a Nechio! 💜\n\nO açaí que impulsiona seu negócio:\n✅ 100% natural e sem conservantes\n✅ Textura cremosa perfeita\n✅ Sabor autêntico da Amazônia\n✅ Entrega rápida e pontual\n\n📞 Garanta já seu estoque!\n\n#nechio #diadoacai #acai #distribuidora #foodservice",
-        "hashtags": "#nechio #diadoacai #acai #acaipremium #distribuidora #foodservice #riodejaneiro #ceasa",
-        "priority": "critical",
-        "categoria": "data_comemorativa"
+        "id": 2,
+        "date": "2026-01-19",
+        "type": "DATA ESPECIAL",
+        "format": "Reels 30s",
+        "title": "🫐 Dia do Açaí",
+        "desc": "Celebração do Dia Nacional do Açaí",
+        "status": "pending",
+        "narrativa": "REELS 30s — DIA DO AÇAÍ\n\n[0-5s] ABERTURA IMPACTANTE\nVisual: Açaí sendo servido em câmera lenta\nTexto: \"19 DE JANEIRO\"\nMúsica: Batida envolvente\n\n[5-15s] CELEBRAÇÃO\n\"DIA NACIONAL DO AÇAÍ!\"\nCenas: tigelas, smoothies, açaí na tigela\n\"O superalimento brasileiro!\"\n\n[15-25s] PRODUTOS NECHIO\n\"A Nechio tem o melhor açaí para seu negócio!\"\nMostrar: polpas, litros, galões\n\n[25-30s] CTA\nLogo Nechio\n\"Faz seu pedido! 📞 (21) 2589-2900\"",
+        "imagem": "Tigela de açaí perfeita com frutas e granola, fundo roxo",
+        "video": "Preparo de açaí do início ao fim + clientes felizes",
+        "tela": "19/01 DIA DO AÇAÍ - Polpas a partir de R$XX",
+        "legenda": "🫐 DIA NACIONAL DO AÇAÍ! 💜\n\nHoje é dia de celebrar o superalimento brasileiro! 🇧🇷\n\nA Nechio tem o MELHOR AÇAÍ para seu negócio:\n✅ Polpas de 100g a 10kg\n✅ Açaí cremoso premium\n✅ Entrega rápida CEASA-RJ\n\n🔥 PROMOÇÃO ESPECIAL HOJE!\n\n📞 Faz seu pedido: (21) 2589-2900\n📍 CEASA-RJ - Pavilhões 27, 28, 29 e 30\n\n#DiaDoAçaí #Açaí #Nechio #Superalimento #AçaíBrasil"
       }
     ],
-    "2": [
-      {
-        "id": "fev_16_2026_carnaval",
-        "date": "2026-02-16",
-        "time": "06:30",
-        "type": "reel",
-        "title": "Carnaval 2026 - Estoque Garantido",
-        "product": "Açaí + Polpas",
-        "caption": "🎭 CARNAVAL CHEGOU! 🎭\n\nGaranta energia pro bloco com Nechio! 🎉\n\n🥤 Polpas de frutas para drinks refrescantes\n🍦 Açaí para recarregar as baterias\n🍔 Snacks congelados pro lanche rápido\n\n📦 Estoque garantido para TODA a folia!\n\n#nechio #carnaval #carnaval2026 #blocoderua #distribuidora",
-        "hashtags": "#nechio #carnaval #carnaval2026 #blocoderua #acai #polpas #distribuidora #foodservice",
-        "priority": "critical",
-        "categoria": "evento_sazonal"
-      },
-      {
-        "id": "fev_28_2026_nutricao",
-        "date": "2026-02-28",
-        "time": "06:30",
-        "type": "photo",
-        "title": "Dia Mundial da Nutrição",
-        "product": "Polpas de Frutas",
-        "caption": "🥗 DIA MUNDIAL DA NUTRIÇÃO 🥗\n\nSaúde começa com escolhas inteligentes! 💚\n\nNossas polpas de frutas:\n✅ 100% natural\n✅ Sem açúcar adicionado\n✅ Ricas em vitaminas\n✅ Perfeitas para sucos e vitaminas\n\n#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel",
-        "hashtags": "#nechio #nutricao #saudavel #polpasdefrutas #alimentacaosaudavel #vidasaudavel",
-        "priority": "medium",
-        "categoria": "data_comemorativa"
-      }
-    ],
+    "2": [],
     "3": [],
     "4": [],
     "5": [],

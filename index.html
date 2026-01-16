@@ -1,1118 +1,487 @@
 <!DOCTYPE html>
-<!-- NECHIO CONTENT STUDIO - VERSÃO 2.1.0 - BUILD: 2026-01-15-20:05 -->
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nechio Congelados - Content Studio 2026 v2.1</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>NECHIO Content Studio 2026</title>
     <style>
-        /* ============================================
-           CSS COM VARIÁVEIS DINÂMICAS
-           Cores são carregadas do config.json
-           ============================================ */
-        :root {
-            --primaria: #C41E3A;
-            --secundaria: #1a1a1a;
-            --destaque: #C9A227;
-            --sucesso: #22C55E;
-            --erro: #EF4444;
-            --alerta: #F59E0B;
-            --info: #3B82F6;
-            --texto: #FFFFFF;
-            --texto2: #888888;
-            --fundo: #0a0a0a;
-            --fundo2: #111111;
-            --fundo3: #1a1a1a;
-            --fundo4: #222222;
-            --borda: #333333;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--fundo);
-            color: var(--texto);
-            min-height: 100vh;
-        }
-
-        /* HEADER */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-            background: var(--fundo2);
-            border-bottom: 1px solid var(--borda);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo img {
-            height: 42px;
-            width: auto;
-        }
-        
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: var(--primaria);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 24px;
-        }
-        
-        .logo-text {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        
-        .logo-sub {
-            font-size: 11px;
-            color: var(--texto2);
-        }
-        
-        .header-actions {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .header-btn {
-            padding: 10px 18px;
-            background: var(--fundo3);
-            border: 1px solid var(--borda);
-            border-radius: 8px;
-            color: var(--texto);
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .header-btn:hover {
-            border-color: var(--primaria);
-            background: var(--fundo4);
-        }
-        
-        .header-btn.primary {
-            background: var(--sucesso);
-            border-color: var(--sucesso);
-        }
-        
-        .header-btn.primary:hover {
-            filter: brightness(1.1);
-        }
-        
-        .header-btn.deploy {
-            background: var(--primaria);
-            border-color: var(--primaria);
-        }
-        
-        .header-btn.deploy:hover {
-            filter: brightness(1.1);
-        }
-
-        /* LAYOUT */
-        .layout {
-            display: flex;
-            min-height: calc(100vh - 70px);
-        }
-        
-        /* SIDEBAR */
-        .sidebar {
-            width: 280px;
-            background: var(--fundo2);
-            border-right: 1px solid var(--borda);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .sidebar-section {
-            padding: 20px;
-            border-bottom: 1px solid var(--borda);
-        }
-        
-        .sidebar-title {
-            font-size: 10px;
-            color: var(--texto2);
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .sidebar-title::before {
-            content: '';
-            width: 20px;
-            height: 2px;
-            background: var(--destaque);
-        }
-        
-        /* MONTH SELECTOR */
-        .month-selector {
-            position: relative;
-            width: 100%;
-        }
-        
-        .month-selector-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--fundo3);
-            border: 1px solid var(--borda);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .month-selector-btn:hover,
-        .month-selector-btn.open {
-            border-color: var(--primaria);
-        }
-        
-        .month-num {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--primaria);
-            min-width: 45px;
-        }
-        
-        .month-info h3 {
-            font-size: 16px;
-            font-weight: 700;
-        }
-        
-        .month-info span {
-            font-size: 11px;
-            color: var(--texto2);
-        }
-        
-        .month-arrow {
-            margin-left: auto;
-            transition: transform 0.2s;
-        }
-        
-        .month-selector-btn.open .month-arrow {
-            transform: rotate(180deg);
-        }
-        
-        /* DROPDOWN */
-        .month-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--fundo3);
-            border: 1px solid var(--borda);
-            border-radius: 10px;
-            margin-top: 5px;
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 50;
-        }
-        
-        .month-dropdown.open {
-            display: block;
-        }
-        
-        .month-dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 15px;
-            cursor: pointer;
-            transition: background 0.2s;
-            border-bottom: 1px solid var(--borda);
-        }
-        
-        .month-dropdown-item:last-child {
-            border-bottom: none;
-        }
-        
-        .month-dropdown-item:hover,
-        .month-dropdown-item.active {
-            background: var(--fundo4);
-        }
-        
-        .month-dropdown-item.active {
-            border-left: 3px solid var(--primaria);
-        }
-        
-        .month-dropdown-num {
-            font-size: 18px;
-            font-weight: 900;
-            color: var(--primaria);
-            width: 30px;
-        }
-        
-        .month-dropdown-info h4 {
-            font-size: 13px;
-            font-weight: 600;
-        }
-        
-        .month-dropdown-info span {
-            font-size: 10px;
-            color: var(--texto2);
-        }
-        
-        .month-dropdown-posts {
-            margin-left: auto;
-            background: var(--fundo4);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 10px;
-            color: var(--texto2);
-        }
-
-        /* QUICK NAV */
-        .month-quick-nav {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-top: 15px;
-        }
-        
-        .month-quick-btn {
-            padding: 10px 5px;
-            background: var(--fundo4);
-            border: 1px solid var(--borda);
-            border-radius: 8px;
-            color: var(--texto2);
-            font-size: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
-        }
-        
-        .month-quick-btn:hover {
-            border-color: var(--primaria);
-            color: var(--texto);
-        }
-        
-        .month-quick-btn.active {
-            background: var(--primaria);
-            border-color: var(--primaria);
-            color: var(--texto);
-        }
-        
-        /* SIDEBAR INFO */
-        .sidebar-info {
-            padding: 20px;
-        }
-        
-        .month-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .month-stat-card {
-            background: var(--fundo3);
-            border: 1px solid var(--borda);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .month-stat-value {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--primaria);
-        }
-        
-        .month-stat-label {
-            font-size: 9px;
-            color: var(--texto2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .month-theme-card {
-            background: linear-gradient(135deg, rgba(196,30,58,0.1), var(--fundo3));
-            border: 1px solid var(--borda);
-            border-radius: 12px;
-            padding: 20px;
-        }
-        
-        .month-theme-label {
-            font-size: 9px;
-            color: var(--primaria);
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-        
-        .month-theme-title {
-            font-size: 22px;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-        
-        .month-theme-desc {
-            font-size: 12px;
-            color: var(--texto2);
-            line-height: 1.6;
-        }
-
-        /* MAIN CONTENT */
-        .main {
-            flex: 1;
-            overflow-y: auto;
-            padding: 25px 30px;
-        }
-        
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--borda);
-        }
-        
-        .main-title {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-        
-        .main-title span {
-            color: var(--primaria);
-        }
-        
-        /* POSTS LIST */
-        .posts-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .post-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 18px 20px;
-            background: var(--fundo2);
-            border: 1px solid var(--borda);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.25s;
-        }
-        
-        .post-card:hover {
-            border-color: var(--primaria);
-            transform: translateX(8px);
-            box-shadow: 0 5px 30px rgba(196,30,58,0.15);
-        }
-        
-        .post-date {
-            background: var(--fundo3);
-            border-radius: 8px;
-            padding: 10px 12px;
-            text-align: center;
-            min-width: 55px;
-        }
-        
-        .post-date-day {
-            font-size: 22px;
-            font-weight: 900;
-            color: var(--primaria);
-        }
-        
-        .post-date-month {
-            font-size: 9px;
-            color: var(--texto2);
-            text-transform: uppercase;
-        }
-        
-        .post-info {
-            flex: 1;
-        }
-        
-        .post-type {
-            font-size: 10px;
-            color: var(--destaque);
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-        
-        .post-title {
-            font-weight: 600;
-            font-size: 15px;
-            margin-bottom: 4px;
-        }
-        
-        .post-desc {
-            font-size: 12px;
-            color: var(--texto2);
-        }
-        
-        .post-format {
-            background: var(--fundo3);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 10px;
-            color: var(--texto2);
-        }
-        
-        .post-priority {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        
-        .post-priority.altissima { background: rgba(196,30,58,0.2); color: var(--primaria); }
-        .post-priority.alta { background: rgba(201,162,39,0.2); color: var(--destaque); }
-        .post-priority.media { background: rgba(59,130,246,0.2); color: var(--info); }
-        .post-priority.baixa { background: rgba(136,136,136,0.2); color: var(--texto2); }
-
-        /* MODAL */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            overflow-y: auto;
-            backdrop-filter: blur(10px);
-        }
-        
-        .modal-overlay.show {
-            display: block;
-        }
-        
-        .modal {
-            max-width: 800px;
-            margin: 20px auto;
-            background: var(--fundo2);
-            border-radius: 16px;
-            border: 1px solid var(--borda);
-            overflow: hidden;
-            min-height: 400px;
-        }
-        
-        .modal-header {
-            padding: 25px 30px;
-            background: linear-gradient(135deg, var(--fundo3), var(--fundo2));
-            border-bottom: 1px solid var(--borda);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        
-        .modal-header-left {
-            flex: 1;
-        }
-        
-        .modal-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: rgba(196,30,58,0.2);
-            border: 1px solid var(--primaria);
-            border-radius: 20px;
-            font-size: 10px;
-            color: var(--primaria);
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-        
-        .modal-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        
-        .modal-desc {
-            font-size: 13px;
-            color: var(--texto2);
-        }
-        
-        .modal-close {
-            width: 40px;
-            height: 40px;
-            background: var(--fundo3);
-            border: 1px solid var(--borda);
-            border-radius: 50%;
-            color: var(--texto);
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .modal-close:hover {
-            border-color: var(--primaria);
-            color: var(--primaria);
-            transform: rotate(90deg);
-        }
-        
-        .modal-body {
-            padding: 25px 30px;
-        }
-        
-        .modal-info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .modal-info-item {
-            background: var(--fundo3);
-            padding: 15px;
-            border-radius: 8px;
-        }
-        
-        .modal-info-label {
-            font-size: 10px;
-            color: var(--texto2);
-            margin-bottom: 5px;
-        }
-        
-        .modal-info-value {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* CONTENT TABS */
-        .content-tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .tab-btn {
-            padding: 10px 16px;
-            background: var(--fundo3);
-            border: 1px solid var(--borda);
-            border-radius: 8px;
-            color: var(--texto2);
-            font-size: 11px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .tab-btn:hover {
-            border-color: var(--primaria);
-            color: var(--texto);
-        }
-        
-        .tab-btn.active {
-            background: var(--primaria);
-            border-color: var(--primaria);
-            color: var(--texto);
-        }
-        
-        .content-area {
-            background: var(--fundo3);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        
-        .content-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: var(--fundo4);
-            border-bottom: 1px solid var(--borda);
-        }
-        
-        .content-header span {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--destaque);
-            letter-spacing: 1px;
-        }
-        
-        .copy-btn {
-            padding: 8px 16px;
-            background: var(--fundo2);
-            border: 1px solid var(--borda);
-            border-radius: 6px;
-            color: var(--texto);
-            font-size: 11px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .copy-btn:hover {
-            background: var(--sucesso);
-            border-color: var(--sucesso);
-        }
-        
-        .content-text {
-            padding: 20px;
-            margin: 0;
-            font-size: 13px;
-            line-height: 1.8;
-            white-space: pre-wrap;
-            color: #ddd;
-            font-family: 'Courier New', monospace;
-            background: var(--fundo);
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        
-        .empty-content {
-            padding: 40px;
-            text-align: center;
-            color: var(--texto2);
-        }
-
-        /* TOAST */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            padding: 15px 25px;
-            background: var(--sucesso);
-            color: var(--texto);
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 13px;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 40px rgba(34,197,94,0.3);
-        }
-        
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .toast.error {
-            background: var(--erro);
-        }
-        
-        .toast.loading {
-            background: var(--info);
-        }
-        
-        /* STATUS BAR */
-        .status-bar {
-            padding: 10px 20px;
-            background: var(--fundo3);
-            border-top: 1px solid var(--borda);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-            color: var(--texto2);
-        }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 6px;
-        }
-        
-        .status-dot.online { background: var(--sucesso); }
-        .status-dot.offline { background: var(--erro); }
-        
-        /* EMPTY STATE */
-        .empty-state {
-            text-align: center;
-            padding: 80px 40px;
-            color: var(--texto2);
-        }
-        
-        .empty-state h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--texto);
-        }
-        
-        /* SCROLLBAR */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--fundo2); }
-        ::-webkit-scrollbar-thumb { background: var(--borda); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primaria); }
-        
-        /* SPINNER */
-        .spinner {
-            width: 16px;
-            height: 16px;
-            border: 2px solid transparent;
-            border-top-color: currentColor;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-        }
-        
-        @keyframes spin { to { transform: rotate(360deg); } }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .sidebar { display: none; }
-            .layout { flex-direction: column; }
-            .main { padding: 15px; }
-        }
+        :root{--vermelho:#8B2F8E;--vermelho-dark:#6B1F6E;--dourado:#1E8E3E;--preto:#0a0a0a;--preto2:#111;--preto3:#1a1a1a;--preto4:#222;--branco:#fff;--cinza:#888;--cinza2:#555;--verde:#22c55e;--azul:#3b82f6;--roxo:#a855f7;--laranja:#f97316}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--preto);color:var(--branco);min-height:100vh}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:linear-gradient(135deg,var(--preto2),var(--preto));border-bottom:1px solid #222;position:sticky;top:0;z-index:100}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--vermelho),var(--vermelho-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;font-style:italic;box-shadow:0 4px 15px rgba(139,47,142,0.3)}
+        .logo-text{font-size:20px;font-weight:900;letter-spacing:3px}
+        .logo-sub{font-size:9px;color:var(--cinza);letter-spacing:1px}
+        .header-actions{display:flex;gap:10px}
+        .header-btn{padding:8px 16px;background:var(--preto3);border:1px solid #333;border-radius:6px;color:var(--branco);font-size:12px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+        .header-btn:hover{border-color:var(--vermelho);background:rgba(139,47,142,0.1)}
+        .header-btn.primary{background:var(--vermelho);border-color:var(--vermelho)}
+        .layout{display:flex;height:calc(100vh - 72px)}
+        .sidebar{width:280px;background:var(--preto2);border-right:1px solid #222;overflow-y:auto;padding:0}
+        .month-filter{padding:20px;border-bottom:1px solid #222;background:var(--preto3)}
+        .month-filter-title{font-size:10px;color:var(--cinza);letter-spacing:2px;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+        .month-filter-title::before{content:'';width:20px;height:2px;background:var(--vermelho)}
+        .month-selector-btn{width:100%;padding:15px 20px;background:linear-gradient(135deg,var(--preto4),var(--preto3));border:2px solid #333;border-radius:12px;color:var(--branco);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+        .month-selector-btn:hover,.month-selector-btn.open{border-color:var(--vermelho)}
+        .month-selector-left{display:flex;align-items:center;gap:15px}
+        .month-selector-num{font-size:28px;font-weight:900;color:var(--vermelho);line-height:1}
+        .month-selector-info h3{font-size:18px;font-weight:700}
+        .month-selector-info span{font-size:11px;color:var(--cinza)}
+        .month-selector-arrow{font-size:12px;color:var(--cinza);transition:transform .3s}
+        .month-selector-btn.open .month-selector-arrow{transform:rotate(180deg)}
+        .month-dropdown{position:absolute;top:100%;left:0;width:100%;background:var(--preto3);border:2px solid var(--vermelho);border-top:none;border-radius:0 0 12px 12px;max-height:0;overflow:hidden;transition:max-height .3s;z-index:50}
+        .month-dropdown.open{max-height:400px;overflow-y:auto}
+        .month-dropdown-item{display:flex;align-items:center;gap:15px;padding:12px 20px;cursor:pointer;transition:all .2s;border-bottom:1px solid #222}
+        .month-dropdown-item:hover{background:rgba(139,47,142,0.1)}
+        .month-dropdown-item.active{background:rgba(139,47,142,0.2)}
+        .month-dropdown-num{font-size:18px;font-weight:900;color:var(--vermelho);width:30px}
+        .month-dropdown-info h4{font-size:13px;font-weight:600}
+        .month-dropdown-info span{font-size:10px;color:var(--cinza)}
+        .month-dropdown-posts{margin-left:auto;background:var(--preto4);padding:4px 10px;border-radius:20px;font-size:10px;color:var(--cinza)}
+        .month-quick-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
+        .month-quick-btn{padding:10px 5px;background:var(--preto4);border:1px solid #333;border-radius:8px;color:var(--cinza);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s;text-align:center}
+        .month-quick-btn:hover{border-color:var(--vermelho);color:var(--branco)}
+        .month-quick-btn.active{background:var(--vermelho);border-color:var(--vermelho);color:var(--branco)}
+        .sidebar-info{padding:20px}
+        .sidebar-info-title{font-size:10px;color:var(--cinza);letter-spacing:2px;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+        .sidebar-info-title::before{content:'';width:20px;height:2px;background:var(--dourado)}
+        .month-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+        .month-stat-card{background:var(--preto3);border:1px solid #222;border-radius:10px;padding:15px;text-align:center}
+        .month-stat-value{font-size:28px;font-weight:900;color:var(--vermelho)}
+        .month-stat-label{font-size:9px;color:var(--cinza);text-transform:uppercase;letter-spacing:1px}
+        .month-theme-card{background:linear-gradient(135deg,rgba(139,47,142,0.1),var(--preto3));border:1px solid #333;border-radius:12px;padding:20px}
+        .month-theme-label{font-size:9px;color:var(--vermelho);letter-spacing:2px;margin-bottom:8px}
+        .month-theme-title{font-size:22px;font-weight:900;margin-bottom:10px}
+        .month-theme-desc{font-size:12px;color:var(--cinza);line-height:1.6}
+        .month-selector{position:relative;width:100%}
+        .main{flex:1;overflow-y:auto;padding:25px 30px}
+        .main-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #222}
+        .main-title{font-size:28px;font-weight:900;letter-spacing:2px}
+        .main-title span{color:var(--vermelho)}
+        .posts-list{display:flex;flex-direction:column;gap:12px}
+        .post-card{display:flex;align-items:center;gap:20px;padding:18px 20px;background:var(--preto2);border:1px solid #222;border-radius:12px;cursor:pointer;transition:all .25s}
+        .post-card:hover{border-color:var(--vermelho);transform:translateX(8px);box-shadow:0 5px 30px rgba(139,47,142,0.15)}
+        .post-date{background:var(--preto3);border-radius:8px;padding:10px 12px;text-align:center;min-width:55px}
+        .post-date-day{font-size:22px;font-weight:900;color:var(--vermelho)}
+        .post-date-month{font-size:9px;color:var(--cinza);text-transform:uppercase}
+        .post-info{flex:1}
+        .post-type{font-size:10px;color:var(--dourado);font-weight:700;letter-spacing:1px;margin-bottom:5px}
+        .post-desc{font-size:12px;color:var(--cinza)}
+        .post-format{background:var(--preto3);padding:6px 12px;border-radius:6px;font-size:10px;color:var(--cinza)}
+        .post-title{font-weight:600;font-size:15px;margin-bottom:4px}
+        .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:1000;overflow-y:auto;backdrop-filter:blur(10px)}
+        .modal-overlay.show{display:block}
+        .modal{max-width:1000px;margin:20px auto;background:var(--preto2);border-radius:16px;border:1px solid #333;overflow:hidden}
+        .modal-header{padding:25px 30px;background:linear-gradient(135deg,var(--preto3),var(--preto2));border-bottom:1px solid #333;display:flex;justify-content:space-between;align-items:flex-start}
+        .modal-header-left{flex:1}
+        .modal-badge{display:inline-block;padding:4px 12px;background:rgba(139,47,142,0.2);border:1px solid var(--vermelho);border-radius:20px;font-size:10px;color:var(--vermelho);font-weight:700;letter-spacing:1px;margin-bottom:12px}
+        .modal-title-row{display:flex;align-items:center;gap:15px;margin-bottom:8px;flex-wrap:wrap}
+        .modal-date-input{background:var(--preto3);border:1px solid #444;border-radius:6px;padding:8px 12px;color:var(--branco);font-size:14px;width:140px}
+        .modal-title-input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid #333;color:var(--branco);font-size:18px;font-weight:700;padding:5px 0}
+        .modal-title-input:focus{outline:none;border-bottom-color:var(--vermelho)}
+        .modal-desc{font-size:13px;color:var(--cinza)}
+        .modal-close{width:40px;height:40px;background:var(--preto3);border:1px solid #444;border-radius:50%;color:#fff;font-size:18px;cursor:pointer;transition:all .2s}
+        .modal-close:hover{border-color:var(--vermelho);color:var(--vermelho);transform:rotate(90deg)}
+        .modal-tabs{display:flex;background:var(--preto3);border-bottom:1px solid #333;flex-wrap:wrap}
+        .modal-tab{flex:1;min-width:120px;padding:15px 10px;background:transparent;border:none;color:var(--cinza);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;border-bottom:3px solid transparent}
+        .modal-tab:hover{color:var(--branco);background:rgba(255,255,255,0.03)}
+        .modal-tab.active{color:var(--vermelho);border-bottom-color:var(--vermelho);background:rgba(139,47,142,0.05)}
+        .modal-tab-icon{font-size:14px}
+        .modal-body{padding:25px 30px;max-height:60vh;overflow-y:auto}
+        .content-section{margin-bottom:20px;background:var(--preto3);border-radius:12px;overflow:hidden}
+        .section-header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--preto4);border-bottom:1px solid #333}
+        .section-title{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px}
+        .section-icon{font-size:14px}
+        .section-title.narrativa{color:var(--azul)}
+        .section-title.imagem{color:var(--roxo)}
+        .section-title.video{color:var(--laranja)}
+        .section-title.legenda{color:var(--verde)}
+        .section-title.tela{color:var(--dourado)}
+        .copy-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--preto2);border:1px solid #444;border-radius:6px;color:var(--branco);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s}
+        .copy-btn:hover{background:var(--vermelho);border-color:var(--vermelho)}
+        .copy-btn.copied{background:var(--verde);border-color:var(--verde)}
+        .section-body{padding:18px}
+        .content-text{font-size:13px;line-height:1.8;white-space:pre-wrap;color:#ddd;font-family:'Courier New',monospace;background:var(--preto);padding:15px;border-radius:8px;max-height:300px;overflow-y:auto}
+        .toast{position:fixed;bottom:30px;right:30px;padding:15px 25px;background:var(--verde);color:#fff;border-radius:10px;font-weight:600;font-size:13px;transform:translateY(100px);opacity:0;transition:all .3s;z-index:2000;display:flex;align-items:center;gap:10px;box-shadow:0 10px 40px rgba(34,197,94,0.3)}
+        .toast.show{transform:translateY(0);opacity:1}
+        .empty-state{text-align:center;padding:80px 40px;color:var(--cinza)}
+        .empty-state h3{font-size:20px;margin-bottom:10px;color:var(--cinza2)}
+        .backup-info{padding:15px;background:var(--preto3);border-radius:8px;margin-top:15px;font-size:11px;color:var(--cinza)}
+        .backup-info strong{color:var(--verde)}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:var(--preto2)}
+        ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+        ::-webkit-scrollbar-thumb:hover{background:var(--vermelho)}
+        @media(max-width:768px){.sidebar{display:none}.layout{flex-direction:column}.main{padding:15px}}
+        .modal-action-btn{padding:8px 16px;border:1px solid #444;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;margin-left:10px;background:var(--preto3);color:var(--branco)}
+        .modal-action-btn:hover{transform:translateY(-2px)}
+        .btn-delete{background:#dc2626;border-color:#dc2626}
+        .btn-delete:hover{background:#b91c1c}
+        .btn-status.completed{background:#16a34a;border-color:#16a34a}
+        .btn-status.completed:hover{background:#15803d}
+        .btn-status.pending{background:#ea580c;border-color:#ea580c}
+        .btn-status.pending:hover{background:#c2410c}
+        .post-status-badge{display:inline-block;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600;margin-top:8px}
+        .status-completed{background:rgba(22,163,74,0.2);color:#16a34a;border:1px solid #16a34a}
+        .status-pending{background:rgba(234,88,12,0.2);color:#ea580c;border:1px solid #ea580c}
+        .btn-download{background:#3b82f6;border-color:#3b82f6}
+        .btn-download:hover{background:#2563eb}
+        .github-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:2000;overflow-y:auto;backdrop-filter:blur(10px)}
+        .github-modal.show{display:flex;align-items:center;justify-content:center}
+        .github-modal-content{background:var(--preto2);border-radius:16px;border:1px solid var(--vermelho);padding:30px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
+        .github-modal-title{font-size:22px;font-weight:900;margin-bottom:20px;color:var(--vermelho);display:flex;align-items:center;gap:10px}
+        .github-input{width:100%;padding:12px 15px;background:var(--preto3);border:1px solid #444;border-radius:8px;color:var(--branco);font-size:14px;margin-bottom:15px}
+        .github-input:focus{outline:none;border-color:var(--vermelho)}
+        .github-input::placeholder{color:var(--cinza)}
+        .github-label{display:block;margin-bottom:8px;font-size:12px;color:var(--cinza);font-weight:600}
+        .github-btn{width:100%;padding:14px;background:var(--vermelho);border:none;border-radius:8px;color:var(--branco);font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;transition:all .2s}
+        .github-btn:hover{background:var(--vermelho-dark);transform:translateY(-2px)}
+        .github-btn.secondary{background:var(--preto3);border:1px solid #444}
+        .github-btn.secondary:hover{border-color:var(--vermelho)}
+        .github-close{position:absolute;top:15px;right:20px;background:none;border:none;color:var(--branco);font-size:24px;cursor:pointer}
+        .github-status{padding:12px;background:var(--preto3);border-radius:8px;margin-top:15px;font-size:12px;color:var(--cinza);line-height:1.6}
+        .github-status.success{border-left:3px solid var(--verde);color:var(--verde)}
+        .github-status.error{border-left:3px solid #dc2626;color:#dc2626}
+        .github-divider{height:1px;background:#333;margin:20px 0}
+        .github-tabs{display:flex;gap:5px;margin-bottom:20px}
+        .github-tab{flex:1;padding:10px;background:var(--preto3);border:1px solid #333;border-radius:8px;color:var(--cinza);font-size:11px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s}
+        .github-tab:hover{border-color:var(--vermelho)}
+        .github-tab.active{background:rgba(139,47,142,0.2);border-color:var(--vermelho);color:var(--vermelho)}
     </style>
 </head>
 <body>
 
-<!-- ============================================
-     HEADER - Logo e nome carregados do config
-     ============================================ -->
 <header class="header">
     <div class="logo">
-        <img id="headerLogo" src="assets/logo.png" alt="Logo" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
-        <div id="logoFallback" class="logo-icon" style="display:none;">?</div>
+        <div class="logo-icon">N</div>
         <div>
-            <div class="logo-text" id="companyName">EMPRESA</div>
-            <div class="logo-sub" id="companySubtitle">Content Studio 2026</div>
+            <div class="logo-text">NECHIO</div>
+            <div class="logo-sub">Content Studio 2026</div>
         </div>
     </div>
     <div class="header-actions">
         <button class="header-btn" onclick="exportData()">💾 Backup</button>
         <button class="header-btn" onclick="document.getElementById('importFile').click()">📂 Importar</button>
         <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+        <button class="header-btn" onclick="loadFromURL()">🔗 Carregar URL</button>
+        <button class="header-btn" onclick="openGitHubSync()">⚡ GitHub Sync</button>
         <button class="header-btn primary" onclick="saveToStorage()">✓ Salvar</button>
-        <button class="header-btn deploy" id="deployBtn" onclick="deployToWebhook()">🚀 Deploy</button>
     </div>
 </header>
 
-<!-- ============================================
-     LAYOUT PRINCIPAL
-     ============================================ -->
 <div class="layout">
-    <!-- SIDEBAR -->
     <aside class="sidebar">
-        <div class="sidebar-section">
-            <div class="sidebar-title">CALENDÁRIO</div>
-            
+        <div class="month-filter">
+            <div class="month-filter-title">SELECIONAR MÊS</div>
             <div class="month-selector">
                 <button class="month-selector-btn" id="monthSelectorBtn" onclick="toggleDropdown()">
-                    <div class="month-num" id="currentMonthNum">01</div>
-                    <div class="month-info">
-                        <h3 id="currentMonthName">Janeiro</h3>
-                        <span id="currentMonthTheme">Tema</span>
+                    <div class="month-selector-left">
+                        <div class="month-selector-num" id="selectorNum">01</div>
+                        <div class="month-selector-info">
+                            <h3 id="selectorName">Janeiro</h3>
+                            <span id="selectorTheme">Verão & Açaí</span>
+                        </div>
                     </div>
-                    <span class="month-arrow">▼</span>
+                    <div class="month-selector-arrow">▼</div>
                 </button>
-                
                 <div class="month-dropdown" id="monthDropdown"></div>
             </div>
-            
             <div class="month-quick-nav" id="monthQuickNav"></div>
         </div>
-        
         <div class="sidebar-info">
-            <div class="sidebar-title">VISÃO GERAL</div>
-            
+            <div class="sidebar-info-title">VISÃO GERAL</div>
             <div class="month-stats">
                 <div class="month-stat-card">
                     <div class="month-stat-value" id="statPosts">0</div>
-                    <div class="month-stat-label">POSTS</div>
+                    <div class="month-stat-label">Posts</div>
                 </div>
                 <div class="month-stat-card">
                     <div class="month-stat-value" id="statStories">0</div>
-                    <div class="month-stat-label">STORIES</div>
+                    <div class="month-stat-label">Stories</div>
                 </div>
             </div>
-            
             <div class="month-theme-card">
                 <div class="month-theme-label">TEMA DO MÊS</div>
-                <div class="month-theme-title" id="themeTitle">Tema</div>
-                <div class="month-theme-desc" id="themeDesc">Descrição</div>
+                <div class="month-theme-title" id="themeTitle">Verão & Açaí</div>
+                <div class="month-theme-desc" id="themeDesc">Alta temporada de açaí e produtos refrescantes.</div>
+            </div>
+            <div class="backup-info">
+                <strong>✓ Auto-save ativo</strong><br>
+                Dados salvos em localStorage.<br>
+                Use "Backup" para exportar JSON.
             </div>
         </div>
     </aside>
     
-    <!-- MAIN CONTENT -->
     <main class="main">
         <div class="main-header">
-            <h1 class="main-title" id="mainTitle">MÊS — <span>Tema</span></h1>
+            <h1 class="main-title" id="mainTitle">JANEIRO — <span>Verão & Açaí</span></h1>
         </div>
-        
-        <div class="posts-list" id="postsList">
-            <div class="empty-state">
-                <h3>⏳ Carregando...</h3>
-                <p>Aguarde enquanto carregamos os dados.</p>
-            </div>
-        </div>
+        <div class="posts-list" id="postsList"></div>
     </main>
 </div>
 
-<!-- ============================================
-     MODAL DE POST
-     ============================================ -->
 <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
         <div class="modal-header">
             <div class="modal-header-left">
-                <div class="modal-badge" id="modalBadge">TIPO · FORMATO</div>
-                <h2 class="modal-title" id="modalTitle">Título do Post</h2>
-                <p class="modal-desc" id="modalDesc">Descrição do post</p>
+                <div class="modal-badge" id="modalBadge">POST #01</div>
+                <div class="modal-title-row">
+                    <input type="date" class="modal-date-input" id="modalDate" onchange="updatePostDate()">
+                    <input type="text" class="modal-title-input" id="modalTitle" placeholder="Título..." onchange="updatePostTitle()">
+                </div>
+                <div class="modal-desc" id="modalDesc">Descrição</div>
             </div>
+            <button class="modal-action-btn btn-delete" onclick="deletePost()" title="Deletar este post">🗑️ Deletar</button>
+            <button id="statusToggleBtn" class="modal-action-btn btn-status pending" onclick="togglePostStatus()" title="Alternar status">⏳ Em Andamento</button>
+            <button class="modal-action-btn btn-download" onclick="downloadPost()" title="Baixar JSON deste post">⬇️ Baixar</button>
             <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-tabs">
+            <button class="modal-tab active" data-tab="narrativa" onclick="switchTab('narrativa')"><span class="modal-tab-icon">📝</span> NARRATIVA</button>
+            <button class="modal-tab" data-tab="imagem" onclick="switchTab('imagem')"><span class="modal-tab-icon">🖼️</span> PROMPT IMAGEM</button>
+            <button class="modal-tab" data-tab="video" onclick="switchTab('video')"><span class="modal-tab-icon">🎬</span> PROMPT VÍDEO</button>
+            <button class="modal-tab" data-tab="tela" onclick="switchTab('tela')"><span class="modal-tab-icon">📺</span> TEXTO TELA</button>
+            <button class="modal-tab" data-tab="legenda" onclick="switchTab('legenda')"><span class="modal-tab-icon">📱</span> LEGENDA</button>
         </div>
         <div class="modal-body" id="modalBody"></div>
     </div>
 </div>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">✓ Copiado!</div>
 
-<!-- STATUS BAR -->
-<div class="status-bar">
-    <div>
-        <span class="status-dot online" id="statusDot"></span>
-        <span id="statusText">Conectado</span>
+<div class="github-modal" id="githubModal">
+    <div class="github-modal-content">
+        <h2 class="github-modal-title">⚡ GitHub Sync</h2>
+        
+        <div class="github-tabs">
+            <button class="github-tab active" onclick="switchGitHubTab('load')">🔗 Carregar</button>
+            <button class="github-tab" onclick="switchGitHubTab('push')">📤 Atualizar</button>
+        </div>
+        
+        <div id="githubLoadTab">
+            <label class="github-label">URL do JSON (GitHub Raw ou qualquer URL)</label>
+            <input type="text" class="github-input" id="jsonUrl" placeholder="https://raw.githubusercontent.com/usuario/repo/main/data.json">
+            
+            <button class="github-btn" onclick="loadFromURLInput()">🔄 Carregar Dados</button>
+            
+            <div class="github-divider"></div>
+            
+            <button class="github-btn secondary" onclick="loadDefaultData()">📦 Carregar data.json Local</button>
+        </div>
+        
+        <div id="githubPushTab" style="display:none">
+            <label class="github-label">GitHub Token (com permissão repo)</label>
+            <input type="password" class="github-input" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
+            
+            <label class="github-label">Repositório (usuario/repo)</label>
+            <input type="text" class="github-input" id="githubRepo" placeholder="gabrielkendy/NECHIO-CONTENT" value="gabrielkendy/NECHIO-CONTENT">
+            
+            <label class="github-label">Arquivo a atualizar</label>
+            <input type="text" class="github-input" id="githubFile" value="data.json" placeholder="data.json">
+            
+            <button class="github-btn" onclick="pushToGitHub()">📤 Atualizar no GitHub</button>
+        </div>
+        
+        <div class="github-status" id="githubStatus" style="display:none"></div>
+        
+        <div class="github-divider"></div>
+        
+        <button class="github-btn secondary" onclick="closeGitHubModal()">✕ Fechar</button>
     </div>
-    <div id="lastUpdate">Atualizado: --</div>
 </div>
 
-<!-- ============================================
-     JAVASCRIPT - CARREGA CONFIG E DATA
-     ============================================ -->
 <script>
-// ============================================
-// VARIÁVEIS GLOBAIS
-// ============================================
-var CONFIG = null;      // Configurações do cliente (config.json)
-var DATA = null;        // Dados do calendário (data.json)
-var POSTS = {};         // Posts organizados por mês
-var currentMonth = 1;   // Mês selecionado
-var currentPost = null; // Post selecionado no modal
-var dropdownOpen = false;
-var currentTab = 'narrativa';
+// ============== DATABASE NECHIO ==============
+const MONTHS_DATA = [
+    {id:1,name:'Janeiro',theme:'Verão e Alta Temporada',shortTheme:'Verão & Açaí',posts:10,stories:3,desc:'Alta temporada de açaí, sorvetes e produtos refrescantes.'},
+    {id:2,name:'Fevereiro',theme:'Carnaval e Energia',shortTheme:'Carnaval',posts:8,stories:5,desc:'Carnaval, blocos, festas e muita energia!'},
+    {id:3,name:'Março',theme:'Volta às Aulas',shortTheme:'Volta às Aulas',posts:10,stories:3,desc:'Lanchonetes, cantinas e alimentação escolar.'},
+    {id:4,name:'Abril',theme:'Páscoa e Chocolates',shortTheme:'Páscoa',posts:10,stories:4,desc:'Páscoa, chocolates e sobremesas especiais.'},
+    {id:5,name:'Maio',theme:'Dia das Mães',shortTheme:'Dia das Mães',posts:10,stories:3,desc:'Homenagens, promoções e produtos especiais.'},
+    {id:6,name:'Junho',theme:'Festas Juninas',shortTheme:'São João',posts:12,stories:5,desc:'Festas juninas, comidas típicas e arraiás.'},
+    {id:7,name:'Julho',theme:'Férias de Inverno',shortTheme:'Férias',posts:8,stories:3,desc:'Férias, viagens e conforto.'},
+    {id:8,name:'Agosto',theme:'Dia dos Pais',shortTheme:'Dia dos Pais',posts:10,stories:3,desc:'Homenagens aos pais e churrascos.'},
+    {id:9,name:'Setembro',theme:'Primavera',shortTheme:'Primavera',posts:10,stories:3,desc:'Primavera, renovação e novos produtos.'},
+    {id:10,name:'Outubro',theme:'Dia das Crianças',shortTheme:'Crianças',posts:12,stories:5,desc:'Dia das Crianças, doces e diversão.'},
+    {id:11,name:'Novembro',theme:'Black Friday',shortTheme:'Black Friday',posts:15,stories:8,desc:'Promoções, ofertas e Black Friday!'},
+    {id:12,name:'Dezembro',theme:'Natal e Ano Novo',shortTheme:'Festas',posts:12,stories:5,desc:'Natal, Ano Novo, confraternizações e cestas.'}
+];
 
-// ============================================
-// INICIALIZAÇÃO
-// ============================================
-async function init() {
-    showToast('⏳ Carregando...', 'loading');
-    
+// POSTS INICIAIS - será carregado do data.json ou localStorage
+const INITIAL_POSTS = {
+1: [
+{id:1,date:'2026-01-01',type:'DATA ESPECIAL',format:'Carrossel 5 slides',title:'🎆 Feliz 2026!',desc:'Mensagem de Ano Novo',status:'pending',
+narrativa:`SLIDE 1 — CAPA
+Texto: "2026 CHEGOU!"
+Subtexto: "Mais um ano de parceria e sabor!"
+Visual: Fogos dourados, produtos Nechio, logo.
+
+SLIDE 2 — RETROSPECTIVA 2025
+"Em 2025, levamos sabor a milhares de estabelecimentos"
+Números: 22+ anos | 1000+ clientes | CEASA-RJ
+
+SLIDE 3 — AGRADECIMENTO
+"Obrigado a cada açaiteria, sorveteria e restaurante."
+Visual: Colagem fotos clientes e produtos.
+
+SLIDE 4 — COMPROMISSO 2026
+"Em 2026, mesmo compromisso:"
+✓ Produtos de qualidade
+✓ Entrega rápida
+✓ Melhor preço
+
+SLIDE 5 — CTA
+"Bora fazer 2026 ser o melhor ano?"
+"Fala com a gente! 👇"`,
+imagem:'Foto produtos Nechio + fogos dourados + logo roxo/verde',
+video:'Time-lapse entregas 2025 + depoimentos clientes + metas 2026',
+tela:'Fundo roxo Nechio gradiente, números grandes em branco/verde',
+legenda:`🎆 FELIZ 2026, PARCEIROS NECHIO! 🍨
+
+Que este ano seja de muito sabor, vendas e sucesso! 💪
+
+A Nechio fecha 2025 com gratidão e entra em 2026 com o mesmo compromisso de sempre: qualidade, preço justo e entrega rápida! 💜💚
+
+Qual é a sua meta para 2026? Comenta aqui! 👇
+
+📞 Faz seu pedido: (21) 2589-2900
+
+#FelizAnoNovo #Nechio #2026 #Açaí #Sorvete #Congelados`},
+
+{id:2,date:'2026-01-19',type:'DATA ESPECIAL',format:'Reels 30s',title:'🫐 Dia do Açaí',desc:'Celebração do Dia Nacional do Açaí',status:'pending',
+narrativa:`REELS 30s — DIA DO AÇAÍ
+
+[0-5s] ABERTURA IMPACTANTE
+Visual: Açaí sendo servido em câmera lenta
+Texto: "19 DE JANEIRO"
+Música: Batida envolvente
+
+[5-15s] CELEBRAÇÃO
+"DIA NACIONAL DO AÇAÍ!"
+Cenas: tigelas, smoothies, açaí na tigela
+"O superalimento brasileiro!"
+
+[15-25s] PRODUTOS NECHIO
+"A Nechio tem o melhor açaí para seu negócio!"
+Mostrar: polpas, litros, galões
+
+[25-30s] CTA
+Logo Nechio
+"Faz seu pedido! 📞 (21) 2589-2900"`,
+imagem:'Tigela de açaí perfeita com frutas e granola, fundo roxo',
+video:'Preparo de açaí do início ao fim + clientes felizes',
+tela:'19/01 DIA DO AÇAÍ - Polpas a partir de R$XX',
+legenda:`🫐 DIA NACIONAL DO AÇAÍ! 💜
+
+Hoje é dia de celebrar o superalimento brasileiro! 🇧🇷
+
+A Nechio tem o MELHOR AÇAÍ para seu negócio:
+✅ Polpas de 100g a 10kg
+✅ Açaí cremoso premium
+✅ Entrega rápida CEASA-RJ
+
+🔥 PROMOÇÃO ESPECIAL HOJE!
+
+📞 Faz seu pedido: (21) 2589-2900
+📍 CEASA-RJ - Pavilhões 27, 28, 29 e 30
+
+#DiaDoAçaí #Açaí #Nechio #Superalimento #AçaíBrasil`}
+],
+
+2: [],
+3: [],
+4: [],
+5: [],
+6: [],
+7: [],
+8: [],
+9: [],
+10: [],
+11: [],
+12: []
+};
+
+// ============== VARIÁVEIS GLOBAIS ==============
+let currentMonth = 1;
+let currentTab = 'narrativa';
+let currentPost = null;
+let dropdownOpen = false;
+let POSTS = {};
+
+// ============== STORAGE ==============
+function loadFromStorage() {
     try {
-        // 1. Carregar configurações do cliente
-        await loadConfig();
-        
-        // 2. Aplicar cores do config
-        applyColors();
-        
-        // 3. Aplicar textos do config
-        applyTexts();
-        
-        // 4. Carregar dados do calendário
-        await loadData();
-        
-        // 5. Renderizar interface
-        renderMonthSelector();
-        renderPosts();
-        
-        // 6. Atualizar status
-        updateStatus('online', 'Conectado');
-        showToast('✓ Dashboard carregado!');
-        
-    } catch (error) {
-        console.error('Erro na inicialização:', error);
-        showToast('❌ Erro ao carregar: ' + error.message, 'error');
-        updateStatus('offline', 'Erro');
-    }
-}
-
-// ============================================
-// CARREGAR CONFIGURAÇÕES (config.json)
-// ============================================
-async function loadConfig() {
-    try {
-        const response = await fetch('config.json?v=' + Date.now());
-        if (!response.ok) throw new Error('config.json não encontrado');
-        CONFIG = await response.json();
-        console.log('✓ Config carregado:', CONFIG.cliente?.nome);
-    } catch (error) {
-        console.warn('Config não encontrado, usando padrão');
-        CONFIG = getDefaultConfig();
-    }
-}
-
-function getDefaultConfig() {
-    return {
-        cliente: { nome: 'EMPRESA', subtitulo: 'Content Studio 2026' },
-        cores: {
-            primaria: '#C41E3A',
-            secundaria: '#1a1a1a',
-            destaque: '#C9A227',
-            sucesso: '#22C55E',
-            erro: '#EF4444',
-            alerta: '#F59E0B',
-            info: '#3B82F6',
-            texto: '#FFFFFF',
-            textoSecundario: '#888888',
-            fundo: '#0a0a0a',
-            fundo2: '#111111',
-            fundo3: '#1a1a1a',
-            fundo4: '#222222',
-            borda: '#333333'
-        },
-        webhook: { url: '', ativo: false }
-    };
-}
-
-// ============================================
-// APLICAR CORES DO CONFIG
-// ============================================
-function applyColors() {
-    if (!CONFIG || !CONFIG.cores) return;
-    
-    const root = document.documentElement;
-    const cores = CONFIG.cores;
-    
-    root.style.setProperty('--primaria', cores.primaria || '#C41E3A');
-    root.style.setProperty('--secundaria', cores.secundaria || '#1a1a1a');
-    root.style.setProperty('--destaque', cores.destaque || '#C9A227');
-    root.style.setProperty('--sucesso', cores.sucesso || '#22C55E');
-    root.style.setProperty('--erro', cores.erro || '#EF4444');
-    root.style.setProperty('--alerta', cores.alerta || '#F59E0B');
-    root.style.setProperty('--info', cores.info || '#3B82F6');
-    root.style.setProperty('--texto', cores.texto || '#FFFFFF');
-    root.style.setProperty('--texto2', cores.textoSecundario || '#888888');
-    root.style.setProperty('--fundo', cores.fundo || '#0a0a0a');
-    root.style.setProperty('--fundo2', cores.fundo2 || '#111111');
-    root.style.setProperty('--fundo3', cores.fundo3 || '#1a1a1a');
-    root.style.setProperty('--fundo4', cores.fundo4 || '#222222');
-    root.style.setProperty('--borda', cores.borda || '#333333');
-    
-    console.log('✓ Cores aplicadas');
-}
-
-// ============================================
-// APLICAR TEXTOS DO CONFIG
-// ============================================
-function applyTexts() {
-    if (!CONFIG) return;
-    
-    // Nome da empresa
-    const nome = CONFIG.cliente?.nome || 'EMPRESA';
-    document.getElementById('companyName').textContent = nome;
-    document.title = nome + ' - Content Studio';
-    
-    // Subtítulo
-    const subtitulo = CONFIG.cliente?.subtitulo || 'Content Studio 2026';
-    document.getElementById('companySubtitle').textContent = subtitulo;
-    
-    // Logo fallback (primeira letra)
-    document.getElementById('logoFallback').textContent = nome.charAt(0);
-    
-    // Logo path
-    if (CONFIG.arquivos?.logo) {
-        document.getElementById('headerLogo').src = CONFIG.arquivos.logo;
-    }
-    
-    console.log('✓ Textos aplicados');
-}
-
-// ============================================
-// CARREGAR DADOS (data.json)
-// ============================================
-async function loadData() {
-    // Tentar carregar do localStorage primeiro
-    const cached = localStorage.getItem('contentStudioData');
-    
-    try {
-        const response = await fetch('data.json?v=' + Date.now());
-        if (!response.ok) throw new Error('data.json não encontrado');
-        DATA = await response.json();
-        POSTS = DATA.posts || {};
-        
-        // Salvar no localStorage
-        localStorage.setItem('contentStudioData', JSON.stringify(DATA));
-        
-        console.log('✓ Data carregado:', Object.keys(POSTS).length, 'meses');
-        
-    } catch (error) {
-        console.warn('Erro ao carregar data.json:', error);
-        
-        if (cached) {
-            DATA = JSON.parse(cached);
-            POSTS = DATA.posts || {};
-            console.log('✓ Data carregado do cache');
+        const saved = localStorage.getItem('nechio_posts_2026');
+        if (saved) {
+            POSTS = JSON.parse(saved);
+            console.log('✓ Dados carregados do localStorage');
         } else {
-            DATA = getDefaultData();
-            POSTS = DATA.posts;
+            POSTS = JSON.parse(JSON.stringify(INITIAL_POSTS));
+            saveToStorage();
         }
+    } catch(e) {
+        console.error('Erro ao carregar:', e);
+        POSTS = JSON.parse(JSON.stringify(INITIAL_POSTS));
     }
-    
-    // Atualizar timestamp
-    const now = new Date();
-    document.getElementById('lastUpdate').textContent = 
-        'Atualizado: ' + now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR').slice(0,5);
 }
 
-function getDefaultData() {
-    return {
-        version: '2.0',
-        months: [
-            {id:1,name:'Janeiro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:2,name:'Fevereiro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:3,name:'Março',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:4,name:'Abril',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:5,name:'Maio',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:6,name:'Junho',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:7,name:'Julho',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:8,name:'Agosto',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:9,name:'Setembro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:10,name:'Outubro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:11,name:'Novembro',shortTheme:'TEMA',desc:'',posts:0,stories:0},
-            {id:12,name:'Dezembro',shortTheme:'TEMA',desc:'',posts:0,stories:0}
-        ],
-        posts: {'1':[],'2':[],'3':[],'4':[],'5':[],'6':[],'7':[],'8':[],'9':[],'10':[],'11':[],'12':[]}
+function saveToStorage() {
+    try {
+        localStorage.setItem('nechio_posts_2026', JSON.stringify(POSTS));
+        showToast('✓ Salvo!');
+    } catch(e) {
+        console.error('Erro ao salvar:', e);
+        showToast('❌ Erro ao salvar');
+    }
+}
+
+function exportData() {
+    const data = {
+        version: '1.0',
+        exportDate: new Date().toISOString(),
+        months: MONTHS_DATA,
+        posts: POSTS
     };
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `nechio_backup_${new Date().toISOString().split('T')[0]}.json`;
+    a.click();
+    showToast('✓ Backup exportado!');
 }
 
-// ============================================
-// RENDERIZAR SELETOR DE MÊS
-// ============================================
+function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            if (data.posts) {
+                POSTS = data.posts;
+                saveToStorage();
+                renderPosts();
+                showToast('✓ Dados importados!');
+            }
+        } catch(err) {
+            showToast('❌ Arquivo inválido');
+        }
+    };
+    reader.readAsText(file);
+}
+
+// ============== RENDER ==============
 function renderMonthSelector() {
-    if (!DATA || !DATA.months) return;
+    const month = MONTHS_DATA.find(m => m.id === currentMonth);
+    document.getElementById('selectorNum').textContent = String(month.id).padStart(2, '0');
+    document.getElementById('selectorName').textContent = month.name;
+    document.getElementById('selectorTheme').textContent = month.shortTheme;
     
-    const month = DATA.months.find(m => m.id === currentMonth);
-    if (!month) return;
-    
-    // Atualizar botão principal
-    document.getElementById('currentMonthNum').textContent = String(currentMonth).padStart(2, '0');
-    document.getElementById('currentMonthName').textContent = month.name;
-    document.getElementById('currentMonthTheme').textContent = month.shortTheme;
-    
-    // Dropdown
     const dropdown = document.getElementById('monthDropdown');
-    dropdown.innerHTML = DATA.months.map(m => `
+    dropdown.innerHTML = MONTHS_DATA.map(m => `
         <div class="month-dropdown-item ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
             <div class="month-dropdown-num">${String(m.id).padStart(2, '0')}</div>
             <div class="month-dropdown-info"><h4>${m.name}</h4><span>${m.shortTheme}</span></div>
@@ -1120,20 +489,18 @@ function renderMonthSelector() {
         </div>
     `).join('');
     
-    // Quick nav
     const quickNav = document.getElementById('monthQuickNav');
-    quickNav.innerHTML = DATA.months.map(m => `
+    quickNav.innerHTML = MONTHS_DATA.map(m => `
         <button class="month-quick-btn ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
             ${m.name.substring(0, 3).toUpperCase()}
         </button>
     `).join('');
     
-    // Stats
     const posts = POSTS[currentMonth] || [];
     document.getElementById('statPosts').textContent = posts.length;
-    document.getElementById('statStories').textContent = month.stories || 0;
+    document.getElementById('statStories').textContent = month.stories;
     document.getElementById('themeTitle').textContent = month.shortTheme;
-    document.getElementById('themeDesc').textContent = month.desc || '';
+    document.getElementById('themeDesc').textContent = month.desc;
 }
 
 function toggleDropdown() {
@@ -1151,27 +518,15 @@ function selectMonth(id) {
     renderPosts();
 }
 
-// ============================================
-// RENDERIZAR LISTA DE POSTS
-// ============================================
 function renderPosts() {
-    if (!DATA || !DATA.months) return;
-    
-    const month = DATA.months.find(m => m.id === currentMonth);
-    if (!month) return;
-    
+    const month = MONTHS_DATA.find(m => m.id === currentMonth);
     document.getElementById('mainTitle').innerHTML = `${month.name.toUpperCase()} — <span>${month.shortTheme}</span>`;
     
     const container = document.getElementById('postsList');
     const posts = POSTS[currentMonth] || [];
     
     if (posts.length === 0) {
-        container.innerHTML = `
-            <div class="empty-state">
-                <h3>📅 Nenhum post cadastrado</h3>
-                <p>Adicione posts ao data.json para ${month.name}.</p>
-            </div>
-        `;
+        container.innerHTML = `<div class="empty-state"><h3>📅 Nenhum post cadastrado</h3><p>Importe dados ou carregue do data.json para ${month.name}.</p></div>`;
         return;
     }
     
@@ -1180,276 +535,288 @@ function renderPosts() {
     
     container.innerHTML = sorted.map(p => {
         const d = new Date(p.date);
-        const priorityClass = (p.priority || 'media').toLowerCase().replace('í', 'i');
         return `
-            <div class="post-card" onclick="openModal('${p.id}')">
+            <div class="post-card" onclick="openModal(${p.id})">
                 <div class="post-date">
                     <div class="post-date-day">${String(d.getDate()).padStart(2, '0')}</div>
                     <div class="post-date-month">${monthNames[d.getMonth()]}</div>
                 </div>
                 <div class="post-info">
-                    <div class="post-type">${p.type || 'POST'}</div>
+                    <div class="post-type">${p.type}</div>
                     <div class="post-title">${p.title}</div>
-                    <div class="post-desc">${p.desc || ''}</div>
+                    <div class="post-desc">${p.desc}</div>
+                    ${p.status === 'completed' ? '<span class="post-status-badge status-completed">✓ Finalizado</span>' : p.status === 'pending' ? '<span class="post-status-badge status-pending">⏳ Pendente</span>' : ''}
                 </div>
-                <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-                    <div class="post-format">${p.format || 'Post'}</div>
-                    <div class="post-priority ${priorityClass}">${p.priority || 'média'}</div>
-                </div>
+                <div class="post-format">${p.format}</div>
             </div>
         `;
     }).join('');
 }
 
-// ============================================
-// MODAL DE POST
-// ============================================
 function openModal(id) {
-    console.log('🔍 openModal chamado:', id, 'currentMonth:', currentMonth);
     const posts = POSTS[currentMonth] || [];
-    console.log('📦 Posts do mês:', posts.length);
     currentPost = posts.find(p => p.id === id);
-    console.log('✅ Post encontrado:', currentPost);
-    if (!currentPost) {
-        console.error('❌ Post não encontrado!', id);
-        return;
-    }
+    if (!currentPost) return;
     
-    document.getElementById('modalBadge').textContent = `${currentPost.type || 'POST'} · ${currentPost.format || ''}`;
-    document.getElementById('modalTitle').textContent = currentPost.title;
-    document.getElementById('modalDesc').textContent = currentPost.desc || '';
+    document.getElementById('modalBadge').textContent = `POST #${String(currentPost.id).padStart(2, '0')} · ${currentPost.format.toUpperCase()}`;
+    document.getElementById('modalDate').value = currentPost.date;
+    document.getElementById('modalTitle').value = currentPost.title;
+    document.getElementById('modalDesc').textContent = currentPost.desc;
     
-    const body = document.getElementById('modalBody');
-    const d = new Date(currentPost.date);
+    currentTab = 'narrativa';
+    updateTabs();
+    renderTabContent();
     
-    // Verificar se tem conteúdo completo
-    const hasContent = currentPost.narrativa || currentPost.imagem || currentPost.video || currentPost.tela || currentPost.legenda;
-    
-    let contentHTML = `
-        <div class="modal-info-grid">
-            <div class="modal-info-item">
-                <div class="modal-info-label">📅 DATA</div>
-                <div class="modal-info-value">${d.toLocaleDateString('pt-BR')}</div>
-            </div>
-            <div class="modal-info-item">
-                <div class="modal-info-label">🎯 PRIORIDADE</div>
-                <div class="modal-info-value">${currentPost.priority || 'Média'}</div>
-            </div>
-            <div class="modal-info-item">
-                <div class="modal-info-label">📱 FORMATO</div>
-                <div class="modal-info-value">${currentPost.format || 'Post'}</div>
-            </div>
-            <div class="modal-info-item">
-                <div class="modal-info-label">📊 STATUS</div>
-                <div class="modal-info-value">${currentPost.status || 'Pendente'}</div>
-            </div>
-        </div>
-    `;
-    
-    if (hasContent) {
-        // Determinar primeira aba disponível
-        let firstTab = 'narrativa';
-        if (!currentPost.narrativa && currentPost.imagem) firstTab = 'imagem';
-        else if (!currentPost.narrativa && !currentPost.imagem && currentPost.video) firstTab = 'video';
-        else if (!currentPost.narrativa && !currentPost.imagem && !currentPost.video && currentPost.tela) firstTab = 'tela';
-        else if (!currentPost.narrativa && !currentPost.imagem && !currentPost.video && !currentPost.tela && currentPost.legenda) firstTab = 'legenda';
-        
-        currentTab = firstTab;
-        
-        contentHTML += `
-            <div class="content-tabs">
-                ${currentPost.narrativa ? `<button class="tab-btn ${firstTab === 'narrativa' ? 'active' : ''}" onclick="showTab('narrativa')">📝 Narrativa</button>` : ''}
-                ${currentPost.imagem ? `<button class="tab-btn ${firstTab === 'imagem' ? 'active' : ''}" onclick="showTab('imagem')">🖼️ Imagem</button>` : ''}
-                ${currentPost.video ? `<button class="tab-btn ${firstTab === 'video' ? 'active' : ''}" onclick="showTab('video')">🎬 Vídeo</button>` : ''}
-                ${currentPost.tela ? `<button class="tab-btn ${firstTab === 'tela' ? 'active' : ''}" onclick="showTab('tela')">📺 Tela</button>` : ''}
-                ${currentPost.legenda ? `<button class="tab-btn ${firstTab === 'legenda' ? 'active' : ''}" onclick="showTab('legenda')">📱 Legenda</button>` : ''}
-            </div>
-            <div class="content-area">
-                <div class="content-header">
-                    <span id="contentTitle">${getTabTitle(firstTab)}</span>
-                    <button class="copy-btn" onclick="copyContent()">📋 Copiar</button>
-                </div>
-                <pre class="content-text" id="contentText">${currentPost[firstTab] || ''}</pre>
-            </div>
-        `;
-    } else {
-        contentHTML += `
-            <div class="empty-content">
-                <p>⏳ Conteúdo ainda não foi criado para este post.</p>
-            </div>
-        `;
-    }
-    
-    body.innerHTML = contentHTML;
     document.getElementById('modalOverlay').classList.add('show');
-}
-
-function getTabTitle(tab) {
-    const titles = {
-        narrativa: '📝 NARRATIVA/ROTEIRO',
-        imagem: '🖼️ PROMPTS DE IMAGEM',
-        video: '🎬 DIREÇÃO DE VÍDEO',
-        tela: '📺 TEXTO NA TELA',
-        legenda: '📱 LEGENDA INSTAGRAM'
-    };
-    return titles[tab] || tab.toUpperCase();
-}
-
-function showTab(tab) {
-    currentTab = tab;
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('contentTitle').textContent = getTabTitle(tab);
-    document.getElementById('contentText').textContent = currentPost[tab] || 'Conteúdo não disponível';
-}
-
-function copyContent() {
-    const text = document.getElementById('contentText').textContent;
-    navigator.clipboard.writeText(text).then(() => {
-        showToast('✓ Copiado!');
-    }).catch(() => {
-        showToast('❌ Erro ao copiar', 'error');
-    });
+    updateStatusButton();
 }
 
 function closeModal() {
     document.getElementById('modalOverlay').classList.remove('show');
 }
 
-// ============================================
-// EXPORT / IMPORT / SAVE / DEPLOY
-// ============================================
-function exportData() {
-    const dataStr = JSON.stringify(DATA, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    const nome = CONFIG?.cliente?.id || 'backup';
-    a.href = url;
-    a.download = `${nome}_backup_${new Date().toISOString().slice(0,10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('✓ Backup exportado!');
+function switchTab(tab) {
+    currentTab = tab;
+    updateTabs();
+    renderTabContent();
 }
 
-function importData(event) {
-    const file = event.target.files[0];
-    if (!file) {
-        console.log('Nenhum arquivo selecionado');
-        return;
-    }
-    
-    console.log('📁 Importando arquivo:', file.name);
-    
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        try {
-            const imported = JSON.parse(e.target.result);
-            
-            console.log('📦 JSON parseado:', imported);
-            
-            // Validar estrutura básica
-            if (!imported.months || !imported.posts) {
-                console.error('❌ Estrutura inválida:', imported);
-                throw new Error('JSON inválido: falta months ou posts');
-            }
-            
-            console.log('✅ Validação OK!');
-            
-            DATA = imported;
-            POSTS = DATA.posts || {};
-            
-            localStorage.setItem('contentStudioData', JSON.stringify(DATA));
-            
-            renderMonthSelector();
-            renderPosts();
-            
-            showToast('✓ Dados importados!');
-            
-        } catch (error) {
-            console.error('Erro ao importar:', error);
-            showToast('❌ Erro: ' + error.message, 'error');
-        }
-    };
-    reader.readAsText(file);
-    event.target.value = '';
+function updateTabs() {
+    document.querySelectorAll('.modal-tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.tab === currentTab);
+    });
 }
 
-function saveToStorage() {
-    localStorage.setItem('contentStudioData', JSON.stringify(DATA));
-    showToast('✓ Salvo localmente!');
+function renderTabContent() {
+    const body = document.getElementById('modalBody');
+    const content = currentPost[currentTab] || 'Conteúdo não disponível';
+    const titles = {narrativa:'NARRATIVA/ROTEIRO',imagem:'PROMPTS DE IMAGEM',video:'DIREÇÃO DE VÍDEO',tela:'TEXTO NA TELA',legenda:'LEGENDA INSTAGRAM'};
+    const icons = {narrativa:'📝',imagem:'🖼️',video:'🎬',tela:'📺',legenda:'📱'};
+    
+    body.innerHTML = `
+        <div class="content-section">
+            <div class="section-header">
+                <div class="section-title ${currentTab}"><span class="section-icon">${icons[currentTab]}</span> ${titles[currentTab]}</div>
+                <button class="copy-btn" onclick="copyContent()">📋 Copiar</button>
+            </div>
+            <div class="section-body">
+                <div class="content-text" id="contentText">${content}</div>
+            </div>
+        </div>
+    `;
 }
 
-async function deployToWebhook() {
-    // Verificar se webhook está configurado
-    if (!CONFIG?.webhook?.url || !CONFIG?.webhook?.ativo) {
-        showToast('⚠️ Webhook não configurado', 'error');
-        console.log('Configure o webhook em config.json ou config/webhook.json');
-        return;
-    }
-    
-    const btn = document.getElementById('deployBtn');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<span class="spinner"></span> Enviando...';
-    btn.disabled = true;
-    
-    try {
-        const response = await fetch(CONFIG.webhook.url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                clienteId: CONFIG.cliente?.id || 'unknown',
-                data: DATA,
-                timestamp: new Date().toISOString()
-            })
-        });
-        
-        if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(`HTTP ${response.status}: ${errorText}`);
-        }
-        
-        const result = await response.json();
-        showToast('✓ Deploy realizado!');
-        console.log('Deploy response:', result);
-        
-    } catch (error) {
-        console.error('Erro no deploy:', error);
-        showToast('❌ Erro no deploy: ' + error.message, 'error');
-    } finally {
-        btn.innerHTML = originalText;
-        btn.disabled = false;
+function copyContent() {
+    const text = document.getElementById('contentText').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.classList.add('copied');
+        btn.innerHTML = '✓ Copiado!';
+        showToast('✓ Copiado!');
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.innerHTML = '📋 Copiar';
+        }, 2000);
+    });
+}
+
+function updatePostDate() {
+    const newDate = document.getElementById('modalDate').value;
+    if (currentPost && newDate) {
+        currentPost.date = newDate;
+        saveToStorage();
+        renderPosts();
     }
 }
 
-// ============================================
-// UTILITÁRIOS
-// ============================================
-function showToast(msg, type = '') {
+function updatePostTitle() {
+    const newTitle = document.getElementById('modalTitle').value;
+    if (currentPost && newTitle) {
+        currentPost.title = newTitle;
+        saveToStorage();
+        renderPosts();
+    }
+}
+
+function showToast(msg) {
     const toast = document.getElementById('toast');
     toast.textContent = msg;
-    toast.className = 'toast show ' + type;
-    setTimeout(() => toast.classList.remove('show'), 3000);
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
 }
 
-function updateStatus(status, text) {
-    document.getElementById('statusDot').className = 'status-dot ' + status;
-    document.getElementById('statusText').textContent = text;
+function deletePost() {
+    if (!currentPost) return;
+    const confirmMsg = `⚠️ DELETAR POST?\n\n"${currentPost.title}"\n\nEsta ação não pode ser desfeita.`;
+    if (!confirm(confirmMsg)) return;
+    POSTS[currentMonth] = POSTS[currentMonth].filter(p => p.id !== currentPost.id);
+    saveToStorage();
+    closeModal();
+    renderPosts();
+    showToast('✓ Post deletado!');
 }
 
-// ============================================
-// EVENT LISTENERS
-// ============================================
-document.addEventListener('DOMContentLoaded', init);
+function togglePostStatus() {
+    if (!currentPost) return;
+    const post = POSTS[currentMonth].find(p => p.id === currentPost.id);
+    if (!post) return;
+    if (!post.status) post.status = 'pending';
+    post.status = post.status === 'completed' ? 'pending' : 'completed';
+    currentPost.status = post.status;
+    saveToStorage();
+    updateStatusButton();
+    renderPosts();
+    showToast(`✓ Post marcado como ${post.status === 'completed' ? 'finalizado' : 'em andamento'}`);
+}
 
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
+function updateStatusButton() {
+    const btn = document.getElementById('statusToggleBtn');
+    if (!btn || !currentPost) return;
+    const status = currentPost.status || 'pending';
+    const isCompleted = status === 'completed';
+    btn.innerHTML = isCompleted ? '✓ Finalizado' : '⏳ Em Andamento';
+    btn.className = 'modal-action-btn btn-status ' + (isCompleted ? 'completed' : 'pending');
+}
+
+function downloadPost() {
+    if (!currentPost) return;
+    const postData = {version:'1.0',exportDate:new Date().toISOString(),posts:{[currentMonth]:[currentPost]}};
+    const blob = new Blob([JSON.stringify(postData, null, 2)], {type:'application/json'});
+    const safeTitle = currentPost.title.replace(/[^a-z0-9]/gi,'_').toLowerCase().substring(0,30);
+    const fileName = `post_${safeTitle}_${currentPost.date}.json`;
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('⬇️ Post baixado: ' + fileName);
+}
+
+let currentGitHubTab = 'load';
+
+function openGitHubSync() {
+    document.getElementById('githubModal').classList.add('show');
+}
+
+function closeGitHubModal() {
+    document.getElementById('githubModal').classList.remove('show');
+    document.getElementById('githubStatus').style.display = 'none';
+}
+
+function switchGitHubTab(tab) {
+    currentGitHubTab = tab;
+    document.querySelectorAll('.github-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('githubLoadTab').style.display = tab === 'load' ? 'block' : 'none';
+    document.getElementById('githubPushTab').style.display = tab === 'push' ? 'block' : 'none';
+}
+
+function showGitHubStatus(msg, isError = false) {
+    const status = document.getElementById('githubStatus');
+    status.textContent = msg;
+    status.className = 'github-status ' + (isError ? 'error' : 'success');
+    status.style.display = 'block';
+}
+
+function loadFromURL() {
+    openGitHubSync();
+}
+
+async function loadFromURLInput() {
+    const url = document.getElementById('jsonUrl').value.trim();
+    if (!url) {
+        showGitHubStatus('❌ Digite uma URL válida', true);
+        return;
+    }
+    try {
+        showGitHubStatus('⏳ Carregando...');
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Erro ao carregar: ' + response.status);
+        const data = await response.json();
+        if (data.posts) {
+            POSTS = data.posts;
+            saveToStorage();
+            renderMonthSelector();
+            renderPosts();
+            showGitHubStatus('✓ Dados carregados! ' + Object.keys(POSTS).length + ' meses.');
+            showToast('✓ Dados importados!');
+        } else {
+            throw new Error('JSON inválido');
+        }
+    } catch(err) {
+        showGitHubStatus('❌ ' + err.message, true);
+    }
+}
+
+async function loadDefaultData() {
+    try {
+        showGitHubStatus('⏳ Carregando data.json...');
+        const response = await fetch('./data.json?v=' + Date.now());
+        if (!response.ok) throw new Error('data.json não encontrado');
+        const data = await response.json();
+        if (data.posts) {
+            POSTS = data.posts;
+            saveToStorage();
+            renderMonthSelector();
+            renderPosts();
+            showGitHubStatus('✓ Dados carregados do data.json!');
+            showToast('✓ Dados carregados!');
+        }
+    } catch(err) {
+        showGitHubStatus('❌ ' + err.message, true);
+    }
+}
+
+async function pushToGitHub() {
+    const token = document.getElementById('githubToken').value.trim();
+    const repo = document.getElementById('githubRepo').value.trim();
+    const file = document.getElementById('githubFile').value.trim() || 'data.json';
+    if (!token || !repo) {
+        showGitHubStatus('❌ Preencha token e repositório', true);
+        return;
+    }
+    try {
+        showGitHubStatus('⏳ Conectando...');
+        const data = {version:'1.0',exportDate:new Date().toISOString(),months:MONTHS_DATA,posts:POSTS};
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+        let sha = null;
+        try {
+            const getResponse = await fetch(`https://api.github.com/repos/${repo}/contents/${file}`, {
+                headers: {'Authorization': `token ${token}`}
+            });
+            if (getResponse.ok) {
+                const existingFile = await getResponse.json();
+                sha = existingFile.sha;
+            }
+        } catch(e) {}
+        const body = {message: `📊 Atualização Nechio Studio - ${new Date().toLocaleDateString('pt-BR')}`, content: content};
+        if (sha) body.sha = sha;
+        const response = await fetch(`https://api.github.com/repos/${repo}/contents/${file}`, {
+            method: 'PUT',
+            headers: {'Authorization': `token ${token}`, 'Content-Type': 'application/json'},
+            body: JSON.stringify(body)
+        });
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || 'Erro');
+        }
+        showGitHubStatus('✓ GitHub atualizado! 🎉');
+        showToast('✓ GitHub atualizado!');
+    } catch(err) {
+        showGitHubStatus('❌ ' + err.message, true);
+    }
+}
+
+// ============== INIT ==============
+document.addEventListener('DOMContentLoaded', () => {
+    loadFromStorage();
+    renderMonthSelector();
+    renderPosts();
 });
 
-document.getElementById('modalOverlay').addEventListener('click', e => {
-    if (e.target.id === 'modalOverlay') closeModal();
-});
-
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target.id === 'modalOverlay') closeModal(); });
 document.addEventListener('click', e => {
     if (!e.target.closest('.month-selector') && dropdownOpen) {
         dropdownOpen = false;
@@ -1457,10 +824,6 @@ document.addEventListener('click', e => {
         document.getElementById('monthDropdown').classList.remove('open');
     }
 });
-
-// Online/Offline detection
-window.addEventListener('online', () => updateStatus('online', 'Conectado'));
-window.addEventListener('offline', () => updateStatus('offline', 'Offline'));
 </script>
 </body>
 </html>
