@@ -1,52 +1,48 @@
-# 📊 NECHIO Content Studio 2026
+# 🍇 NECHIO Content Studio 2026
 
-Dashboard de gestão de conteúdo para redes sociais da **Nechio Congelados**.
+Dashboard de gerenciamento de conteúdo para redes sociais da **Nechio Congelados**.
 
-## 🚀 Acesso Rápido
+## 🔗 Links
 
-**🔗 Dashboard:** [https://gabrielkendy.github.io/NECHIO-CONTENT/](https://gabrielkendy.github.io/NECHIO-CONTENT/)
-
-## ✨ Funcionalidades
-
-- 📅 **Calendário Mensal** - Organização por mês com temas sazonais
-- 📝 **5 Abas de Conteúdo** - Narrativa, Prompt Imagem, Prompt Vídeo, Texto Tela, Legenda
-- 📋 **Copiar com 1 Clique** - Copie qualquer conteúdo instantaneamente
-- 💾 **Auto-save** - Dados salvos automaticamente no navegador
-- ⚡ **GitHub Sync** - Sincronize diretamente com o repositório
-- 📥 **Importar/Exportar** - Backup completo em JSON
-- ✅ **Status de Posts** - Marque como finalizado ou pendente
-
-## 🎨 Cores da Marca
-
-- **Roxo/Magenta:** `#8B2F8E`
-- **Verde:** `#1E8E3E`
+| Recurso | URL |
+|---------|-----|
+| 🌐 **Dashboard Online** | https://gabrielkendy.github.io/NECHIO-CONTENT/ |
+| 📁 **Repositório** | https://github.com/gabrielkendy/NECHIO-CONTENT |
+| 🔄 **Webhook n8n** | https://agenciabase.app.n8n.cloud/webhook/nechio-deploy |
 
 ## 📁 Estrutura
 
 ```
 NECHIO-CONTENT/
-├── index.html    # Dashboard principal
-├── data.json     # Dados dos posts
-└── README.md     # Este arquivo
+├── .github/workflows/deploy.yml  # Deploy automático GitHub Pages
+├── config/webhook.json           # Configuração n8n
+├── data.json                     # Dados dos posts
+├── index.html                    # Dashboard completo
+└── README.md
 ```
 
-## 🔧 Como Usar
+## 🎨 Cores da Marca
 
-1. Acesse o dashboard pelo link
-2. Selecione o mês desejado
-3. Clique em um post para ver detalhes
-4. Use as abas para navegar entre os conteúdos
-5. Copie o que precisar com um clique
+- **Primária (Magenta):** `#8B2F8E`
+- **Secundária (Verde):** `#22c55e`
 
-## 📤 GitHub Sync
+## 🛠️ Funcionalidades
 
-Para atualizar o repositório diretamente do dashboard:
+- ✅ Calendário editorial 2026
+- ✅ Organização por mês/tema
+- ✅ Visualização de posts com narrativa completa
+- ✅ Status de posts (pendente/concluído)
+- ✅ Exportar/Importar JSON
+- ✅ Sync direto com GitHub
+- ✅ Deploy automático via n8n webhook
 
-1. Clique em **⚡ GitHub Sync**
-2. Vá na aba **📤 Atualizar**
-3. Cole seu GitHub Token (com permissão `repo`)
-4. Clique em **Atualizar no GitHub**
+## 📞 Nechio Congelados
+
+- **Fundação:** 2002
+- **Local:** CEASA-RJ
+- **Área:** 2.400m²
+- **Segmento:** Distribuição de congelados B2B
 
 ---
 
-**Nechio Congelados** - 22 anos de tradição em congelados! 💜
+*Desenvolvido para Nechio Congelados © 2026*
