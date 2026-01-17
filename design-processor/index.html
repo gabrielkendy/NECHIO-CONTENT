@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Design Processor | NECHIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🎨</span>
+                <h1>Design Processor</h1>
+            </div>
+            <p class="subtitle">Processe imagens e PDFs via Codia AI</p>
+        </header>
+
+        <!-- UPLOAD AREA -->
+        <main class="main">
+            <div class="upload-section">
+                <div id="dropZone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <span class="drop-icon">📁</span>
+                        <h2>Arraste arquivos aqui</h2>
+                        <p>ou clique para selecionar</p>
+                        <div class="file-types">
+                            <span class="badge">PNG</span>
+                            <span class="badge">JPG</span>
+                            <span class="badge">PDF</span>
+                            <span class="badge">WEBP</span>
+                        </div>
+                        <p class="limit-info">Máximo: 20 imagens ou 1 PDF</p>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept="image/*,.pdf" hidden>
+                </div>
+
+                <!-- PREVIEW DOS ARQUIVOS -->
+                <div id="previewSection" class="preview-section hidden">
+                    <div class="preview-header">
+                        <h3>📋 Arquivos Selecionados</h3>
+                        <button id="clearBtn" class="btn-clear">Limpar</button>
+                    </div>
+                    <div id="previewGrid" class="preview-grid"></div>
+                    <div class="file-count">
+                        <span id="fileCount">0</span> arquivo(s) selecionado(s)
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTÃO PROCESSAR -->
+            <div class="action-section">
+                <button id="processBtn" class="btn-process" disabled>
+                    <span class="btn-icon">⚡</span>
+                    <span class="btn-text">Processar com Codia AI</span>
+                </button>
+            </div>
+
+            <!-- LOADING -->
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="loader">
+                    <div class="spinner"></div>
+                    <p id="loadingText">Processando...</p>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESULTADOS -->
+            <div id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h3>✅ Processamento Concluído</h3>
+                </div>
+                <div id="resultsGrid" class="results-grid"></div>
+                <div class="download-all">
+                    <button id="downloadAllBtn" class="btn-download-all">
+                        <span>📥</span> Baixar Todos
+                    </button>
+                </div>
+            </div>
+
+            <!-- ERRO -->
+            <div id="errorSection" class="error-section hidden">
+                <div class="error-content">
+                    <span class="error-icon">❌</span>
+                    <h3>Erro no Processamento</h3>
+                    <p id="errorMessage"></p>
+                    <button id="retryBtn" class="btn-retry">Tentar Novamente</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>NECHIO Design Processor © 2026 | Powered by Codia AI + n8n</p>
+            <p class="tip">💡 Pressione F5 para reiniciar</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
