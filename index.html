@@ -2,1577 +2,1735 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#8B2F8E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>NECHIO Content Studio 2026</title>
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
-        :root{--vermelho:#8B2F8E;--vermelho-dark:#6B1F6E;--dourado:#22c55e;--preto:#0a0a0a;--preto2:#111;--preto3:#1a1a1a;--preto4:#222;--branco:#fff;--cinza:#888;--cinza2:#555;--verde:#22c55e;--azul:#3b82f6;--roxo:#a855f7;--laranja:#f97316}
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--preto);color:var(--branco);min-height:100vh}
-        .header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:linear-gradient(135deg,var(--preto2),var(--preto));border-bottom:1px solid #222;position:sticky;top:0;z-index:100}
-        .logo{display:flex;align-items:center;gap:12px}
-        .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--vermelho),var(--vermelho-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;font-style:italic;box-shadow:0 4px 15px rgba(196,30,58,0.3)}
-        .logo-text{font-size:20px;font-weight:900;letter-spacing:3px}
-        .logo-sub{font-size:9px;color:var(--cinza);letter-spacing:1px}
-        .header-actions{display:flex;gap:10px}
-        .header-btn{padding:8px 16px;background:var(--preto3);border:1px solid #333;border-radius:6px;color:var(--branco);font-size:12px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
-        .header-btn:hover{border-color:var(--vermelho);background:rgba(196,30,58,0.1)}
-        .header-btn.primary{background:var(--vermelho);border-color:var(--vermelho)}
-        .layout{display:flex;height:calc(100vh - 72px)}
-        .sidebar{width:280px;background:var(--preto2);border-right:1px solid #222;overflow-y:auto;padding:0}
-        .month-filter{padding:20px;border-bottom:1px solid #222;background:var(--preto3)}
-        .month-filter-title{font-size:10px;color:var(--cinza);letter-spacing:2px;margin-bottom:15px;display:flex;align-items:center;gap:8px}
-        .month-filter-title::before{content:'';width:20px;height:2px;background:var(--vermelho)}
-        .month-selector-btn{width:100%;padding:15px 20px;background:linear-gradient(135deg,var(--preto4),var(--preto3));border:2px solid #333;border-radius:12px;color:var(--branco);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
-        .month-selector-btn:hover,.month-selector-btn.open{border-color:var(--vermelho)}
-        .month-selector-left{display:flex;align-items:center;gap:15px}
-        .month-selector-num{font-size:28px;font-weight:900;color:var(--vermelho);line-height:1}
-        .month-selector-info h3{font-size:18px;font-weight:700}
-        .month-selector-info span{font-size:11px;color:var(--cinza)}
-        .month-selector-arrow{font-size:12px;color:var(--cinza);transition:transform .3s}
-        .month-selector-btn.open .month-selector-arrow{transform:rotate(180deg)}
-        .month-dropdown{position:absolute;top:100%;left:0;width:100%;background:var(--preto3);border:2px solid var(--vermelho);border-top:none;border-radius:0 0 12px 12px;max-height:0;overflow:hidden;transition:max-height .3s;z-index:50}
-        .month-dropdown.open{max-height:400px;overflow-y:auto}
-        .month-dropdown-item{display:flex;align-items:center;gap:15px;padding:12px 20px;cursor:pointer;transition:all .2s;border-bottom:1px solid #222}
-        .month-dropdown-item:hover{background:rgba(196,30,58,0.1)}
-        .month-dropdown-item.active{background:rgba(196,30,58,0.2)}
-        .month-dropdown-num{font-size:18px;font-weight:900;color:var(--vermelho);width:30px}
-        .month-dropdown-info h4{font-size:13px;font-weight:600}
-        .month-dropdown-info span{font-size:10px;color:var(--cinza)}
-        .month-dropdown-posts{margin-left:auto;background:var(--preto4);padding:4px 10px;border-radius:20px;font-size:10px;color:var(--cinza)}
-        .month-quick-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
-        .month-quick-btn{padding:10px 5px;background:var(--preto4);border:1px solid #333;border-radius:8px;color:var(--cinza);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s;text-align:center}
-        .month-quick-btn:hover{border-color:var(--vermelho);color:var(--branco)}
-        .month-quick-btn.active{background:var(--vermelho);border-color:var(--vermelho);color:var(--branco)}
-        .sidebar-info{padding:20px}
-        .sidebar-info-title{font-size:10px;color:var(--cinza);letter-spacing:2px;margin-bottom:15px;display:flex;align-items:center;gap:8px}
-        .sidebar-info-title::before{content:'';width:20px;height:2px;background:var(--dourado)}
-        .month-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
-        .month-stat-card{background:var(--preto3);border:1px solid #222;border-radius:10px;padding:15px;text-align:center}
-        .month-stat-value{font-size:28px;font-weight:900;color:var(--vermelho)}
-        .month-stat-label{font-size:9px;color:var(--cinza);text-transform:uppercase;letter-spacing:1px}
-        .month-theme-card{background:linear-gradient(135deg,rgba(196,30,58,0.1),var(--preto3));border:1px solid #333;border-radius:12px;padding:20px}
-        .month-theme-label{font-size:9px;color:var(--vermelho);letter-spacing:2px;margin-bottom:8px}
-        .month-theme-title{font-size:22px;font-weight:900;margin-bottom:10px}
-        .month-theme-desc{font-size:12px;color:var(--cinza);line-height:1.6}
-        .month-selector{position:relative;width:100%}
-        .main{flex:1;overflow-y:auto;padding:25px 30px}
-        .main-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #222}
-        .main-title{font-size:28px;font-weight:900;letter-spacing:2px}
-        .main-title span{color:var(--vermelho)}
-        .posts-list{display:flex;flex-direction:column;gap:12px}
-        .post-card{display:flex;align-items:center;gap:20px;padding:18px 20px;background:var(--preto2);border:1px solid #222;border-radius:12px;cursor:pointer;transition:all .25s}
-        .post-card:hover{border-color:var(--vermelho);transform:translateX(8px);box-shadow:0 5px 30px rgba(196,30,58,0.15)}
-        .post-date{background:var(--preto3);border-radius:8px;padding:10px 12px;text-align:center;min-width:55px}
-        .post-date-day{font-size:22px;font-weight:900;color:var(--vermelho)}
-        .post-date-month{font-size:9px;color:var(--cinza);text-transform:uppercase}
-        .post-info{flex:1}
-        .post-type{font-size:10px;color:var(--dourado);font-weight:700;letter-spacing:1px;margin-bottom:5px}
-        .post-title{font-weight:600;font-size:15px;margin-bottom:4px}
-        .post-desc{font-size:12px;color:var(--cinza)}
-        .post-format{background:var(--preto3);padding:6px 12px;border-radius:6px;font-size:10px;color:var(--cinza)}
-        .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:1000;overflow-y:auto;backdrop-filter:blur(10px)}
-        .modal-overlay.show{display:block}
-        .modal{max-width:1000px;margin:20px auto;background:var(--preto2);border-radius:16px;border:1px solid #333;overflow:hidden}
-        .modal-header{padding:25px 30px;background:linear-gradient(135deg,var(--preto3),var(--preto2));border-bottom:1px solid #333;display:flex;justify-content:space-between;align-items:flex-start}
-        .modal-header-left{flex:1}
-        .modal-badge{display:inline-block;padding:4px 12px;background:rgba(196,30,58,0.2);border:1px solid var(--vermelho);border-radius:20px;font-size:10px;color:var(--vermelho);font-weight:700;letter-spacing:1px;margin-bottom:12px}
-        .modal-title-row{display:flex;align-items:center;gap:15px;margin-bottom:8px;flex-wrap:wrap}
-        .modal-date-input{background:var(--preto3);border:1px solid #444;border-radius:6px;padding:8px 12px;color:var(--branco);font-size:14px;width:140px}
-        .modal-title-input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid #333;color:var(--branco);font-size:18px;font-weight:700;padding:5px 0}
-        .modal-title-input:focus{outline:none;border-bottom-color:var(--vermelho)}
-        .modal-desc{font-size:13px;color:var(--cinza)}
-        .modal-close{width:40px;height:40px;background:var(--preto3);border:1px solid #444;border-radius:50%;color:#fff;font-size:18px;cursor:pointer;transition:all .2s}
-        .modal-close:hover{border-color:var(--vermelho);color:var(--vermelho);transform:rotate(90deg)}
-        .modal-tabs{display:flex;background:var(--preto3);border-bottom:1px solid #333;flex-wrap:wrap}
-        .modal-tab{flex:1;min-width:120px;padding:15px 10px;background:transparent;border:none;color:var(--cinza);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;border-bottom:3px solid transparent}
-        .modal-tab:hover{color:var(--branco);background:rgba(255,255,255,0.03)}
-        .modal-tab.active{color:var(--vermelho);border-bottom-color:var(--vermelho);background:rgba(196,30,58,0.05)}
-        .modal-tab-icon{font-size:14px}
-        .modal-body{padding:25px 30px;max-height:60vh;overflow-y:auto}
-        .content-section{margin-bottom:20px;background:var(--preto3);border-radius:12px;overflow:hidden}
-        .section-header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--preto4);border-bottom:1px solid #333}
-        .section-title{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px}
-        .section-icon{font-size:14px}
-        .section-title.narrativa{color:var(--azul)}
-        .section-title.imagem{color:var(--roxo)}
-        .section-title.video{color:var(--laranja)}
-        .section-title.legenda{color:var(--verde)}
-        .section-title.tela{color:var(--dourado)}
-        .copy-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--preto2);border:1px solid #444;border-radius:6px;color:var(--branco);font-size:10px;font-weight:600;cursor:pointer;transition:all .2s}
-        .copy-btn:hover{background:var(--vermelho);border-color:var(--vermelho)}
-        .copy-btn.copied{background:var(--verde);border-color:var(--verde)}
-        .section-body{padding:18px}
-        .content-text{font-size:13px;line-height:1.8;white-space:pre-wrap;color:#ddd;font-family:'Courier New',monospace;background:var(--preto);padding:15px;border-radius:8px;max-height:300px;overflow-y:auto}
-        .toast{position:fixed;bottom:30px;right:30px;padding:15px 25px;background:var(--verde);color:#fff;border-radius:10px;font-weight:600;font-size:13px;transform:translateY(100px);opacity:0;transition:all .3s;z-index:2000;display:flex;align-items:center;gap:10px;box-shadow:0 10px 40px rgba(34,197,94,0.3)}
-        .toast.show{transform:translateY(0);opacity:1}
-        .empty-state{text-align:center;padding:80px 40px;color:var(--cinza)}
-        .empty-state h3{font-size:20px;margin-bottom:10px;color:var(--cinza2)}
-        .backup-info{padding:15px;background:var(--preto3);border-radius:8px;margin-top:15px;font-size:11px;color:var(--cinza)}
-        .backup-info strong{color:var(--verde)}
-        ::-webkit-scrollbar{width:6px}
-        ::-webkit-scrollbar-track{background:var(--preto2)}
-        ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
-        ::-webkit-scrollbar-thumb:hover{background:var(--vermelho)}
-        @media(max-width:768px){.sidebar{display:none}.layout{flex-direction:column}.main{padding:15px}}
+        :root {
+            --roxo: #8B2F8E;
+            --roxo-dark: #6B1F6E;
+            --roxo-light: #a855f7;
+            --verde: #22c55e;
+            --preto: #0a0a0a;
+            --preto2: #111;
+            --preto3: #1a1a1a;
+            --preto4: #222;
+            --branco: #fff;
+            --cinza: #888;
+            --cinza2: #555;
+            --azul: #3b82f6;
+            --laranja: #f97316;
+            --vermelho: #ef4444;
+            --amarelo: #eab308;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+        }
         
-        /* ========== BOTÕES DE AÇÃO NO MODAL ========== */
-        .modal-action-btn{padding:8px 16px;border:1px solid #444;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;margin-left:10px;background:var(--preto3);color:var(--branco)}
-        .modal-action-btn:hover{transform:translateY(-2px)}
-        .btn-delete{background:#dc2626;border-color:#dc2626}
-        .btn-delete:hover{background:#b91c1c}
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        /* ========== BOTÃO DE STATUS ========== */
-        .btn-status.completed{background:#16a34a;border-color:#16a34a}
-        .btn-status.completed:hover{background:#15803d}
-        .btn-status.pending{background:#ea580c;border-color:#ea580c}
-        .btn-status.pending:hover{background:#c2410c}
+        html { font-size: 16px; scroll-behavior: smooth; }
         
-        /* ========== BADGE DE STATUS NO CARD ========== */
-        .post-status-badge{display:inline-block;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600;margin-top:8px}
-        .status-completed{background:rgba(22,163,74,0.2);color:#16a34a;border:1px solid #16a34a}
-        .status-pending{background:rgba(234,88,12,0.2);color:#ea580c;border:1px solid #ea580c}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--preto);
+            color: var(--branco);
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            padding-top: var(--safe-top);
+        }
         
-        /* ========== BOTÃO DOWNLOAD ========== */
-        .btn-download{background:#3b82f6;border-color:#3b82f6}
-        .btn-download:hover{background:#2563eb}
+        /* ========== LOGIN SCREEN ========== */
+        .login-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, var(--preto), var(--preto2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
         
-        /* ========== MODAL GITHUB SYNC ========== */
-        .github-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:2000;overflow-y:auto;backdrop-filter:blur(10px)}
-        .github-modal.show{display:flex;align-items:center;justify-content:center}
-        .github-modal-content{background:var(--preto2);border-radius:16px;border:1px solid var(--vermelho);padding:30px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
-        .github-modal-title{font-size:22px;font-weight:900;margin-bottom:20px;color:var(--vermelho);display:flex;align-items:center;gap:10px}
-        .github-input{width:100%;padding:12px 15px;background:var(--preto3);border:1px solid #444;border-radius:8px;color:var(--branco);font-size:14px;margin-bottom:15px}
-        .github-input:focus{outline:none;border-color:var(--vermelho)}
-        .github-input::placeholder{color:var(--cinza)}
-        .github-label{display:block;margin-bottom:8px;font-size:12px;color:var(--cinza);font-weight:600}
-        .github-btn{width:100%;padding:14px;background:var(--vermelho);border:none;border-radius:8px;color:var(--branco);font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;transition:all .2s}
-        .github-btn:hover{background:var(--vermelho-dark);transform:translateY(-2px)}
-        .github-btn.secondary{background:var(--preto3);border:1px solid #444}
-        .github-btn.secondary:hover{border-color:var(--vermelho)}
-        .github-close{position:absolute;top:15px;right:20px;background:none;border:none;color:var(--branco);font-size:24px;cursor:pointer}
-        .github-status{padding:12px;background:var(--preto3);border-radius:8px;margin-top:15px;font-size:12px;color:var(--cinza);line-height:1.6}
-        .github-status.success{border-left:3px solid var(--verde);color:var(--verde)}
-        .github-status.error{border-left:3px solid #dc2626;color:#dc2626}
-        .github-divider{height:1px;background:#333;margin:20px 0}
-        .github-tabs{display:flex;gap:5px;margin-bottom:20px}
-        .github-tab{flex:1;padding:10px;background:var(--preto3);border:1px solid #333;border-radius:8px;color:var(--cinza);font-size:11px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s}
-        .github-tab:hover{border-color:var(--vermelho)}
-        .github-tab.active{background:rgba(196,30,58,0.2);border-color:var(--vermelho);color:var(--vermelho)}
+        .login-screen.hidden { display: none; }
+        
+        .login-box {
+            background: var(--preto2);
+            border: 1px solid var(--preto4);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--roxo), var(--roxo-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            font-weight: 900;
+            font-style: italic;
+            box-shadow: 0 10px 40px rgba(139,47,142,0.4);
+        }
+        
+        .login-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+        }
+        
+        .login-subtitle {
+            font-size: 12px;
+            color: var(--cinza);
+            margin-bottom: 30px;
+        }
+        
+        .login-form { display: flex; flex-direction: column; gap: 15px; }
+        
+        .login-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--preto3);
+            border: 2px solid var(--preto4);
+            border-radius: 12px;
+            color: var(--branco);
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        
+        .login-input:focus {
+            outline: none;
+            border-color: var(--roxo);
+            background: var(--preto);
+        }
+        
+        .login-input::placeholder { color: var(--cinza2); }
+        
+        .recaptcha-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+            transform: scale(0.9);
+            transform-origin: center;
+        }
+        
+        @media (max-width: 360px) {
+            .recaptcha-wrapper { transform: scale(0.77); }
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--roxo), var(--roxo-dark));
+            border: none;
+            border-radius: 12px;
+            color: var(--branco);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139,47,142,0.4); }
+        .login-btn:active { transform: scale(0.98); }
+        .login-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .login-error {
+            color: var(--vermelho);
+            font-size: 13px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .login-error.show { display: block; }
+        
+        .login-team {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--preto4);
+        }
+        
+        .login-team-title {
+            font-size: 10px;
+            color: var(--cinza);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        
+        .login-team-users {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .login-team-user {
+            padding: 8px 16px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--cinza);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .login-team-user:hover {
+            border-color: var(--roxo);
+            color: var(--branco);
+        }
+        
+        /* ========== MAIN APP ========== */
+        .app { display: none; }
+        .app.show { display: block; }
+        
+        /* ========== HEADER ========== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(135deg, var(--preto2), var(--preto));
+            border-bottom: 1px solid var(--preto4);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 10px;
+            color: var(--branco);
+            font-size: 20px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--roxo), var(--roxo-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 900;
+            font-style: italic;
+        }
+        
+        .logo-text { font-size: 18px; font-weight: 800; letter-spacing: 2px; }
+        .logo-sub { font-size: 9px; color: var(--cinza); letter-spacing: 1px; }
+        
+        @media (max-width: 480px) {
+            .logo-text { font-size: 16px; }
+            .logo-sub { display: none; }
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .user-badge:hover { border-color: var(--roxo); }
+        
+        .user-avatar {
+            width: 28px;
+            height: 28px;
+            background: var(--roxo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .user-name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .user-role {
+            font-size: 9px;
+            color: var(--cinza);
+            padding: 2px 8px;
+            background: var(--preto4);
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .user-name { display: none; }
+            .user-role { display: none; }
+        }
+        
+        .header-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 10px;
+            color: var(--branco);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .header-btn:hover { border-color: var(--roxo); background: rgba(139,47,142,0.1); }
+        
+        /* ========== LAYOUT ========== */
+        .layout {
+            display: flex;
+            height: calc(100vh - 63px);
+            height: calc(100dvh - 63px);
+        }
+        
+        /* ========== SIDEBAR ========== */
+        .sidebar {
+            width: 280px;
+            background: var(--preto2);
+            border-right: 1px solid var(--preto4);
+            overflow-y: auto;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 63px;
+                bottom: 60px;
+                z-index: 90;
+                transform: translateX(-100%);
+            }
+            .sidebar.open { transform: translateX(0); }
+        }
+        
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 89;
+        }
+        
+        .sidebar-overlay.show { display: block; }
+        
+        .month-filter {
+            padding: 16px;
+            border-bottom: 1px solid var(--preto4);
+        }
+        
+        .month-filter-title {
+            font-size: 10px;
+            color: var(--cinza);
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .month-filter-title::before {
+            content: '';
+            width: 16px;
+            height: 2px;
+            background: var(--roxo);
+        }
+        
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+        }
+        
+        .month-btn {
+            padding: 12px 4px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 8px;
+            color: var(--cinza);
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        
+        .month-btn:hover { border-color: var(--roxo); color: var(--branco); }
+        .month-btn.active { background: var(--roxo); border-color: var(--roxo); color: var(--branco); }
+        
+        .month-btn-num {
+            font-size: 16px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .sidebar-stats {
+            padding: 16px;
+            border-bottom: 1px solid var(--preto4);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .stat-card {
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--roxo);
+        }
+        
+        .stat-label {
+            font-size: 9px;
+            color: var(--cinza);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-theme {
+            padding: 16px;
+        }
+        
+        .theme-card {
+            background: linear-gradient(135deg, rgba(139,47,142,0.15), var(--preto3));
+            border: 1px solid var(--preto4);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        
+        .theme-label {
+            font-size: 9px;
+            color: var(--roxo);
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+        
+        .theme-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .theme-desc {
+            font-size: 12px;
+            color: var(--cinza);
+            line-height: 1.5;
+        }
+        
+        /* ========== MAIN CONTENT ========== */
+        .main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            padding-bottom: calc(80px + var(--safe-bottom));
+        }
+        
+        @media (max-width: 768px) {
+            .main { padding: 16px; padding-bottom: calc(80px + var(--safe-bottom)); }
+        }
+        
+        .main-header {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--preto4);
+        }
+        
+        @media (min-width: 600px) {
+            .main-header { flex-direction: row; align-items: center; justify-content: space-between; }
+        }
+        
+        .main-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .main-title span { color: var(--roxo); }
+        
+        @media (max-width: 480px) {
+            .main-title { font-size: 18px; }
+        }
+        
+        .main-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 10px 16px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 8px;
+            color: var(--branco);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .action-btn:hover { border-color: var(--roxo); background: rgba(139,47,142,0.1); }
+        .action-btn.primary { background: var(--roxo); border-color: var(--roxo); }
+        .action-btn.primary:hover { background: var(--roxo-dark); }
+        
+        /* ========== POSTS LIST ========== */
+        .posts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .post-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: var(--preto2);
+            border: 1px solid var(--preto4);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .post-card:hover {
+            border-color: var(--roxo);
+            transform: translateX(4px);
+        }
+        
+        .post-card:active { transform: scale(0.99); }
+        
+        .post-date {
+            background: var(--preto3);
+            border-radius: 8px;
+            padding: 10px 12px;
+            text-align: center;
+            min-width: 50px;
+            flex-shrink: 0;
+        }
+        
+        .post-date-day {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--roxo);
+        }
+        
+        .post-date-month {
+            font-size: 8px;
+            color: var(--cinza);
+            text-transform: uppercase;
+        }
+        
+        .post-info { flex: 1; min-width: 0; }
+        
+        .post-type {
+            font-size: 10px;
+            color: var(--verde);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .post-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .post-desc {
+            font-size: 11px;
+            color: var(--cinza);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .post-status {
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .status-pending { background: rgba(234,88,12,0.2); color: var(--laranja); }
+        .status-completed { background: rgba(34,197,94,0.2); color: var(--verde); }
+        
+        /* ========== BOTTOM NAV (Mobile) ========== */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--preto2);
+            border-top: 1px solid var(--preto4);
+            padding: 8px 16px;
+            padding-bottom: calc(8px + var(--safe-bottom));
+            z-index: 100;
+        }
+        
+        @media (max-width: 768px) {
+            .bottom-nav { display: flex; }
+        }
+        
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 16px;
+            background: none;
+            border: none;
+            color: var(--cinza);
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 8px;
+        }
+        
+        .nav-item:hover, .nav-item.active { color: var(--roxo); }
+        .nav-item-icon { font-size: 20px; }
+        
+        /* ========== MODAL ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 16px;
+            padding-bottom: calc(16px + var(--safe-bottom));
+        }
+        
+        .modal-overlay.show { display: flex; align-items: flex-start; justify-content: center; }
+        
+        .modal {
+            width: 100%;
+            max-width: 800px;
+            background: var(--preto2);
+            border-radius: 16px;
+            border: 1px solid var(--preto4);
+            overflow: hidden;
+            margin: auto 0;
+        }
+        
+        .modal-header {
+            padding: 20px;
+            background: var(--preto3);
+            border-bottom: 1px solid var(--preto4);
+        }
+        
+        .modal-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .modal-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(139,47,142,0.2);
+            border: 1px solid var(--roxo);
+            border-radius: 20px;
+            font-size: 10px;
+            color: var(--roxo);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            background: var(--preto4);
+            border: 1px solid var(--cinza2);
+            border-radius: 50%;
+            color: var(--branco);
+            font-size: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        
+        .modal-close:hover { border-color: var(--roxo); color: var(--roxo); }
+        
+        .modal-title-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        @media (min-width: 480px) {
+            .modal-title-row { flex-direction: row; align-items: center; }
+        }
+        
+        .modal-date-input {
+            padding: 10px 14px;
+            background: var(--preto);
+            border: 1px solid var(--preto4);
+            border-radius: 8px;
+            color: var(--branco);
+            font-size: 14px;
+            width: 140px;
+        }
+        
+        .modal-title-input {
+            flex: 1;
+            padding: 10px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--preto4);
+            color: var(--branco);
+            font-size: 16px;
+            font-weight: 700;
+            width: 100%;
+        }
+        
+        .modal-title-input:focus { outline: none; border-bottom-color: var(--roxo); }
+        
+        .modal-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .modal-action-btn {
+            padding: 8px 14px;
+            background: var(--preto);
+            border: 1px solid var(--preto4);
+            border-radius: 6px;
+            color: var(--branco);
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        
+        .modal-action-btn:hover { border-color: var(--roxo); }
+        .modal-action-btn.danger { background: var(--vermelho); border-color: var(--vermelho); }
+        .modal-action-btn.success { background: var(--verde); border-color: var(--verde); }
+        
+        .modal-tabs {
+            display: flex;
+            background: var(--preto3);
+            border-bottom: 1px solid var(--preto4);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .modal-tabs::-webkit-scrollbar { display: none; }
+        
+        .modal-tab {
+            flex: 1;
+            min-width: 80px;
+            padding: 14px 10px;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--cinza);
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .modal-tab:hover { color: var(--branco); }
+        .modal-tab.active { color: var(--roxo); border-bottom-color: var(--roxo); }
+        .modal-tab-icon { font-size: 16px; }
+        
+        .modal-body {
+            padding: 20px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        
+        .content-section {
+            margin-bottom: 16px;
+            background: var(--preto3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--preto4);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .copy-btn {
+            padding: 6px 12px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 6px;
+            color: var(--branco);
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover { background: var(--roxo); border-color: var(--roxo); }
+        .copy-btn.copied { background: var(--verde); border-color: var(--verde); }
+        
+        .section-body { padding: 16px; }
+        
+        .content-text {
+            font-size: 13px;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            color: #ddd;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: var(--preto);
+            padding: 14px;
+            border-radius: 8px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        
+        /* ========== TOAST ========== */
+        .toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            padding: 14px 24px;
+            background: var(--verde);
+            color: var(--branco);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        
+        @media (max-width: 768px) {
+            .toast { bottom: 100px; }
+        }
+        
+        /* ========== SETTINGS MODAL ========== */
+        .settings-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .settings-modal.show { display: flex; align-items: center; justify-content: center; }
+        
+        .settings-content {
+            background: var(--preto2);
+            border: 1px solid var(--preto4);
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .settings-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .settings-section {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--preto4);
+        }
+        
+        .settings-section:last-child { border-bottom: none; margin-bottom: 0; }
+        
+        .settings-section-title {
+            font-size: 12px;
+            color: var(--cinza);
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        
+        .settings-btn {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 10px;
+            color: var(--branco);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            margin-bottom: 10px;
+        }
+        
+        .settings-btn:hover { border-color: var(--roxo); }
+        .settings-btn-icon { font-size: 20px; }
+        .settings-btn.danger { color: var(--vermelho); }
+        .settings-btn.danger:hover { border-color: var(--vermelho); background: rgba(239,68,68,0.1); }
+        
+        /* ========== TEAM MANAGEMENT ========== */
+        .team-list { display: flex; flex-direction: column; gap: 10px; }
+        
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: var(--preto3);
+            border: 1px solid var(--preto4);
+            border-radius: 10px;
+        }
+        
+        .team-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--roxo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .team-info { flex: 1; }
+        .team-name { font-weight: 600; font-size: 14px; }
+        .team-role-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--preto4);
+            border-radius: 12px;
+            font-size: 10px;
+            color: var(--cinza);
+            margin-top: 4px;
+        }
+        
+        .team-role-tag.admin { background: rgba(239,68,68,0.2); color: var(--vermelho); }
+        .team-role-tag.gestor { background: rgba(139,47,142,0.2); color: var(--roxo); }
+        .team-role-tag.editor { background: rgba(59,130,246,0.2); color: var(--azul); }
+        .team-role-tag.viewer { background: rgba(136,136,136,0.2); color: var(--cinza); }
+        
+        /* ========== EMPTY STATE ========== */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--cinza);
+        }
+        
+        .empty-state-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.5; }
+        .empty-state h3 { font-size: 18px; margin-bottom: 8px; color: var(--cinza2); }
+        .empty-state p { font-size: 13px; }
+        
+        /* ========== SCROLLBAR ========== */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--preto2); }
+        ::-webkit-scrollbar-thumb { background: var(--preto4); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--roxo); }
+        
+        /* ========== LOADING ========== */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--preto4);
+            border-top-color: var(--roxo);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in { animation: fadeIn 0.3s ease; }
     </style>
 </head>
 <body>
 
-<header class="header">
-    <div class="logo">
-        <div class="logo-icon">N</div>
-        <div>
-            <div class="logo-text">NECHIO</div>
-            <div class="logo-sub">Content Studio 2026</div>
+<!-- ========== LOGIN SCREEN ========== -->
+<div class="login-screen" id="loginScreen">
+    <div class="login-box">
+        <div class="login-logo">N</div>
+        <h1 class="login-title">NECHIO</h1>
+        <p class="login-subtitle">Content Studio 2026</p>
+        
+        <form class="login-form" id="loginForm" onsubmit="handleLogin(event)">
+            <input type="text" class="login-input" id="loginUser" placeholder="Usuário" required autocomplete="username">
+            <input type="password" class="login-input" id="loginPass" placeholder="Senha" required autocomplete="current-password">
+            
+            <div class="recaptcha-wrapper">
+                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark"></div>
+            </div>
+            
+            <button type="submit" class="login-btn" id="loginBtn">Entrar</button>
+            <p class="login-error" id="loginError">Usuário ou senha incorretos</p>
+        </form>
+        
+        <div class="login-team">
+            <p class="login-team-title">ACESSO RÁPIDO (Demo)</p>
+            <div class="login-team-users">
+                <span class="login-team-user" onclick="quickLogin('admin')">Admin</span>
+                <span class="login-team-user" onclick="quickLogin('gestor')">Gestor</span>
+                <span class="login-team-user" onclick="quickLogin('editor')">Editor</span>
+                <span class="login-team-user" onclick="quickLogin('viewer')">Viewer</span>
+            </div>
         </div>
     </div>
-    <div class="header-actions">
-        <button class="header-btn" onclick="exportData()">💾 Backup</button>
-        <button class="header-btn" onclick="document.getElementById('importFile').click()">📂 Importar</button>
-        <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
-        <button class="header-btn" onclick="loadFromURL()">🔗 Carregar URL</button>
-        <button class="header-btn" onclick="openGitHubSync()">⚡ GitHub Sync</button>
-        <button class="header-btn primary" onclick="saveToStorage()">✓ Salvar</button>
-    </div>
-</header>
-
-<div class="layout">
-    <aside class="sidebar">
-        <div class="month-filter">
-            <div class="month-filter-title">SELECIONAR MÊS</div>
-            <div class="month-selector">
-                <button class="month-selector-btn" id="monthSelectorBtn" onclick="toggleDropdown()">
-                    <div class="month-selector-left">
-                        <div class="month-selector-num" id="selectorNum">01</div>
-                        <div class="month-selector-info">
-                            <h3 id="selectorName">Janeiro</h3>
-                            <span id="selectorTheme">Planejamento</span>
-                        </div>
-                    </div>
-                    <div class="month-selector-arrow">▼</div>
-                </button>
-                <div class="month-dropdown" id="monthDropdown"></div>
-            </div>
-            <div class="month-quick-nav" id="monthQuickNav"></div>
-        </div>
-        <div class="sidebar-info">
-            <div class="sidebar-info-title">VISÃO GERAL</div>
-            <div class="month-stats">
-                <div class="month-stat-card">
-                    <div class="month-stat-value" id="statPosts">13</div>
-                    <div class="month-stat-label">Posts</div>
-                </div>
-                <div class="month-stat-card">
-                    <div class="month-stat-value" id="statStories">3</div>
-                    <div class="month-stat-label">Stories</div>
-                </div>
-            </div>
-            <div class="month-theme-card">
-                <div class="month-theme-label">TEMA DO MÊS</div>
-                <div class="month-theme-title" id="themeTitle">Planejamento</div>
-                <div class="month-theme-desc" id="themeDesc">Foco em organização e preparação para o ano.</div>
-            </div>
-            <div class="backup-info">
-                <strong>✓ Auto-save ativo</strong><br>
-                Dados salvos em localStorage.<br>
-                Use "Backup" para exportar JSON.
-            </div>
-        </div>
-    </aside>
-    
-    <main class="main">
-        <div class="main-header">
-            <h1 class="main-title" id="mainTitle">JANEIRO — <span>Planejamento</span></h1>
-        </div>
-        <div class="posts-list" id="postsList"></div>
-    </main>
 </div>
 
+<!-- ========== MAIN APP ========== -->
+<div class="app" id="app">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">☰</button>
+            <div class="logo">
+                <div class="logo-icon">N</div>
+                <div>
+                    <div class="logo-text">NECHIO</div>
+                    <div class="logo-sub">Content Studio 2026</div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-badge" onclick="openSettings()">
+                <div class="user-avatar" id="userAvatar">A</div>
+                <span class="user-name" id="userName">Admin</span>
+                <span class="user-role" id="userRoleTag">ADMIN</span>
+            </div>
+            <button class="header-btn" onclick="openSettings()" title="Configurações">⚙️</button>
+        </div>
+    </header>
+    
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="month-filter">
+                <div class="month-filter-title">SELECIONAR MÊS</div>
+                <div class="month-grid" id="monthGrid"></div>
+            </div>
+            <div class="sidebar-stats">
+                <div class="month-filter-title">VISÃO GERAL</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="statPosts">0</div>
+                        <div class="stat-label">Posts</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="statCompleted">0</div>
+                        <div class="stat-label">Prontos</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-theme">
+                <div class="theme-card">
+                    <div class="theme-label">TEMA DO MÊS</div>
+                    <div class="theme-title" id="themeTitle">-</div>
+                    <div class="theme-desc" id="themeDesc">-</div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main">
+            <div class="main-header">
+                <h1 class="main-title" id="mainTitle">JANEIRO — <span>Verão</span></h1>
+                <div class="main-actions" id="mainActions">
+                    <button class="action-btn" onclick="exportData()">💾 Backup</button>
+                    <button class="action-btn" onclick="document.getElementById('importFile').click()">📂 Importar</button>
+                    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+                    <button class="action-btn primary" onclick="saveToStorage()">✓ Salvar</button>
+                </div>
+            </div>
+            <div class="posts-list" id="postsList"></div>
+        </main>
+    </div>
+    
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <div class="bottom-nav-items">
+            <button class="nav-item active" onclick="setActiveNav(this)" data-view="posts">
+                <span class="nav-item-icon">📋</span>
+                <span>Posts</span>
+            </button>
+            <button class="nav-item" onclick="setActiveNav(this)" data-view="calendar">
+                <span class="nav-item-icon">📅</span>
+                <span>Calendário</span>
+            </button>
+            <button class="nav-item" onclick="openSettings()">
+                <span class="nav-item-icon">⚙️</span>
+                <span>Config</span>
+            </button>
+        </div>
+    </nav>
+</div>
+
+<!-- ========== POST MODAL ========== -->
 <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
         <div class="modal-header">
-            <div class="modal-header-left">
+            <div class="modal-header-top">
                 <div class="modal-badge" id="modalBadge">POST #01</div>
-                <div class="modal-title-row">
-                    <input type="date" class="modal-date-input" id="modalDate" onchange="updatePostDate()">
-                    <input type="text" class="modal-title-input" id="modalTitle" placeholder="Título..." onchange="updatePostTitle()">
-                </div>
-                <div class="modal-desc" id="modalDesc">Descrição</div>
+                <button class="modal-close" onclick="closeModal()">✕</button>
             </div>
-            <button class="modal-action-btn btn-delete" onclick="deletePost()" title="Deletar este post">🗑️ Deletar</button>
-            <button id="statusToggleBtn" class="modal-action-btn btn-status pending" onclick="togglePostStatus()" title="Alternar status">⏳ Em Andamento</button>
-            <button class="modal-action-btn btn-download" onclick="downloadPost()" title="Baixar JSON deste post">⬇️ Baixar</button>
-            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-title-row">
+                <input type="date" class="modal-date-input" id="modalDate" onchange="updatePostDate()">
+                <input type="text" class="modal-title-input" id="modalTitle" placeholder="Título..." onchange="updatePostTitle()">
+            </div>
+            <div class="modal-actions" id="modalActions"></div>
         </div>
         <div class="modal-tabs">
-            <button class="modal-tab active" data-tab="narrativa" onclick="switchTab('narrativa')"><span class="modal-tab-icon">📝</span> NARRATIVA</button>
-            <button class="modal-tab" data-tab="imagem" onclick="switchTab('imagem')"><span class="modal-tab-icon">🖼️</span> PROMPT IMAGEM</button>
-            <button class="modal-tab" data-tab="video" onclick="switchTab('video')"><span class="modal-tab-icon">🎬</span> PROMPT VÍDEO</button>
-            <button class="modal-tab" data-tab="tela" onclick="switchTab('tela')"><span class="modal-tab-icon">📺</span> TEXTO TELA</button>
-            <button class="modal-tab" data-tab="legenda" onclick="switchTab('legenda')"><span class="modal-tab-icon">📱</span> LEGENDA</button>
+            <button class="modal-tab active" data-tab="narrativa" onclick="switchTab('narrativa')">
+                <span class="modal-tab-icon">📝</span>
+                <span>Narrativa</span>
+            </button>
+            <button class="modal-tab" data-tab="imagem" onclick="switchTab('imagem')">
+                <span class="modal-tab-icon">🖼️</span>
+                <span>Imagem</span>
+            </button>
+            <button class="modal-tab" data-tab="video" onclick="switchTab('video')">
+                <span class="modal-tab-icon">🎬</span>
+                <span>Vídeo</span>
+            </button>
+            <button class="modal-tab" data-tab="tela" onclick="switchTab('tela')">
+                <span class="modal-tab-icon">📺</span>
+                <span>Tela</span>
+            </button>
+            <button class="modal-tab" data-tab="legenda" onclick="switchTab('legenda')">
+                <span class="modal-tab-icon">📱</span>
+                <span>Legenda</span>
+            </button>
         </div>
         <div class="modal-body" id="modalBody"></div>
     </div>
 </div>
 
-<div class="toast" id="toast">✓ Copiado!</div>
-
-<!-- MODAL GITHUB SYNC -->
-<div class="github-modal" id="githubModal">
-    <div class="github-modal-content">
-        <h2 class="github-modal-title">⚡ GitHub Sync</h2>
+<!-- ========== SETTINGS MODAL ========== -->
+<div class="settings-modal" id="settingsModal">
+    <div class="settings-content">
+        <h2 class="settings-title">⚙️ Configurações</h2>
         
-        <div class="github-tabs">
-            <button class="github-tab active" onclick="switchGitHubTab('load')">🔗 Carregar</button>
-            <button class="github-tab" onclick="switchGitHubTab('push')">📤 Atualizar</button>
+        <div class="settings-section">
+            <p class="settings-section-title">DADOS</p>
+            <button class="settings-btn" onclick="exportData()">
+                <span class="settings-btn-icon">💾</span>
+                <span>Exportar Backup (JSON)</span>
+            </button>
+            <button class="settings-btn" onclick="document.getElementById('importFile2').click()">
+                <span class="settings-btn-icon">📂</span>
+                <span>Importar Dados</span>
+            </button>
+            <input type="file" id="importFile2" accept=".json" style="display:none" onchange="importData(event)">
+            <button class="settings-btn" onclick="loadDefaultData()">
+                <span class="settings-btn-icon">🔄</span>
+                <span>Carregar data.json Local</span>
+            </button>
         </div>
         
-        <div id="githubLoadTab">
-            <label class="github-label">URL do JSON (GitHub Raw ou qualquer URL)</label>
-            <input type="text" class="github-input" id="jsonUrl" placeholder="https://raw.githubusercontent.com/usuario/repo/main/data.json">
-            
-            <button class="github-btn" onclick="loadFromURLInput()">🔄 Carregar Dados</button>
-            
-            <div class="github-divider"></div>
-            
-            <button class="github-btn secondary" onclick="loadDefaultData()">📦 Carregar data.json Local</button>
+        <div class="settings-section">
+            <p class="settings-section-title">EQUIPE</p>
+            <div class="team-list" id="teamList"></div>
         </div>
         
-        <div id="githubPushTab" style="display:none">
-            <label class="github-label">GitHub Token (com permissão repo)</label>
-            <input type="password" class="github-input" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
-            
-            <label class="github-label">Repositório (usuario/repo)</label>
-            <input type="text" class="github-input" id="githubRepo" placeholder="gabrielkendy/NECHIO_PLANEJAMENTO_ANUAL">
-            
-            <label class="github-label">Arquivo a atualizar</label>
-            <input type="text" class="github-input" id="githubFile" value="data.json" placeholder="data.json">
-            
-            <button class="github-btn" onclick="pushToGitHub()">📤 Atualizar no GitHub</button>
+        <div class="settings-section">
+            <p class="settings-section-title">CONTA</p>
+            <button class="settings-btn danger" onclick="logout()">
+                <span class="settings-btn-icon">🚪</span>
+                <span>Sair da Conta</span>
+            </button>
         </div>
         
-        <div class="github-status" id="githubStatus" style="display:none"></div>
-        
-        <div class="github-divider"></div>
-        
-        <button class="github-btn secondary" onclick="closeGitHubModal()">✕ Fechar</button>
+        <button class="action-btn" style="width:100%;justify-content:center;margin-top:10px" onclick="closeSettings()">Fechar</button>
     </div>
 </div>
 
+<!-- ========== TOAST ========== -->
+<div class="toast" id="toast">✓ Salvo!</div>
+
 <script>
-// ============== DATABASE COMPLETO ==============
+// ============== TEAM & ACCESS LEVELS ==============
+const TEAM = {
+    admin: { name: 'Kendy', role: 'admin', pass: 'nechio2026', avatar: 'K', permissions: ['all'] },
+    gestor: { name: 'Gestor', role: 'gestor', pass: 'gestor123', avatar: 'G', permissions: ['view', 'edit', 'create'] },
+    editor: { name: 'Editor', role: 'editor', pass: 'editor123', avatar: 'E', permissions: ['view', 'edit'] },
+    viewer: { name: 'Viewer', role: 'viewer', pass: 'viewer123', avatar: 'V', permissions: ['view'] }
+};
+
+const ROLE_LABELS = {
+    admin: 'ADMIN',
+    gestor: 'GESTOR',
+    editor: 'EDITOR',
+    viewer: 'VISUALIZADOR'
+};
+
+// ============== MONTHS DATA ==============
 const MONTHS_DATA = [
-    {id:1,name:'Janeiro',theme:'Planejamento e Organização',shortTheme:'Planejamento',posts:13,stories:3,desc:'Foco em organização de obras, compra de materiais e preparação para o ano.'},
-    {id:2,name:'Fevereiro',theme:'Segurança no Canteiro',shortTheme:'Segurança',posts:11,stories:5,desc:'EPIs, normas de segurança, prevenção de acidentes e boas práticas.'},
-    {id:3,name:'Março',theme:'Mulheres na Construção',shortTheme:'Mulheres',posts:12,stories:0,desc:'Celebração do Dia da Mulher e destaque para profissionais femininas.'},
-    {id:4,name:'Abril',theme:'Mês Nacional do Aço',shortTheme:'Mês do Aço',posts:13,stories:6,desc:'Dia Nacional do Aço (09/04), Sexta Santa, Tiradentes.'},
-    {id:5,name:'Maio',theme:'Indústria e Produtividade',shortTheme:'Indústria',posts:13,stories:3,desc:'Dia da Indústria, Dia do Trabalho, processos produtivos.'},
-    {id:6,name:'Junho',theme:'Sustentabilidade',shortTheme:'Sustentável',posts:12,stories:3,desc:'Meio ambiente, Corpus Christi, reciclagem de aço.'},
-    {id:7,name:'Julho',theme:'Construção Civil',shortTheme:'Construção',posts:13,stories:0,desc:'Técnicas construtivas, inovações e tendências.'},
-    {id:8,name:'Agosto',theme:'Mês do Soldador',shortTheme:'Soldador',posts:13,stories:0,desc:'Dia do Soldador (25/08), homenagens e técnicas.'},
-    {id:9,name:'Setembro',theme:'Setembro Amarelo',shortTheme:'Set. Amarelo',posts:13,stories:3,desc:'Saúde mental, Independência do Brasil.'},
-    {id:10,name:'Outubro',theme:'Outubro Rosa',shortTheme:'Out. Rosa',posts:13,stories:3,desc:'Nossa Senhora Aparecida, conscientização.'},
-    {id:11,name:'Novembro',theme:'Black Friday',shortTheme:'Black Friday',posts:13,stories:6,desc:'Promoções, Finados, Consciência Negra.'},
-    {id:12,name:'Dezembro',theme:'Retrospectiva',shortTheme:'Retrospectiva',posts:13,stories:5,desc:'Balanço do ano, Natal, Ano Novo.'}
+    {id:1,name:'Janeiro',theme:'Verão | Energia',shortTheme:'Verão',desc:'Alta temporada açaí. DIA DO AÇAÍ (20/jan)!'},
+    {id:2,name:'Fevereiro',theme:'Carnaval | Alegria',shortTheme:'Carnaval',desc:'CARNAVAL - Pico de Vendas!'},
+    {id:3,name:'Março',theme:'Outono | Frutas',shortTheme:'Mulheres',desc:'Dia da Mulher (08), Início Outono (20).'},
+    {id:4,name:'Abril',theme:'Páscoa | Família',shortTheme:'Páscoa',desc:'Páscoa (12), DIA DO CHURRASCO (24).'},
+    {id:5,name:'Maio',theme:'Família | Gratidão',shortTheme:'Mães',desc:'Trabalhador (01), MÃES (10), HAMBÚRGUER (28).'},
+    {id:6,name:'Junho',theme:'Festa Junina',shortTheme:'Junino',desc:'NAMORADOS (12), SÃO JOÃO (24).'},
+    {id:7,name:'Julho',theme:'Inverno | Conforto',shortTheme:'Inverno',desc:'Chocolate (07), PIZZA (10), Hot Dog (23).'},
+    {id:8,name:'Agosto',theme:'Dia dos Pais',shortTheme:'Pais',desc:'DIA DOS PAIS (09), Pastel (15).'},
+    {id:9,name:'Setembro',theme:'Primavera | Vida',shortTheme:'Amarelo',desc:'SETEMBRO AMARELO. SORVETE (23).'},
+    {id:10,name:'Outubro',theme:'Outubro Rosa',shortTheme:'Rosa',desc:'OUTUBRO ROSA. Halloween (31).'},
+    {id:11,name:'Novembro',theme:'Novembro Azul',shortTheme:'Azul',desc:'NOVEMBRO AZUL. BLACK FRIDAY (27).'},
+    {id:12,name:'Dezembro',theme:'Natal | Celebração',shortTheme:'Natal',desc:'NATAL (25), RÉVEILLON (31).'}
 ];
 
-// POSTS JANEIRO COMPLETO
-const INITIAL_POSTS = {
-1: [
-{id:1,date:'2026-01-01',type:'DATA ESPECIAL',format:'Carrossel 5 slides',title:'🎆 Feliz 2026!',desc:'Mensagem de Ano Novo',status:'pending',
-narrativa:`SLIDE 1 — CAPA
-Texto: "2026 CHEGOU!"
-Subtexto: "E com ele, novas fundações."
-Visual: Fogos dourados, silhueta obras, logo NECHIO.
-
-SLIDE 2 — RETROSPECTIVA 2025
-"Em 2025, entregamos mais de 500 toneladas de aço"
-Números: 500+ toneladas | 200+ obras | 65 anos mercado
-
-SLIDE 3 — AGRADECIMENTO
-"Obrigado a cada engenheiro, construtora e parceiro."
-Visual: Colagem fotos obras e equipe.
-
-SLIDE 4 — COMPROMISSO 2026
-"Em 2026, mesmo compromisso:"
-✓ Qualidade certificada
-✓ Prazo respeitado
-✓ Preço justo
-
-SLIDE 5 — CTA
-"Qual seu maior projeto para 2026?"
-"Comenta aqui 👇"`,
-imagem:'Foto dramática obras + fogos dourados + logo NECHIO',
-video:'Time-lapse construção 2025 + depoimentos clientes + metas 2026',
-tela:'Fundo vermelho NECHIO gradiente, números grandes em branco/dourado',
-legenda:`🎆 FELIZ 2026, FAMÍLIA NECHIO! 🏗️
-
-Que este ano seja de grandes obras, projetos incríveis e muita parceria! 💪
-
-A NECHIO fecha 2025 com mais de 500 toneladas de aço entregues e entra em 2026 com o mesmo compromisso de sempre: qualidade, prazo e preço justo! 🔴
-
-Qual é o seu maior projeto para 2026? Comenta aqui! 👇
-
-#FelizAnoNovo #NECHIO #2026 #ConstruçãoCivil #Aço #Engenharia #ObraSegura`}
-],
-
-2: [
-{id:1,date:'2026-02-13',type:'ANIVERSÁRIO NECHIO',format:'Carrossel 5 slides',title:'🎂 66 Anos de Tradição',desc:'Aniversário do Grupo NECHIO',status:'pending',
-narrativa:`SLIDE 1 — CAPA EMOCIONAL
-"13 DE FEVEREIRO"
-"66 ANOS CONSTRUINDO O RIO"
-Visual: Logo NECHIO vintage + prédios icônicos RJ fundo
-
-SLIDE 2 — LINHA DO TEMPO
-1960 - Fundação no Rio de Janeiro
-1980 - Parceria ArcelorMittal
-2000 - Expansão para 4 unidades
-2026 - 66 anos de história
-
-SLIDE 3 — NÚMEROS
-66 anos de mercado
-4 unidades industriais
-Mais de 1.000 obras atendidas
-Parceiro oficial ArcelorMittal e Belgo Bekaert
-
-SLIDE 4 — GRATIDÃO
-"Obrigado a cada cliente, parceiro e colaborador"
-"Vocês são parte desta história"
-Visual: Mosaico de fotos históricas
-
-SLIDE 5 — FUTURO
-"E vamos por mais 66!"
-"Porque a NECHIO não constrói apenas obras,"
-"Constrói relações que duram."`,
-imagem:'Foto histórica sede NECHIO + obras icônicas do RJ construídas com aço NECHIO',
-video:'Documentário curto 60s: fundação 1960 > evolução > presente > depoimentos emocionantes',
-tela:'Timeline interativa mostrando marcos históricos da empresa',
-legenda:`🎂 HOJE É DIA DE FESTA! 🎉
-
-Há exatos 66 anos, nascia o Grupo NECHIO no Rio de Janeiro. 
-
-De uma pequena distribuidora a um dos maiores fornecedores de aço do estado, nossa história é feita de GENTE. 👷‍♂️👷‍♀️
-
-Engenheiros que confiam, construtoras parceiras, colaboradores dedicados... VOCÊS são a NECHIO! ❤️
-
-Obrigado por construírem esta história conosco! 
-
-E que venham mais 66 anos! 🏗️🔴
-
-#NECHIO66Anos #AniversárioNECHIO #Tradição #ConstruçãoCivil #RioDeJaneiro #História`},
-
-{id:2,date:'2026-02-16',type:'FERIADO',format:'Post Estático',title:'⚠️ Aviso: Fechamento Carnaval',desc:'Informativo sobre fechamento',status:'pending',
-narrativa:`POST INFORMATIVO CLARO
-Título: "CARNAVAL 2026 - FECHAMENTO"
-Data: 16 a 17 de fevereiro
-Reabertura: 18 de fevereiro (quarta-feira)
-Visual: Design limpo vermelho/branco com logo NECHIO`,
-imagem:'Arte informativa profissional com horários e datas',
-video:'N/A',
-tela:'Background vermelho NECHIO, calendário destacando dias fechados',
-legenda:`⚠️ ATENÇÃO, CLIENTES! 🎭
-
-A NECHIO estará FECHADA nos dias 16 e 17/02 (Carnaval).
-
-Retornamos dia 18/02 (quarta-feira) no horário normal! 
-
-🚨 ÚLTIMA CHANCE DE PEDIDOS: 14/02 até 16h
-
-Planeje seu estoque! 📋
-
-📞 (21) 3214-1300
-📱 WhatsApp disponível para emergências
-
-#Carnaval2026 #Fechamento #NECHIO #Planejamento`}
-],
-
-3: [
-{id:1,date:'2026-03-08',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'👩 Dia da Mulher',desc:'Homenagem às mulheres da construção',status:'pending',
-narrativa:`SLIDE 1 — HOMENAGEM
-"8 DE MARÇO"
-"DIA INTERNACIONAL DA MULHER"
-Visual: Mulheres engenheiras, arquitetas, mestras de obras em ação
-
-SLIDE 2 — MENSAGEM
-"Elas calculam, projetam, executam e lideram"
-"A construção civil é cada vez mais feminina"
-"E a NECHIO celebra essa transformação"
-
-SLIDE 3 — COMPROMISSO
-"Mais respeito, mais oportunidades, mais representatividade"
-"Feliz Dia da Mulher a todas que constroem! 💪"`,
-imagem:'Foto poderosa de mulheres da construção civil em ação',
-video:'Mini-doc: mulheres contando sua trajetória na engenharia/construção',
-tela:'Fundo roxo com silhuetas de mulheres + capacete de obra',
-legenda:`💜 FELIZ DIA DA MULHER! 👷‍♀️
-
-Para todas as engenheiras, arquitetas, mestras de obras, operadoras, técnicas... VOCÊS SÃO INCRÍVEIS! 
-
-A construção civil é cada vez mais feminina, e isso fortalece todo o setor! 💪
-
-A NECHIO celebra e apoia cada mulher que constrói! 🏗️
-
-#DiaDaMulher #MulheresDaConstrução #Engenheira #Arquiteta #NECHIO #Representatividade`},
-
-{id:2,date:'2026-03-26',type:'DATA ESPECIAL',format:'Vídeo 30s',title:'👷 Dia do Construtor',desc:'Homenagem ao profissional da construção',status:'pending',
-narrativa:`VÍDEO 30s — DIA DO CONSTRUTOR
-
-[0-10s] ABERTURA
-Visual: Canteiros de obra amanhecendo
-Texto: "26 DE MARÇO - DIA DO CONSTRUTOR"
-Música: Inspiradora
-
-[10-20s] HOMENAGEM
-Cenas: construtores trabalhando (pedreiro, armador, carpinteiro...)
-Texto: "Vocês transformam projetos em realidade"
-
-[20-30s] MENSAGEM NECHIO
-Logo NECHIO + mensagem
-"Parabéns a todos os construtores!"
-"A NECHIO está com vocês! 🔴"`,
-imagem:'Foto poderosa de construtor em ação no canteiro',
-video:'Montagem emocionante mostrando dia a dia do construtor',
-tela:'Fundo com ferramentas + capacete + logo NECHIO',
-legenda:`👷 PARABÉNS, CONSTRUTORES! 🏗️
-
-Hoje é dia de quem CONSTRÓI! 
-
-De quem acorda cedo, pega no pesado, faz acontecer! 💪
-
-Pedreiros, armadores, carpinteiros, mestres de obras... VOCÊS SÃO ESSENCIAIS!
-
-A NECHIO existe para servir vocês! 🔴
-
-Feliz Dia do Construtor! 🎉
-
-#DiaDoConstrutor #Construção #Pedreiro #MestreDeObras #NECHIO #Homenagem`}
-],
-
-4: [
-{id:1,date:'2026-04-09',type:'DATA ESPECIAL',format:'Carrossel 5 slides',title:'⚙️ Dia Nacional do Aço',desc:'Celebração do material que constrói o Brasil',status:'pending',
-narrativa:`SLIDE 1 — CAPA
-"9 DE ABRIL"
-"DIA NACIONAL DO AÇO"
-Visual: Barras de aço brilhantes + obras monumentais
-
-SLIDE 2 — IMPORTÂNCIA
-"O aço constrói:"
-🏗️ Pontes que conectam
-🏢 Prédios que abrigam
-🛣️ Infraestrutura que move o Brasil
-
-SLIDE 3 — CURIOSIDADES
-"Você sabia?"
-• Aço é 100% reciclável
-• Mais resistente que madeira e concreto
-• Material mais usado na construção mundial
-
-SLIDE 4 — NECHIO + AÇO
-"A NECHIO distribui aço certificado:"
-✓ ArcelorMittal
-✓ Belgo Bekaert Arames
-✓ Qualidade garantida
-
-SLIDE 5 — CTA
-"Construa com segurança!"
-"Exija aço certificado em sua obra!"`,
-imagem:'Foto artística de vergalhões de aço em alta resolução',
-video:'Time-lapse de estrutura metálica sendo montada',
-tela:'Infográfico mostrando propriedades do aço vs outros materiais',
-legenda:`⚙️ DIA NACIONAL DO AÇO! 🏗️
-
-Hoje celebramos o material que CONSTRÓI O BRASIL! 🇧🇷
-
-O aço está em pontes, prédios, casas, infraestrutura... TUDO! 
-
-E a NECHIO orgulha-se de distribuir o melhor aço do mercado:
-✅ ArcelorMittal
-✅ Belgo Bekaert Arames  
-✅ Certificação total
-
-Construa com segurança! Exija aço certificado! 🔴
-
-📞 (21) 3214-1300
-
-#DiaNacionalDoAço #Aço #ConstruçãoCivil #NECHIO #Segurança #ObraCertificada`},
-
-{id:2,date:'2026-04-10',type:'DATA ESPECIAL',format:'Vídeo 45s',title:'🎓 Dia da Engenharia',desc:'Homenagem aos engenheiros',status:'pending',
-narrativa:`VÍDEO 45s — DIA DA ENGENHARIA
-
-[0-15s] ABERTURA IMPACTANTE
-Visual: Obras icônicas do Brasil
-Texto: "10 DE ABRIL - DIA DA ENGENHARIA"
-Trilha: Épica
-
-[15-30s] HOMENAGEM
-Cenas: engenheiros em ação (campo + escritório)
-Texto: "Vocês calculam o impossível"
-"Projetam o futuro"
-"Constroem a realidade"
-
-[30-45s] PARCERIA NECHIO
-"A NECHIO é parceira dos engenheiros há 66 anos!"
-Logo + contato
-"Parabéns a todos os engenheiros!"`,
-imagem:'Engenheiro analisando projeto técnico com aço ao fundo',
-video:'Documentário mini mostrando engenheiro do início do projeto até obra pronta',
-tela:'Blueprint de projeto + cálculos + logo NECHIO',
-legenda:`🎓 FELIZ DIA DA ENGENHARIA! 👷‍♂️
-
-Hoje celebramos quem TRANSFORMA NÚMEROS EM ESTRUTURAS! 📐
-
-Engenheiros civis, de produção, mecânicos... VOCÊS FAZEM O BRASIL CRESCER! 🏗️
-
-A NECHIO é parceira dos engenheiros há 66 anos! 
-
-Qualidade técnica + prazo + assessoria gratuita! 🔴
-
-PARABÉNS, ENGENHEIROS! 👏
-
-📞 (21) 3214-1300
-
-#DiaDaEngenharia #Engenheiro #EngenhariaCivil #NECHIO #Homenagem #Construção`},
-
-{id:3,date:'2026-04-19',type:'FERIADO',format:'Post Estático',title:'✝️ Aviso: Paixão de Cristo',desc:'Fechamento Semana Santa',status:'pending',
-narrativa:`POST INFORMATIVO
-Título: "SEMANA SANTA 2026"
-Fechado: 19/04 (Paixão de Cristo)
-Reabertura: 20/04 (segunda-feira)
-Visual: Design respeitoso e clean`,
-imagem:'Arte minimalista religiosa com informações de fechamento',
-video:'N/A',
-tela:'Fundo neutro com cruz discreta + calendário',
-legenda:`✝️ SEMANA SANTA
-
-A NECHIO estará FECHADA dia 19/04 (Paixão de Cristo).
-
-Retornamos dia 20/04 (segunda-feira).
-
-🙏 Desejamos uma Páscoa de paz e reflexão a todos!
-
-📞 Emergências: WhatsApp
-
-#SemanaSanta #Páscoa #NECHIO`}
-],
-
-5: [
-{id:1,date:'2026-05-01',type:'FERIADO',format:'Post Estático',title:'👷 Dia do Trabalhador',desc:'Homenagem ao trabalhador',status:'pending',
-narrativa:`POST HOMENAGEM + AVISO
-Mensagem: Homenagem a todos os trabalhadores
-Aviso: Fechado 01/05
-Visual: Trabalhadores diversos em ação`,
-imagem:'Mosaico de profissionais da construção trabalhando',
-video:'N/A',
-tela:'Fundo vermelho com símbolo do trabalhador',
-legenda:`👷 FELIZ DIA DO TRABALHADOR! 💪
-
-Hoje celebramos TODOS que constroem este país! 🇧🇷
-
-A NECHIO fecha dia 01/05 em homenagem a vocês!
-
-Retornamos dia 02/05 (sábado).
-
-PARABÉNS, TRABALHADORES! 🎉
-
-#DiaDo Trabalhador #1DeMaio #NECHIO #Homenagem`},
-
-{id:2,date:'2026-05-10',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'💐 Dia das Mães',desc:'Homenagem às mães',status:'pending',
-narrativa:`SLIDE 1 — CAPA
-"FELIZ DIA DAS MÃES!"
-Visual: Emotivo e clean
-
-SLIDE 2 — MENSAGEM
-"Às mães engenheiras, construtoras, trabalhadoras..."
-"Vocês constroem estruturas E famílias!"
-
-SLIDE 3 — CTA
-"A NECHIO deseja um feliz dia a todas as mães!"
-Logo + coração`,
-imagem:'Foto artística de mãe + filho com capacete (simbolismo construção)',
-video:'Depoimentos rápidos de mães da construção civil',
-tela:'Fundo suave com flores + logo NECHIO',
-legenda:`💐 FELIZ DIA DAS MÃES! ❤️
-
-Para todas as mães que constroem obras E famílias! 👷‍♀️👩‍👧‍👦
-
-Vocês são INCRÍVEIS! 💪
-
-A NECHIO deseja um dia especial para todas as mães!
-
-#DiaDasMães #Mãe #NECHIO #Amor`}
-],
-
-6: [
-{id:1,date:'2026-06-05',type:'DATA ESPECIAL',format:'Carrossel 4 slides',title:'🌍 Dia do Meio Ambiente',desc:'Sustentabilidade na construção',status:'pending',
-narrativa:`SLIDE 1 — CONSCIENTIZAÇÃO
-"5 DE JUNHO"
-"DIA DO MEIO AMBIENTE"
-Visual: Natureza + construção sustentável
-
-SLIDE 2 — AÇO SUSTENTÁVEL
-"O aço é 100% reciclável!"
-"Pode ser reutilizado infinitas vezes"
-"Menos desperdício, mais sustentabilidade"
-
-SLIDE 3 — NECHIO SUSTENTÁVEL
-"Práticas sustentáveis NECHIO:"
-✓ Reaproveitamento de sucata
-✓ Gestão de resíduos
-✓ Eficiência energética
-
-SLIDE 4 — CTA
-"Construa com consciência!"
-"Escolha materiais sustentáveis!"`,
-imagem:'Aço reciclado + natureza verde integrados harmoniosamente',
-video:'Processo de reciclagem do aço explicado',
-tela:'Infográfico ciclo de vida do aço (cradle to cradle)',
-legenda:`🌍 DIA DO MEIO AMBIENTE! ♻️
-
-Você sabia que o AÇO é 100% RECICLÁVEL? 
-
-Pode ser reutilizado INFINITAS VEZES sem perder qualidade! 🔄
-
-A NECHIO apoia a construção SUSTENTÁVEL! 🌱
-
-Construa com consciência! Escolha aço certificado! 🔴
-
-#MeioAmbiente #Sustentabilidade #AçoReciclável #NECHIO #ConstruçãoSustentável`},
-
-{id:2,date:'2026-06-24',type:'DATA ESPECIAL',format:'Post Estático',title:'🔥 Festas Juninas',desc:'São João',status:'pending',
-narrativa:`POST TEMÁTICO FESTAS JUNINAS
-Visual: Decoração junina + logo NECHIO
-Mensagem: Votos de boas festas
-Leve e descontraído`,
-imagem:'Arte junina criativa com elementos da construção (capacete com chapéu de palha)',
-video:'N/A',
-tela:'Fundo bandeirinhas coloridas + logo NECHIO',
-legenda:`🔥 ARRAIÁ DA NECHIO! 🌽
-
-Boas festas juninas pra todo mundo! 🎉
-
-Que São João traga muita alegria e fartura! 
-
-Aproveitem! 🪗
-
-#FestasJuninas #SãoJoão #NECHIO #Arraial`}
-],
-
-7: [
-{id:1,date:'2026-07-20',type:'DATA ESPECIAL',format:'Post Estático',title:'👥 Dia do Amigo',desc:'Amizade',status:'pending',
-narrativa:`POST LEVE E AMIGÁVEL
-Mensagem: Celebrar amizade + parceria NECHIO
-Visual: Pessoas construindo juntas (conceito trabalho em equipe)`,
-imagem:'Equipe de obra unida, braços entrelaçados',
-video:'N/A',
-tela:'Fundo colorido alegre com logo NECHIO',
-legenda:`👥 FELIZ DIA DO AMIGO! 🤝
-
-Amigos são a família que escolhemos! 
-
-E clientes são amigos que construímos! 🏗️❤️
-
-A NECHIO agradece a amizade de cada parceiro!
-
-Feliz Dia do Amigo! 🎉
-
-#DiaDo Amigo #Amizade #NECHIO #Parceria`}
-],
-
-8: [
-{id:1,date:'2026-08-10',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'👔 Dia dos Pais',desc:'Homenagem aos pais',status:'pending',
-narrativa:`SLIDE 1 — CAPA EMOCIONANTE
-"FELIZ DIA DOS PAIS!"
-Visual: Pai + filho em obra (simbolismo)
-
-SLIDE 2 — MENSAGEM
-"Aos pais engenheiros, construtores, trabalhadores..."
-"Vocês constroem estruturas E exemplos!"
-
-SLIDE 3 — HOMENAGEM
-"Parabéns a todos os pais!"
-"A NECHIO celebra vocês!"`,
-imagem:'Foto emotiva pai e filho com capacete (gerações)',
-video:'Depoimentos de pais da construção civil',
-tela:'Fundo masculino elegante + logo NECHIO',
-legenda:`👔 FELIZ DIA DOS PAIS! 👨‍👦
-
-Para todos os pais que constroem obras E legados! 👷‍♂️
-
-Vocês são exemplos de força e dedicação! 💪
-
-Parabéns, pais! A NECHIO celebra vocês!
-
-#DiaDo sPais #Pai #NECHIO #Família`}
-],
-
-9: [
-{id:1,date:'2026-09-07',type:'FERIADO',format:'Post Estático',title:'🇧🇷 Independência do Brasil',desc:'Feriado nacional',status:'pending',
-narrativa:`POST PATRIÓTICO
-Data: 07 de setembro
-Mensagem: Celebração independência
-Aviso: Fechado
-Visual: Bandeira do Brasil + NECHIO`,
-imagem:'Bandeira Brasil tremulando + obras brasileiras icônicas',
-video:'N/A',
-tela:'Verde e amarelo + logo NECHIO',
-legenda:`🇧🇷 FELIZ DIA DA INDEPENDÊNCIA! 
-
-7 de Setembro - Fechado
-
-Retornamos dia 08/09.
-
-Viva o Brasil! 🇧🇷
-
-#IndependênciaDoBrasil #7DeSetembro #NECHIO`},
-
-{id:2,date:'2026-09-15',type:'DATA ESPECIAL',format:'Carrossel 5 slides',title:'🎯 Dia do Cliente',desc:'Celebração e promoções',status:'pending',
-narrativa:`SLIDE 1 — CAPA ESPECIAL
-"15 DE SETEMBRO"
-"DIA DO CLIENTE!"
-Visual: Celebração + logo NECHIO
-
-SLIDE 2 — AGRADECIMENTO
-"OBRIGADO por confiar na NECHIO!"
-"Vocês são a razão de existirmos!"
-
-SLIDE 3 — NÚMEROS
-66 anos servindo clientes
-Mais de 1.000 obras atendidas
-Satisfação comprovada
-
-SLIDE 4 — DIFERENCIAIS
-"Por que escolher NECHIO?"
-✓ Qualidade certificada
-✓ Assessoria gratuita
-✓ Prazo respeitado
-✓ Melhor custo-benefício
-
-SLIDE 5 — PROMOÇÃO ESPECIAL
-"PROMOÇÃO DIA DO CLIENTE!"
-Descontos especiais em produtos selecionados
-Válido: 15 a 20/09`,
-imagem:'Cliente satisfeito recebendo material NECHIO',
-video:'Depoimentos reais de clientes satisfeitos',
-tela:'Fundo festivo + ofertas destacadas',
-legenda:`🎯 FELIZ DIA DO CLIENTE! 🎉
-
-VOCÊ é a razão da NECHIO existir! ❤️
-
-E para celebrar, temos PROMOÇÃO ESPECIAL:
-🔴 Descontos em produtos selecionados
-🔴 Condições diferenciadas
-🔴 Válido: 15 a 20/09
-
-Ligue agora! 📞 (21) 3214-1300
-
-OBRIGADO pela confiança! 🙏
-
-#DiaDo Cliente #NECHIO #Promoção #Construção #Agradecimento`}
-],
-
-10: [
-{id:1,date:'2026-10-01',type:'DATA ESPECIAL',format:'Vídeo 30s',title:'📊 Dia do Vendedor',desc:'Homenagem equipe de vendas',status:'pending',
-narrativa:`VÍDEO 30s — DIA DO VENDEDOR
-
-[0-10s] ABERTURA
-"1º DE OUTUBRO"
-"DIA DO VENDEDOR!"
-Visual: Vendedores NECHIO em ação
-
-[10-20s] HOMENAGEM
-"Vocês são a ponte entre a NECHIO e o cliente"
-"Obrigado por cada atendimento!"
-
-[20-30s] MENSAGEM
-"PARABÉNS, EQUIPE NECHIO!"
-Logo + foto equipe vendas`,
-imagem:'Time de vendas NECHIO reunido sorrindo',
-video:'Making of dia a dia vendedor NECHIO',
-tela:'Fundo corporativo vermelho + fotos equipe',
-legenda:`📊 PARABÉNS, VENDEDORES! 🎉
-
-Hoje celebramos nossa EQUIPE DE VENDAS! 
-
-Vocês são essenciais para a NECHIO! 💪
-
-Obrigado por cada atendimento, cada negociação, cada sorriso!
-
-PARABÉNS! 🔴
-
-#DiaDo Vendedor #EquipeNECHIO #Vendas #Homenagem`},
-
-{id:2,date:'2026-10-25',type:'DATA ESPECIAL',format:'Carrossel 4 slides',title:'🎓 Dia do Engenheiro Civil',desc:'Homenagem engenheiros civis',status:'pending',
-narrativa:`SLIDE 1 — CAPA
-"25 DE OUTUBRO"
-"DIA DO ENGENHEIRO CIVIL"
-Visual: Engenheiro em obra + projeto
-
-SLIDE 2 — IMPORTÂNCIA
-"Vocês calculam estruturas que sustentam vidas"
-"Projetam cidades que abrigam sonhos"
-
-SLIDE 3 — PARCERIA NECHIO
-"A NECHIO é parceira dos engenheiros civis há 66 anos!"
-Fornecimento + assessoria técnica gratuita
-
-SLIDE 4 — HOMENAGEM
-"PARABÉNS, ENGENHEIROS CIVIS!"
-"Vocês constroem o Brasil!"`,
-imagem:'Engenheiro civil analisando projeto em obra real',
-video:'Dia a dia engenheiro civil: escritório > obra > resultados',
-tela:'Blueprint técnico + cálculos + logo NECHIO',
-legenda:`🎓 FELIZ DIA DO ENGENHEIRO CIVIL! 👷‍♂️
-
-Hoje celebramos quem PROJETA O FUTURO! 📐
-
-Engenheiros civis, vocês são ESSENCIAIS! 
-
-A NECHIO é parceira de vocês há 66 anos:
-✅ Aço certificado
-✅ Assessoria técnica GRATUITA
-✅ Suporte completo
-
-PARABÉNS! 🏗️
-
-📞 (21) 3214-1300
-
-#DiaDo EngenheiroCivil #Engenharia #NECHIO #Homenagem`},
-
-{id:3,date:'2026-10-26',type:'DATA ESPECIAL',format:'Post Estático',title:'👷 Dia do Trabalhador da Construção',desc:'Homenagem trabalhadores',status:'pending',
-narrativa:`POST HOMENAGEM SIMPLES E DIRETO
-Mensagem: Parabéns trabalhadores da construção
-Visual: Trabalhadores em ação orgulhosos`,
-imagem:'Trabalhador da construção em primeiro plano, obra ao fundo',
-video:'N/A',
-tela:'Fundo com ferramentas + capacete',
-legenda:`👷 DIA DO TRABALHADOR DA CONSTRUÇÃO CIVIL! 💪
-
-PARABÉNS a todos que CONSTROEM este país! 🏗️
-
-Pedreiros, armadores, serventes, carpinteiros... VOCÊS SÃO HERÓIS!
-
-A NECHIO existe para servir VOCÊS! 🔴
-
-MUITO OBRIGADO! 🙏
-
-#TrabalhadorDaConstrução #Construção #NECHIO #Homenagem`}
-],
-
-11: [
-{id:1,date:'2026-11-02',type:'FERIADO',format:'Post Estático',title:'🕯️ Finados',desc:'Feriado',status:'pending',
-narrativa:`POST RESPEITOSO E DISCRETO
-Mensagem: Respeito aos que se foram
-Aviso: Fechado 02/11
-Visual: Minimalista e respeitoso`,
-imagem:'Arte minimalista respeitosa',
-video:'N/A',
-tela:'Fundo neutro com vela discreta',
-legenda:`🕯️ DIA DE FINADOS
-
-A NECHIO estará fechada dia 02/11.
-
-Retornamos dia 03/11.
-
-Nosso respeito aos que se foram. 🙏
-
-#Finados #NECHIO`},
-
-{id:2,date:'2026-11-15',type:'FERIADO',format:'Post Estático',title:'🇧🇷 Proclamação da República',desc:'Feriado nacional',status:'pending',
-narrativa:`POST PATRIÓTICO
-Data: 15 de novembro
-Aviso: Fechado
-Visual: Bandeira Brasil`,
-imagem:'Bandeira do Brasil',
-video:'N/A',
-tela:'Verde amarelo + logo NECHIO',
-legenda:`🇧🇷 PROCLAMAÇÃO DA REPÚBLICA
-
-Fechado dia 15/11.
-
-Retornamos dia 16/11.
-
-#ProclamaçãoDaRepública #Brasil #NECHIO`},
-
-{id:3,date:'2026-11-20',type:'FERIADO/RJ',format:'Post Estático',title:'✊ Consciência Negra',desc:'Feriado RJ',status:'pending',
-narrativa:`POST RESPEITO E CONSCIÊNCIA
-Mensagem: Respeito e luta contra racismo
-Aviso: Fechado RJ
-Visual: Punho erguido + cores representativas`,
-imagem:'Arte representativa consciência negra',
-video:'N/A',
-tela:'Fundo com cores do movimento',
-legenda:`✊ DIA DA CONSCIÊNCIA NEGRA
-
-Fechado no RJ dia 20/11.
-
-Nosso respeito à luta contra o racismo.
-
-#ConsciênciaNegra #Respeito #NECHIO`}
-],
-
-12: [
-{id:1,date:'2026-12-11',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'🎓 Dia do Engenheiro',desc:'Homenagem geral aos engenheiros',status:'pending',
-narrativa:`SLIDE 1 — CAPA
-"11 DE DEZEMBRO"
-"DIA DO ENGENHEIRO"
-Visual: Múltiplas engenharias representadas
-
-SLIDE 2 — HOMENAGEM
-"Engenheiros de todas as áreas:"
-Civil, Mecânico, Elétrico, Produção...
-"Vocês movem o Brasil!"
-
-SLIDE 3 — NECHIO
-"A NECHIO celebra TODOS os engenheiros!"
-"Parabéns!"`,
-imagem:'Colagem engenheiros diversas áreas',
-video:'Depoimentos engenheiros diferentes especialidades',
-tela:'Símbolos das engenharias + logo NECHIO',
-legenda:`🎓 FELIZ DIA DO ENGENHEIRO! 👷‍♂️
-
-Civis, mecânicos, elétricos, de produção... PARABÉNS A TODOS!
-
-Vocês transformam CIÊNCIA em REALIDADE! 🔬➡️🏗️
-
-A NECHIO celebra vocês! 🔴
-
-#DiaDo Engenheiro #Engenharia #NECHIO #Homenagem`},
-
-{id:2,date:'2026-12-15',type:'DATA ESPECIAL',format:'Carrossel 3 slides',title:'📐 Dia do Arquiteto',desc:'Homenagem arquitetos e urbanistas',status:'pending',
-narrativa:`SLIDE 1 — CAPA ELEGANTE
-"15 DE DEZEMBRO"
-"DIA DO ARQUITETO E URBANISTA"
-Visual: Desenho técnico + obra moderna
-
-SLIDE 2 — IMPORTÂNCIA
-"Vocês projetam espaços que moldam vidas"
-"Criam cidades que inspiram gerações"
-
-SLIDE 3 — HOMENAGEM
-"PARABÉNS, ARQUITETOS!"
-"A NECHIO admira seu trabalho!"`,
-imagem:'Arquiteto trabalhando em projeto + obra ao fundo',
-video:'Time-lapse projeto no papel > render 3D > obra pronta',
-tela:'Blueprint artístico + réguas + logo NECHIO',
-legenda:`📐 FELIZ DIA DO ARQUITETO E URBANISTA! 🏛️
-
-Hoje celebramos quem PROJETA SONHOS! ✨
-
-Vocês criam espaços que transformam vidas!
-
-PARABÉNS, ARQUITETOS! 👏
-
-A NECHIO apoia seus projetos! 🔴
-
-#DiaDo Arquiteto #Arquitetura #Urbanismo #NECHIO`},
-
-{id:3,date:'2026-12-25',type:'FERIADO',format:'Carrossel 3 slides',title:'🎄 Feliz Natal',desc:'Mensagem natalina',status:'pending',
-narrativa:`SLIDE 1 — CAPA NATALINA
-"FELIZ NATAL!"
-Visual: Decoração natalina + logo NECHIO
-
-SLIDE 2 — MENSAGEM
-"Que o Natal traga paz, união e gratidão"
-"A NECHIO deseja festas felizes a todos!"
-
-SLIDE 3 — AVISO
-"Fechado: 25/12"
-"Retorno: 26/12"
-"Boas festas!"`,
-imagem:'Árvore de Natal com capacetes dourados como enfeites (criativo)',
-video:'Mensagem equipe NECHIO desejando Feliz Natal',
-tela:'Fundo natalino vermelho/dourado + logo NECHIO',
-legenda:`🎄 FELIZ NATAL! ⭐
-
-A NECHIO deseja um Natal de paz, união e gratidão para todos!
-
-Fechado dia 25/12.
-
-Retornamos dia 26/12.
-
-BOAS FESTAS! 🎅🎁
-
-#FelizNatal #Natal2026 #NECHIO #BoasFestas`},
-
-{id:4,date:'2026-12-31',type:'DATA ESPECIAL',format:'Vídeo 60s',title:'🎆 Feliz 2027',desc:'Retrospectiva 2026 + votos Ano Novo',status:'pending',
-narrativa:`VÍDEO 60s — RETROSPECTIVA 2026
-
-[0-20s] RETROSPECTIVA
-Imagens marcantes de 2026
-Obras realizadas
-Equipe em ação
-Números do ano
-
-[20-40s] AGRADECIMENTO
-"Obrigado pela parceria em 2026!"
-Depoimentos rápidos clientes
-
-[40-60s] 2027
-"2027 vem aí!"
-"Vamos construir ainda mais!"
-Fogos de artifício
-Logo NECHIO
-"FELIZ 2027!"`,
-imagem:'Fogos de artifício sobre obras + logo NECHIO',
-video:'Retrospectiva emocionante do ano',
-tela:'Contador regressivo + melhores momentos 2026',
-legenda:`🎆 FELIZ 2027! 🏗️
-
-2026 foi incrível graças a VOCÊS!
-
-Obrigado pela parceria, confiança e amizade! ❤️
-
-Que 2027 seja de GRANDES CONSTRUÇÕES! 💪
-
-A NECHIO está pronta para construir com você!
-
-FELIZ ANO NOVO! 🎉
-
-#Feliz2027 #AnoNovo #NECHIO #Gratidão #2027`}
-]
-};
-// ============== VARIÁVEIS GLOBAIS ==============
+// ============== GLOBAL STATE ==============
+let currentUser = null;
 let currentMonth = 1;
 let currentTab = 'narrativa';
 let currentPost = null;
-let dropdownOpen = false;
 let POSTS = {};
+let MONTHS = MONTHS_DATA;
+
+// ============== INITIALIZATION ==============
+document.addEventListener('DOMContentLoaded', () => {
+    checkAuth();
+    loadFromStorage();
+    renderMonthGrid();
+});
+
+// ============== AUTH ==============
+function checkAuth() {
+    const saved = localStorage.getItem('NECHIO_user');
+    if (saved) {
+        currentUser = JSON.parse(saved);
+        showApp();
+    }
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    const user = document.getElementById('loginUser').value.toLowerCase();
+    const pass = document.getElementById('loginPass').value;
+    const recaptcha = grecaptcha.getResponse();
+    
+    if (!recaptcha) {
+        showLoginError('Complete o reCAPTCHA');
+        return;
+    }
+    
+    if (TEAM[user] && TEAM[user].pass === pass) {
+        currentUser = { id: user, ...TEAM[user] };
+        localStorage.setItem('NECHIO_user', JSON.stringify(currentUser));
+        showApp();
+    } else {
+        showLoginError('Usuário ou senha incorretos');
+    }
+}
+
+function quickLogin(role) {
+    currentUser = { id: role, ...TEAM[role] };
+    localStorage.setItem('NECHIO_user', JSON.stringify(currentUser));
+    showApp();
+}
+
+function showLoginError(msg) {
+    const el = document.getElementById('loginError');
+    el.textContent = msg;
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+function showApp() {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('app').classList.add('show');
+    updateUserUI();
+    renderPosts();
+    renderTeamList();
+}
+
+function logout() {
+    localStorage.removeItem('NECHIO_user');
+    currentUser = null;
+    location.reload();
+}
+
+function updateUserUI() {
+    if (!currentUser) return;
+    document.getElementById('userAvatar').textContent = currentUser.avatar;
+    document.getElementById('userName').textContent = currentUser.name;
+    document.getElementById('userRoleTag').textContent = ROLE_LABELS[currentUser.role];
+    
+    // Hide actions based on permissions
+    const actions = document.getElementById('mainActions');
+    if (!hasPermission('edit')) {
+        actions.style.display = 'none';
+    }
+}
+
+function hasPermission(perm) {
+    if (!currentUser) return false;
+    if (currentUser.permissions.includes('all')) return true;
+    return currentUser.permissions.includes(perm);
+}
 
 // ============== STORAGE ==============
 function loadFromStorage() {
     try {
         const saved = localStorage.getItem('NECHIO_posts_2026');
         if (saved) {
-            POSTS = JSON.parse(saved);
-            console.log('✓ Dados carregados do localStorage');
-        } else {
-            POSTS = JSON.parse(JSON.stringify(INITIAL_POSTS));
-            saveToStorage();
+            const data = JSON.parse(saved);
+            POSTS = data.posts || data;
+            if (data.months) MONTHS = data.months;
         }
     } catch(e) {
-        console.error('Erro ao carregar:', e);
-        POSTS = JSON.parse(JSON.stringify(INITIAL_POSTS));
+        console.error('Load error:', e);
     }
 }
 
 function saveToStorage() {
     try {
-        localStorage.setItem('NECHIO_posts_2026', JSON.stringify(POSTS));
+        localStorage.setItem('NECHIO_posts_2026', JSON.stringify({ months: MONTHS, posts: POSTS }));
         showToast('✓ Salvo!');
     } catch(e) {
-        console.error('Erro ao salvar:', e);
         showToast('❌ Erro ao salvar');
     }
 }
 
 function exportData() {
-    const data = {
-        version: '1.0',
-        exportDate: new Date().toISOString(),
-        months: MONTHS_DATA,
-        posts: POSTS
-    };
-    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    const data = { version: '3.0', exportDate: new Date().toISOString(), months: MONTHS, posts: POSTS };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `NECHIO_backup_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `nechio-backup-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
-    showToast('✓ Backup exportado!');
+    URL.revokeObjectURL(url);
+    showToast('📥 Backup baixado!');
 }
 
-function importData(event) {
-    const file = event.target.files[0];
+function importData(e) {
+    const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = (ev) => {
         try {
-            const data = JSON.parse(e.target.result);
-            if (data.posts) {
-                POSTS = data.posts;
-                saveToStorage();
-                renderPosts();
-                showToast('✓ Dados importados!');
-            }
+            const data = JSON.parse(ev.target.result);
+            POSTS = data.posts || data;
+            if (data.months) MONTHS = data.months;
+            saveToStorage();
+            renderPosts();
+            showToast('✓ Dados importados!');
         } catch(err) {
-            showToast('❌ Arquivo inválido');
+            showToast('❌ Erro no arquivo');
         }
     };
     reader.readAsText(file);
+    e.target.value = '';
+}
+
+async function loadDefaultData() {
+    try {
+        const res = await fetch('data.json?t=' + Date.now());
+        const data = await res.json();
+        POSTS = data.posts || data;
+        if (data.months) MONTHS = data.months;
+        saveToStorage();
+        renderPosts();
+        showToast('✓ Dados carregados!');
+        closeSettings();
+    } catch(e) {
+        showToast('❌ Erro ao carregar');
+    }
 }
 
 // ============== RENDER ==============
-function renderMonthSelector() {
-    const month = MONTHS_DATA.find(m => m.id === currentMonth);
-    document.getElementById('selectorNum').textContent = String(month.id).padStart(2, '0');
-    document.getElementById('selectorName').textContent = month.name;
-    document.getElementById('selectorTheme').textContent = month.shortTheme;
-    
-    const dropdown = document.getElementById('monthDropdown');
-    dropdown.innerHTML = MONTHS_DATA.map(m => `
-        <div class="month-dropdown-item ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
-            <div class="month-dropdown-num">${String(m.id).padStart(2, '0')}</div>
-            <div class="month-dropdown-info"><h4>${m.name}</h4><span>${m.shortTheme}</span></div>
-            <div class="month-dropdown-posts">${m.posts} posts</div>
-        </div>
-    `).join('');
-    
-    const quickNav = document.getElementById('monthQuickNav');
-    quickNav.innerHTML = MONTHS_DATA.map(m => `
-        <button class="month-quick-btn ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
-            ${m.name.substring(0, 3).toUpperCase()}
+function renderMonthGrid() {
+    const grid = document.getElementById('monthGrid');
+    grid.innerHTML = MONTHS_DATA.map(m => `
+        <button class="month-btn ${m.id === currentMonth ? 'active' : ''}" onclick="selectMonth(${m.id})">
+            <span class="month-btn-num">${String(m.id).padStart(2,'0')}</span>
+            ${m.shortTheme}
         </button>
     `).join('');
-    
-    document.getElementById('statPosts').textContent = month.posts;
-    document.getElementById('statStories').textContent = month.stories;
-    document.getElementById('themeTitle').textContent = month.shortTheme;
-    document.getElementById('themeDesc').textContent = month.desc;
-}
-
-function toggleDropdown() {
-    dropdownOpen = !dropdownOpen;
-    document.getElementById('monthSelectorBtn').classList.toggle('open', dropdownOpen);
-    document.getElementById('monthDropdown').classList.toggle('open', dropdownOpen);
 }
 
 function selectMonth(id) {
     currentMonth = id;
-    dropdownOpen = false;
-    document.getElementById('monthSelectorBtn').classList.remove('open');
-    document.getElementById('monthDropdown').classList.remove('open');
-    renderMonthSelector();
+    renderMonthGrid();
     renderPosts();
+    toggleSidebar(false);
 }
 
 function renderPosts() {
     const month = MONTHS_DATA.find(m => m.id === currentMonth);
-    document.getElementById('mainTitle').innerHTML = `${month.name.toUpperCase()} — <span>${month.shortTheme}</span>`;
-    
-    const container = document.getElementById('postsList');
     const posts = POSTS[currentMonth] || [];
     
-    if (posts.length === 0) {
-        container.innerHTML = `<div class="empty-state"><h3>🚧 Em desenvolvimento</h3><p>Posts de ${month.name} serão adicionados em breve.</p></div>`;
+    // Update sidebar
+    document.getElementById('themeTitle').textContent = month?.theme || '-';
+    document.getElementById('themeDesc').textContent = month?.desc || '-';
+    document.getElementById('statPosts').textContent = posts.length;
+    document.getElementById('statCompleted').textContent = posts.filter(p => p.status === 'completed').length;
+    
+    // Update main title
+    document.getElementById('mainTitle').innerHTML = `${month?.name?.toUpperCase() || 'MÊS'} — <span>${month?.shortTheme || ''}</span>`;
+    
+    // Render posts list
+    const list = document.getElementById('postsList');
+    if (!posts.length) {
+        list.innerHTML = `
+            <div class="empty-state fade-in">
+                <div class="empty-state-icon">📭</div>
+                <h3>Nenhum post</h3>
+                <p>Este mês ainda não tem posts cadastrados.</p>
+            </div>
+        `;
         return;
     }
     
-    const sorted = [...posts].sort((a, b) => new Date(a.date) - new Date(b.date));
-    const monthNames = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
-    
-    container.innerHTML = sorted.map(p => {
-        const d = new Date(p.date);
+    list.innerHTML = posts.map((post, idx) => {
+        const date = new Date(post.date + 'T12:00:00');
+        const day = date.getDate();
+        const monthName = date.toLocaleDateString('pt-BR', { month: 'short' }).replace('.', '');
         return `
-            <div class="post-card" onclick="openModal(${p.id})">
+            <div class="post-card fade-in" onclick="openPost(${idx})" style="animation-delay:${idx * 0.05}s">
                 <div class="post-date">
-                    <div class="post-date-day">${String(d.getDate()).padStart(2, '0')}</div>
-                    <div class="post-date-month">${monthNames[d.getMonth()]}</div>
+                    <div class="post-date-day">${String(day).padStart(2,'0')}</div>
+                    <div class="post-date-month">${monthName}</div>
                 </div>
                 <div class="post-info">
-                    <div class="post-type">${p.type}</div>
-                    <div class="post-title">${p.title}</div>
-                    <div class="post-desc">${p.desc}</div>
-                    ${p.status === 'completed' ? '<span class="post-status-badge status-completed">✓ Finalizado</span>' : p.status === 'pending' ? '<span class="post-status-badge status-pending">⏳ Pendente</span>' : ''}
+                    <div class="post-type">${post.type || 'POST'}</div>
+                    <div class="post-title">${post.title || 'Sem título'}</div>
+                    <div class="post-desc">${post.desc || ''}</div>
                 </div>
-                <div class="post-format">${p.format}</div>
+                <div class="post-status ${post.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                    ${post.status === 'completed' ? '✓ Pronto' : '⏳ Pendente'}
+                </div>
             </div>
         `;
     }).join('');
 }
 
-function openModal(id) {
+// ============== MODAL ==============
+function openPost(idx) {
     const posts = POSTS[currentMonth] || [];
-    currentPost = posts.find(p => p.id === id);
-    if (!currentPost) return;
+    currentPost = { month: currentMonth, index: idx, data: posts[idx] };
     
-    document.getElementById('modalBadge').textContent = `POST #${String(currentPost.id).padStart(2, '0')} · ${currentPost.format.toUpperCase()}`;
-    document.getElementById('modalDate').value = currentPost.date;
-    document.getElementById('modalTitle').value = currentPost.title;
-    document.getElementById('modalDesc').textContent = currentPost.desc;
+    const post = currentPost.data;
+    document.getElementById('modalBadge').textContent = `${post.type || 'POST'} #${String(idx + 1).padStart(2,'0')}`;
+    document.getElementById('modalDate').value = post.date || '';
+    document.getElementById('modalTitle').value = post.title || '';
     
-    currentTab = 'narrativa';
-    updateTabs();
-    renderTabContent();
+    // Render actions based on permissions
+    const actionsHtml = [];
+    if (hasPermission('edit')) {
+        actionsHtml.push(`
+            <button class="modal-action-btn ${post.status === 'completed' ? 'success' : ''}" onclick="toggleStatus()">
+                ${post.status === 'completed' ? '✓ Pronto' : '⏳ Pendente'}
+            </button>
+        `);
+    }
+    if (hasPermission('create') || currentUser?.role === 'admin') {
+        actionsHtml.push(`<button class="modal-action-btn danger" onclick="deletePost()">🗑️ Deletar</button>`);
+    }
+    actionsHtml.push(`<button class="modal-action-btn" onclick="downloadPost()">⬇️ Baixar</button>`);
+    document.getElementById('modalActions').innerHTML = actionsHtml.join('');
     
+    switchTab('narrativa');
     document.getElementById('modalOverlay').classList.add('show');
-    updateStatusButton();
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
     document.getElementById('modalOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+    currentPost = null;
 }
 
 function switchTab(tab) {
     currentTab = tab;
-    updateTabs();
-    renderTabContent();
-}
-
-function updateTabs() {
     document.querySelectorAll('.modal-tab').forEach(t => {
-        t.classList.toggle('active', t.dataset.tab === currentTab);
+        t.classList.toggle('active', t.dataset.tab === tab);
     });
-}
-
-function renderTabContent() {
-    const body = document.getElementById('modalBody');
-    const content = currentPost[currentTab] || 'Conteúdo não disponível';
-    const titles = {narrativa:'NARRATIVA/ROTEIRO',imagem:'PROMPTS DE IMAGEM',video:'DIREÇÃO DE VÍDEO',tela:'TEXTO NA TELA',legenda:'LEGENDA INSTAGRAM'};
-    const icons = {narrativa:'📝',imagem:'🖼️',video:'🎬',tela:'📺',legenda:'📱'};
     
-    body.innerHTML = `
+    const post = currentPost?.data;
+    if (!post) return;
+    
+    const content = post[tab] || '';
+    const canEdit = hasPermission('edit');
+    
+    document.getElementById('modalBody').innerHTML = `
         <div class="content-section">
             <div class="section-header">
-                <div class="section-title ${currentTab}"><span class="section-icon">${icons[currentTab]}</span> ${titles[currentTab]}</div>
-                <button class="copy-btn" onclick="copyContent()">📋 Copiar</button>
+                <div class="section-title">
+                    <span>${getTabIcon(tab)}</span>
+                    <span>${tab.toUpperCase()}</span>
+                </div>
+                <button class="copy-btn" onclick="copyContent('${tab}')">📋 Copiar</button>
             </div>
             <div class="section-body">
-                <div class="content-text" id="contentText">${content}</div>
+                ${canEdit ? `
+                    <textarea class="content-text" style="min-height:200px;resize:vertical" 
+                        onchange="updateContent('${tab}', this.value)">${content}</textarea>
+                ` : `
+                    <div class="content-text">${content || '(vazio)'}</div>
+                `}
             </div>
         </div>
     `;
 }
 
-function copyContent() {
-    const text = document.getElementById('contentText').textContent;
-    navigator.clipboard.writeText(text).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        btn.classList.add('copied');
-        btn.innerHTML = '✓ Copiado!';
-        showToast('✓ Copiado!');
-        setTimeout(() => {
-            btn.classList.remove('copied');
-            btn.innerHTML = '📋 Copiar';
-        }, 2000);
-    });
+function getTabIcon(tab) {
+    const icons = { narrativa: '📝', imagem: '🖼️', video: '🎬', tela: '📺', legenda: '📱' };
+    return icons[tab] || '📄';
+}
+
+function updateContent(tab, value) {
+    if (!currentPost || !hasPermission('edit')) return;
+    POSTS[currentPost.month][currentPost.index][tab] = value;
 }
 
 function updatePostDate() {
-    const newDate = document.getElementById('modalDate').value;
-    if (currentPost && newDate) {
-        currentPost.date = newDate;
-        saveToStorage();
-        renderPosts();
-    }
+    if (!currentPost || !hasPermission('edit')) return;
+    const val = document.getElementById('modalDate').value;
+    POSTS[currentPost.month][currentPost.index].date = val;
 }
 
 function updatePostTitle() {
-    const newTitle = document.getElementById('modalTitle').value;
-    if (currentPost && newTitle) {
-        currentPost.title = newTitle;
-        saveToStorage();
-        renderPosts();
-    }
+    if (!currentPost || !hasPermission('edit')) return;
+    const val = document.getElementById('modalTitle').value;
+    POSTS[currentPost.month][currentPost.index].title = val;
+}
+
+function toggleStatus() {
+    if (!currentPost || !hasPermission('edit')) return;
+    const post = POSTS[currentPost.month][currentPost.index];
+    post.status = post.status === 'completed' ? 'pending' : 'completed';
+    openPost(currentPost.index);
+    renderPosts();
+}
+
+function deletePost() {
+    if (!currentPost || (!hasPermission('create') && currentUser?.role !== 'admin')) return;
+    if (!confirm('Deletar este post?')) return;
+    POSTS[currentPost.month].splice(currentPost.index, 1);
+    closeModal();
+    renderPosts();
+    showToast('🗑️ Post deletado');
+}
+
+function downloadPost() {
+    if (!currentPost) return;
+    const post = currentPost.data;
+    const blob = new Blob([JSON.stringify(post, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `post-${post.date || 'sem-data'}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function copyContent(tab) {
+    const post = currentPost?.data;
+    if (!post) return;
+    navigator.clipboard.writeText(post[tab] || '').then(() => {
+        showToast('📋 Copiado!');
+    });
+}
+
+// ============== SETTINGS ==============
+function openSettings() {
+    document.getElementById('settingsModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSettings() {
+    document.getElementById('settingsModal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function renderTeamList() {
+    const list = document.getElementById('teamList');
+    list.innerHTML = Object.entries(TEAM).map(([id, user]) => `
+        <div class="team-member">
+            <div class="team-avatar">${user.avatar}</div>
+            <div class="team-info">
+                <div class="team-name">${user.name}</div>
+                <span class="team-role-tag ${user.role}">${ROLE_LABELS[user.role]}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ============== UI HELPERS ==============
+function toggleSidebar(force) {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const isOpen = force !== undefined ? force : !sidebar.classList.contains('open');
+    sidebar.classList.toggle('open', isOpen);
+    overlay.classList.toggle('show', isOpen);
+}
+
+function setActiveNav(btn) {
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    btn.classList.add('active');
 }
 
 function showToast(msg) {
     const toast = document.getElementById('toast');
     toast.textContent = msg;
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2000);
+    setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
-// ============== DELETAR POST ==============
-function deletePost() {
-    if (!currentPost) return;
-    
-    const confirmMsg = `⚠️ DELETAR POST?\n\n"${currentPost.title}"\n\nEsta ação não pode ser desfeita.`;
-    if (!confirm(confirmMsg)) return;
-    
-    const monthId = currentMonth;
-    const postId = currentPost.id;
-    
-    // Remover do array
-    POSTS[monthId] = POSTS[monthId].filter(p => p.id !== postId);
-    
-    // Salvar
-    saveToStorage();
-    
-    // Fechar modal e atualizar
-    closeModal();
-    renderPosts();
-    showToast('✓ Post deletado!');
-}
+// ============== KEYBOARD ==============
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+        closeSettings();
+    }
+});
 
-// ============== STATUS FINALIZADO ==============
-function togglePostStatus() {
-    if (!currentPost) return;
-    
-    const monthId = currentMonth;
-    const postId = currentPost.id;
-    
-    // Encontrar post
-    const post = POSTS[monthId].find(p => p.id === postId);
-    if (!post) return;
-    
-    // Toggle status (se não existe, cria como pending)
-    if (!post.status) post.status = 'pending';
-    post.status = post.status === 'completed' ? 'pending' : 'completed';
-    currentPost.status = post.status;
-    
-    // Salvar
-    saveToStorage();
-    
-    // Atualizar UI
-    updateStatusButton();
-    renderPosts();
-    
-    const statusText = post.status === 'completed' ? 'finalizado' : 'em andamento';
-    showToast(`✓ Post marcado como ${statusText}`);
-}
-
-function updateStatusButton() {
-    const btn = document.getElementById('statusToggleBtn');
-    if (!btn || !currentPost) return;
-    
-    const status = currentPost.status || 'pending';
-    const isCompleted = status === 'completed';
-    
-    btn.innerHTML = isCompleted ? '✓ Finalizado' : '⏳ Em Andamento';
-    btn.className = 'modal-action-btn btn-status ' + (isCompleted ? 'completed' : 'pending');
-}
-
-// ============== BAIXAR POST ==============
-function downloadPost() {
-    if (!currentPost) return;
-    
-    const monthId = currentMonth;
-    
-    // Criar estrutura JSON válida para re-importar
-    const postData = {
-        version: '1.0',
-        exportDate: new Date().toISOString(),
-        posts: {
-            [monthId]: [currentPost]
-        }
-    };
-    
-    // Gerar blob JSON
-    const blob = new Blob([JSON.stringify(postData, null, 2)], {
-        type: 'application/json'
+// ============== SERVICE WORKER (PWA) ==============
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        // SW registration can be added for full PWA support
     });
-    
-    // Criar nome do arquivo
-    const safeTitle = currentPost.title
-        .replace(/[^a-z0-9]/gi, '_')
-        .toLowerCase()
-        .substring(0, 30);
-    const fileName = `post_${safeTitle}_${currentPost.date}.json`;
-    
-    // Download
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    showToast('⬇️ Post baixado: ' + fileName);
 }
-
-// ============== GITHUB SYNC ==============
-let currentGitHubTab = 'load';
-
-function openGitHubSync() {
-    document.getElementById('githubModal').classList.add('show');
-}
-
-function closeGitHubModal() {
-    document.getElementById('githubModal').classList.remove('show');
-    document.getElementById('githubStatus').style.display = 'none';
-}
-
-function switchGitHubTab(tab) {
-    currentGitHubTab = tab;
-    document.querySelectorAll('.github-tab').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('githubLoadTab').style.display = tab === 'load' ? 'block' : 'none';
-    document.getElementById('githubPushTab').style.display = tab === 'push' ? 'block' : 'none';
-}
-
-function showGitHubStatus(msg, isError = false) {
-    const status = document.getElementById('githubStatus');
-    status.textContent = msg;
-    status.className = 'github-status ' + (isError ? 'error' : 'success');
-    status.style.display = 'block';
-}
-
-function loadFromURL() {
-    openGitHubSync();
-}
-
-async function loadFromURLInput() {
-    const url = document.getElementById('jsonUrl').value.trim();
-    if (!url) {
-        showGitHubStatus('❌ Digite uma URL válida', true);
-        return;
-    }
-    
-    try {
-        showGitHubStatus('⏳ Carregando...');
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Erro ao carregar: ' + response.status);
-        const data = await response.json();
-        
-        if (data.posts) {
-            POSTS = data.posts;
-            saveToStorage();
-            renderPosts();
-            showGitHubStatus('✓ Dados carregados com sucesso! ' + Object.keys(POSTS).length + ' meses importados.');
-            showToast('✓ Dados importados da URL!');
-        } else {
-            throw new Error('JSON inválido - campo "posts" não encontrado');
-        }
-    } catch(err) {
-        showGitHubStatus('❌ ' + err.message, true);
-    }
-}
-
-async function loadDefaultData() {
-    try {
-        showGitHubStatus('⏳ Carregando data.json local...');
-        const response = await fetch('./data.json');
-        if (!response.ok) throw new Error('data.json não encontrado');
-        const data = await response.json();
-        
-        if (data.posts) {
-            POSTS = data.posts;
-            saveToStorage();
-            renderPosts();
-            showGitHubStatus('✓ Dados carregados do data.json local!');
-            showToast('✓ Dados carregados!');
-        }
-    } catch(err) {
-        showGitHubStatus('❌ ' + err.message, true);
-    }
-}
-
-async function pushToGitHub() {
-    const token = document.getElementById('githubToken').value.trim();
-    const repo = document.getElementById('githubRepo').value.trim();
-    const file = document.getElementById('githubFile').value.trim() || 'data.json';
-    
-    if (!token || !repo) {
-        showGitHubStatus('❌ Preencha o token e o repositório', true);
-        return;
-    }
-    
-    try {
-        showGitHubStatus('⏳ Conectando ao GitHub...');
-        
-        // Preparar dados para exportar
-        const data = {
-            version: '1.0',
-            exportDate: new Date().toISOString(),
-            months: MONTHS_DATA,
-            posts: POSTS
-        };
-        const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-        
-        // Buscar SHA atual do arquivo (se existir)
-        let sha = null;
-        try {
-            const getResponse = await fetch(`https://api.github.com/repos/${repo}/contents/${file}`, {
-                headers: { 'Authorization': `token ${token}` }
-            });
-            if (getResponse.ok) {
-                const existingFile = await getResponse.json();
-                sha = existingFile.sha;
-            }
-        } catch(e) {}
-        
-        // Criar/Atualizar arquivo
-        const body = {
-            message: `📊 Atualização NECHIO Studio - ${new Date().toLocaleDateString('pt-BR')}`,
-            content: content
-        };
-        if (sha) body.sha = sha;
-        
-        const response = await fetch(`https://api.github.com/repos/${repo}/contents/${file}`, {
-            method: 'PUT',
-            headers: {
-                'Authorization': `token ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        });
-        
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message || 'Erro ao atualizar');
-        }
-        
-        showGitHubStatus('✓ Arquivo atualizado com sucesso no GitHub! 🎉');
-        showToast('✓ GitHub atualizado!');
-        
-    } catch(err) {
-        showGitHubStatus('❌ ' + err.message, true);
-    }
-}
-
-// ============== INIT ==============
-document.addEventListener('DOMContentLoaded', () => {
-    loadFromStorage();
-    renderMonthSelector();
-    renderPosts();
-});
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target.id === 'modalOverlay') closeModal(); });
-document.addEventListener('click', e => {
-    if (!e.target.closest('.month-selector') && dropdownOpen) {
-        dropdownOpen = false;
-        document.getElementById('monthSelectorBtn').classList.remove('open');
-        document.getElementById('monthDropdown').classList.remove('open');
-    }
-});
 </script>
+
 </body>
 </html>
-
-< ! - -   C a c h e   b u s t :   2 0 2 6 - 0 1 - 1 6   0 7 : 4 9 : 5 3   - - >  
- 
